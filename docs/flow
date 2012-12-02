@@ -1,0 +1,31 @@
+main()
+ - start client() (shell_cmd and shell_machine specification)
+   - do_cmd()   // start the remote shell , cmd may be null to use default
+   - server_options()   --server and -l user checking (making of rsync --server -vlOgDpreze.iLsF . /home/..)
+/**
+ * Construct a filtered list of options to pass through from the
+ * client to the server.
+ *
+ * This involves setting options that will tell the server how to
+ * behave, and also filtering out options that are processed only
+ * locally.
+ **/
+
+
+
+   -fd_pair()
+    -setnonblocking()
+   DO_CMD(()->PIPED_CHILD in pipe.c - > do_fork()
+   -do_cmd() - > setup_iconv() at rsync.c
+
+ - start_client() -> client_run() main.c -> io_set_sock_fds() 
+                  -> setup_protocol() at compat.c -> write_int () - > writefd_unbuffered() at io.c(function underlines the multiplexing systems)
+
+
+select()  .. (debugger getting slow during select funtions)
+ allow a program to monitor multiple file descriptors, waiting until one or more of the file descriptors become "ready" for some class of I/O operation (e.g., input possible). A file descriptor is considered ready if it is possible to perform the corresponding I/O operation (e.g., read(2)) without blocking.
+
+
+client_run() - > io_start_multiplex_out() ;Setup for multiplexing a MSG_* stream with the data stream.
+                                                     
+

@@ -1,0 +1,31 @@
+opening connection using: ssh -l ankitnaghate 192.168.0.101 rsync --server -vvvlogDtpre.iLsf . /home/ankitnaghate/Desktop/neww/ 
+sending incremental file list
+[sender] make_file(David Garrett - We Will Rock You.mp4,*,0)
+send_file_list done
+send_files starting
+server_recv(2) starting pid=3273
+received 1 names
+recv_file_list done
+get_local_name count=1 /home/ankitnaghate/Desktop/neww/
+generator starting pid=3273
+delta-transmission enabled
+recv_generator(David Garrett - We Will Rock You.mp4,1)
+David Garrett - We Will Rock You.mp4 is uptodate
+send_files(1, /home/akshay/Downloads/David Garrett - We Will Rock You.mp4)
+generate_files phase=1
+send_files phase=1
+recv_files(1) starting
+recv_files(David Garrett - We Will Rock You.mp4)
+recv_files phase=1
+generate_files phase=2
+send_files phase=2
+send files finished
+total: matches=0  hash_hits=0  false_alarms=0 data=0
+recv_files phase=2
+generate_files phase=3
+recv_files finished
+generate_files finished
+
+sent 82 bytes  received 15 bytes  8.43 bytes/sec
+total size is 17390390  speedup is 179282.37
+[sender] _exit_cleanup(code=0, file=main.c, line=1052): about to call exit(0)

@@ -1,0 +1,308 @@
+/----------------OUPUT OF STRACE command ------------------------/
+
+akshay@akshay-Inspiron-N5010:~$ strace rsync -avvv /home/akshay/Downloads/David\ Garrett\ -\ We\ Will\ Rock\ You.mp4   ankitnaghate@192.168.0.101:/home/ankitnaghate/Desktop/neww/ > output3.txt
+execve("/usr/local/bin/rsync", ["rsync", "-avvv", "/home/akshay/Downloads/David Gar"..., "ankitnaghate@192.168.0.101:/home"...], [/* 38 vars */]) = 0
+brk(0)                                  = 0xc31000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1cf000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=117717, ...}) = 0
+mmap(NULL, 117717, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f790e1b2000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\200\30\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=1811128, ...}) = 0
+mmap(NULL, 3925208, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f790dbf0000
+mprotect(0x7f790dda5000, 2093056, PROT_NONE) = 0
+mmap(0x7f790dfa4000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1b4000) = 0x7f790dfa4000
+mmap(0x7f790dfaa000, 17624, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f790dfaa000
+close(3)                                = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1b1000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1b0000
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1af000
+arch_prctl(ARCH_SET_FS, 0x7f790e1b0700) = 0
+mprotect(0x7f790dfa4000, 16384, PROT_READ) = 0
+mprotect(0x660000, 4096, PROT_READ)     = 0
+mprotect(0x7f790e1d1000, 4096, PROT_READ) = 0
+munmap(0x7f790e1b2000, 117717)          = 0
+rt_sigaction(SIGUSR1, {0x41ac60, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, {0x41b540, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGCHLD, {0x41b580, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+geteuid()                               = 1000
+umask(0)                                = 02
+open("/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=7237136, ...}) = 0
+mmap(NULL, 7237136, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f790d509000
+close(3)                                = 0
+brk(0)                                  = 0xc31000
+brk(0xc52000)                           = 0xc52000
+open("/etc/popt", O_RDONLY)             = -1 ENOENT (No such file or directory)
+open("/home/akshay/.popt", O_RDONLY)    = -1 ENOENT (No such file or directory)
+rt_sigaction(SIGINT, {0x40bf80, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGHUP, {0x40bf80, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGTERM, {0x40bf80, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigprocmask(SIG_UNBLOCK, [HUP INT USR1 USR2 TERM CHLD], NULL, 8) = 0
+rt_sigaction(SIGPIPE, {SIG_IGN, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGXFSZ, {SIG_IGN, [], SA_RESTORER|SA_NOCLDSTOP, 0x7f790dc264c0}, NULL, 8) = 0
+getcwd("/home/akshay", 4095)            = 13
+fstat(1, {st_mode=S_IFREG|0664, st_size=0, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1ce000
+write(1, "opening connection using: ssh -l"..., 129) = 129
+socketpair(PF_FILE, SOCK_STREAM, 0, [3, 4]) = 0
+fcntl(3, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+fcntl(4, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(4, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+socketpair(PF_FILE, SOCK_STREAM, 0, [5, 6]) = 0
+fcntl(5, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(5, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+fcntl(6, F_GETFL)                       = 0x2 (flags O_RDWR)
+fcntl(6, F_SETFL, O_RDWR|O_NONBLOCK)    = 0
+clone(child_stack=0, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f790e1b09d0) = 5154
+close(6)                                = 0
+close(3)                                = 0
+open("/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache", O_RDONLY) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=26258, ...}) = 0
+mmap(NULL, 26258, PROT_READ, MAP_SHARED, 3, 0) = 0x7f790e1c7000
+close(3)                                = 0
+fcntl(5, F_GETFL)                       = 0x802 (flags O_RDWR|O_NONBLOCK)
+fcntl(4, F_GETFL)                       = 0x802 (flags O_RDWR|O_NONBLOCK)
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999997})
+write(4, "\36\0\0\0", 4)                = 4
+select(6, [5], [], NULL, {60, 0}ankitnaghate@192.168.0.101's password: 
+Permission denied, please try again.
+ankitnaghate@192.168.0.101's password: 
+)       = 1 (in [5], left {49, 288580})
+read(5, "\36\0\0\0", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999495})
+read(5, "\17", 1)                       = 1
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999996})
+read(5, "$\350qP", 4)                   = 4
+fcntl(2, F_GETFL)                       = 0x8002 (flags O_RDWR|O_LARGEFILE)
+write(1, "sending incremental file list\n", 30) = 30
+chdir("/home/akshay/Downloads")         = 0
+lstat("David Garrett - We Will Rock You.mp4", {st_mode=S_IFREG|0775, st_size=17390390, ...}) = 0
+lstat("David Garrett - We Will Rock You.mp4", {st_mode=S_IFREG|0775, st_size=17390390, ...}) = 0
+write(1, "[sender] make_file(David Garrett"..., 61) = 61
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e16e000
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+open("/etc/nsswitch.conf", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=513, ...}) = 0
+mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e1c6000
+read(3, "# /etc/nsswitch.conf\n#\n# Example"..., 4096) = 513
+read(3, "", 4096)                       = 0
+close(3)                                = 0
+munmap(0x7f790e1c6000, 4096)            = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=117717, ...}) = 0
+mmap(NULL, 117717, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f790e151000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libnss_compat.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`\22\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=35680, ...}) = 0
+mmap(NULL, 2131240, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f790d300000
+mprotect(0x7f790d308000, 2093056, PROT_NONE) = 0
+mmap(0x7f790d507000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x7000) = 0x7f790d507000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libnsl.so.1", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0`@\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=97248, ...}) = 0
+mmap(NULL, 2202328, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f790d0e6000
+mprotect(0x7f790d0fd000, 2093056, PROT_NONE) = 0
+mmap(0x7f790d2fc000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x16000) = 0x7f790d2fc000
+mmap(0x7f790d2fe000, 6872, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f790d2fe000
+close(3)                                = 0
+mprotect(0x7f790d2fc000, 4096, PROT_READ) = 0
+mprotect(0x7f790d507000, 4096, PROT_READ) = 0
+munmap(0x7f790e151000, 117717)          = 0
+open("/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=117717, ...}) = 0
+mmap(NULL, 117717, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f790e151000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libnss_nis.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\260 \0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=47680, ...}) = 0
+mmap(NULL, 2143552, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f790ceda000
+mprotect(0x7f790cee4000, 2097152, PROT_NONE) = 0
+mmap(0x7f790d0e4000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xa000) = 0x7f790d0e4000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/x86_64-linux-gnu/libnss_files.so.2", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0@!\0\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0644, st_size=52120, ...}) = 0
+mmap(NULL, 2148472, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f790cccd000
+mprotect(0x7f790ccd9000, 2093056, PROT_NONE) = 0
+mmap(0x7f790ced8000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xb000) = 0x7f790ced8000
+close(3)                                = 0
+mprotect(0x7f790ced8000, 4096, PROT_READ) = 0
+mprotect(0x7f790d0e4000, 4096, PROT_READ) = 0
+munmap(0x7f790e151000, 117717)          = 0
+open("/etc/passwd", O_RDONLY|O_CLOEXEC) = 3
+lseek(3, 0, SEEK_CUR)                   = 0
+fstat(3, {st_mode=S_IFREG|0644, st_size=2184, ...}) = 0
+mmap(NULL, 2184, PROT_READ, MAP_SHARED, 3, 0) = 0x7f790e1c6000
+lseek(3, 2184, SEEK_SET)                = 2184
+munmap(0x7f790e1c6000, 2184)            = 0
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+socket(PF_FILE, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0) = 3
+connect(3, {sa_family=AF_FILE, path="/var/run/nscd/socket"}, 110) = -1 ENOENT (No such file or directory)
+close(3)                                = 0
+open("/etc/group", O_RDONLY|O_CLOEXEC)  = 3
+lseek(3, 0, SEEK_CUR)                   = 0
+fstat(3, {st_mode=S_IFREG|0644, st_size=1094, ...}) = 0
+mmap(NULL, 1094, PROT_READ, MAP_SHARED, 3, 0) = 0x7f790e1c6000
+lseek(3, 1094, SEEK_SET)                = 1094
+munmap(0x7f790e1c6000, 1094)            = 0
+close(3)                                = 0
+mmap(NULL, 266240, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f790e12d000
+write(1, "send_file_list done\n", 20)   = 20
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999996})
+write(4, "H\0\0\7\5\f$David Garrett - We Will R"..., 76) = 76
+write(1, "send_files starting\n", 20)   = 20
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999996})
+read(5, "!\0\0\t", 4)                   = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "server_recv(2) starting pid=3273"..., 33) = 33
+write(1, "server_recv(2) starting pid=3273"..., 33) = 33
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 997076})
+read(5, "\21\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "received 1 names\n", 17)       = 17
+write(1, "received 1 names\n", 17)      = 17
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\24\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "recv_file_list done\n", 20)    = 20
+write(1, "recv_file_list done\n", 20)   = 20
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "8\0\0\t", 4)                   = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "get_local_name count=1 /home/ank"..., 56) = 56
+write(1, "get_local_name count=1 /home/ank"..., 56) = 56
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999040})
+read(5, "\34\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "generator starting pid=3273\n", 28) = 28
+write(1, "generator starting pid=3273\n", 28) = 28
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\33\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "delta-transmission enabled\n", 27) = 27
+write(1, "delta-transmission enabled\n", 27) = 27
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "7\0\0\t", 4)                   = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "recv_generator(David Garrett - W"..., 55) = 55
+write(1, "recv_generator(David Garrett - W"..., 55) = 55
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "1\0\0\t", 4)                   = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "David Garrett - We Will Rock You"..., 49) = 49
+write(1, "David Garrett - We Will Rock You"..., 49) = 49
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\3\0\0\7", 4)                  = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\2\0\0", 3)                    = 3
+write(1, "send_files(1, /home/akshay/Downl"..., 75) = 75
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999997})
+write(4, "\3\0\0\7\2\0\0", 7)           = 7
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\27\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "generate_files phase=1\n", 23) = 23
+write(1, "generate_files phase=1\n", 23) = 23
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\1\0\0\7", 4)                  = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\0", 1)                        = 1
+munmap(0x7f790e16e000, 266240)          = 0
+munmap(0x7f790e12d000, 266240)          = 0
+write(1, "send_files phase=1\n", 19)    = 19
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999997})
+write(4, "\1\0\0\7\0", 5)               = 5
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\27\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "recv_files(1) starting\n", 23) = 23
+write(1, "recv_files(1) starting\n", 23) = 23
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999526})
+read(5, "1\0\0\t", 4)                   = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "recv_files(David Garrett - We Wi"..., 49) = 49
+write(1, "recv_files(David Garrett - We Wi"..., 49) = 49
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 998844})
+read(5, "\23\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999996})
+read(5, "recv_files phase=1\n", 19)     = 19
+write(1, "recv_files phase=1\n", 19)    = 19
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\27\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "generate_files phase=2\n", 23) = 23
+write(1, "generate_files phase=2\n", 23) = 23
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\2\0\0\7", 4)                  = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\0\0", 2)                      = 2
+write(1, "send_files phase=2\n", 19)    = 19
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999997})
+write(4, "\1\0\0\7\0", 5)               = 5
+write(1, "send files finished\n", 20)   = 20
+write(1, "total: matches=0  hash_hits=0  f"..., 53) = 53
+select(5, NULL, [4], [4], {60, 0})      = 1 (out [4], left {59, 999997})
+write(4, "\1\0\0\7\0", 5)               = 5
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 998143})
+read(5, "\23\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "recv_files phase=2\n", 19)     = 19
+write(1, "recv_files phase=2\n", 19)    = 19
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999997})
+read(5, "\27\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "generate_files phase=3\n", 23) = 23
+write(1, "generate_files phase=3\n", 23) = 23
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999456})
+read(5, "\24\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "recv_files finished\n", 20)    = 20
+write(1, "recv_files finished\n", 20)   = 20
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\30\0\0\t", 4)                 = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "generate_files finished\n", 24) = 24
+write(1, "generate_files finished\n", 24) = 24
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999883})
+read(5, "\1\0\0\7", 4)                  = 4
+select(6, [5], [], NULL, {60, 0})       = 1 (in [5], left {59, 999998})
+read(5, "\0", 1)                        = 1
+wait4(5154, 0x7fffb0a9acec, WNOHANG, NULL) = 0
+select(0, NULL, NULL, NULL, {0, 20000}) = ? ERESTARTNOHAND (To be restarted)
+--- SIGCHLD (Child exited) @ 0 (0) ---
+wait4(-1, [{WIFEXITED(s) && WEXITSTATUS(s) == 0}], WNOHANG, NULL) = 5154
+wait4(-1, 0x7fffb0a9a82c, WNOHANG, NULL) = -1 ECHILD (No child processes)
+rt_sigreturn(0xffffffffffffffff)        = -1 EINTR (Interrupted system call)
+select(0, NULL, NULL, NULL, {0, 1000})  = 0 (Timeout)
+wait4(5154, 0x7fffb0a9acec, WNOHANG, NULL) = -1 ECHILD (No child processes)
+write(1, "\n", 1)                       = 1
+write(1, "sent 82 bytes  received 15 bytes"..., 49) = 49
+write(1, "total size is 17390390  speedup "..., 45) = 45
+rt_sigaction(SIGUSR1, {SIG_IGN, [], SA_RESTORER, 0x7f790dc264c0}, NULL, 8) = 0
+rt_sigaction(SIGUSR2, {SIG_IGN, [], SA_RESTORER, 0x7f790dc264c0}, NULL, 8) = 0
+wait4(5154, 0x7fffb0a9acdc, WNOHANG, NULL) = -1 ECHILD (No child processes)
+write(1, "[sender] _exit_cleanup(code=0, f"..., 78) = 78
+exit_group(0)                           = ?
+akshay@akshay-Inspiron-N5010:~$ 
+

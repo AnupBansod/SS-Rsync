@@ -1,0 +1,42 @@
+/------OUTPUT FOR VERBOSE LEVEL =3 -----------------/
+
+opening connection using: ssh -l ankitnaghate 192.168.0.101 rsync --server -vvvlogDtpre.iLsf . /home/ankitnaghate/Desktop/neww/ 
+sending incremental file list
+[sender] make_file(David Garrett - We Will Rock You.mp4,*,0)
+send_file_list done
+send_files starting
+server_recv(2) starting pid=3109
+received 1 names
+recv_file_list done
+get_local_name count=1 /home/ankitnaghate/Desktop/neww/
+created directory /home/ankitnaghate/Desktop/neww
+generator starting pid=3109
+delta-transmission enabled
+recv_generator(David Garrett - We Will Rock You.mp4,1)
+send_files(1, /home/akshay/Downloads/David Garrett - We Will Rock You.mp4)
+send_files mapped /home/akshay/Downloads/David Garrett - We Will Rock You.mp4 of size 17390390
+calling match_sums /home/akshay/Downloads/David Garrett - We Will Rock You.mp4
+David Garrett - We Will Rock You.mp4
+sending file_sum
+false_alarms=0 hash_hits=0 matches=0
+sender finished /home/akshay/Downloads/David Garrett - We Will Rock You.mp4
+generate_files phase=1
+recv_files(1) starting
+recv_files(David Garrett - We Will Rock You.mp4)
+got file_sum
+set modtime of .David Garrett - We Will Rock You.mp4.Xpq9YC to (1349637663) Mon Oct  8 00:51:03 2012
+renaming .David Garrett - We Will Rock You.mp4.Xpq9YC to David Garrett - We Will Rock You.mp4
+send_files phase=1
+recv_files phase=1
+generate_files phase=2
+send_files phase=2
+send files finished
+total: matches=0  hash_hits=0  false_alarms=0 data=17390390
+recv_files phase=2
+generate_files phase=3
+recv_files finished
+generate_files finished
+
+sent 17392632 bytes  received 31 bytes  1391413.04 bytes/sec
+total size is 17390390  speedup is 1.00
+[sender] _exit_cleanup(code=0, file=main.c, line=1052): about to call exit(0)
