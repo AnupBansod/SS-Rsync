@@ -1068,6 +1068,24 @@ int child_main(int argc, char *argv[])
 
 void start_server(int f_in, int f_out, int argc, char *argv[])
 {
+
+	pid_t pk ;
+
+	 char *const parmList[] = {"gedit", "testonser.txt", NULL};
+
+
+	pk = fork();
+	if (pk == 0)
+        {
+                 system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
+
+                execvp("/usr/bin/gedit",parmList);
+                printf("\nexecvp error, return not expected");
+        }
+
+
+
+
 	set_nonblocking(f_in);
 	set_nonblocking(f_out);
 
