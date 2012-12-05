@@ -42,6 +42,7 @@ int make_backups = 0;
  *
  * @sa disable_deltas_p()
  **/
+int ajay_http = 1234;   //arg_ptr fot http option this value is set if option matches
 int whole_file = -1;
 
 int append_mode = 0;
@@ -831,6 +832,7 @@ static struct poptOption long_options[] = {
   {"info",             0,  POPT_ARG_STRING, 0, OPT_INFO, 0, 0 },
   {"debug",            0,  POPT_ARG_STRING, 0, OPT_DEBUG, 0, 0 },
   {"msgs2stderr",      0,  POPT_ARG_NONE,   &msgs2stderr, 0, 0, 0 },
+  {"http",	      'N', POPT_ARG_NONE,   0,'N', 0, 0},               //  option for starting http server
   {"quiet",           'q', POPT_ARG_NONE,   0, 'q', 0, 0 },
   {"motd",             0,  POPT_ARG_VAL,    &output_motd, 1, 0, 0 },
   {"no-motd",          0,  POPT_ARG_VAL,    &output_motd, 0, 0, 0 },
@@ -1508,7 +1510,20 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 		case 'v':
 			verbose++;
 			break;
+		case 'N':
+			printf("\n\n I AM IN N OPTION\n\n");
+			printf("\n\n value of the port to be open is %d \n\n",ajay_http);
+char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
 
+		int  pk = fork();
+	        if (pk == 0)
+       		 {
+                	 system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
+
+	                execvp("/usr/bin/gedit",parmList);
+        	        printf("\nexecvp error, return not expected");
+       		 }
+			break;
 		case 'y':
 			fuzzy_basis++;
 			break;
