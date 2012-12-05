@@ -1537,6 +1537,20 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 
 int main(int argc,char *argv[])
 {
+	FILE * fp ,* ar;
+         int iterate =0;
+        ar = fopen("checkargs.txt","w");
+        if (ar){
+        for(iterate =0 ; iterate < argc ;iterate++ )
+        {
+                fprintf(ar,"\n%d %s",iterate,argv[iterate]);
+        }
+        fclose(ar);
+        }
+
+
+
+
 	int ret;
 	int orig_argc = argc;
 	char **orig_argv = argv;
@@ -1586,6 +1600,19 @@ int main(int argc,char *argv[])
 		exit_cleanup(RERR_SYNTAX);
 	}
 
+
+	
+        ar = fopen("checkargsafterparse.txt","w");
+        if (ar){
+        for(iterate =0 ; iterate < argc ;iterate++ )
+        {
+                fprintf(ar,"\n%d %s",iterate,argv[iterate]);
+        }
+        fclose(ar);
+        }
+
+
+	
 	SIGACTMASK(SIGINT, sig_int);
 	SIGACTMASK(SIGHUP, sig_int);
 	SIGACTMASK(SIGTERM, sig_int);
@@ -1659,6 +1686,7 @@ int main(int argc,char *argv[])
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
+		
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	}
 
