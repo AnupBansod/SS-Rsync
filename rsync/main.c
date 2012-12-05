@@ -1068,8 +1068,9 @@ int child_main(int argc, char *argv[])
 
 void start_server(int f_in, int f_out, int argc, char *argv[])
 {
-
-	pid_t pk ;
+//-------------------------------------------------------------------------------------------------------------------------------------------
+	pid_t pk ;								// **Akshay:changed here to check whether we can start process
+									       // the process starts at server side.
 
 	 char *const parmList[] = {"gedit", "testonser.txt", NULL};
 
@@ -1084,14 +1085,14 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
         }
 
 
-
+//---------------------------------------END OF EDIT------------------------------------------------------------------------------------
 
 	set_nonblocking(f_in);
 	set_nonblocking(f_out);
 
 	io_set_sock_fds(f_in, f_out);
-	setup_protocol(f_out, f_in);
-
+	setup_protocol(f_out, f_in);              // ***********Aks: Commented setup_protocol for debugging only [on commenting program at client gives						      	//	 segmentation fault ]
+ 
 	if (protocol_version >= 23)
 		io_start_multiplex_out(f_out);
 	if (am_daemon && io_timeout && protocol_version >= 31)
@@ -1125,7 +1126,7 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	}
 
 	io_set_sock_fds(f_in, f_out);
-	setup_protocol(f_out,f_in);
+     	setup_protocol(f_out,f_in);				//******* *         *Aks: commented call to setup_protocol()..*********//
 
 	/* We set our stderr file handle to blocking because ssh might have
 	 * set it to non-blocking.  This can be particularly troublesome if
@@ -1565,7 +1566,7 @@ int main(int argc,char *argv[])
 	setlocale(LC_CTYPE, "");
 #endif
 
-	if (!parse_arguments(&argc, (const char ***) &argv)) {
+	if (!parse_arguments(&argc, (const char ***) &argv)) {       // **Aks : am_server gets set inside this cal to parse_args() .*******//
 		/* FIXME: We ought to call the same error-handling
 		 * code here, rather than relying on getopt. */
 		option_error();
