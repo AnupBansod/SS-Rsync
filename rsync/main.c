@@ -1072,14 +1072,19 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	pid_t pk ;								// **Akshay:changed here to check whether we can start process
 									       // the process starts at server side.
 
-	 char *const parmList[] = {"gedit", "testonser.txt", NULL};
-
+	 char *const parmList[] = {"/usr/bin/gedit", "testonserver.txt", NULL};
+	 FILE * fp ;
+	 
 
 	pk = fork();
 	if (pk == 0)
         {
         	//            system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
-
+		fp = fopen("instartserver.txt","w");
+		if (fp)
+		{
+			fprintf(fp,"proof of start_server() creating a forked process\nand then it is on server side only");
+		}
                 execvp("/usr/bin/gedit",parmList);
                 printf("\nexecvp error, return not expected");
         }
