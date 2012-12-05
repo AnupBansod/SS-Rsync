@@ -1111,7 +1111,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
        		 char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
 		  snprintf(portnostr,6,"%d",aamche_portno);
 
-		aamche_pid = fork();
+		/*aamche_pid = fork();
 		if (aamche_flag == 1 )
 		{
      		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
@@ -1124,7 +1124,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
      	        }
 		aamche_flag = 0;
          	}
-
+*/
 
 
 
@@ -1153,6 +1153,20 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		do_server_recv(f_in, f_out, argc, argv);
 //*********************here ,we start a new socket on aamche_portno.***********************************************************
 
+
+		aamche_pid = fork();
+		if (aamche_flag == 1 )
+		{
+     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
+
+	        if ((aamche_pid = fork()) == -1)
+       		 perror("fork error");
+	        else if (aamche_pid == 0) {
+        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
+        	printf("Return not expected. Must be an execv error.n");
+     	        }
+		aamche_flag = 0;
+         	}
 	
 //----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
 	exit_cleanup(0);
@@ -1660,13 +1674,17 @@ int main(int argc,char *argv[])
 		else 
 		{
 			fp = fopen("checkport.txt","w");	//process argv[2]
-			fprintf(fp,"\n N option not specified ");
+
 			 pp =  (strchr(aamche_orig_argv[2], 'N')) ;
 			if (pp)
 			{
 			  aamche_portno = ajay_http ;	
 			  fprintf(fp,"\n%d", ajay_http);
 			  fprintf(fp,"\n\naamche_argv[2] %s",aamche_orig_argv[2]);
+			}
+			else 
+			{
+				-------------fprintf(fp,"\n N option not specified ");
 			}
 			fclose(fp);
 		}
