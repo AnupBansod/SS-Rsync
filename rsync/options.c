@@ -1513,15 +1513,19 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 		case 'N':
 			printf("\n\n I AM IN N OPTION\n\n");
 			printf("\n\n value of the port to be open is %d \n\n",ajay_http);
-char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
-
+			
+			//char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
+			FILE * fp ;
+	
 		int  pk = fork();
 	        if (pk == 0)
        		 {
-                	 system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
-
-	                execvp("/usr/bin/gedit",parmList);
-        	        printf("\nexecvp error, return not expected");
+              		 // 	 system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
+			fp = fopen("inparseargs.txt","a");
+			fprintf(fp,"in parse arguments after *****in child process ");
+			fclose(fp);
+	                //execvp("/usr/bin/gedit",parmList);
+        	        //printf("\nexecvp error, return not expected");
        		 }
 			break;
 		case 'y':
@@ -2390,7 +2394,12 @@ void server_options(char **args, int *argc_p)
 
 	for (i = 0; i < verbose; i++)
 		argstr[x++] = 'v';
-
+	
+	if (ajay_http)                   /// ****Aks : THIS will construct ssh command with option such as -vlogDtprze31.14iLs . /destinationonserver//
+	{
+	 argstr[x++] = 'N'	;
+	}
+	
 	/* the -q option is intentionally left out */
 	if (make_backups)
 		argstr[x++] = 'b';
