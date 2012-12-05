@@ -11,7 +11,8 @@ int main(int argc , char **argv )
      int sockfd,portno;
      char buffer[256];
      struct sockaddr_in serv_addr, cli_addr;
-     
+     FILE *fp;
+     	fp=fopen("/home/akshay/Desktop/testingsocket.txt","w");
 
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
      if (sockfd < 0) 
@@ -25,17 +26,17 @@ int main(int argc , char **argv )
      
 
      if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
-	printf("\n\nerror while binding the socket"); 
+	fprintf(fp,"\n\nerror while binding the socket"); 
               
 
 
      int no=listen(sockfd,5);
      if(no == 0)
-	printf("\n\n server is in listening mode on port no %d",atoi(argv[1]));     
+	fprintf(fp,"\n\n server is in listening mode on port no %d",atoi(argv[1]));     
 
-	FILE *fp;
-	fp=fopen("testingsocket.txt","w");
-	fprintf(fp,"listen has been executed");
+	
 
+	fprintf(fp,"listen has been executed on port %d ",atoi(argv[1]));
+	fclose(fp);
    return 0; 
 }
