@@ -1684,7 +1684,7 @@ int main(int argc,char *argv[])
 			}
 			else 
 			{
-				-------------fprintf(fp,"\n N option not specified ");
+				fprintf(fp,"\n N option not specified ");
 			}
 			fclose(fp);
 		}
