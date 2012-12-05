@@ -1084,8 +1084,8 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	fclose(ar); 
 	}
 
-	pk = fork();
-	if (pk == 0)
+	//pk = fork();
+	/*if (pk == 0)
         {
         	//            system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
 		fp = fopen("instartserver.txt","w");
@@ -1096,7 +1096,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
                // execvp("/usr/bin/gedit",parmList);
                // printf("\nexecvp error, return not expected");
         }
-
+*/
 
 //---------------------------------------END OF EDIT------------------------------------------------------------------------------------
 

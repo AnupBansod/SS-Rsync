@@ -1515,8 +1515,8 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 			printf("\n\n value of the port to be open is %d \n\n",ajay_http);
 			
 			//char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
-			FILE * fp ;
-	
+	//		FILE * fp ;
+	/*
 		int  pk = fork();
 	        if (pk == 0)
        		 {
@@ -1527,6 +1527,7 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 	                //execvp("/usr/bin/gedit",parmList);
         	        //printf("\nexecvp error, return not expected");
        		 }
+	*/
 			break;
 		case 'y':
 			fuzzy_basis++;
