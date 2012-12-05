@@ -1108,11 +1108,11 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 */
 
 		 pid_t aamche_pid ;			
-       		 char * portnostr ;				// **Akshay:changed here to check whether we can start process
-		 snprintf(portnostr,5,"%d",aamche_portno);
+       		 char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
+		  snprintf(portnostr,6,"%d",aamche_portno);
 
-
-
+		aamche_pid = fork();
+		if (aamche_flag == 1 )
 		{
      		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
 
@@ -1648,7 +1648,7 @@ int main(int argc,char *argv[])
 
 			fp = fopen("checkport.txt","w");	//process argv[2]
 			fprintf(fp,"\n N option not specified ");
-			 pp =  (strchr(argv[3], 'N')) ;
+			 pp =  (strchr(aamche_orig_argv[3], 'N')) ;
 			if (pp)
 			{
 			  aamche_portno = ajay_http ;	
@@ -1661,7 +1661,7 @@ int main(int argc,char *argv[])
 		{
 			fp = fopen("checkport.txt","w");	//process argv[2]
 			fprintf(fp,"\n N option not specified ");
-			 pp =  (strchr(argv[2], 'N')) ;
+			 pp =  (strchr(aamche_orig_argv[2], 'N')) ;
 			if (pp)
 			{
 			  aamche_portno = ajay_http ;	
@@ -1742,14 +1742,11 @@ int main(int argc,char *argv[])
 
 	if (am_server) {
 
-       
-
-
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
-		aamche_flag  = 1 ;
+
       /*          if (aamche_flag == 1 )
 	{
      		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
@@ -1763,6 +1760,7 @@ int main(int argc,char *argv[])
 		aamche_flag = 0;
   	}
 	*/    
+		aamche_flag  = 1 ;	
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	}
 
