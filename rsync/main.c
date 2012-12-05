@@ -25,7 +25,17 @@
 #include "io.h"
 #if defined CONFIG_LOCALE && defined HAVE_LOCALE_H
 #include <locale.h>
+#include<stdlib.h>
 #endif
+
+//**************AAMCHE DECLARATIONS BLOCKS ************************//
+extern int ajay_http ;    // ajay_http is declared in options.c , we are just importing this into main.c file 
+int aamche_portno ;     // a global variable in main.c for copying port no. from ajay_http
+int aamche_flag =0;   // to check whether start_server() is called by main fucntion only from if(am_server ) block 
+
+
+//************AAMCHE DECLARATION BLOCK ENDS HERE ********************//
+
 
 extern int dry_run;
 extern int list_only;
@@ -1069,13 +1079,12 @@ int child_main(int argc, char *argv[])
 void start_server(int f_in, int f_out, int argc, char *argv[])
 {
 //-------------------------------------------------------------------------------------------------------------------------------------------
-	pid_t pk ;								// **Akshay:changed here to check whether we can start process
 									       // the process starts at server side.
 
 				//	 char *const parmList[] = {"/usr/bin/gedit", "testonserver.txt", NULL};
-	 FILE * fp ,* ar;
+/*	 FILE * fp ,* ar;
          int iterate =0;
-	ar = fopen("checkargs.txt","w");
+	ar = fopen("checkargsinserver.txt","w");
 	if (ar){
 	for(iterate =0 ; iterate < argc ;iterate++ )
 	{
@@ -1083,7 +1092,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	}
 	fclose(ar); 
 	}
-
+*/
 	//pk = fork();
 	/*if (pk == 0)
         {
@@ -1121,6 +1130,10 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		do_server_sender(f_in, f_out, argc, argv);
 	} else
 		do_server_recv(f_in, f_out, argc, argv);
+//*********************here ,we start a new socket on aamche_portno.***********************************************************
+
+	
+//----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
 	exit_cleanup(0);
 }
 
@@ -1537,7 +1550,7 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 
 int main(int argc,char *argv[])
 {
-	FILE * fp ,* ar;
+	/*FILE * fp ,* ar;
          int iterate =0;
         ar = fopen("checkargs.txt","w");
         if (ar){
@@ -1547,13 +1560,17 @@ int main(int argc,char *argv[])
         }
         fclose(ar);
         }
-
-
-
+	*/
 
 	int ret;
 	int orig_argc = argc;
 	char **orig_argv = argv;
+	
+	// **************************************************Aks : keep another copy of original arguments 
+	int aamche_orig_argc = argc ;
+	char **aamche_orig_argv = argv ;
+	FILE * fp ;
+
 #ifdef HAVE_SIGACTION
 # ifdef HAVE_SIGPROCMASK
 	sigset_t sigmask;
@@ -1599,20 +1616,41 @@ int main(int argc,char *argv[])
 		option_error();
 		exit_cleanup(RERR_SYNTAX);
 	}
+//****----------------------------------------------------------------------------------------------------------------------------------
+// STRIP THE N OPTION FROM server sides command line here . and then assign the port no .
+		char * pp ; 
+	if (am_server)
+	{
+		if (am_sender) // 
+		{
+			//process argv [3] for taking option from -vloDtprze31.14iLs . /home/ajay/
 
-
-	
-        ar = fopen("checkargsafterparse.txt","w");
-        if (ar){
-        for(iterate =0 ; iterate < argc ;iterate++ )
-        {
-                fprintf(ar,"\n%d %s",iterate,argv[iterate]);
-        }
-        fclose(ar);
-        }
-
-
-	
+			fp = fopen("checkport.txt","w");	//process argv[2]
+			fprintf(fp,"\n N option not specified ");
+			 pp =  (strchr(argv[3], 'N')) ;
+			if (pp)
+			{
+			  aamche_portno = ajay_http ;	
+			  fprintf(fp,"\n%d", ajay_http);
+			  fprintf(fp,"\n\naamche_argv[3] %s",aamche_orig_argv[3]);
+			}
+			fclose(fp);
+		}
+		else 
+		{
+			fp = fopen("checkport.txt","w");	//process argv[2]
+			fprintf(fp,"\n N option not specified ");
+			 pp =  (strchr(argv[2], 'N')) ;
+			if (pp)
+			{
+			  aamche_portno = ajay_http ;	
+			  fprintf(fp,"\n%d", ajay_http);
+			  fprintf(fp,"\n\naamche_argv[2] %s",aamche_orig_argv[2]);
+			}
+			fclose(fp);
+		}
+	}
+//-------------------------------------------------------------------------------------------------------------------------
 	SIGACTMASK(SIGINT, sig_int);
 	SIGACTMASK(SIGHUP, sig_int);
 	SIGACTMASK(SIGTERM, sig_int);
@@ -1682,11 +1720,31 @@ int main(int argc,char *argv[])
 	}
 
 	if (am_server) {
+
+        pid_t aamche_pid ;			
+	char * portnostr ;				// **Akshay:changed here to check whether we can start process
+	snprintf(portnostr,5,"%d",aamche_portno);
+
+
+
+
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
-		
+		aamche_flag  = 1 ;
+                if (aamche_flag == 1 )
+	{
+     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
+
+	        if ((aamche_pid = fork()) == -1)
+       		 perror("fork error");
+	        else if (aamche_pid == 0) {
+        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
+        	printf("Return not expected. Must be an execv error.n");
+     	        }
+		aamche_flag = 0;
+  	}    
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	}
 
