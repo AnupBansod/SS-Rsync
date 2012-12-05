@@ -32,7 +32,7 @@
 #include "inums.h"
 
 /** If no timeout is specified then use a 60 second select timeout */
-#define SELECT_TIMEOUT 60
+#define SELECT_TIMEOUT 1
 
 extern int bwlimit;
 extern size_t bwlimit_writemax;
