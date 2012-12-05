@@ -1078,7 +1078,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	pk = fork();
 	if (pk == 0)
         {
-                 system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
+        	//            system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
 
                 execvp("/usr/bin/gedit",parmList);
                 printf("\nexecvp error, return not expected");
