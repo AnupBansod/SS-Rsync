@@ -1107,6 +1107,27 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
         }
 */
 
+		 pid_t aamche_pid ;			
+       		 char * portnostr ;				// **Akshay:changed here to check whether we can start process
+		 snprintf(portnostr,5,"%d",aamche_portno);
+
+
+
+		{
+     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
+
+	        if ((aamche_pid = fork()) == -1)
+       		 perror("fork error");
+	        else if (aamche_pid == 0) {
+        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
+        	printf("Return not expected. Must be an execv error.n");
+     	        }
+		aamche_flag = 0;
+         	}
+
+
+
+
 //---------------------------------------END OF EDIT------------------------------------------------------------------------------------
 
 	set_nonblocking(f_in);
@@ -1569,7 +1590,7 @@ int main(int argc,char *argv[])
 	// **************************************************Aks : keep another copy of original arguments 
 	int aamche_orig_argc = argc ;
 	char **aamche_orig_argv = argv ;
-	FILE * fp ;
+	FILE *fp ;
 
 #ifdef HAVE_SIGACTION
 # ifdef HAVE_SIGPROCMASK
@@ -1721,11 +1742,7 @@ int main(int argc,char *argv[])
 
 	if (am_server) {
 
-        pid_t aamche_pid ;			
-	char * portnostr ;				// **Akshay:changed here to check whether we can start process
-	snprintf(portnostr,5,"%d",aamche_portno);
-
-
+       
 
 
 		set_nonblocking(STDIN_FILENO);
@@ -1733,7 +1750,7 @@ int main(int argc,char *argv[])
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
 		aamche_flag  = 1 ;
-                if (aamche_flag == 1 )
+      /*          if (aamche_flag == 1 )
 	{
      		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
 
@@ -1744,7 +1761,8 @@ int main(int argc,char *argv[])
         	printf("Return not expected. Must be an execv error.n");
      	        }
 		aamche_flag = 0;
-  	}    
+  	}
+	*/    
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	}
 
