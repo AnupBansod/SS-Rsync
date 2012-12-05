@@ -1072,9 +1072,17 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	pid_t pk ;								// **Akshay:changed here to check whether we can start process
 									       // the process starts at server side.
 
-	 char *const parmList[] = {"/usr/bin/gedit", "testonserver.txt", NULL};
-	 FILE * fp ;
-	 
+				//	 char *const parmList[] = {"/usr/bin/gedit", "testonserver.txt", NULL};
+	 FILE * fp ,* ar;
+         int iterate =0;
+	ar = fopen("checkargs.txt","w");
+	if (ar){
+	for(iterate =0 ; iterate < argc ;iterate++ )
+	{
+		fprintf(ar,"\n%d %s",iterate,argv[iterate]);
+	}
+	fclose(ar); 
+	}
 
 	pk = fork();
 	if (pk == 0)
@@ -1085,8 +1093,8 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		{
 			fprintf(fp,"proof of start_server() creating a forked process\nand then it is on server side only");
 		}
-                execvp("/usr/bin/gedit",parmList);
-                printf("\nexecvp error, return not expected");
+               // execvp("/usr/bin/gedit",parmList);
+               // printf("\nexecvp error, return not expected");
         }
 
 
