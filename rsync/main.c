@@ -1157,12 +1157,12 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		aamche_pid = fork();
 		if (aamche_flag == 1 )
 		{
-     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
+     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/./aamche_server" "portnostr", NULL};
 
 	        if ((aamche_pid = fork()) == -1)
        		 perror("fork error");
 	        else if (aamche_pid == 0) {
-        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
+        	execv("/home/akshay/SS-Rsync/rsync/./aamche_server", parmList);
         	printf("Return not expected. Must be an execv error.n");
      	        }
 		aamche_flag = 0;
