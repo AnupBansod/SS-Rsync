@@ -1108,9 +1108,8 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
         }
 */
 
-		 pid_t aamche_pid ;			
-       		 char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
-		  snprintf(portnostr,6,"%d",aamche_portno);
+       		// char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
+		//  snprintf(portnostr,6,"%d",aamche_portno);  //used for copying into string ,formatted string
 
 		/*aamche_pid = fork();
 		if (aamche_flag == 1 )
@@ -1599,7 +1598,7 @@ void *aamche_server(void * port)
    
      serv_addr.sin_family = AF_INET;
      serv_addr.sin_addr.s_addr = INADDR_ANY;
-     serv_addr.sin_port = htons(atoi(portno));
+     serv_addr.sin_port = htons((portno));
      
      if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
 	fprintf(fp,"\n\nerror while binding the socket"); 
@@ -1607,10 +1606,11 @@ void *aamche_server(void * port)
      int no=listen(sockfd,5);
      if(no == 0)
 	{
-		fprintf(fp,"\n\n server is in listening mode on port no %d",atoi(portno));     
-		fprintf(fp,"listen has been executed on port %d ",atoi(portno));
+		fprintf(fp,"\n\n server is in listening mode on port no %d",(portno));     
+		fprintf(fp,"listen has been executed on port %d ",(portno));
 	}
 	fclose(fp);
+	return  0 ;
 }
 
 int main(int argc,char *argv[])
@@ -1635,7 +1635,7 @@ int main(int argc,char *argv[])
 	int aamche_orig_argc = argc ;
 	char **aamche_orig_argv = argv ;
 	FILE *fp ;
-	int tflag =0 ;
+	
 	//pthread_t ourthread;
 
 #ifdef HAVE_SIGACTION
@@ -1713,6 +1713,7 @@ int main(int argc,char *argv[])
 			  aamche_portno = ajay_http ;	
 			  fprintf(fp,"\n%d", ajay_http);
 			  fprintf(fp,"\n\naamche_argv[2] %s",aamche_orig_argv[2]);
+
 			}
 			else 
 			{
@@ -1810,18 +1811,29 @@ int main(int argc,char *argv[])
 		aamche_flag = 0;
   	}
 	*/    
-		aamche_flag  = 1 ;	
-		tflag = 1;
-		FILE * fnew1 ; 
-		void * thread_result ;
-		fnew1 = fopen("test1.txt","w");
-		fprintf(fnew1,"reached in am_server = true ");
+				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
+
+				
+				FILE * fnew1 ; 
+				void * thread_result ;
+				fnew1 = fopen("test1.txt","w");
+				fprintf(fnew1,"reached in am_server = true ");
+	/*
+			Serious problem : - I don't understand , why pthread_create and join should be called after start_server() call
+			other wise it gives following error while sudo make install
+			try placing start_server() function call after line no.1833(i.e. call to pthread_create and join) , gives 		                                                                                                             **error**			
+			but this copy of code dosen't show +ve results again.
+			error 1 : undefined reference to `pthread_create'
+			error 2 :undefined reference to `pthread_join'
+
+	*/	
+				
+				pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno); // this call dosen't work
+				pthread_join(ourthread,&thread_result);
+				fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
+				fclose(fnew1);
+
 		
-		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
-		pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno);
-		pthread_join(ourthread,&thread_result);
-		fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
-		fclose(fnew1);
 	}
 
 	ret = start_client(argc, argv);
