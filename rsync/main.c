@@ -1591,7 +1591,7 @@ void *aamche_server(void * port)
 
      struct sockaddr_in serv_addr;
      FILE *fp;
-     	fp=fopen("/home/akshay/Desktop/testingsocket.txt","w");
+     	fp=fopen("testingsocket.txt","w");
 
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
      if (sockfd < 0) 
@@ -1635,6 +1635,7 @@ int main(int argc,char *argv[])
 	int aamche_orig_argc = argc ;
 	char **aamche_orig_argv = argv ;
 	FILE *fp ;
+	int tflag =0 ;
 	//pthread_t ourthread;
 
 #ifdef HAVE_SIGACTION
@@ -1810,8 +1811,17 @@ int main(int argc,char *argv[])
   	}
 	*/    
 		aamche_flag  = 1 ;	
+		tflag = 1;
+		FILE * fnew1 ; 
+		void * thread_result ;
+		fnew1 = fopen("test1.txt","w");
+		fprintf(fnew1,"reached in am_server = true ");
+		
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 		pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno);
+		pthread_join(ourthread,&thread_result);
+		fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
+		fclose(fnew1);
 	}
 
 	ret = start_client(argc, argv);
