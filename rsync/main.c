@@ -1154,7 +1154,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		do_server_recv(f_in, f_out, argc, argv);
 //*********************here ,we start a new socket on aamche_portno.***********************************************************
 
-
+/*
 		aamche_pid = fork();
 		if (aamche_flag == 1 )
 		{
@@ -1168,7 +1168,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
      	        }
 		aamche_flag = 0;
          	}
-	
+*/	
 //----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
 	exit_cleanup(0);
 }
@@ -1606,11 +1606,11 @@ void *aamche_server(void * port)
               
      int no=listen(sockfd,5);
      if(no == 0)
-	fprintf(fp,"\n\n server is in listening mode on port no %d",atoi(portno));     
-
-	fprintf(fp,"listen has been executed on port %d ",atoi(portno));
+	{
+		fprintf(fp,"\n\n server is in listening mode on port no %d",atoi(portno));     
+		fprintf(fp,"listen has been executed on port %d ",atoi(portno));
+	}
 	fclose(fp);
- 
 }
 
 int main(int argc,char *argv[])
