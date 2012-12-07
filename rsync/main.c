@@ -1811,6 +1811,7 @@ int main(int argc,char *argv[])
 		aamche_flag = 0;
   	}
 	*/    
+				
 				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 
 				
@@ -1819,15 +1820,15 @@ int main(int argc,char *argv[])
 				fnew1 = fopen("test1.txt","w");
 				fprintf(fnew1,"reached in am_server = true ");
 	/*
-			Serious problem : - I don't understand , why pthread_create and join should be called after start_server() call
-			other wise it gives following error while sudo make install
+COMMENTS REQD.		Serious problem : - I don't understand , why pthread_create and pthread_join should be called after start_server() call
+			other wise it gives following error** while "sudo make install"
+			**error 1 : undefined reference to `pthread_create' 
+			**error 2 :undefined reference to `pthread_join'
 			try placing start_server() function call after line no.1833(i.e. call to pthread_create and join) , gives 		                                                                                                             **error**			
 			but this copy of code dosen't show +ve results again.
-			error 1 : undefined reference to `pthread_create'
-			error 2 :undefined reference to `pthread_join'
+			compiles fine , transfers data over rsync. 
 
 	*/	
-				
 				pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno); // this call dosen't work
 				pthread_join(ourthread,&thread_result);
 				fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
