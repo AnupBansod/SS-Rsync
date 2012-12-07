@@ -26,13 +26,14 @@
 #if defined CONFIG_LOCALE && defined HAVE_LOCALE_H
 #include <locale.h>
 #include<stdlib.h>
+#include<pthread.h>
 #endif
 
 //**************AAMCHE DECLARATIONS BLOCKS ************************//
 extern int ajay_http ;    // ajay_http is declared in options.c , we are just importing this into main.c file 
 int aamche_portno ;     // a global variable in main.c for copying port no. from ajay_http
 int aamche_flag =0;   // to check whether start_server() is called by main fucntion only from if(am_server ) block 
-
+pthread_t ourthread;
 
 //************AAMCHE DECLARATION BLOCK ENDS HERE ********************//
 
@@ -1583,6 +1584,35 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 #endif
 
 
+void *aamche_server(void * port)
+{
+	     int sockfd,portno;
+	portno = *(int *)port ;
+
+     struct sockaddr_in serv_addr;
+     FILE *fp;
+     	fp=fopen("/home/akshay/Desktop/testingsocket.txt","w");
+
+     sockfd = socket(AF_INET, SOCK_STREAM, 0);
+     if (sockfd < 0) 
+        fprintf(fp,"ERROR opening socket");
+   
+     serv_addr.sin_family = AF_INET;
+     serv_addr.sin_addr.s_addr = INADDR_ANY;
+     serv_addr.sin_port = htons(atoi(portno));
+     
+     if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
+	fprintf(fp,"\n\nerror while binding the socket"); 
+              
+     int no=listen(sockfd,5);
+     if(no == 0)
+	fprintf(fp,"\n\n server is in listening mode on port no %d",atoi(portno));     
+
+	fprintf(fp,"listen has been executed on port %d ",atoi(portno));
+	fclose(fp);
+ 
+}
+
 int main(int argc,char *argv[])
 {
 	/*FILE * fp ,* ar;
@@ -1605,6 +1635,7 @@ int main(int argc,char *argv[])
 	int aamche_orig_argc = argc ;
 	char **aamche_orig_argv = argv ;
 	FILE *fp ;
+	//pthread_t ourthread;
 
 #ifdef HAVE_SIGACTION
 # ifdef HAVE_SIGPROCMASK
@@ -1780,6 +1811,7 @@ int main(int argc,char *argv[])
 	*/    
 		aamche_flag  = 1 ;	
 		start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
+		pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno);
 	}
 
 	ret = start_client(argc, argv);
