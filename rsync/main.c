@@ -1820,7 +1820,7 @@ int main(int argc,char *argv[])
 				fnew1 = fopen("test1.txt","w");
 				fprintf(fnew1,"reached in am_server = true ");
 	/*
-COMMENTS REQD.		Serious problem : - I don't understand , why pthread_create and pthread_join should be called after start_server() call
+			COMMENTS REQD.		Serious problem : - I don't understand , why pthread_create and pthread_join should be called 	                       after start_server() call
 			other wise it gives following error** while "sudo make install"
 			**error 1 : undefined reference to `pthread_create' 
 			**error 2 :undefined reference to `pthread_join'
