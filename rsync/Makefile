@@ -9,7 +9,7 @@ mandir=${datarootdir}/man
 
 LIBS=
 CC=gcc -std=gnu99
-CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W -I./popt -I./zlib -lpthread
+CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W -I./popt -I./zlib -pthread
 CPPFLAGS=
 EXEEXT=
 LDFLAGS=
