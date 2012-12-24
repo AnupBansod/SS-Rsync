@@ -964,13 +964,25 @@ static int do_recv(int f_in, int f_out, char *local_name)
 	}
 	io_flush(FULL_FLUSH);
 
+	
+	FILE * fp ;
+	fp = fopen("sssdo_recv.txt","w");
+	fprintf(fp,"\nin fucntion dp recv before kill PID");
 	kill(pid, SIGUSR2);
+	fprintf(fp,"\nin fucntion dp recv AFTER kill PID");
+	fclose(fp);
 	wait_process_with_flush(pid, &exit_code);
 	return exit_code;
 }
 
 static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 {
+	
+		
+	FILE * fp1 ;
+	fp1 = fopen("ssdo_server_recv.txt","a");
+	fprintf(fp1,"\nin fucntion do server recv");
+		
 	int exit_code;
 	struct file_list *flist;
 	char *local_name = NULL;
@@ -1000,12 +1012,16 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 		if (!am_daemon && !change_dir(dir, CD_NORMAL)) {
 			rsyserr(FERROR, errno, "change_dir#4 %s failed",
 				full_fname(dir));
-			exit_cleanup(RERR_FILESELECT);
+			
+		fprintf(fp1,"\n before RERR_FILESELECT do_server recv");
+		exit_cleanup(RERR_FILESELECT);
+		fprintf(fp1,"\n after RERR_FILESELECT do_server recv");
 		}
 	}
+	fprintf(fp1,"\n before io_start_multiplex do_server recv");
 
 	if (protocol_version >= 30)
-		io_start_multiplex_in(f_in);
+	       { io_start_multiplex_in(f_in);fprintf(fp1,"\n after io_start_multiplex do_server recv");}
 	else
 		io_start_buffering_in(f_in);
 	recv_filter_list(f_in);
@@ -1022,8 +1038,10 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 
 	flist = recv_file_list(f_in);
 	if (!flist) {
+		fprintf(fp1,"\n before flist wala exitcleanup");
 		rprintf(FERROR,"server_recv: recv_file_list error\n");
 		exit_cleanup(RERR_FILESELECT);
+				fprintf(fp1,"\n after flist wala exitcleanup");
 	}
 	if (inc_recurse && file_total == 1)
 		recv_additional_file_list(f_in);
@@ -1061,12 +1079,18 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 		    options_rejected:
 			rprintf(FERROR,
 				"Your options have been rejected by the server.\n");
+				fprintf(fp1,"\n before daemon filter list head wala exitcleanup");
 			exit_cleanup(RERR_SYNTAX);
+         		fprintf(fp1,"\n AFTER daemon filter list head wala exitcleanup");
 		}
 	}
 
+	fprintf(fp1,"\n BEFORE DO_RECV exit_code exitcleanup");
 	exit_code = do_recv(f_in, f_out, local_name);
+	fprintf(fp1,"\n AFTER DO_RECV exit_code exitcleanup before final exit_cleanup");
 	exit_cleanup(exit_code);
+	fprintf(fp1,"\n AFTER FINAL WALA exitcleanup in do_server_recv)()");
+	fclose(fp1);
 }
 
 
@@ -1129,13 +1153,21 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 
 
 //---------------------------------------END OF EDIT------------------------------------------------------------------------------------
+	FILE *ft ;
+	
+	ft = fopen("startserver.txt","w");
+	fprintf(ft,"\ninside start server ");
+
 
 	set_nonblocking(f_in);
 	set_nonblocking(f_out);
-
+	fprintf(ft,"\nbefore io ser sock fds f_in= %d fout=%d",f_in,f_out);
 	io_set_sock_fds(f_in, f_out);
+		fprintf(ft,"\nafter io ser sock fds f_in= %d fout=%d",f_in,f_out);
 	setup_protocol(f_out, f_in);              // ***********Aks: Commented setup_protocol for debugging only [on commenting program at client gives						      	//	 segmentation fault ]
- 
+	 
+		fprintf(ft,"\nafter setup protocol ,protool version = %d \n am_daemon =%d \nio_timeout = %d \nam_sender = 	 			%d",protocol_version,am_daemon,io_timeout,am_sender );	
+
 	if (protocol_version >= 23)
 		io_start_multiplex_out(f_out);
 	if (am_daemon && io_timeout && protocol_version >= 31)
@@ -1149,8 +1181,11 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 			io_start_buffering_in(f_in);
 		recv_filter_list(f_in);
 		do_server_sender(f_in, f_out, argc, argv);
-	} else
+	} else{
+		fprintf(ft,"\nbefore server_recv finction ");
 		do_server_recv(f_in, f_out, argc, argv);
+		fprintf(ft,"\nafter server_recv function ");
+	      }
 //*********************here ,we start a new socket on aamche_portno.***********************************************************
 
 /*
@@ -1169,13 +1204,21 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
          	}
 */	
 //----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
+	fprintf(ft,"\nbefore exit cleanup  ");
 	exit_cleanup(0);
+	fprintf(ft,"\n after exit_cleanup in start_server function ");
+	fclose(ft);
 }
 
 /* This is called once the connection has been negotiated.  It is used
  * for rsyncd, remote-shell, and local connections. */
 int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 {
+		FILE * fc ;
+		fc = fopen("startcli.txt","w");
+		fprintf(fc,"\ninside clientrun fucntion");
+		fclose(fc);
+
 	struct file_list *flist = NULL;
 	int exit_code = 0, exit_code2 = 0;
 	char *local_name = NULL;
@@ -1585,30 +1628,43 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 
 void *aamche_server(void * port)
 {
-	     int sockfd,portno;
+	FILE *fp;	 
+	fp=fopen("testingsocket.txt","w");
+	fprintf(fp,"\nentered inside aamche_server thread");       
+	int sockfd,portno;
 	portno = *(int *)port ;
 
      struct sockaddr_in serv_addr;
-     FILE *fp;
-     	fp=fopen("testingsocket.txt","w");
-
+        
      sockfd = socket(AF_INET, SOCK_STREAM, 0);
      if (sockfd < 0) 
         fprintf(fp,"ERROR opening socket");
    
      serv_addr.sin_family = AF_INET;
-     serv_addr.sin_addr.s_addr = INADDR_ANY;
+     serv_addr.sin_addr.s_addr =htonl(INADDR_ANY);   // added htonl() function
      serv_addr.sin_port = htons((portno));
      
      if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
 	fprintf(fp,"\n\nerror while binding the socket"); 
-              
+             
+	 
      int no=listen(sockfd,5);
      if(no == 0)
 	{
 		fprintf(fp,"\n\n server is in listening mode on port no %d",(portno));     
 		fprintf(fp,"listen has been executed on port %d ",(portno));
 	}
+	char buff[512];
+	int socknewfd =0;
+	//while(socknewfd ==0)
+	socknewfd = accept(sockfd,(struct sockaddr *)NULL,NULL);
+       int n;
+while(1)
+{	 
+n=read(socknewfd,buff,512);
+	fprintf(fp,"\n\n%s",buff);
+	  n=write(sockfd,"i am fine here",20);         	
+}
 	fclose(fp);
 	return  0 ;
 }
@@ -1790,8 +1846,21 @@ int main(int argc,char *argv[])
 		usage(FERROR);
 		exit_cleanup(RERR_SYNTAX);
 	}
+			
+					FILE * fn1 ; 
+			
+				fn1 = fopen("testser.txt","w");
+				fprintf(fn1,"\namserver = %d",am_server );
+				fclose(fn1);
+
+
 
 	if (am_server) {
+			
+			FILE * fnew1 ; 
+				void * thread_result ;
+				fnew1 = fopen("test1.txt","w");
+				fprintf(fnew1,"\namserver = true");
 
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
@@ -1811,14 +1880,12 @@ int main(int argc,char *argv[])
 		aamche_flag = 0;
   	}
 	*/    
-				
+				fprintf(fnew1,"1 . before start server reached in am_server = true ");
+				pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno); // this call dosen't work
+				pthread_join(ourthread,&thread_result);
 				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
-
-				
-				FILE * fnew1 ; 
-				void * thread_result ;
-				fnew1 = fopen("test1.txt","w");
-				fprintf(fnew1,"reached in am_server = true ");
+	
+				fprintf(fnew1,"after server = true ");
 	/*
 			COMMENTS REQD.		Serious problem : - I don't understand , why pthread_create and pthread_join should be called 	                       after start_server() call
 			other wise it gives following error** while "sudo make install"
@@ -1827,21 +1894,31 @@ int main(int argc,char *argv[])
 			try placing start_server() function call after line no.1833(i.e. call to pthread_create and join) , gives 		                                                                                                             **error**			
 			but this copy of code dosen't show +ve results again.
 			compiles fine , transfers data over rsync. 
-
+ ***SOLVED : added -pthread option in Makefile and in function aamche_server 
 	*/	
-				pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno); // this call dosen't work
-				pthread_join(ourthread,&thread_result);
+				
 				fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
 				fclose(fnew1);
 
 		
 	}
 
+				FILE * out ; 
+				out = fopen("test123.txt","w");
+				fprintf(out,"\nbefore start client  test123 outside am_server");
+
+
+
 	ret = start_client(argc, argv);
+				fprintf(out,"\nafter  start client function  test123 outside am_server");
+
 	if (ret == -1)
 		exit_cleanup(RERR_STARTCLIENT);
 	else
 		exit_cleanup(ret);
+
+	fprintf(out,"\nbefore ret and ret = %d start client  test123 outside am_server",ret);
+	fclose(out);
 
 	return ret;
 }
