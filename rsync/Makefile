@@ -7,7 +7,7 @@ exec_prefix=${prefix}
 bindir=${exec_prefix}/bin
 mandir=${datarootdir}/man
 
-LIBS=
+LIBS= libmongoose.so
 CC=gcc -std=gnu99
 CFLAGS=-g -O2 -DHAVE_CONFIG_H -Wall -W -I./popt -I./zlib -pthread
 CPPFLAGS=
@@ -26,15 +26,15 @@ VERSION=3.1.0dev
 .SUFFIXES:
 .SUFFIXES: .c .o
 
-GENFILES=configure.sh config.h.in proto.h proto.h-tstamp rsync.1 rsyncd.conf.5
-HEADERS=byteorder.h config.h errcode.h proto.h rsync.h ifuncs.h itypes.h inums.h \
+GENFILES=configure.sh config.h.in #proto.h proto.h-tstamp rsync.1 rsyncd.conf.5 proto.h below line's
+HEADERS=byteorder.h config.h errcode.h  rsync.h ifuncs.h itypes.h inums.h \
 	lib/pool_alloc.h
 LIBOBJ=lib/wildmatch.o lib/compat.o lib/snprintf.o lib/mdfour.o lib/md5.o \
 	lib/permstring.o lib/pool_alloc.o lib/sysacls.o lib/sysxattrs.o 
 zlib_OBJS=zlib/deflate.o zlib/inffast.o zlib/inflate.o zlib/inftrees.o \
 	zlib/trees.o zlib/zutil.o zlib/adler32.o zlib/compress.o zlib/crc32.o
 OBJS1=flist.o rsync.o generator.o receiver.o cleanup.o sender.o exclude.o \
-	util.o main.o checksum.o match.o syscall.o log.o backup.o delete.o
+	util.o mongoose.o main.o checksum.o match.o syscall.o log.o backup.o delete.o ##################ADDED mongoose.c
 OBJS2=options.o io.o compat.o hlink.o token.o uidlist.o socket.o hashtable.o \
 	fileio.o batch.o clientname.o chmod.o acls.o xattrs.o
 OBJS3=progress.o pipe.o
@@ -74,7 +74,7 @@ install-strip:
 	$(MAKE) INSTALL_STRIP='-s' install
 
 rsync$(EXEEXT): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) -ldl -pthread ##################ADDED -ldl and -pthread
 
 $(OBJS): $(HEADERS)
 $(CHECK_OBJS): $(HEADERS)
@@ -119,7 +119,7 @@ T_UNSAFE_OBJ = t_unsafe.o syscall.o util.o t_stub.o lib/compat.o lib/snprintf.o 
 t_unsafe$(EXEEXT): $(T_UNSAFE_OBJ)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(T_UNSAFE_OBJ) $(LIBS)
 
-gen: conf proto.h man
+#gen: conf proto.h man
 
 gensend: gen
 	rsync -aivzc $(GENFILES) samba.org:/home/ftp/pub/rsync/generated-files/
@@ -173,13 +173,13 @@ Makefile: Makefile.in config.status configure.sh config.h.in
 	    fi \
 	fi
 
-proto: proto.h-tstamp
+#proto: proto.h-tstamp
 
-proto.h: proto.h-tstamp
-	@if test -f proto.h; then :; else cp -p $(srcdir)/proto.h .; fi
+#proto.h: proto.h-tstamp
+#	@if test -f proto.h; then :; else cp -p $(srcdir)/proto.h .; fi
 
-proto.h-tstamp: $(srcdir)/*.c $(srcdir)/lib/compat.c config.h
-	perl $(srcdir)/mkproto.pl $(srcdir)/*.c $(srcdir)/lib/compat.c
+#proto.h-tstamp: $(srcdir)/*.c $(srcdir)/lib/compat.c config.h
+#	perl $(srcdir)/mkproto.pl $(srcdir)/*.c $(srcdir)/lib/compat.c
 
 man: rsync.1 rsyncd.conf.5 man-copy
 
