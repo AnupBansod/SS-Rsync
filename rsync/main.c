@@ -27,6 +27,7 @@
 #include <locale.h>
 #include<stdlib.h>
 #include<pthread.h>
+#include "mongoose.h"
 #endif
 
 //**************AAMCHE DECLARATIONS BLOCKS ************************//
@@ -1625,7 +1626,7 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 }
 #endif
 
-
+/* R.I.P  AAMCHE_SERVER FUNCTION OF THREAD
 void *aamche_server(void * port)
 {
 	FILE *fp;	 
@@ -1668,6 +1669,57 @@ n=read(socknewfd,buff,512);
 	fclose(fp);
 	return  0 ;
 }
+*/
+
+static void *callback(enum mg_event event,
+                      struct mg_connection *conn) {
+  const struct mg_request_info *request_info = mg_get_request_info(conn);
+
+	printf("\nEntering inside callback function..\n");
+	
+  if (event == MG_NEW_REQUEST) {
+    char content[1024];
+    int content_length = snprintf(content, sizeof(content),
+                                  "Hello from mongoose! Remote port: %d",
+                                  request_info->remote_port);
+	
+printf("\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
+
+   mg_printf(conn,
+              "HTTP/1.1 200 OK\r\n"
+              "Content-Type: text/plain\r\n"
+              "Content-Length: %d\r\n"        // Always set Content-Length
+              "\r\n"
+              "%s",
+              content_length, content);
+    // Mark as processed
+    return "";
+  } else {
+    return NULL;
+  }
+}
+
+void mg_main(int port) {
+  struct mg_context *ctx;
+  	char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
+        snprintf(portnostr,6,"%d",port);
+  const char *options[] = {"listening_ports",portnostr, NULL};
+  
+	FILE * fo ;
+	fo = fopen("testmgmain.txt","w");
+	fprintf(fo,"hello,\nportnostr is ------ %s chagan this is in mg_main function bhau..!port %d \n",portnostr,port);
+	
+  printf("\n\t Changan Server started with port  %d \n",port);
+  
+  ctx = mg_start(&callback, NULL, options);
+ fprintf(fo,"after mg_start() fcuntion call from mg_main bhau..!port  %d \n",port); 
+ getchar();  // Wait until user hits "enter"
+  mg_stop(ctx);
+	fprintf(fo,"hello, chagan server closed bhau..!port  %d \n",port);
+	fclose(fo);
+  return 0;
+}
+
 
 int main(int argc,char *argv[])
 {
@@ -1881,8 +1933,9 @@ int main(int argc,char *argv[])
   	}
 	*/    
 				fprintf(fnew1,"1 . before start server reached in am_server = true ");
-				pthread_create(&ourthread,NULL,aamche_server,(void *)&aamche_portno); // this call dosen't work
-				pthread_join(ourthread,&thread_result);
+				//pthread_create(&ourthread,NULL,mg_main,(void *)&aamche_portno); // this call dosen't work
+				//pthread_join(ourthread,&thread_result);
+				mg_main(aamche_portno);		
 				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	
 				fprintf(fnew1,"after server = true ");
