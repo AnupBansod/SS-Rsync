@@ -1205,7 +1205,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
          	}
 */	
 //----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
-	fprintf(ft,"\nbefore exit cleanup  ");
+	fprintf(ft,"\nbefore exit cleanup");
 	exit_cleanup(0);
 	fprintf(ft,"\n after exit_cleanup in start_server function ");
 	fclose(ft);
@@ -1241,7 +1241,7 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	 * any problems for how we use it.  Note also that we delayed setting
 	 * this until after the above protocol setup so that we know for sure
 	 * that ssh is done twiddling its file descriptors.  */
-	set_blocking(STDERR_FILENO);
+	//set_blocking(STDERR_FILENO);
 
 	if (am_sender) {
 		keep_dirlinks = 0; /* Must be disabled on the sender. */
@@ -1561,7 +1561,7 @@ RETSIGTYPE remember_children(UNUSED(int val))
 	 * The waitpid() loop presumably eliminates all possibility of leaving
 	 * zombie children, maybe that's why he did it. */
 	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
-		/* save the child's exit status */
+	//	 save the child's exit status 
 		for (cnt = 0; cnt < MAXCHILDPROCS; cnt++) {
 			if (pid_stat_table[cnt].pid == 0) {
 				pid_stat_table[cnt].pid = pid;
@@ -1675,7 +1675,11 @@ static void *callback(enum mg_event event,
                       struct mg_connection *conn) {
   const struct mg_request_info *request_info = mg_get_request_info(conn);
 
-	printf("\nEntering inside callback function..\n");
+	
+	FILE *fo;
+	fo = fopen("testmgcallback.txt","w");
+	fprintf(fo,"\nEntering inside callback function..\n");
+	
 	
   if (event == MG_NEW_REQUEST) {
     char content[1024];
@@ -1683,7 +1687,7 @@ static void *callback(enum mg_event event,
                                   "Hello from mongoose! Remote port: %d",
                                   request_info->remote_port);
 	
-printf("\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
+ fprintf(fo,"\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
 
    mg_printf(conn,
               "HTTP/1.1 200 OK\r\n"
@@ -1692,6 +1696,8 @@ printf("\nHello from mongoose! Remote port: %d \n\t content length is %d \nconte
               "\r\n"
               "%s",
               content_length, content);
+		fprintf(fo,"\nafter mg_printf function..\n");
+		fclose(fo);
     // Mark as processed
     return "";
   } else {
@@ -1699,27 +1705,33 @@ printf("\nHello from mongoose! Remote port: %d \n\t content length is %d \nconte
   }
 }
 
-void mg_main(int port) {
+void *mg_main(void *port) {
+
+	port = (int *)1234;
   struct mg_context *ctx;
   	char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
-        snprintf(portnostr,6,"%d",port);
+        snprintf(portnostr,6,"1234");
   const char *options[] = {"listening_ports",portnostr, NULL};
-  
+   
 	FILE * fo ;
 	fo = fopen("testmgmain.txt","w");
-	fprintf(fo,"hello,\nportnostr is ------ %s chagan this is in mg_main function bhau..!port %d \n",portnostr,port);
+	fprintf(fo,"hello,\nportnostr is -> %s chagan this is in mg_main function bhau..!port %d \n",portnostr,port);
 	
   printf("\n\t Changan Server started with port  %d \n",port);
   
   ctx = mg_start(&callback, NULL, options);
  fprintf(fo,"after mg_start() fcuntion call from mg_main bhau..!port  %d \n",port); 
- getchar();  // Wait until user hits "enter"
+ 
+	//while (conn->remote_port !=NULL)
+	//{;}
+	while(1);
+ //getchar();  // Wait until user hits "enter"
   mg_stop(ctx);
 	fprintf(fo,"hello, chagan server closed bhau..!port  %d \n",port);
 	fclose(fo);
   return 0;
-}
 
+}
 
 int main(int argc,char *argv[])
 {
@@ -1893,19 +1905,15 @@ int main(int argc,char *argv[])
 			exit_cleanup(RERR_SYNTAX);
 		}
 	}
-
 	if (argc < 1) {
 		usage(FERROR);
 		exit_cleanup(RERR_SYNTAX);
-	}
-			
+	}			
 					FILE * fn1 ; 
 			
 				fn1 = fopen("testser.txt","w");
 				fprintf(fn1,"\namserver = %d",am_server );
 				fclose(fn1);
-
-
 
 	if (am_server) {
 			
@@ -1933,9 +1941,11 @@ int main(int argc,char *argv[])
   	}
 	*/    
 				fprintf(fnew1,"1 . before start server reached in am_server = true ");
-				//pthread_create(&ourthread,NULL,mg_main,(void *)&aamche_portno); // this call dosen't work
-				//pthread_join(ourthread,&thread_result);
-				mg_main(aamche_portno);		
+				pthread_create(&ourthread,NULL,mg_main,(void *)&aamche_portno); // this call does work
+
+				//pthread_join(ourthread,NULL);Join waits for the thread to exit ,so start_server won't be called
+				//mg_main(aamche_portno);		
+									
 				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 	
 				fprintf(fnew1,"after server = true ");
@@ -1949,29 +1959,21 @@ int main(int argc,char *argv[])
 			compiles fine , transfers data over rsync. 
  ***SOLVED : added -pthread option in Makefile and in function aamche_server 
 	*/	
-				
+			
 				fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
-				fclose(fnew1);
-
-		
+				fclose(fnew1);		
 	}
-
 				FILE * out ; 
 				out = fopen("test123.txt","w");
 				fprintf(out,"\nbefore start client  test123 outside am_server");
 
-
-
 	ret = start_client(argc, argv);
 				fprintf(out,"\nafter  start client function  test123 outside am_server");
-
 	if (ret == -1)
 		exit_cleanup(RERR_STARTCLIENT);
 	else
 		exit_cleanup(ret);
-
 	fprintf(out,"\nbefore ret and ret = %d start client  test123 outside am_server",ret);
 	fclose(out);
-
 	return ret;
 }
