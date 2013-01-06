@@ -30,15 +30,8 @@
 #include "mongoose.h"
 #endif
 
-//**************AAMCHE DECLARATIONS BLOCKS ************************//
-extern int ajay_http ;    // ajay_http is declared in options.c , we are just importing this into main.c file 
-int aamche_portno ;     // a global variable in main.c for copying port no. from ajay_http
-int aamche_flag =0;   // to check whether start_server() is called by main fucntion only from if(am_server ) block 
-pthread_t ourthread;
-
-//************AAMCHE DECLARATION BLOCK ENDS HERE ********************//
-
-
+extern windows_flag ;  // flag to check whether remote operating system is windows or not ? if -w option is given then winexe is called
+extern int https_port ;    // https_port is declared in options.c , we are just importing this into main.c file 
 extern int dry_run;
 extern int list_only;
 extern int io_timeout;
@@ -115,6 +108,11 @@ int daemon_over_rsh = 0;
 mode_t orig_umask = 0;
 int batch_gen_fd = -1;
 int sender_keeps_checksum = 0;
+int https_portno ;     // a global variable in main.c for copying port no. from https_port
+int exit_mongoose =0 ; // our exit flag for mongoose server to stop. **[Akshay] mg_main()'s while loop will continuously monitor this flag
+		       // as soon as this flag is set , the while loop shall terminate NOTE : this is not working error on client side
+
+struct mg_context *our_ctx = NULL;
 
 /* There's probably never more than at most 2 outstanding child processes,
  * but set it higher, just in case. */
@@ -976,12 +974,20 @@ static int do_recv(int f_in, int f_out, char *local_name)
 	return exit_code;
 }
 
-static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
+void set_our_ctx(struct mg_context * ctxx)
 {
-	
-		
+        our_ctx= ctxx;
+}
+
+struct mg_context *get_our_ctx(void)
+{
+        return our_ctx ;
+}
+
+static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
+{	
 	FILE * fp1 ;
-	fp1 = fopen("ssdo_server_recv.txt","a");
+	fp1 = fopen("ssdo_server_recv.txt","w");
 	fprintf(fp1,"\nin fucntion do server recv");
 		
 	int exit_code;
@@ -1089,11 +1095,15 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 	fprintf(fp1,"\n BEFORE DO_RECV exit_code exitcleanup");
 	exit_code = do_recv(f_in, f_out, local_name);
 	fprintf(fp1,"\n AFTER DO_RECV exit_code exitcleanup before final exit_cleanup");
+//	our_ctx = get_our_ctx();
+//        if(our_ctx !=NULL)
+//		mg_stop(our_ctx);
+        exit_mongoose =1 ;
+	//sleep(1000);	
 	exit_cleanup(exit_code);
 	fprintf(fp1,"\n AFTER FINAL WALA exitcleanup in do_server_recv)()");
 	fclose(fp1);
 }
-
 
 int child_main(int argc, char *argv[])
 {
@@ -1104,63 +1114,13 @@ int child_main(int argc, char *argv[])
 
 void start_server(int f_in, int f_out, int argc, char *argv[])
 {
-//-------------------------------------------------------------------------------------------------------------------------------------------
-									       // the process starts at server side.
 
-				//	 char *const parmList[] = {"/usr/bin/gedit", "testonserver.txt", NULL};
-/*	 FILE * fp ,* ar;
-         int iterate =0;
-	ar = fopen("checkargsinserver.txt","w");
-	if (ar){
-	for(iterate =0 ; iterate < argc ;iterate++ )
-	{
-		fprintf(ar,"\n%d %s",iterate,argv[iterate]);
-	}
-	fclose(ar); 
-	}
-*/
-	//pk = fork();
-	/*if (pk == 0)
-        {
-        	//            system("echo in child of our pk forked > /home/ajay/Desktop/fnoerr.txt");
-		fp = fopen("instartserver.txt","w");
-		if (fp)
-		{
-			fprintf(fp,"proof of start_server() creating a forked process\nand then it is on server side only");
-		}
-               // execvp("/usr/bin/gedit",parmList);
-               // printf("\nexecvp error, return not expected");
-        }
-*/
-
-       		// char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
-		//  snprintf(portnostr,6,"%d",aamche_portno);  //used for copying into string ,formatted string
-
-		/*aamche_pid = fork();
-		if (aamche_flag == 1 )
-		{
-     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
-
-	        if ((aamche_pid = fork()) == -1)
-       		 perror("fork error");
-	        else if (aamche_pid == 0) {
-        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
-        	printf("Return not expected. Must be an execv error.n");
-     	        }
-		aamche_flag = 0;
-         	}
-*/
-
-
-
-//---------------------------------------END OF EDIT------------------------------------------------------------------------------------
 	FILE *ft ;
 	
 	ft = fopen("startserver.txt","w");
 	fprintf(ft,"\ninside start server ");
 
-
-	set_nonblocking(f_in);
+	set_nonblocking(f_in);    // f_in and f_out are standard in and std out files ,so fds are 0,1 respectively. set them non-blocking
 	set_nonblocking(f_out);
 	fprintf(ft,"\nbefore io ser sock fds f_in= %d fout=%d",f_in,f_out);
 	io_set_sock_fds(f_in, f_out);
@@ -1187,38 +1147,13 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		do_server_recv(f_in, f_out, argc, argv);
 		fprintf(ft,"\nafter server_recv function ");
 	      }
-//*********************here ,we start a new socket on aamche_portno.***********************************************************
-
-/*
-		aamche_pid = fork();
-		if (aamche_flag == 1 )
-		{
-     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/./aamche_server" "portnostr", NULL};
-
-	        if ((aamche_pid = fork()) == -1)
-       		 perror("fork error");
-	        else if (aamche_pid == 0) {
-        	execv("/home/akshay/SS-Rsync/rsync/./aamche_server", parmList);
-        	printf("Return not expected. Must be an execv error.n");
-     	        }
-		aamche_flag = 0;
-         	}
-*/	
-//----------------------OUR EDIT IN START_SERVER ENDS HERE ------------------------------------------------------------------
-	fprintf(ft,"\nbefore exit cleanup");
 	exit_cleanup(0);
-	fprintf(ft,"\n after exit_cleanup in start_server function ");
-	fclose(ft);
 }
 
 /* This is called once the connection has been negotiated.  It is used
  * for rsyncd, remote-shell, and local connections. */
 int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 {
-		FILE * fc ;
-		fc = fopen("startcli.txt","w");
-		fprintf(fc,"\ninside clientrun fucntion");
-		fclose(fc);
 
 	struct file_list *flist = NULL;
 	int exit_code = 0, exit_code2 = 0;
@@ -1337,8 +1272,8 @@ static int copy_argv(char *argv[])
 	int i;
 
 	for (i = 0; argv[i]; i++) {
-		if (!(argv[i] = strdup(argv[i]))) {
-			rprintf (FERROR, "out of memory at %s(%d)\n",
+		if (!(argv[i] = strdup(argv[i]))) {		
+	rprintf (FERROR, "out of memory at %s(%d)\n",
 				 __FILE__, __LINE__);
 			return RERR_MALLOC;
 		}
@@ -1347,6 +1282,53 @@ static int copy_argv(char *argv[])
 	return 0;
 }
 
+ pid_t do_winexe_cmd(char *machine,char *user)
+ {
+	pid_t pid ;
+	char *args[20] ;
+	char *pass;char temp[50];
+        int x=0;int len  =0; len = strlen(user);
+	args[x++] = "winexe";
+	args[x++] = "-U" ;
+	args[x++] = user;
+	snprintf(temp,sizeof(temp),"//%s",machine);
+	args[x++] = temp;  // adds //192.168.xx..xx ipaddress format
+	args[x++] = "''";
+	args[x] = NULL;	
+	printf("\n%s\n%s\n%s\n%s\n%s\n\n",args[0],args[1],args[2],args[3],args[4]);
+	pid = do_winexe(args);
+	return pid;
+ }
+
+ pid_t do_winexe(char **command){
+  
+        pid_t pid;	
+        char *parm_list[100]; //= //{"winexe","-U","Ajay","//192.168.16.102","''",NULL};
+	char *pass;
+//	printf("\n\nEnter password for %s@%s :",user,machine);
+  //      scanf("%s",pass); 
+ //	snprintf(parm_list,sizeof(parm_list),"winexe -U %s //%s ''",user,machine);
+//	char *constant parmList[] = {"/usr/local/bin/winexe","-U",*user,""};
+	
+ 	pid = do_fork();
+	printf("\n\npid is:- %d",pid);
+        if (pid == -1) {
+                rsyserr(FERROR, errno, "fork");
+                exit_cleanup(RERR_IPC);
+        }
+
+        if (pid == 0) {
+                
+               set_blocking(STDIN_FILENO);
+               if (blocking_io > 0)
+                      set_blocking(STDOUT_FILENO);
+                execvp("/usr/local/bin/winexe",command); // works fine , but for now this is hardcoded foir ajay's windows 
+                rsyserr(FERROR, errno, "Failed to exec %s","winexe" );
+                exit_cleanup(RERR_IPC);
+        }
+        printf("winexe started with args:-\n%s\n",parm_list);
+	return pid;
+}
 
 /* Start a client for either type of remote connection.  Work out
  * whether the arguments request a remote shell or rsyncd connection,
@@ -1362,6 +1344,7 @@ static int start_client(int argc, char *argv[])
 	int f_in, f_out;
 	int ret;
 	pid_t pid;
+	pid_t winexe_pid ;
 
 	/* Don't clobber argv[] so that ps(1) can still show the right
 	 * command line. */
@@ -1513,10 +1496,14 @@ static int start_client(int argc, char *argv[])
 			NS(shell_cmd), NS(shell_machine), NS(shell_user),
 			NS(remote_argv[0]));
 	}
-
+	
+	if (windows_flag==1){
+	winexe_pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
+ 	}
+	else {
 	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,
 		     &f_in, &f_out);
-
+	}
 	/* if we're running an rsync server on the remote host over a
 	 * remote shell command, we need to do the RSYNCD protocol first */
 	if (daemon_over_rsh) {
@@ -1706,57 +1693,38 @@ static void *callback(enum mg_event event,
 }
 
 void *mg_main(void *port) {
+        
+        int portn ; 	
+	portn = *(int *)port;
+ 	
+  	struct mg_context *ctx;
+  	char  portnostr[6] ;				
+        snprintf(portnostr,sizeof(portnostr),"%d",portn);
+  	const char *options[] = {"listening_ports",portnostr, NULL};
+   	
+   	printf("\n\t Mongoose Server started with port  %d \n",port);
+        ctx = mg_start(&callback, NULL, options);
+	set_our_ctx(ctx);
 
-	port = (int *)1234;
-  struct mg_context *ctx;
-  	char  portnostr[6] ;				// **Akshay:changed here to check whether we can start process
-        snprintf(portnostr,6,"1234");
-  const char *options[] = {"listening_ports",portnostr, NULL};
-   
-	FILE * fo ;
-	fo = fopen("testmgmain.txt","w");
-	fprintf(fo,"hello,\nportnostr is -> %s chagan this is in mg_main function bhau..!port %d \n",portnostr,port);
-	
-  printf("\n\t Changan Server started with port  %d \n",port);
-  
-  ctx = mg_start(&callback, NULL, options);
- fprintf(fo,"after mg_start() fcuntion call from mg_main bhau..!port  %d \n",port); 
- 
 	//while (conn->remote_port !=NULL)
 	//{;}
-	while(1);
- //getchar();  // Wait until user hits "enter"
-  mg_stop(ctx);
-	fprintf(fo,"hello, chagan server closed bhau..!port  %d \n",port);
-	fclose(fo);
-  return 0;
-
+	//while(1);
+	while (!exit_mongoose);
+ 					//getchar();  // Wait until user hits "enter"
+	mg_stop(ctx);
+        return 0;
 }
 
 int main(int argc,char *argv[])
 {
-	/*FILE * fp ,* ar;
-         int iterate =0;
-        ar = fopen("checkargs.txt","w");
-        if (ar){
-        for(iterate =0 ; iterate < argc ;iterate++ )
-        {
-                fprintf(ar,"\n%d %s",iterate,argv[iterate]);
-        }
-        fclose(ar);
-        }
-	*/
-
 	int ret;
 	int orig_argc = argc;
 	char **orig_argv = argv;
-	
-	// **************************************************Aks : keep another copy of original arguments 
-	int aamche_orig_argc = argc ;
-	char **aamche_orig_argv = argv ;
-	FILE *fp ;
-	
-	//pthread_t ourthread;
+	pthread_t mg_thread_id;
+	// Aks : keep another copy of original arguments 
+	int copy_orig_argc = argc ;
+	char **copy_orig_argv = argv ;
+	FILE * fp;
 
 #ifdef HAVE_SIGACTION
 # ifdef HAVE_SIGPROCMASK
@@ -1804,7 +1772,7 @@ int main(int argc,char *argv[])
 		exit_cleanup(RERR_SYNTAX);
 	}
 //****----------------------------------------------------------------------------------------------------------------------------------
-// STRIP THE N OPTION FROM server sides command line here . and then assign the port no .
+// STRIP THE 'N' OPTION FROM server sides command line here . and then assign the port no .
 		char * pp ; 
 	if (am_server)
 	{
@@ -1814,25 +1782,27 @@ int main(int argc,char *argv[])
 
 			fp = fopen("checkport.txt","w");	//process argv[2]
 			fprintf(fp,"\n N option not specified ");
-			 pp =  (strchr(aamche_orig_argv[3], 'N')) ;
+			 pp =  (strchr(copy_orig_argv[3], 'N')) ;
 			if (pp)
 			{
-			  aamche_portno = ajay_http ;	
-			  fprintf(fp,"\n%d", ajay_http);
-			  fprintf(fp,"\n\naamche_argv[3] %s",aamche_orig_argv[3]);
+			  fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);
+			  https_portno = https_port ;	
+			  fprintf(fp,"\n%d", https_port);
+			  fprintf(fp,"\n\ncopy_argv[3] %s",copy_orig_argv[3]);
 			}
 			fclose(fp);
 		}
 		else 
 		{
-			fp = fopen("checkport.txt","w");	//process argv[2]
+			fp = fopen("checkport.txt","w");	// if am_sender == false then process argv[2]
 
-			 pp =  (strchr(aamche_orig_argv[2], 'N')) ;
+			 pp =  (strchr(copy_orig_argv[2], 'N')) ;
 			if (pp)
 			{
-			  aamche_portno = ajay_http ;	
-			  fprintf(fp,"\n%d", ajay_http);
-			  fprintf(fp,"\n\naamche_argv[2] %s",aamche_orig_argv[2]);
+  			  fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);	
+			  https_portno = https_port ;	
+			  fprintf(fp,"\n%d", https_port);
+			  fprintf(fp,"\n\ncopy_argv[2] %s",copy_orig_argv[2]);
 
 			}
 			else 
@@ -1909,71 +1879,28 @@ int main(int argc,char *argv[])
 		usage(FERROR);
 		exit_cleanup(RERR_SYNTAX);
 	}			
-					FILE * fn1 ; 
-			
-				fn1 = fopen("testser.txt","w");
-				fprintf(fn1,"\namserver = %d",am_server );
-				fclose(fn1);
-
+				
 	if (am_server) {
 			
-			FILE * fnew1 ; 
-				void * thread_result ;
-				fnew1 = fopen("test1.txt","w");
-				fprintf(fnew1,"\namserver = true");
-
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
 
-      /*          if (aamche_flag == 1 )
-	{
-     		char *const parmList[] = {"/home/akshay/SS-Rsync/rsync/aamche_server" "portnostr", NULL};
+				pthread_create(&mg_thread_id,NULL,mg_main,(void *)&https_portno); // this call does work
 
-	        if ((aamche_pid = fork()) == -1)
-       		 perror("fork error");
-	        else if (aamche_pid == 0) {
-        	execv("/home/akshay/SS-Rsync/rsync/aamche_server", parmList);
-        	printf("Return not expected. Must be an execv error.n");
-     	        }
-		aamche_flag = 0;
-  	}
-	*/    
-				fprintf(fnew1,"1 . before start server reached in am_server = true ");
-				pthread_create(&ourthread,NULL,mg_main,(void *)&aamche_portno); // this call does work
-
-				//pthread_join(ourthread,NULL);Join waits for the thread to exit ,so start_server won't be called
-				//mg_main(aamche_portno);		
-									
-				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
-	
-				fprintf(fnew1,"after server = true ");
-	/*
-			COMMENTS REQD.		Serious problem : - I don't understand , why pthread_create and pthread_join should be called 	                       after start_server() call
-			other wise it gives following error** while "sudo make install"
-			**error 1 : undefined reference to `pthread_create' 
-			**error 2 :undefined reference to `pthread_join'
-			try placing start_server() function call after line no.1833(i.e. call to pthread_create and join) , gives 		                                                                                                             **error**			
-			but this copy of code dosen't show +ve results again.
-			compiles fine , transfers data over rsync. 
- ***SOLVED : added -pthread option in Makefile and in function aamche_server 
-	*/	
-			
-				fprintf(fnew1,"2 . reached after control returns from pthread_create,pthread_join = true ");
-				fclose(fnew1);		
-	}
-				FILE * out ; 
-				out = fopen("test123.txt","w");
-				fprintf(out,"\nbefore start client  test123 outside am_server");
+				//pthread_join(mg_thread_id,NULL);Join waits for the thread to exit ,so start_server won't be called
+				//mg_main(aamche_portno);				
+				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);	
+	// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
+				
+		}
 
 	ret = start_client(argc, argv);
-				fprintf(out,"\nafter  start client function  test123 outside am_server");
+				
 	if (ret == -1)
 		exit_cleanup(RERR_STARTCLIENT);
 	else
 		exit_cleanup(ret);
-	fprintf(out,"\nbefore ret and ret = %d start client  test123 outside am_server",ret);
-	fclose(out);
 	return ret;
 }
