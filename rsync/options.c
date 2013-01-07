@@ -42,7 +42,7 @@ int make_backups = 0;
  *
  * @sa disable_deltas_p()
  **/
-int ajay_http = 0;   //arg_ptr fot http option this value is set if option matches
+int https_port = 0;   //arg_ptr fot http option this value is set if option matches
 int windows_flag = 0;
 
 int whole_file = -1;
@@ -89,7 +89,7 @@ int numeric_ids = 0;
 int msgs2stderr = 0;
 int allow_8bit_chars = 0;
 int force_delete = 0;
-int io_timeout = 60;
+int io_timeout = 0;
 int prune_empty_dirs = 0;
 int use_qsort = 0;
 char *files_from = NULL;
@@ -1514,8 +1514,8 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 			break;
 		case 'N':
 			printf("\n\n I AM IN N OPTION\n\n");
-			printf("\n\n value of the port to be open is %d \n\n on server side it will be deafult 1234\n",ajay_http);
-			ajay_http= 1234 ;
+			printf("\n\n value of the port to be open is %d \n\n on server side it will be deafult 1234\n",https_port);
+			https_port= 1234 ;
 			//printf("\n\n port value is 1234\n\n");
 			break;	
 			//char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
@@ -2402,13 +2402,9 @@ void server_options(char **args, int *argc_p)
 	for (i = 0; i < verbose; i++)
 		argstr[x++] = 'v';
 	
-	if (ajay_http)                   /// ****Aks : THIS will construct ssh command with option such as -vlogDtprze31.14iLs . /destinationonserver//
+	if (https_port)                   /// ****Aks : THIS will construct ssh command with option such as -vlogDtprze31.14iLs . /destinationonserver//
 	{
 	 argstr[x++] = 'N';
-	}
-	if (windows_flag)
-	{
-	 argstr[x++] = 'w';
 	}
 	
 	/* the -q option is intentionally left out */
