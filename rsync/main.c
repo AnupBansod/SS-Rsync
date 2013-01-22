@@ -547,10 +547,13 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 		setup_iconv();
 #endif
 	} else {
+		printf("//////////////aaaaaaaaaaaaaaaa/////////////////////// f_in_p %d  %d",f_in_p,f_out_p);
 		pid = piped_child(args, f_in_p, f_out_p);
+		printf("\n\nprinting pid to detrmine which process return: %d", pid);
 #ifdef ICONV_CONST
 		setup_iconv();
 #endif
+		printf("for send_protected_arg %d %s %s %s", *f_out_p,args[0],args[1],args[2]);
 		if (protect_args && !daemon_over_rsh)
 			send_protected_args(*f_out_p, args);
 	}
@@ -1158,7 +1161,7 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	struct file_list *flist = NULL;
 	int exit_code = 0, exit_code2 = 0;
 	char *local_name = NULL;
-
+	printf("valus of f_in and f_out in client run function: %d %d ",f_in, f_out);
 	cleanup_child_pid = pid;
 	if (!read_batch) {
 		set_nonblocking(f_in);
@@ -1200,7 +1203,9 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 
 		if (write_batch && !am_server)
 			start_write_batch(f_out);
-		flist = send_file_list(f_out, argc, argv);
+		printf("\n****************this change made to find fd");
+		printf("argv : %s %s",argv[0],argv[1]);
+		flist =send_file_list(f_out, argc, argv);
 		if (DEBUG_GTE(FLIST, 3))
 			rprintf(FINFO,"file list sent\n");
 
@@ -1342,6 +1347,7 @@ static int start_client(int argc, char *argv[])
 	char **remote_argv;
 	int remote_argc;
 	int f_in, f_out;
+	int f_in1,f_out1;    //declared to get fd for https client process
 	int ret;
 	pid_t pid;
 	pid_t winexe_pid ;
@@ -1501,8 +1507,10 @@ static int start_client(int argc, char *argv[])
 	winexe_pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
  	}
 	else {
-	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,
-		     &f_in, &f_out);
+	printf("value in start_client function: %d  %d", &f_in,&f_out);
+	//pid=do_over_http(&f_in1, &f_out1);
+	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out);
+	pid = do_over_http(&f_in1, &f_out1);
 	}
 	/* if we're running an rsync server on the remote host over a
 	 * remote shell command, we need to do the RSYNCD protocol first */
@@ -1521,7 +1529,63 @@ static int start_client(int argc, char *argv[])
 	return ret;
 }
 
+pid_t do_over_http(int *f_in1, int *f_out1)
+{
 
+pid_t our_pid;
+int to_child_pipe_temp[2];
+int from_child_pipe_temp[2]; 
+const char *argv[10];
+argv[0]="./client";
+argv[1]=NULL;
+if (fd_pair(to_child_pipe_temp) < 0 || fd_pair(from_child_pipe_temp) < 0) {
+                rsyserr(FERROR, errno, "pipe");
+                exit_cleanup(RERR_IPC);
+        }
+printf("\n\n\n\n");
+printf("\n************\n");
+printf("value of the fdwhich i have created is:\n");
+printf("to_child_pipe_temp[0]=%d \nto_child_pipe_temp[1]=%d \nfrom_child_pipe_temp[0]=%d \nfrom_child_pipe_temp[1]=%d", to_child_pipe_temp[0],to_child_pipe_temp[1],from_child_pipe_temp[0],from_child_pipe_temp[1]);
+printf("\n\n\n\n");
+
+our_pid=fork();
+printf("\ncreated  the thread");
+if (our_pid == 0) {
+                printf("\n inside the if statement");
+                if (dup2(to_child_pipe_temp[0], STDIN_FILENO) < 0 ||
+                    close(to_child_pipe_temp[1]) < 0 ||
+                    close(from_child_pipe_temp[0]) < 0 ||
+                    dup2(from_child_pipe_temp[1], STDOUT_FILENO) < 0) {
+                        rsyserr(FERROR, errno, "Failed to dup/close");
+                        exit_cleanup(RERR_IPC);
+                }
+                if (to_child_pipe_temp[0] != STDIN_FILENO)
+                        close(to_child_pipe_temp[0]);
+                if (from_child_pipe_temp[1] != STDOUT_FILENO)
+                        close(from_child_pipe_temp[1]);
+                set_blocking(STDIN_FILENO);
+                if (blocking_io > 0)
+                        set_blocking(STDOUT_FILENO);
+               // execvp(command[0], command);
+             int err = execvp("/home/ajay/client",argv);     
+		if(err == -1)
+			printf("\n Error while execvp of client");
+//		 printf("command is %s  %s  %s  %s",command[0],command[1],command[2],command[3]);
+  //              rsyserr(FERROR, errno, "Failed to exec %s", command[0]);
+                exit_cleanup(RERR_IPC);
+        }
+
+ if (close(from_child_pipe_temp[1]) < 0 || close(to_child_pipe_temp[0]) < 0) {
+                rsyserr(FERROR, errno, "Failed to close");
+                exit_cleanup(RERR_IPC);
+        }
+
+        *f_in1 = from_child_pipe_temp[0];
+        *f_out1 = to_child_pipe_temp[1];
+printf("\n\n *f_in1= %d,*f_out1=%d\n\n\n\n", *f_in1, *f_out1);
+        return our_pid;
+
+}
 static RETSIGTYPE sigusr1_handler(UNUSED(int val))
 {
 	exit_cleanup(RERR_SIGNAL1);
