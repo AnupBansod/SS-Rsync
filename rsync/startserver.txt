@@ -1,0 +1,17 @@
+
+inside start server 
+before io ser sock fds f_in= 0 fout=1
+after io ser sock fds f_in= 0 fout=1
+after setup protocol ,protool version = 31 
+ am_daemon =0 
+io_timeout = 0 
+am_sender = 	 			0
+before server_recv finction 
+inside start server 
+before io ser sock fds f_in= 0 fout=1
+after io ser sock fds f_in= 0 fout=1
+after setup protocol ,protool version = 31 
+ am_daemon =0 
+io_timeout = 0 
+am_sender = 	 			0
+before server_recv finction 

@@ -1,0 +1,22 @@
+inside safe_write() 
+ fd = 5
+buf= 
+len = 4inside safe_write() 
+ fd = 5
+buf= 
+len = 4inside safe_write() 
+ fd = 4
+buf= 
+len = 4inside safe_write() 
+ fd = 5
+buf= 
+len = 4inside safe_write() 
+ fd = 4
+buf= 
+len = 4inside safe_write() 
+ fd = 4
+buf= 
+len = 4inside safe_write() 
+ fd = 4
+buf= 
+len = 4

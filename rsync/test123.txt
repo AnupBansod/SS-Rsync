@@ -1,0 +1,2 @@
+
+before start client  test123 outside am_server
