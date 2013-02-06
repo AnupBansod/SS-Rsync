@@ -30,7 +30,13 @@
 #include "rsync.h"
 #include "ifuncs.h"
 #include "inums.h"
-
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
+#include<unistd.h>
 /** If no timeout is specified then use a 60 second select timeout */
 #define SELECT_TIMEOUT 1
 
@@ -224,6 +230,18 @@ static NORETURN void whine_about_eof(BOOL allow_kluge)
 	exit_cleanup(RERR_STREAMIO);
 }
 
+static size_t safe_read(int, char *, size_t);
+
+
+void temp_read(int *f_in1,int *f_out1)
+{
+char buff[1024];
+size_t len=sizeof(buff);
+if(safe_read(*f_out1,buff,len))
+{
+printf("successful");
+}
+}
 /* Do a safe read, handling any needed looping and error handling.
  * Returns the count of the bytes read, which will only be different
  * from "len" if we encountered an EOF.  This routine is not used on
@@ -234,7 +252,7 @@ static size_t safe_read(int fd, char *buf, size_t len)
 	int n;
 
 	assert(fd != iobuf.in_fd);
-
+	printf("\n\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_\nsize of the data buf  in safe_read is %d",len);
 	n = read(fd, buf, len);
 	if ((size_t)n == len || n == 0) {
 		if (DEBUG_GTE(IO, 2))
@@ -298,6 +316,28 @@ static size_t safe_read(int fd, char *buf, size_t len)
 	return got;
 }
 
+/*
+void temp_read(int *f_in1,int *f_out1)                                                       |pid_t pid_temp;
+{                                                                                            |char buff[1024];
+char buff[1024];                                                                             |int to_child[2];
+size_t len=sizeof(buff);                                                                     |int from_child[2];
+if(safe_read(*f_out1,buff,len))                                                              |if(fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
+{                                                                                            |{
+
+
+void temp_read(int *f_in1,int *f_out1)                                                       |int from_child[2];
+{                                                                                            |if(fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
+char buff[1024];                                                                             |{
+size_t len=sizeof(buff);                                                                     |rsyserr(FERROR, errno,"pipe");
+if(safe_read(*f_out1,buff,len))                                                              |exit_cleanup(RERR_IPC);
+{                                                                                            |}
+printf("successful");                                                                        |FILE *fp1;
+}                                                                                            |fp1 = fopen("log.txt","w");
+}   
+
+*/
+
+
 static const char *what_fd_is(int fd)
 {
 	static char buf[20];
@@ -320,10 +360,11 @@ static const char *what_fd_is(int fd)
 static void safe_write(int fd, const char *buf, size_t len)
 {
 	int n;
-
+	int temp_n;
 	assert(fd != iobuf.out_fd);
 
 	n = write(fd, buf, len);
+	printf("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n value of data len buf inn write_buf is %d and contents %s",len,buf);
 	if ((size_t)n == len)
 		return;
 	if (n < 0) {
@@ -1289,8 +1330,9 @@ BOOL io_start_buffering_out(int f_out)
 	if (iobuf.out.buf) {
 		if (iobuf.out_fd == -1)
 			iobuf.out_fd = f_out;
-		else
-			assert(f_out == iobuf.out_fd);
+		else{
+			printf("\n***********************io.buf.out_gd= %d f_out= %d",iobuf.out_fd,f_out);
+			assert(f_out == iobuf.out_fd);}
 		return False;
 	}
 
@@ -2081,6 +2123,26 @@ void write_longint(int f, int64 x)
 void write_buf(int f, const char *buf, size_t len)
 {
 	size_t pos, siz;
+	
+/***********************************************************
+
+int my_sockfd,data_len;
+struct sockaddr_in address;
+int result;
+my_sockfd = socket(AF_INET, SOCK_STREAM,0);
+if(my_sockfd == -1)
+	printf("Error while creating the socket");
+address.sin_family = AF_INET;
+address.sin_addr.s_addr = inet_addr("192.168.16.211");
+address.sin_port = htons(55555);
+data_len = sizeof(address);
+printf("\n i am in the client socket logic %c  %c  %c  %c  %c",buf[0],buf[1],buf[2],buf[3],buf[4] );
+result = connect(my_sockfd, (struct sockaddr *)&address, sizeof(address));
+if(result == -1)
+	printf("Erro while conecting to the sever");
+//write(my_sockfd, buf, strlen(buf));
+close(my_sockfd);
+*************************************************************/
 
 	if (f != iobuf.out_fd) {
 		safe_write(f, buf, len);
