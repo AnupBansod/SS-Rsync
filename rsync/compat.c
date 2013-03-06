@@ -20,7 +20,7 @@
  */
 
 #include "rsync.h"
-
+#include <sys/ioctl.h>
 int remote_protocol = 0;
 int file_extra_cnt = 0; /* count of file-list extras that everyone gets */
 int inc_recurse = 0;
@@ -132,6 +132,21 @@ void set_allow_inc_recurse(void)
 
 void setup_protocol(int f_out,int f_in)
 {
+ 	int n = 0, e, count = 0 ;
+        char *buf, byte;
+	FILE *fp6;
+	fp6 = fopen("set.txt", "w");
+//	printf("\n** value of the f_in: %d", f_in);
+/*	n = write(f_out,"AJAY !! ",9);
+	printf(".........................%d bytes write",n);
+	sleep(20);
+        ioctl(f_in, FIONREAD, &count);
+	buf = malloc(count);
+        int test;
+	test = read(f_in, buf, count);
+	fprintf(fp6,"count %d \nReturn value %d \nTHIS is Last trial\n\n %s",count, test,  buf);
+	fclose(fp6);
+*///	sleep(5);
 	if (am_sender)
 		file_extra_cnt += PTR_EXTRA_CNT;
 	else
@@ -152,8 +167,19 @@ void setup_protocol(int f_out,int f_in)
 		if (am_server && !local_server)
 			check_sub_protocol();
 		if (!read_batch)
-			write_int(f_out, protocol_version);
-		remote_protocol = read_int(f_in);
+		{	write_int(f_out, protocol_version);sleep(2);}
+	// this is read from mongoose's pull function		
+		while(read(f_in, &byte, 1) == 1)
+			{
+				ioctl(f_in, FIONREAD, &count);
+				buf = malloc(count+1);
+				buf[0] = byte;
+				read(f_in, buf+1, count);
+			}	
+	fprintf(fp6,"protocol_version wala %d count %s",count,  buf);
+	fclose(fp6);
+
+		//remote_protocol = read_int(f_in);
 		if (protocol_version > remote_protocol)
 			protocol_version = remote_protocol;
 	}
