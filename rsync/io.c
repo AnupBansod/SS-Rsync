@@ -248,12 +248,15 @@ printf("successful");
  * the socket except very early in the transfer. */
 static size_t safe_read(int fd, char *buf, size_t len)
 {
+	FILE *fp11;
+	fp11 = fopen("testread.txt", "a");
 	size_t got;
 	int n;
 
 	assert(fd != iobuf.in_fd);
 	printf("\n\n-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_\nsize of the data buf  in safe_read is %d",len);
 	n = read(fd, buf, len);
+        fprintf(fp11,"buf: %s", buf);
 	if ((size_t)n == len || n == 0) {
 		if (DEBUG_GTE(IO, 2))
 			rprintf(FINFO, "[%s] safe_read(%d)=%ld\n", who_am_i(), fd, (long)n);
@@ -312,31 +315,9 @@ static size_t safe_read(int fd, char *buf, size_t len)
 				break;
 		}
 	}
-
+         fprintf(fp11,"buf: %s", buf);
 	return got;
 }
-
-/*
-void temp_read(int *f_in1,int *f_out1)                                                       |pid_t pid_temp;
-{                                                                                            |char buff[1024];
-char buff[1024];                                                                             |int to_child[2];
-size_t len=sizeof(buff);                                                                     |int from_child[2];
-if(safe_read(*f_out1,buff,len))                                                              |if(fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
-{                                                                                            |{
-
-
-void temp_read(int *f_in1,int *f_out1)                                                       |int from_child[2];
-{                                                                                            |if(fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
-char buff[1024];                                                                             |{
-size_t len=sizeof(buff);                                                                     |rsyserr(FERROR, errno,"pipe");
-if(safe_read(*f_out1,buff,len))                                                              |exit_cleanup(RERR_IPC);
-{                                                                                            |}
-printf("successful");                                                                        |FILE *fp1;
-}                                                                                            |fp1 = fopen("log.txt","w");
-}   
-
-*/
-
 
 static const char *what_fd_is(int fd)
 {
@@ -359,12 +340,16 @@ static const char *what_fd_is(int fd)
  * is not used on the socket except very early in the transfer. */
 static void safe_write(int fd, const char *buf, size_t len)
 {
+	FILE *fp4;
+	fp4 = fopen("safewr.txt","a");
 	int n;
 	int temp_n;
 	assert(fd != iobuf.out_fd);
-
+        printf("\n\n\nbefore Value of fd for safe write function: %d and buf: %s", fd, buf);
 	n = write(fd, buf, len);
-	printf("-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_\n value of data len buf inn write_buf is %d and contents %s",len,buf);
+        fprintf(fp4, "buf: %s \n", buf);
+        fclose(fp4);
+        printf("\n////////////////////This is the error %s %d ", strerror(errno), n)	;
 	if ((size_t)n == len)
 		return;
 	if (n < 0) {
@@ -412,7 +397,10 @@ static void safe_write(int fd, const char *buf, size_t len)
 			buf += n;
 			len -= n;
 		}
-	}
+            fp4 = fopen("safewr.txt", "a");
+            fprintf(fp4,"buf: %s", buf);
+	    fclose(fp4);
+	}  
 }
 
 /* This is only called when files-from data is known to be available.  We read

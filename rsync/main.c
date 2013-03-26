@@ -23,10 +23,15 @@
 #include "rsync.h"
 #include "inums.h"
 #include "io.h"
+#include <curl/curl.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/ioctl.h>
 #if defined CONFIG_LOCALE && defined HAVE_LOCALE_H
 #include <locale.h>
-#include<stdlib.h>
-#include<pthread.h>
+#include <stdlib.h>
+#include <pthread.h>
 #include "mongoose.h"
 #endif
 
@@ -114,6 +119,43 @@ int exit_mongoose =0 ; // our exit flag for mongoose server to stop. **[Akshay] 
 
 struct mg_context *our_ctx = NULL;
 
+/******************************
+STRUCTURE FOR THE CALLBACK FUNCTION OF CURL LIBRARY
+
+***********************/
+struct MemoryStruct {
+  char *memory;
+  size_t size;
+};
+
+
+static size_t
+WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
+{
+  size_t realsize = size * nmemb;
+  struct MemoryStruct *mem = (struct MemoryStruct *)userp;
+  FILE *fp8;
+  fp8 = fopen("call.txt","a");
+  mem->memory = realloc(mem->memory, mem->size + realsize + 1);
+  if (mem->memory == NULL) {
+    /* out of memory! */
+    printf("not enough memory (realloc returned NULL)\n");
+    exit(EXIT_FAILURE);
+  }
+  fprintf(fp8,"\n\n***** size of realsize: %d", realsize);
+  memcpy(&(mem->memory[mem->size]), contents, realsize);
+  mem->size += realsize;
+  mem->memory[mem->size] = 0;
+  fclose(fp8);
+  return realsize;
+}
+/*********************
+CALLBACK ENDS HERE
+*********************/
+
+
+
+
 /* There's probably never more than at most 2 outstanding child processes,
  * but set it higher, just in case. */
 #define MAXCHILDPROCS 7
@@ -180,6 +222,7 @@ static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)
 	 * this to the caller so that they know something went wrong. */
 	if (waited_pid < 0) {
 		rsyserr(FERROR, errno, "waitpid");
+	       printf("waited_pid = %d",waited_pid);
 		*exit_code_ptr = RERR_WAITCHILD;
 	} else if (!WIFEXITED(status)) {
 #ifdef WCOREDUMP
@@ -190,7 +233,7 @@ static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)
 		if (WIFSIGNALED(status))
 			*exit_code_ptr = RERR_TERMINATED;
 		else
-			*exit_code_ptr = RERR_WAITCHILD;
+		{	*exit_code_ptr = RERR_WAITCHILD;printf("here in else condition for RERR_WAITCHILD"); }
 	} else
 		*exit_code_ptr = WEXITSTATUS(status);
 }
@@ -405,8 +448,10 @@ static void show_malloc_stats(void)
 
 /* Start the remote shell.   cmd may be NULL to use the default. */
 static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, int remote_argc,
-		    int *f_in_p, int *f_out_p)
+		    int *f_in_p, int *f_out_p,pid_t http_pid_check)
 {
+//	if(getppid() != http_pid_check)
+	
 	int i, argc = 0;
 	char *args[MAX_ARGS], *need_to_free = NULL;
 	pid_t pid;
@@ -547,9 +592,11 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 		setup_iconv();
 #endif
 	} else {
-		printf("//////////////aaaaaaaaaaaaaaaa/////////////////////// f_in_p %d  %d",f_in_p,f_out_p);
+		printf("****\n\n Before piped child");
+		//fflush(1);	
 		pid = piped_child(args, f_in_p, f_out_p);
-	//	printf("\n\nprinting pid to detrmine which process return: %d", pid);
+			printf("****\n\n after piped child");
+		
 #ifdef ICONV_CONST
 		setup_iconv();
 #endif
@@ -562,10 +609,12 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 		free(need_to_free);
 
 	return pid;
-
+      
   oom:
 	out_of_memory("do_cmd");
 	return 0; /* not reached */
+      
+//	else {return -1 ;}
 }
 
 /* The receiving side operates in one of two modes:
@@ -886,7 +935,7 @@ static int do_recv(int f_in, int f_out, char *local_name)
 		close(error_pipe[0]);
 
 		/* We can't let two processes write to the socket at one time. */
-		io_end_multiplex_out(MPLX_SWITCHING);
+	io_end_multiplex_out(MPLX_SWITCHING);
 		if (f_in != f_out)
 			close(f_out);
 		sock_f_out = -1;
@@ -1033,8 +1082,8 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 	if (protocol_version >= 30)
 	       { io_start_multiplex_in(f_in);fprintf(fp1,"\n after io_start_multiplex do_server recv");}
 	else
-		io_start_buffering_in(f_in);
-	recv_filter_list(f_in);
+		io_start_buffering_in(f_in);// allocate xArray for xbuf struct in iobuf.in also set iobuf.in_fd= f_in
+	recv_filter_list(f_in); // MUST see function , check the values of each and every internal
 
 	if (filesfrom_fd >= 0) {
 		/* We need to send the files-from names to the sender at the
@@ -1046,7 +1095,7 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 		filesfrom_fd = -1;
 	}
 
-	flist = recv_file_list(f_in);
+	flist = recv_file_list(f_in); // also check through on this function 
 	if (!flist) {
 		fprintf(fp1,"\n before flist wala exitcleanup");
 		rprintf(FERROR,"server_recv: recv_file_list error\n");
@@ -1162,7 +1211,6 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	struct file_list *flist = NULL;
 	int exit_code = 0, exit_code2 = 0;
 	char *local_name = NULL;
-	printf("valus of f_in and f_out in client run function: %d %d ",f_in, f_out);
 	cleanup_child_pid = pid;
 	if (!read_batch) {
 		set_nonblocking(f_in);
@@ -1170,7 +1218,8 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	}
 
 	io_set_sock_fds(f_in, f_out);
-     	setup_protocol(f_out,f_in);				//******* *         *Aks: commented call to setup_protocol()..*********//
+     	//sleep(10);
+	setup_protocol(f_out,f_in);				//******* *         *Aks: commented call to setup_protocol()..*********//
 
 	/* We set our stderr file handle to blocking because ssh might have
 	 * set it to non-blocking.  This can be particularly troublesome if
@@ -1350,7 +1399,7 @@ static int start_client(int argc, char *argv[])
 	int f_in, f_out;
 	int f_in1,f_out1;    //declared to get fd for https client process
 	int ret;
-	pid_t pid;
+	pid_t pid,http_pid;
 
 	/* Don't clobber argv[] so that ps(1) can still show the right
 	 * command line. */
@@ -1504,77 +1553,168 @@ static int start_client(int argc, char *argv[])
 	}
 	
 	if (windows_flag==1){
-	pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
+	 pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
  	}
 	else {
-	printf("value in start_client function: %d  %d", &f_in,&f_out);
-	//do_over_http(&f_in1, &f_out1);
-	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out);
+	
+//       http_pid = do_over_http(&f_in, &f_out);
 
-	do_over_http(&f_in1, &f_out1, &f_in, &f_out);
-	}
+//	if(http_pid != 0)
+//{
+        	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out,http_pid);
+	sleep(5);
+       
+		printf("\nValue of f_in: %d f_out: %d",f_in, f_out);
+		printf("\n PID of the SSH process %d \n PID of the HTTP process %d", pid,http_pid );
+	
 	/* if we're running an rsync server on the remote host over a
 	 * remote shell command, we need to do the RSYNCD protocol first */
+
 	if (daemon_over_rsh) {
 		int tmpret;
 		tmpret = start_inband_exchange(f_in, f_out, shell_user, remote_argc, remote_argv);
 		if (tmpret < 0)
 			return tmpret;
 	}
-	
-	ret = client_run(f_in, f_out, pid, argc, argv);
-	//int ret_temp = client_run(f_in1, f_out1, argc, pid, argv);
+	printf("before sleep");
+	//sleep(10);
+	//printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
 	fflush(stdout);
 	fflush(stderr);
+  
+	     http_pid = do_over_http(&f_in, &f_out, shell_machine);
+		printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
 
+	if(http_pid != 0)
+		ret = client_run(f_in, f_out, pid, argc, argv);
+
+	fflush(stdout);
+	fflush(stderr);
+ //}
+}      
 	return ret;
 }
 
-void do_over_http(int *f_in1, int *f_out1,int *old_f_in, int *old_f_out)
+pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
 {
-pid_t pid_temp;
-char buff[1024];
-int to_child[2];
-int from_child[2];
-if(fd_pair(to_child) < 0 || fd_pair(from_child) < 0 )
+  //sleep(10);
+  int n = 1, i=0 ;  
+ char ch;      
+  pid_t pid;
+  char *buf;
+  FILE *fp;
+  fp = fopen("testdata.txt","a");
+ int to_child[2];
+ int from_child[2];
+if (fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
 {
-	rsyserr(FERROR,errno, "pipe");
+rsyserr(FERROR, errno, "pipe");
+exit_cleanup(RERR_IPC);
+}
+pid = do_fork();
+if(pid == -1)
+{
+	rsyserr(FERROR, errno, "fork");
 	exit_cleanup(RERR_IPC);
 }
-pid_temp = do_fork();
-	if(pid_temp == -1)
+	if(pid == 0)
 	{
-		rsyserr(FERROR, errno,"fork");
-		exit_cleanup(RERR_IPC);
+		close(to_child[1]);
+		close(from_child[0]);
+
+ set_blocking(1);
+ set_blocking(0);	
+ CURL *curl_handle;
+ CURL *curl;
+ strcat(shell_machine, ":8080");
+ char *header = "Content_type: text/xml";
+ static int size_http=0;
+	int n_read = 1, count = 0;
+	char *buf = NULL, byte; 
+	int k =0, l=0 ;
+ struct MemoryStruct chunk;
+CURLcode res;
+  chunk.memory = malloc(1); 
+  chunk.size = 0;    
+curl_global_init(CURL_GLOBAL_ALL);
+curl =  curl_easy_init();
+if (curl){
+ 	fprintf(fp,"Inside the child");  	
+	//sleep(5);
+	//var_read(buf, to_child[0]);
+   curl_easy_setopt(curl, CURLOPT_URL, shell_machine); 
+  while(i++ < 5){
+        struct timeval tv;
+ fd_set r_fd;
+ int cnt;
+ FD_ZERO(&r_fd);
+ FD_SET(to_child[0], &r_fd);
+ tv.tv_sec = 1;
+ tv.tv_usec = 0;
+
+
+	count = 0; 
+        cnt = select(from_child[1]+1, &r_fd, NULL, NULL, &tv); 
+        if(cnt <= 0)
+		printf("\n\n select error");
+	if(io_timeout)
+		maybe_send_keepalive(time(NULL), MSK_ALLOW_FLUSH);	
+       
+       if(FD_ISSET(to_child[0], &r_fd)){
+       while(read(to_child[0], &byte, 1) == 1)
+	{
+		fprintf(fp,"\n Inside teh if block");
+		ioctl(to_child[0], FIONREAD, &count);
+		buf = malloc(count+1);
+		buf[0] = byte;
+		read(to_child[0], buf+1, count);
 	}
-if(pid_temp == 0)
-{
-	FILE * fp;
-	fp = fopen("dataog.txt","w");
-
-	dup2(*old_f_out,to_child[0]);
-	close(to_child[1]);
-	close(from_child[0]);
-	dup2(*old_f_in, from_child[1]);
-
-      char *s;
-      int i = 0;
-      s = (char *) malloc (1000*sizeof(char));
-	while( read(to_child[0], s+i, 1) != 0){
-		if(s[i] == '\n'){
-		 write(fp,s,i+1);
-	
-		}
-		i++;
 	}
-}
-//close(from_child[1]);
-//close(to_child[0]);
-*old_f_in = from_child[0];
-*old_f_out = to_child[1];
+	//sleep(20);
+    fprintf(fp, "=-=-=-=-=-=-=-=-=-=%s %d", buf,count+1);
 
-}
 
+   printf("%s", buf);
+   printf("after CURLOPT_URL");
+   //curl_easy_setopt(curl, CURLOPT_HTTPHEADER,header);
+   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf);
+   curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, count+1);
+   printf("after POST  %s", buf);
+   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");    
+
+	res = curl_easy_perform(curl);
+    if  (!res )
+	printf("post success ");
+    //curl_easy_cleanup(curl);
+    printf("%lu bytes retrieved\n", (long)chunk.size);
+      //sleep(10);
+ 	printf(" chunk :%s", chunk.memory);
+	//strcat(chunk.memory,"\0"); 
+           printf("\n\n\n I am in the loop");
+	l = write(from_child[1], chunk.memory,chunk.size);
+	printf("\nthis is written from do_over_http %d and error %s", l, strerror(errno));
+	if(chunk.memory)
+   	    free(chunk.memory);
+      	        chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
+	        chunk.size = 0;
+		free(buf);
+}  //while ends herei
+  curl_global_cleanup();
+}
+	}
+	else{
+//	fprintf(fp,"  values of fd :%d  %d  %d  %d ", to_child[0], to_child[1], from_child[0], from_child[1]);
+	close(to_child[0]);
+	close(from_child[1]);
+	*f_out = to_child[1];
+	*f_in = from_child[0];
+	return pid;
+}	
+	fclose(fp)   ;
+}
+       
 
 static RETSIGTYPE sigusr1_handler(UNUSED(int val))
 {
@@ -1663,7 +1803,7 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 	 * continue.  I'm not sure if that's right. */
 	ret = system(cmd_buf);
 	if (ret)
-		_exit(ret);
+		E_exit(ret);
 }
 #endif
 
@@ -1710,7 +1850,7 @@ n=read(socknewfd,buff,512);
 	fclose(fp);
 	return  0 ;
 }
-*/
+
 
 static void *callback(enum mg_event event,
                       struct mg_connection *conn) {
@@ -1745,29 +1885,7 @@ static void *callback(enum mg_event event,
     return NULL;
   }
 }
-
-void *mg_main(void *port) {
-        
-        int portn ; 	
-	portn = *(int *)port;
- 	
-  	struct mg_context *ctx;
-  	char  portnostr[6] ;				
-        snprintf(portnostr,sizeof(portnostr),"%d",portn);
-  	const char *options[] = {"listening_ports",portnostr, NULL};
-   	
-   	printf("\n\t Mongoose Server started with port  %d \n",port);
-        ctx = mg_start(&callback, NULL, options);
-	set_our_ctx(ctx);
-
-	//while (conn->remote_port !=NULL)
-	//{;}
-	//while(1);
-	while (!exit_mongoose);
- 					//getchar();  // Wait until user hits "enter"
-	mg_stop(ctx);
-        return 0;
-}
+*/
 
 int main(int argc,char *argv[])
 {
@@ -1935,17 +2053,36 @@ int main(int argc,char *argv[])
 	}			
 				
 	if (am_server) {
-			
+		int mg_pid;	
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
-
-				pthread_create(&mg_thread_id,NULL,mg_main,(void *)&https_portno); // this call does work
-
+			
+				int mg_to_child[2],mg_from_child[2];
+				int mg_fd_in , mg_fd_out;
+				if(fd_pair(mg_to_child) < 0 || fd_pair(mg_from_child) < 0 )
+				{	
+					rsyserr(FERROR,errno, "pipe");
+					exit_cleanup(RERR_IPC);
+                                }
+							
+	
+				if ((mg_pid = fork())==0)
+				{
+					close (mg_to_child[1]);close(mg_from_child[0]);			 
+					  mg_main(https_portno,mg_to_child[0],mg_from_child[1]); // this call does work
+				}
 				//pthread_join(mg_thread_id,NULL);Join waits for the thread to exit ,so start_server won't be called
 				//mg_main(aamche_portno);				
-				start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);	
+				else if (mg_pid < 0 ) {printf("mg_pid :fork error");}
+				else // this is parent
+				{
+					close(mg_to_child[0]); close(mg_from_child[1]);
+				       mg_fd_out = mg_to_child[1];
+				       mg_fd_in = mg_from_child[0];	
+					start_server(mg_fd_in, mg_fd_out, argc, argv);
+				}
 	// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
 				
 		}
