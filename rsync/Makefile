@@ -74,7 +74,7 @@ install-strip:
 	$(MAKE) INSTALL_STRIP='-s' install
 
 rsync$(EXEEXT): $(OBJS)
-	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) -ldl -pthread ##################ADDED -ldl and -pthread
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) -ldl -lcurl -pthread ##################ADDED -ldl and -pthread
 
 $(OBJS): $(HEADERS)
 $(CHECK_OBJS): $(HEADERS)

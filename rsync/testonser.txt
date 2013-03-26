@@ -1,3 +1,0 @@
-this is proof of successfully executing the fork and execvp in start_server function of main.c file
-
-

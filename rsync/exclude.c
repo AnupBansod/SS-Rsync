@@ -1333,6 +1333,10 @@ static void send_rules(int f_out, filter_rule_list *flp)
 		dlen = ent->rflags & FILTRULE_DIRECTORY ? 1 : 0;
 		if (!(plen + len + dlen))
 			continue;
+                FILE *fp8;
+		fp8 = fopen("send.txt","a");
+		fprintf(fp8,"%s  %d  %d  %d", ent->pattern,plen, len , dlen );
+		fclose(fp8);
 		write_int(f_out, plen + len + dlen);
 		if (plen)
 			write_buf(f_out, p, plen);

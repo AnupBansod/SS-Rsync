@@ -4,12 +4,12 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-A	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon33
+A	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon8
 ABORT_ALL	lib/wildmatch.c	20;"	d	file:
 ABORT_TO_STARSTAR	lib/wildmatch.c	21;"	d	file:
 ACCESSPERMS	rsync.h	1087;"	d
-ACCESS_CONTROL_LIST	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon28	file:
-ACCESS_LOG_FILE	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon28	file:
+ACCESS_CONTROL_LIST	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon3	file:
+ACCESS_LOG_FILE	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon3	file:
 ACLS_NEED_MASK	rsync.h	673;"	d
 ACL_BUMP	rsync.h	728;"	d
 ACL_READY	rsync.h	1000;"	d
@@ -27,14 +27,14 @@ ARRAY_LEN	rounding.c	22;"	d	file:
 ARRAY_SIZE	mongoose.c	242;"	d	file:
 ATTRS_REPORT	rsync.h	166;"	d
 ATTRS_SKIP_MTIME	rsync.h	167;"	d
-AUTHENTICATION_DOMAIN	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon28	file:
+AUTHENTICATION_DOMAIN	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon3	file:
 AVAIL_OUT_SIZE	token.c	277;"	d	file:
 AVOID_BYTEORDER_INLINE	byteorder.h	22;"	d
 Assert	zlib/zutil.h	248;"	d
 Assert	zlib/zutil.h	255;"	d
-B	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon33
+B	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon8
 BACKUP_SUFFIX	rsync.h	38;"	d
-BAD	zlib/inflate.h	/^    BAD,        \/* got a data error -- remain here until reset *\/$/;"	e	enum:__anon13
+BAD	zlib/inflate.h	/^    BAD,        \/* got a data error -- remain here until reset *\/$/;"	e	enum:__anon9
 BAD	zlib/inflate.h	20;"	d
 BASE	zlib/adler32.c	11;"	d	file:
 BB_PER_SLOT_BITS	util.c	1513;"	d	file:
@@ -65,7 +65,7 @@ Byte	zlib/zconf.h	50;"	d
 Bytef	zlib/zconf.h	/^   typedef Byte  FAR Bytef;$/;"	t
 Bytef	zlib/zconf.h	268;"	d
 Bytef	zlib/zconf.h	53;"	d
-C	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon33
+C	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon8
 CALL_OR_ERROR	acls.c	356;"	d	file:
 CAN_CHMOD_SYMLINK	rsync.h	383;"	d
 CAN_CHOWN_SYMLINK	rsync.h	379;"	d
@@ -89,12 +89,12 @@ CF_INC_RECURSE	compat.c	75;"	d	file:
 CF_SAFE_FLIST	compat.c	78;"	d	file:
 CF_SYMLINK_ICONV	compat.c	77;"	d	file:
 CF_SYMLINK_TIMES	compat.c	76;"	d	file:
-CGI_ENVIRONMENT	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon28	file:
+CGI_ENVIRONMENT	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon3	file:
 CGI_ENVIRONMENT_SIZE	mongoose.c	238;"	d	file:
-CGI_EXTENSIONS	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon28	file:
-CGI_INTERPRETER	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon28	file:
+CGI_EXTENSIONS	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon3	file:
+CGI_INTERPRETER	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon3	file:
 CHAR_OFFSET	rsync.h	42;"	d
-CHECK	zlib/inflate.h	/^    CHECK,      \/* i: waiting for 32-bit check value *\/$/;"	e	enum:__anon13
+CHECK	zlib/inflate.h	/^    CHECK,      \/* i: waiting for 32-bit check value *\/$/;"	e	enum:__anon9
 CHECK_OBJS	Makefile	/^CHECK_OBJS=tls.o testrun.o getgroups.o getfsdev.o t_stub.o t_unsafe.o trimslash.o wildtest.o$/;"	m
 CHECK_PROGS	Makefile	/^CHECK_PROGS = rsync$(EXEEXT) tls$(EXEEXT) getgroups$(EXEEXT) getfsdev$(EXEEXT) \\$/;"	m
 CHECK_SYMLINKS	Makefile	/^CHECK_SYMLINKS = testsuite\/chown-fake.test testsuite\/devices-fake.test testsuite\/xattrs-hlink.test$/;"	m
@@ -116,14 +116,14 @@ CNK_PRCNT	lib/snprintf.c	220;"	d	file:
 CNK_PTR	lib/snprintf.c	218;"	d	file:
 CNK_STRING	lib/snprintf.c	217;"	d	file:
 CNK_UINT	lib/snprintf.c	213;"	d	file:
-CODELENS	zlib/inflate.h	/^        CODELENS,   \/* i: waiting for length\/lit and distance code lengths *\/$/;"	e	enum:__anon13
-CODES	zlib/inftrees.h	/^    CODES,$/;"	e	enum:__anon11
+CODELENS	zlib/inflate.h	/^        CODELENS,   \/* i: waiting for length\/lit and distance code lengths *\/$/;"	e	enum:__anon9
+CODES	zlib/inftrees.h	/^    CODES,$/;"	e	enum:__anon14
 COE	acls.c	364;"	d	file:
 COE2	acls.c	365;"	d	file:
-COMMENT	zlib/inflate.h	/^    COMMENT,    \/* i: waiting for end of comment (gzip) *\/$/;"	e	enum:__anon13
+COMMENT	zlib/inflate.h	/^    COMMENT,    \/* i: waiting for end of comment (gzip) *\/$/;"	e	enum:__anon9
 COMMENT_STATE	zlib/deflate.h	54;"	d
 CONFIG_LOCALE	config.h	17;"	d
-COPY	zlib/inflate.h	/^        COPY,       \/* i\/o: waiting for input or output to copy stored block *\/$/;"	e	enum:__anon13
+COPY	zlib/inflate.h	/^        COPY,       \/* i\/o: waiting for input or output to copy stored block *\/$/;"	e	enum:__anon9
 COUNT_DEBUG	rsync.h	1275;"	d
 COUNT_INFO	rsync.h	1249;"	d
 CPPFLAGS	Makefile	/^CPPFLAGS=$/;"	m
@@ -133,15 +133,15 @@ CRYPTO_LIB	mongoose.c	115;"	d	file:
 CRYPTO_LIB	mongoose.c	204;"	d	file:
 CRYPTO_LIB	mongoose.c	210;"	d	file:
 CRYPTO_LOCK	mongoose.c	302;"	d	file:
-CRYPTO_num_locks	mongoose.c	358;"	d	file:
-CRYPTO_set_id_callback	mongoose.c	361;"	d	file:
-CRYPTO_set_locking_callback	mongoose.c	359;"	d	file:
+CRYPTO_num_locks	mongoose.c	360;"	d	file:
+CRYPTO_set_id_callback	mongoose.c	363;"	d	file:
+CRYPTO_set_locking_callback	mongoose.c	361;"	d	file:
 CSUM_CHUNK	lib/mdigest.h	7;"	d
 CVAL	byteorder.h	34;"	d
 Checksum searching	tech_report.tex	/^the weak checksum matches.$/;"	s
 Code	zlib/deflate.h	74;"	d
 Continuation	params.c	/^static int Continuation( char *line, int pos )$/;"	f	file:
-D	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon33
+D	lib/mdigest.h	/^	uint32 A, B, C, D;$/;"	m	struct:__anon8
 DAEMON_OBJ	Makefile	/^DAEMON_OBJ = params.o loadparm.o clientserver.o access.o connection.o authenticate.o$/;"	m
 DBL_EPSILON	popt/popt.c	22;"	d	file:
 DEBUG	lib/sysacls.c	30;"	d	file:
@@ -198,18 +198,17 @@ DEL_RECURSE	rsync.h	256;"	d
 DEV_EXTRA_CNT	rsync.h	717;"	d
 DEV_MAJOR	rsync.h	782;"	d
 DEV_MINOR	rsync.h	783;"	d
-DICT	zlib/inflate.h	/^    DICT,       \/* waiting for inflateSetDictionary() call *\/$/;"	e	enum:__anon13
-DICTID	zlib/inflate.h	/^    DICTID,     \/* i: waiting for dictionary check value *\/$/;"	e	enum:__anon13
-DIFF	packaging/patch-update	/^    DIFF: while (<PIPE>) {$/;"	l
+DICT	zlib/inflate.h	/^    DICT,       \/* waiting for inflateSetDictionary() call *\/$/;"	e	enum:__anon9
+DICTID	zlib/inflate.h	/^    DICTID,     \/* i: waiting for dictionary check value *\/$/;"	e	enum:__anon9
 DIR	mongoose.c	/^typedef struct DIR {$/;"	s	file:
 DIR	mongoose.c	/^} DIR;$/;"	t	typeref:struct:DIR	file:
 DIRNODE_EXTRA_CNT	rsync.h	718;"	d
 DIR_FIRST_CHILD	rsync.h	787;"	d
 DIR_NEXT_SIBLING	rsync.h	788;"	d
 DIR_PARENT	rsync.h	786;"	d
-DIST	zlib/inflate.h	/^            DIST,       \/* i: waiting for distance code *\/$/;"	e	enum:__anon13
-DISTEXT	zlib/inflate.h	/^            DISTEXT,    \/* i: waiting for distance extra bits *\/$/;"	e	enum:__anon13
-DISTS	zlib/inftrees.h	/^    DISTS$/;"	e	enum:__anon11
+DIST	zlib/inflate.h	/^            DIST,       \/* i: waiting for distance code *\/$/;"	e	enum:__anon9
+DISTEXT	zlib/inflate.h	/^            DISTEXT,    \/* i: waiting for distance extra bits *\/$/;"	e	enum:__anon9
+DISTS	zlib/inftrees.h	/^    DISTS$/;"	e	enum:__anon14
 DIST_CODE_LEN	zlib/trees.c	85;"	d	file:
 DO1	zlib/adler32.c	15;"	d	file:
 DO1	zlib/crc32.c	215;"	d	file:
@@ -220,10 +219,10 @@ DO8	zlib/adler32.c	18;"	d	file:
 DO8	zlib/crc32.c	216;"	d	file:
 DOBIG32	zlib/crc32.c	299;"	d	file:
 DOBIG4	zlib/crc32.c	296;"	d	file:
-DOCUMENT_ROOT	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon28	file:
+DOCUMENT_ROOT	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon3	file:
 DOLIT32	zlib/crc32.c	259;"	d	file:
 DOLIT4	zlib/crc32.c	256;"	d	file:
-DONE	zlib/inflate.h	/^    DONE,       \/* finished check, done -- remain here until reset *\/$/;"	e	enum:__anon13
+DONE	zlib/inflate.h	/^    DONE,       \/* finished check, done -- remain here until reset *\/$/;"	e	enum:__anon9
 DOTDIR_NAME	flist.c	104;"	d	file:
 DO_FALLOC_OPTIONS	syscall.c	429;"	d	file:
 DP_C_CHAR	lib/snprintf.c	202;"	d	file:
@@ -272,33 +271,33 @@ EARLY_DELAY_DONE_MSG	generator.c	123;"	d	file:
 EARLY_DELETE_DONE_MSG	generator.c	124;"	d	file:
 EMPTY_ITEM_LIST	rsync.h	923;"	d
 EMPTY_XBUF	rsync.h	934;"	d
-ENABLE_DIRECTORY_LISTING	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon28	file:
-ENABLE_KEEP_ALIVE	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon28	file:
+ENABLE_DIRECTORY_LISTING	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon3	file:
+ENABLE_KEEP_ALIVE	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon3	file:
 END_BLOCK	zlib/trees.c	49;"	d	file:
 END_FLAG	token.c	264;"	d	file:
 ENOATTR	lib/sysxattrs.h	13;"	d
 ENODATA	fileio.c	26;"	d	file:
 ENOUGH	zlib/inftrees.h	43;"	d
 ENSURE_MEMSPACE	util.c	585;"	d	file:
-ENTRIES_PER_CONFIG_OPTION	mongoose.c	482;"	d	file:
+ENTRIES_PER_CONFIG_OPTION	mongoose.c	484;"	d	file:
 EPOCH_DIFF	mongoose.c	93;"	d	file:
 EQUAL	zlib/deflate.c	159;"	d	file:
 ERRNO	mongoose.c	112;"	d	file:
 ERRNO	mongoose.c	221;"	d	file:
-ERROR_LOG_FILE	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon28	file:
+ERROR_LOG_FILE	mongoose.c	/^  ACCESS_LOG_FILE, ENABLE_DIRECTORY_LISTING, ERROR_LOG_FILE,$/;"	e	enum:__anon3	file:
 ERR_MSG	zlib/zutil.h	59;"	d
 ERR_RETURN	zlib/zutil.h	61;"	d
-ERR_error_string	mongoose.c	364;"	d	file:
-ERR_get_error	mongoose.c	363;"	d	file:
+ERR_error_string	mongoose.c	366;"	d	file:
+ERR_get_error	mongoose.c	365;"	d	file:
 EWOULDBLOCK	mongoose.c	118;"	d	file:
 EWOULDBLOCK	rsync.h	1063;"	d
 EXEEXT	Makefile	/^EXEEXT=$/;"	m
-EXLEN	zlib/inflate.h	/^    EXLEN,      \/* i: waiting for extra length (gzip) *\/$/;"	e	enum:__anon13
+EXLEN	zlib/inflate.h	/^    EXLEN,      \/* i: waiting for extra length (gzip) *\/$/;"	e	enum:__anon9
 EXPAND_ITEM_LIST	rsync.h	931;"	d
 EXPECTED_SIZE	rounding.c	31;"	d	file:
-EXTRA	zlib/inflate.h	/^    EXTRA,      \/* i: waiting for extra bytes (gzip) *\/$/;"	e	enum:__anon13
+EXTRA	zlib/inflate.h	/^    EXTRA,      \/* i: waiting for extra bytes (gzip) *\/$/;"	e	enum:__anon9
 EXTRA_LEN	rsync.h	715;"	d
-EXTRA_MIME_TYPES	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon28	file:
+EXTRA_MIME_TYPES	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon3	file:
 EXTRA_ROUNDING	rounding.h	1;"	d
 EXTRA_STATE	zlib/deflate.h	52;"	d
 EatComment	params.c	/^static int EatComment( FILE *InFile )$/;"	f	file:
@@ -312,10 +311,10 @@ F	lib/md5.c	62;"	d	file:
 F	lib/md5.c	81;"	d	file:
 F	lib/md5.c	82;"	d	file:
 F	lib/mdfour.c	33;"	d	file:
-F1	mongoose.c	1992;"	d	file:
-F2	mongoose.c	1993;"	d	file:
-F3	mongoose.c	1994;"	d	file:
-F4	mongoose.c	1995;"	d	file:
+F1	mongoose.c	1994;"	d	file:
+F2	mongoose.c	1995;"	d	file:
+F3	mongoose.c	1996;"	d	file:
+F4	mongoose.c	1997;"	d	file:
 FALSE	lib/wildmatch.c	18;"	d	file:
 FAR	zlib/zconf.h	185;"	d
 FAR	zlib/zconf.h	187;"	d
@@ -362,7 +361,7 @@ FILTRULE_WILD3_SUFFIX	rsync.h	859;"	d
 FILTRULE_WORD_SPLIT	rsync.h	863;"	d
 FINFO	rsync.h	/^    FERROR_XFER=1, FINFO=2, \/* sent over socket for any protocol *\/$/;"	e	enum:logcode
 FINISH_STATE	zlib/deflate.h	57;"	d
-FLAGS	zlib/inflate.h	/^    FLAGS,      \/* i: waiting for method and flags (gzip) *\/$/;"	e	enum:__anon13
+FLAGS	zlib/inflate.h	/^    FLAGS,      \/* i: waiting for method and flags (gzip) *\/$/;"	e	enum:__anon9
 FLAG_CONTENT_DIR	rsync.h	72;"	d
 FLAG_DIRS_ONLY	chmod.c	27;"	d	file:
 FLAG_DIR_CREATED	rsync.h	71;"	d
@@ -448,7 +447,7 @@ GETPGRP_ARG	progress.c	38;"	d	file:
 GETPGRP_VOID	config.h	35;"	d
 GF2_DIM	zlib/crc32.c	339;"	d	file:
 GLOBAL_NAME	loadparm.c	85;"	d	file:
-GLOBAL_PASSWORDS_FILE	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon28	file:
+GLOBAL_PASSWORDS_FILE	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon3	file:
 GROUP	lib/sysacls.h	142;"	d
 GUNZIP	zlib/inflate.h	16;"	d
 GZIP	zlib/deflate.h	23;"	d
@@ -584,14 +583,14 @@ HAVE_VSNPRINTF	zlib/zutil.h	188;"	d
 HAVE_WAIT4	config.h	552;"	d
 HAVE_WAITPID	config.h	555;"	d
 HAVE_ZLIB_H	config.h	558;"	d
-HCRC	zlib/inflate.h	/^    HCRC,       \/* i: waiting for header crc (gzip) *\/$/;"	e	enum:__anon13
+HCRC	zlib/inflate.h	/^    HCRC,       \/* i: waiting for header crc (gzip) *\/$/;"	e	enum:__anon9
 HCRC_STATE	zlib/deflate.h	55;"	d
-HEAD	zlib/inflate.h	/^    HEAD,       \/* i: waiting for magic header *\/$/;"	e	enum:__anon13
+HEAD	zlib/inflate.h	/^    HEAD,       \/* i: waiting for magic header *\/$/;"	e	enum:__anon9
 HEADERS	Makefile	/^HEADERS=byteorder.h config.h errcode.h  rsync.h ifuncs.h itypes.h inums.h \\$/;"	m
 HEAP_SIZE	zlib/deflate.h	45;"	d
 HELP_PRIORITY	options.c	229;"	d	file:
-HEXTOI	mongoose.c	1630;"	d	file:
-HIDE_FILES	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon28	file:
+HEXTOI	mongoose.c	1632;"	d	file:
+HIDE_FILES	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon3	file:
 HLINK_BUMP	rsync.h	727;"	d
 HOST_NAME_MAX	lib/getaddrinfo.c	57;"	d	file:
 HT_KEY	rsync.h	629;"	d
@@ -613,7 +612,7 @@ ICONV_OPTION	rsync.h	466;"	d
 INADDR_LOOPBACK	rsync.h	1150;"	d
 INADDR_NONE	rsync.h	1154;"	d
 INADDR_NONE	rsync.h	665;"	d
-INDEX_FILES	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon28	file:
+INDEX_FILES	mongoose.c	/^  GLOBAL_PASSWORDS_FILE, INDEX_FILES, ENABLE_KEEP_ALIVE, ACCESS_CONTROL_LIST,$/;"	e	enum:__anon3	file:
 INET6	config.h	583;"	d
 INFO_BACKUP	rsync.h	1236;"	d
 INFO_COPY	rsync.h	1237;"	d
@@ -703,18 +702,18 @@ IVALu	byteorder.h	59;"	d
 LDFLAGS	Makefile	/^LDFLAGS=$/;"	m
 LDOUBLE	lib/snprintf.c	149;"	d	file:
 LDOUBLE	lib/snprintf.c	151;"	d	file:
-LEN	zlib/inflate.h	/^            LEN,        \/* i: waiting for length\/lit code *\/$/;"	e	enum:__anon13
+LEN	zlib/inflate.h	/^            LEN,        \/* i: waiting for length\/lit code *\/$/;"	e	enum:__anon9
 LEN64_BUMP	rsync.h	725;"	d
-LENEXT	zlib/inflate.h	/^            LENEXT,     \/* i: waiting for length extra bits *\/$/;"	e	enum:__anon13
-LENGTH	zlib/inflate.h	/^    LENGTH,     \/* i: waiting for 32-bit length (gzip) *\/$/;"	e	enum:__anon13
+LENEXT	zlib/inflate.h	/^            LENEXT,     \/* i: waiting for length extra bits *\/$/;"	e	enum:__anon9
+LENGTH	zlib/inflate.h	/^    LENGTH,     \/* i: waiting for 32-bit length (gzip) *\/$/;"	e	enum:__anon9
 LENGTH_CODES	zlib/deflate.h	30;"	d
-LENLENS	zlib/inflate.h	/^        LENLENS,    \/* i: waiting for code length code lengths *\/$/;"	e	enum:__anon13
-LENS	zlib/inftrees.h	/^    LENS,$/;"	e	enum:__anon11
+LENLENS	zlib/inflate.h	/^        LENLENS,    \/* i: waiting for code length code lengths *\/$/;"	e	enum:__anon9
+LENS	zlib/inftrees.h	/^    LENS,$/;"	e	enum:__anon14
 LIBOBJ	Makefile	/^LIBOBJ=lib\/wildmatch.o lib\/compat.o lib\/snprintf.o lib\/mdfour.o lib\/md5.o \\$/;"	m
 LIBS	Makefile	/^LIBS= libmongoose.so$/;"	m
 LIMIT_PRIORITY	options.c	231;"	d	file:
-LISTENING_PORTS	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon28	file:
-LIT	zlib/inflate.h	/^            LIT,        \/* o: waiting for output space to write literal *\/$/;"	e	enum:__anon13
+LISTENING_PORTS	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon3	file:
+LIT	zlib/inflate.h	/^            LIT,        \/* o: waiting for output space to write literal *\/$/;"	e	enum:__anon9
 LITERALS	zlib/deflate.h	33;"	d
 LLONG	lib/snprintf.c	158;"	d	file:
 LLONG	lib/snprintf.c	160;"	d	file:
@@ -729,14 +728,15 @@ MAKEDEV	rsync.h	443;"	d
 MAKEDEV	rsync.h	445;"	d
 MAKEUQUAD	mongoose.c	90;"	d	file:
 MALLOC_MAX	util.c	1387;"	d	file:
-MAP_FAILED	mongoose.c	3913;"	d	file:
-MAP_PRIVATE	mongoose.c	3914;"	d	file:
+MAP_FAILED	mongoose.c	3915;"	d	file:
+MAP_PRIVATE	mongoose.c	3916;"	d	file:
 MASK32	lib/mdfour.c	31;"	d	file:
-MATCH	zlib/inflate.h	/^            MATCH,      \/* o: waiting for output space to copy string *\/$/;"	e	enum:__anon13
+MATCH	zlib/inflate.h	/^            MATCH,      \/* o: waiting for output space to copy string *\/$/;"	e	enum:__anon9
 MAX	lib/snprintf.c	224;"	d	file:
 MAX	rsync.h	637;"	d
 MAXBITS	zlib/inftrees.c	9;"	d	file:
-MAXCHILDPROCS	main.c	119;"	d	file:
+MAXCHILDPROCS	main.c	160;"	d	file:
+MAXCHILDPROCS	tempmain.c	119;"	d	file:
 MAXD	zlib/inftrees.h	44;"	d
 MAXHOSTNAMELEN	rsync.h	641;"	d
 MAXPATHLEN	rsync.h	649;"	d
@@ -774,12 +774,12 @@ MD4_DIGEST_LEN	lib/mdigest.h	3;"	d
 MD5Context	mongoose.c	/^typedef struct MD5Context {$/;"	s	file:
 MD5Final	mongoose.c	/^static void MD5Final(unsigned char digest[16], MD5_CTX *ctx) {$/;"	f	file:
 MD5Init	mongoose.c	/^static void MD5Init(MD5_CTX *ctx) {$/;"	f	file:
-MD5STEP	mongoose.c	1997;"	d	file:
+MD5STEP	mongoose.c	1999;"	d	file:
 MD5Transform	mongoose.c	/^static void MD5Transform(uint32_t buf[4], uint32_t const in[16]) {$/;"	f	file:
 MD5Update	mongoose.c	/^static void MD5Update(MD5_CTX *ctx, unsigned char const *buf, unsigned len) {$/;"	f	file:
 MD5_CTX	mongoose.c	/^} MD5_CTX;$/;"	t	typeref:struct:MD5Context	file:
 MD5_DIGEST_LEN	lib/mdigest.h	4;"	d
-MEM	zlib/inflate.h	/^    MEM,        \/* got an inflate() memory error -- remain here until reset *\/$/;"	e	enum:__anon13
+MEM	zlib/inflate.h	/^    MEM,        \/* got an inflate() memory error -- remain here until reset *\/$/;"	e	enum:__anon9
 MG_BUF_LEN	mongoose.c	240;"	d	file:
 MG_EVENT_LOG	mongoose.h	/^  MG_EVENT_LOG,$/;"	e	enum:mg_event
 MG_HTTP_ERROR	mongoose.h	/^  MG_HTTP_ERROR,$/;"	e	enum:mg_event
@@ -847,9 +847,11 @@ MY_UID	rsync.h	1213;"	d
 MY_UID	rsync.h	1215;"	d
 MY_ZCALLOC	zlib/zutil.c	190;"	d	file:
 MY_ZCALLOC	zlib/zutil.c	268;"	d	file:
+MemoryStruct	http.c	/^struct MemoryStruct {$/;"	s	file:
+MemoryStruct	main.c	/^struct MemoryStruct {$/;"	s	file:
 ModeAND	chmod.c	/^	int ModeAND, ModeOR;$/;"	m	struct:chmod_mode_struct	file:
 ModeOR	chmod.c	/^	int ModeAND, ModeOR;$/;"	m	struct:chmod_mode_struct	file:
-NAME	zlib/inflate.h	/^    NAME,       \/* i: waiting for end of file name (gzip) *\/$/;"	e	enum:__anon13
+NAME	zlib/inflate.h	/^    NAME,       \/* i: waiting for end of file name (gzip) *\/$/;"	e	enum:__anon9
 NAME_IS_USER	acls.c	46;"	d	file:
 NAME_MAX	rsync.h	661;"	d
 NAME_STATE	zlib/deflate.h	53;"	d
@@ -905,8 +907,8 @@ NS_INADDRSZ	lib/inet_pton.c	21;"	d	file:
 NS_INT16SZ	lib/inet_ntop.c	21;"	d	file:
 NS_INT16SZ	lib/inet_pton.c	20;"	d	file:
 NUMPARAMETERS	loadparm.c	244;"	d	file:
-NUM_OPTIONS	mongoose.c	/^  NUM_OPTIONS$/;"	e	enum:__anon28	file:
-NUM_THREADS	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon28	file:
+NUM_OPTIONS	mongoose.c	/^  NUM_OPTIONS$/;"	e	enum:__anon3	file:
+NUM_THREADS	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon3	file:
 N_	popt/poptint.h	120;"	d
 OBJS	Makefile	/^OBJS=$(OBJS1) $(OBJS2) $(OBJS3) $(DAEMON_OBJ) $(LIBOBJ) $(zlib_OBJS) $(popt_OBJS)$/;"	m
 OBJS1	Makefile	/^OBJS1=flist.o rsync.o generator.o receiver.o cleanup.o sender.o exclude.o \\$/;"	m
@@ -922,43 +924,42 @@ OFF_T	rsync.h	562;"	d
 OFF_T	rsync.h	566;"	d
 OLD_MAX_BLOCK_SIZE	rsync.h	142;"	d
 OLD_PROTOCOL_VERSION	rsync.h	126;"	d
-ONE_SEC	io.c	1989;"	d	file:
-OPTIONS	support/rsyncstats	/^OPTIONS:$/;"	l
-OPT_APPEND	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon31	file:
+ONE_SEC	io.c	1967;"	d	file:
+OPT_APPEND	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon35	file:
 OPT_BOOL	socket.c	/^enum SOCK_OPT_TYPES {OPT_BOOL,OPT_INT,OPT_ON};$/;"	e	enum:SOCK_OPT_TYPES	file:
-OPT_BWLIMIT	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon31	file:
-OPT_CHMOD	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon31	file:
-OPT_CHOWN	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon31	file:
-OPT_COMPARE_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon31	file:
-OPT_COPY_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon31	file:
-OPT_DAEMON	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon31	file:
-OPT_DEBUG	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon31	file:
-OPT_EXCLUDE	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon31	file:
-OPT_EXCLUDE_FROM	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon31	file:
+OPT_BWLIMIT	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon35	file:
+OPT_CHMOD	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon35	file:
+OPT_CHOWN	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon35	file:
+OPT_COMPARE_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon35	file:
+OPT_COPY_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon35	file:
+OPT_DAEMON	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon35	file:
+OPT_DEBUG	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon35	file:
+OPT_EXCLUDE	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon35	file:
+OPT_EXCLUDE_FROM	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon35	file:
 OPT_EXTRA	rsync.h	722;"	d
-OPT_FILTER	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon31	file:
-OPT_GROUPMAP	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon31	file:
-OPT_HELP	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon31	file:
-OPT_INCLUDE	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon31	file:
-OPT_INCLUDE_FROM	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon31	file:
-OPT_INFO	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon31	file:
+OPT_FILTER	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon35	file:
+OPT_GROUPMAP	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon35	file:
+OPT_HELP	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon35	file:
+OPT_INCLUDE	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon35	file:
+OPT_INCLUDE_FROM	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon35	file:
+OPT_INFO	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon35	file:
 OPT_INT	socket.c	/^enum SOCK_OPT_TYPES {OPT_BOOL,OPT_INT,OPT_ON};$/;"	e	enum:SOCK_OPT_TYPES	file:
-OPT_LINK_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon31	file:
-OPT_MAX_SIZE	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon31	file:
-OPT_MIN_SIZE	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon31	file:
-OPT_MODIFY_WINDOW	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon31	file:
-OPT_NO_D	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon31	file:
-OPT_NO_ICONV	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon31	file:
+OPT_LINK_DEST	options.c	/^      OPT_FILTER, OPT_COMPARE_DEST, OPT_COPY_DEST, OPT_LINK_DEST, OPT_HELP,$/;"	e	enum:__anon35	file:
+OPT_MAX_SIZE	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon35	file:
+OPT_MIN_SIZE	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon35	file:
+OPT_MODIFY_WINDOW	options.c	/^      OPT_INCLUDE, OPT_INCLUDE_FROM, OPT_MODIFY_WINDOW, OPT_MIN_SIZE, OPT_CHMOD,$/;"	e	enum:__anon35	file:
+OPT_NO_D	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon35	file:
+OPT_NO_ICONV	options.c	/^      OPT_NO_D, OPT_APPEND, OPT_NO_ICONV, OPT_INFO, OPT_DEBUG,$/;"	e	enum:__anon35	file:
 OPT_ON	socket.c	/^enum SOCK_OPT_TYPES {OPT_BOOL,OPT_INT,OPT_ON};$/;"	e	enum:SOCK_OPT_TYPES	file:
-OPT_ONLY_WRITE_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon31	file:
-OPT_READ_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon31	file:
-OPT_REFUSED_BASE	options.c	/^      OPT_SERVER, OPT_REFUSED_BASE = 9000};$/;"	e	enum:__anon31	file:
-OPT_SENDER	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon31	file:
-OPT_SERVER	options.c	/^      OPT_SERVER, OPT_REFUSED_BASE = 9000};$/;"	e	enum:__anon31	file:
-OPT_USERMAP	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon31	file:
-OPT_VERSION	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon31	file:
-OPT_WRITE_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon31	file:
-OS	zlib/inflate.h	/^    OS,         \/* i: waiting for extra flags and operating system (gzip) *\/$/;"	e	enum:__anon13
+OPT_ONLY_WRITE_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon35	file:
+OPT_READ_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon35	file:
+OPT_REFUSED_BASE	options.c	/^      OPT_SERVER, OPT_REFUSED_BASE = 9000};$/;"	e	enum:__anon35	file:
+OPT_SENDER	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon35	file:
+OPT_SERVER	options.c	/^      OPT_SERVER, OPT_REFUSED_BASE = 9000};$/;"	e	enum:__anon35	file:
+OPT_USERMAP	options.c	/^      OPT_USERMAP, OPT_GROUPMAP, OPT_CHOWN, OPT_BWLIMIT,$/;"	e	enum:__anon35	file:
+OPT_VERSION	options.c	/^enum {OPT_VERSION = 1000, OPT_DAEMON, OPT_SENDER, OPT_EXCLUDE, OPT_EXCLUDE_FROM,$/;"	e	enum:__anon35	file:
+OPT_WRITE_BATCH	options.c	/^      OPT_READ_BATCH, OPT_WRITE_BATCH, OPT_ONLY_WRITE_BATCH, OPT_MAX_SIZE,$/;"	e	enum:__anon35	file:
+OS	zlib/inflate.h	/^    OS,         \/* i: waiting for extra flags and operating system (gzip) *\/$/;"	e	enum:__anon9
 OS2	zlib/zconf.h	66;"	d
 OSX_BROKEN_GETENTRY	lib/sysacls.c	2593;"	d	file:
 OS_CODE	zlib/zutil.h	108;"	d
@@ -976,8 +977,6 @@ O_BINARY	mongoose.c	214;"	d	file:
 O_BINARY	rsync.h	1192;"	d
 O_NONBLOCK	mongoose.c	116;"	d	file:
 OpenConfFile	params.c	/^static FILE *OpenConfFile( char *FileName )$/;"	f	file:
-Options	packaging/branch-from-patch	/^Options:$/;"	l
-Options	packaging/patch-update	/^Options:$/;"	l
 P	lib/md5.c	60;"	d	file:
 PACKAGE	popt/system.h	128;"	d
 PACKAGE_BUGREPORT	config.h	621;"	d
@@ -1081,38 +1080,38 @@ PRINTF_FORMAT_STRING	mongoose.h	250;"	d
 PRINTF_FORMAT_STRING	mongoose.h	253;"	d
 PROGRAM	tls.c	41;"	d	file:
 PROGRESS_HISTORY_SECS	progress.c	33;"	d	file:
-PROTECT_URI	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon28	file:
+PROTECT_URI	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon3	file:
 PROTOCOL_VERSION	rsync.h	101;"	d
-PROT_READ	mongoose.c	3915;"	d	file:
+PROT_READ	mongoose.c	3917;"	d	file:
 PTR_ADD	lib/pool_alloc.c	45;"	d	file:
 PTR_EXTRA_CNT	rsync.h	716;"	d
 PTR_SIZE	flist.c	89;"	d	file:
 PULLBYTE	zlib/inflate.c	433;"	d	file:
 PUP	zlib/inffast.c	26;"	d	file:
 PUP	zlib/inffast.c	29;"	d	file:
-PUT_DELETE_PASSWORDS_FILE	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon28	file:
+PUT_DELETE_PASSWORDS_FILE	mongoose.c	/^  CGI_EXTENSIONS, CGI_ENVIRONMENT, PUT_DELETE_PASSWORDS_FILE, CGI_INTERPRETER,$/;"	e	enum:__anon3	file:
 PVAL	byteorder.h	39;"	d
-P_BOOL	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon21	file:
-P_BOOLREV	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon21	file:
-P_CHAR	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon21	file:
-P_ENUM	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon21	file:
-P_GLOBAL	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon22	file:
-P_INTEGER	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon21	file:
-P_LOCAL	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon22	file:
-P_NONE	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon22	file:
-P_OCTAL	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon21	file:
-P_PATH	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon21	file:
-P_STRING	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon21	file:
+P_BOOL	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon16	file:
+P_BOOLREV	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon16	file:
+P_CHAR	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon16	file:
+P_ENUM	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon16	file:
+P_GLOBAL	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon17	file:
+P_INTEGER	loadparm.c	/^	P_BOOL, P_BOOLREV, P_CHAR, P_INTEGER,$/;"	e	enum:__anon16	file:
+P_LOCAL	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon17	file:
+P_NONE	loadparm.c	/^	P_LOCAL, P_GLOBAL, P_NONE$/;"	e	enum:__anon17	file:
+P_OCTAL	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon16	file:
+P_PATH	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon16	file:
+P_STRING	loadparm.c	/^	P_OCTAL, P_PATH, P_STRING, P_ENUM$/;"	e	enum:__anon16	file:
 Parameter	params.c	/^static BOOL Parameter( FILE *InFile, BOOL (*pfunc)(char *, char *), int c )$/;"	f	file:
 Parse	params.c	/^static int Parse( FILE *InFile,$/;"	f	file:
 Pipelining	tech_report.tex	/^blocks of $B$ in order.$/;"	s
 Pos	zlib/deflate.h	/^typedef ush Pos;$/;"	t
 Posf	zlib/deflate.h	/^typedef Pos FAR Posf;$/;"	t
-R0	mongoose.c	3626;"	d	file:
-R1	mongoose.c	3627;"	d	file:
-R2	mongoose.c	3628;"	d	file:
-R3	mongoose.c	3629;"	d	file:
-R4	mongoose.c	3630;"	d	file:
+R0	mongoose.c	3628;"	d	file:
+R1	mongoose.c	3629;"	d	file:
+R2	mongoose.c	3630;"	d	file:
+R3	mongoose.c	3631;"	d	file:
+R4	mongoose.c	3632;"	d	file:
 RATE_DIFF	mongoose.c	92;"	d	file:
 REMOTE_OPTION_ERROR	io.c	149;"	d	file:
 REMOTE_OPTION_ERROR2	io.c	150;"	d	file:
@@ -1152,7 +1151,7 @@ RETURN_ERROR_IF	syscall.c	44;"	d	file:
 RETURN_ERROR_IF_RO_OR_LO	syscall.c	52;"	d	file:
 REV	zlib/crc32.c	56;"	d	file:
 REVERSE	zlib/inflate.c	468;"	d	file:
-REWRITE	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon28	file:
+REWRITE	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon3	file:
 RL_CONVERT	rsync.h	963;"	d
 RL_DUMP_COMMENTS	rsync.h	962;"	d
 RL_EOL_NULLS	rsync.h	961;"	d
@@ -1177,7 +1176,7 @@ RSYNC_XAL_INITIAL	xattrs.c	41;"	d	file:
 RSYNC_XAL_LIST_INITIAL	xattrs.c	42;"	d	file:
 RTLD_LAZY	mongoose.c	134;"	d	file:
 RULE_STRCMP	exclude.c	758;"	d	file:
-RUN_AS_USER	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon28	file:
+RUN_AS_USER	mongoose.c	/^  NUM_THREADS, RUN_AS_USER, REWRITE, HIDE_FILES,$/;"	e	enum:__anon3	file:
 Results	tech_report.tex	/^both directions for most of the time. $/;"	s
 S	lib/md5.c	58;"	d	file:
 SAFE_FREE	lib/sysacls.c	/^void SAFE_FREE(void *mem)$/;"	f
@@ -1190,19 +1189,21 @@ SEPARATOR	zlib/trees.c	326;"	d	file:
 SERVER_FILTERS	rsync.h	157;"	d
 SETACL	lib/sysacls.c	346;"	d	file:
 SHA1Final	mongoose.c	/^static void SHA1Final(unsigned char digest[20], SHA1_CTX* context) {$/;"	f	file:
-SHA1HANDSOFF	mongoose.c	3611;"	d	file:
+SHA1HANDSOFF	mongoose.c	3613;"	d	file:
 SHA1Init	mongoose.c	/^static void SHA1Init(SHA1_CTX* context) {$/;"	f	file:
 SHA1Transform	mongoose.c	/^static void SHA1Transform(uint32_t state[5], const unsigned char buffer[64]) {$/;"	f	file:
 SHA1Update	mongoose.c	/^static void SHA1Update(SHA1_CTX* context, const unsigned char* data,$/;"	f	file:
-SHA1_CTX	mongoose.c	/^} SHA1_CTX;$/;"	t	typeref:struct:__anon30	file:
+SHA1_CTX	mongoose.c	/^} SHA1_CTX;$/;"	t	typeref:struct:__anon5	file:
 SHELL	Makefile	/^SHELL=\/bin\/sh$/;"	m
 SHORT_SUM_LENGTH	rsync.h	645;"	d
 SHUT_WR	mongoose.c	124;"	d	file:
 SIGACTION	rsync.h	1056;"	d
 SIGACTION	rsync.h	1059;"	d
-SIGACTMASK	main.c	123;"	d	file:
-SIGACTMASK	main.c	125;"	d	file:
-SIGKILL	mongoose.c	1249;"	d	file:
+SIGACTMASK	main.c	164;"	d	file:
+SIGACTMASK	main.c	166;"	d	file:
+SIGACTMASK	tempmain.c	123;"	d	file:
+SIGACTMASK	tempmain.c	125;"	d	file:
+SIGKILL	mongoose.c	1251;"	d	file:
 SIGNED_CHAR_OK	config.h	660;"	d
 SIGNIFICANT_ITEM_FLAGS	rsync.h	204;"	d
 SIVAL	byteorder.h	/^SIVAL(char *buf, int pos, uint32 val)$/;"	f
@@ -1376,16 +1377,16 @@ SPARSE_WRITE_SIZE	rsync.h	134;"	d
 SPRE_LEN	xattrs.c	58;"	d	file:
 SP_DEFAULT	rsync.h	212;"	d
 SP_KEEP_DOT_DIRS	rsync.h	213;"	d
-SSI_EXTENSIONS	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon28	file:
+SSI_EXTENSIONS	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon3	file:
 SSL	mongoose.c	/^typedef struct ssl_st SSL;$/;"	t	typeref:struct:ssl_st	file:
-SSL_CERTIFICATE	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon28	file:
+SSL_CERTIFICATE	mongoose.c	/^  EXTRA_MIME_TYPES, LISTENING_PORTS, DOCUMENT_ROOT, SSL_CERTIFICATE,$/;"	e	enum:__anon3	file:
 SSL_CTX	mongoose.c	/^typedef struct ssl_ctx_st SSL_CTX;$/;"	t	typeref:struct:ssl_ctx_st	file:
-SSL_CTX_free	mongoose.c	352;"	d	file:
-SSL_CTX_new	mongoose.c	343;"	d	file:
-SSL_CTX_set_default_passwd_cb	mongoose.c	350;"	d	file:
-SSL_CTX_use_PrivateKey_file	mongoose.c	346;"	d	file:
-SSL_CTX_use_certificate_chain_file	mongoose.c	354;"	d	file:
-SSL_CTX_use_certificate_file	mongoose.c	348;"	d	file:
+SSL_CTX_free	mongoose.c	354;"	d	file:
+SSL_CTX_new	mongoose.c	345;"	d	file:
+SSL_CTX_set_default_passwd_cb	mongoose.c	352;"	d	file:
+SSL_CTX_use_PrivateKey_file	mongoose.c	348;"	d	file:
+SSL_CTX_use_certificate_chain_file	mongoose.c	356;"	d	file:
+SSL_CTX_use_certificate_file	mongoose.c	350;"	d	file:
 SSL_ERROR_WANT_READ	mongoose.c	299;"	d	file:
 SSL_ERROR_WANT_WRITE	mongoose.c	300;"	d	file:
 SSL_FILETYPE_PEM	mongoose.c	301;"	d	file:
@@ -1393,18 +1394,18 @@ SSL_LIB	mongoose.c	114;"	d	file:
 SSL_LIB	mongoose.c	203;"	d	file:
 SSL_LIB	mongoose.c	207;"	d	file:
 SSL_METHOD	mongoose.c	/^typedef struct ssl_method_st SSL_METHOD;$/;"	t	typeref:struct:ssl_method_st	file:
-SSL_accept	mongoose.c	336;"	d	file:
-SSL_connect	mongoose.c	337;"	d	file:
-SSL_free	mongoose.c	335;"	d	file:
-SSL_get_error	mongoose.c	340;"	d	file:
-SSL_library_init	mongoose.c	345;"	d	file:
-SSL_load_error_strings	mongoose.c	353;"	d	file:
-SSL_new	mongoose.c	342;"	d	file:
-SSL_read	mongoose.c	338;"	d	file:
-SSL_set_fd	mongoose.c	341;"	d	file:
-SSL_write	mongoose.c	339;"	d	file:
-SSLv23_client_method	mongoose.c	356;"	d	file:
-SSLv23_server_method	mongoose.c	344;"	d	file:
+SSL_accept	mongoose.c	338;"	d	file:
+SSL_connect	mongoose.c	339;"	d	file:
+SSL_free	mongoose.c	337;"	d	file:
+SSL_get_error	mongoose.c	342;"	d	file:
+SSL_library_init	mongoose.c	347;"	d	file:
+SSL_load_error_strings	mongoose.c	355;"	d	file:
+SSL_new	mongoose.c	344;"	d	file:
+SSL_read	mongoose.c	340;"	d	file:
+SSL_set_fd	mongoose.c	343;"	d	file:
+SSL_write	mongoose.c	341;"	d	file:
+SSLv23_client_method	mongoose.c	358;"	d	file:
+SSLv23_server_method	mongoose.c	346;"	d	file:
 SSVALX	byteorder.h	41;"	d
 START_BUMP	rsync.h	726;"	d
 STATE_1ST_HALF	chmod.c	42;"	d	file:
@@ -1423,10 +1424,10 @@ STDC_HEADERS	config.h	707;"	d
 STDERR_FILENO	rsync.h	1075;"	d
 STDIN_FILENO	rsync.h	1067;"	d
 STDOUT_FILENO	rsync.h	1071;"	d
-STORED	zlib/inflate.h	/^        STORED,     \/* i: waiting for stored size (length and complement) *\/$/;"	e	enum:__anon13
+STORED	zlib/inflate.h	/^        STORED,     \/* i: waiting for stored size (length and complement) *\/$/;"	e	enum:__anon9
 STORED_BLOCK	zlib/zutil.h	79;"	d
 STR	mongoose.c	102;"	d	file:
-STRUCT_FILE_INITIALIZER	mongoose.c	433;"	d	file:
+STRUCT_FILE_INITIALIZER	mongoose.c	435;"	d	file:
 STRUCT_STAT	rsync.h	563;"	d
 STRUCT_STAT	rsync.h	567;"	d
 STRX	mongoose.c	101;"	d	file:
@@ -1446,7 +1447,7 @@ SUPPORT_PREALLOCATION	rsync.h	688;"	d
 SUPPORT_XATTRS	config.h	713;"	d
 SYMLINK_PREFIX	rsync.h	35;"	d
 SYMLINK_PREFIX_LEN	rsync.h	36;"	d
-SYNC	zlib/inflate.h	/^    SYNC        \/* looking for synchronization bytes to restart inflate() *\/$/;"	e	enum:__anon13
+SYNC	zlib/inflate.h	/^    SYNC        \/* looking for synchronization bytes to restart inflate() *\/$/;"	e	enum:__anon9
 SYS16BIT	zlib/zconf.h	79;"	d
 SYS2UNIX_TIME	mongoose.c	94;"	d	file:
 SYSTEM_PREFIX	xattrs.c	57;"	d	file:
@@ -1463,11 +1464,11 @@ S_ISSOCK	rsync.h	1120;"	d
 S_ISVTX	rsync.h	1091;"	d
 S_IWUSR	rsync.h	1083;"	d
 Section	params.c	/^static BOOL Section( FILE *InFile, BOOL (*sfunc)(char *) )$/;"	f	file:
-TABLE	zlib/inflate.h	/^        TABLE,      \/* i: waiting for dynamic block table lengths *\/$/;"	e	enum:__anon13
+TABLE	zlib/inflate.h	/^        TABLE,      \/* i: waiting for dynamic block table lengths *\/$/;"	e	enum:__anon9
 TBLS	zlib/crc32.c	62;"	d	file:
 TBLS	zlib/crc32.c	64;"	d	file:
-THROTTLE	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon28	file:
-TIME	zlib/inflate.h	/^    TIME,       \/* i: waiting for modification time (gzip) *\/$/;"	e	enum:__anon13
+THROTTLE	mongoose.c	/^  PROTECT_URI, AUTHENTICATION_DOMAIN, SSI_EXTENSIONS, THROTTLE,$/;"	e	enum:__anon3	file:
+TIME	zlib/inflate.h	/^    TIME,       \/* i: waiting for modification time (gzip) *\/$/;"	e	enum:__anon9
 TIMEOUT_ENV	testrun.c	6;"	d	file:
 TIMEOUT_SECONDS	support/savetransfer.c	28;"	d	file:
 TIME_WITH_SYS_TIME	config.h	716;"	d
@@ -1483,8 +1484,8 @@ TRADITIONAL_TABLESIZE	match.c	43;"	d	file:
 TRIMSLASH_OBJ	Makefile	/^TRIMSLASH_OBJ = trimslash.o syscall.o lib\/compat.o lib\/snprintf.o$/;"	m
 TRUE	lib/wildmatch.c	19;"	d	file:
 TRY_FREE	zlib/zutil.h	270;"	d
-TYPE	zlib/inflate.h	/^        TYPE,       \/* i: waiting for type bits, including last-flag bit *\/$/;"	e	enum:__anon13
-TYPEDO	zlib/inflate.h	/^        TYPEDO,     \/* i: same, but skip check to exit inflate on new block *\/$/;"	e	enum:__anon13
+TYPE	zlib/inflate.h	/^        TYPE,       \/* i: waiting for type bits, including last-flag bit *\/$/;"	e	enum:__anon9
+TYPEDO	zlib/inflate.h	/^        TYPEDO,     \/* i: same, but skip check to exit inflate on new block *\/$/;"	e	enum:__anon9
 TYPE_DEVICE	generator.c	/^    TYPE_DIR, TYPE_SPECIAL, TYPE_DEVICE, TYPE_SYMLINK$/;"	e	enum:nonregtype	file:
 TYPE_DIR	generator.c	/^    TYPE_DIR, TYPE_SPECIAL, TYPE_DEVICE, TYPE_SYMLINK$/;"	e	enum:nonregtype	file:
 TYPE_SPECIAL	generator.c	/^    TYPE_DIR, TYPE_SPECIAL, TYPE_DEVICE, TYPE_SYMLINK$/;"	e	enum:nonregtype	file:
@@ -1525,20 +1526,13 @@ UPDATE	zlib/inflate.c	380;"	d	file:
 UPDATE_HASH	zlib/deflate.c	172;"	d	file:
 UPRE_LEN	xattrs.c	56;"	d	file:
 URL_PREFIX	rsync.h	33;"	d
-USAGE	support/rsyncstats	/^USAGE: rsyncstats [options]$/;"	l
 USER_PREFIX	xattrs.c	55;"	d	file:
 USER_PRIORITY	options.c	230;"	d	file:
 USE_ICONV_OPEN	config.h	719;"	d
 USE_STAT64_FUNCS	rsync.h	568;"	d
 UTF8_CHARSET	config.h	722;"	d
 UVAL	byteorder.h	35;"	d
-Usage	packaging/nightly-rsync	/^Usage: nightly-rsync [OPTIONS]$/;"	l
-Usage	packaging/patch-update	/^Usage: patch-update [OPTIONS] [patches\/DIFF...]$/;"	l
-Usage	packaging/release-rsync	/^Usage: release-rsync [OPTIONS]$/;"	l
-Usage	support/atomic-rsync	/^Usage: atomic-rsync [RSYNC-OPTIONS] HOST:\/SOURCE\/DIR\/ \/DEST\/DIR\/$/;"	l
-Usage	support/file-attr-restore	/^Usage: file-attr-restore [OPTIONS] FILE [FILE...]$/;"	l
 Usage	support/lsh.pl	/^Usage: lsh [-l user] [--sudo] [--no-cd] localhost COMMAND [...]$/;"	l
-Usage	support/munge-symlinks	/^Usage: munge-symlinks --munge|--unmunge [--all] [DIR|SYMLINK...]$/;"	l
 VA_COPY	lib/snprintf.c	165;"	d	file:
 VA_COPY	lib/snprintf.c	168;"	d	file:
 VA_COPY	lib/snprintf.c	170;"	d	file:
@@ -1559,6 +1553,8 @@ W_CLI	options.c	233;"	d	file:
 W_REC	options.c	236;"	d	file:
 W_SND	options.c	235;"	d	file:
 W_SRV	options.c	234;"	d	file:
+WriteMemoryCallback	http.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
+WriteMemoryCallback	main.c	/^WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)$/;"	f	file:
 XACC_ACL_ATTR	xattrs.c	72;"	d	file:
 XACC_ACL_SUFFIX	xattrs.c	71;"	d	file:
 XATTR_ABBREV	xattrs.c	49;"	d	file:
@@ -1716,9 +1712,9 @@ ac_fn_c_try_compile	configure.sh	/^ac_fn_c_try_compile ()$/;"	f
 ac_fn_c_try_cpp	configure.sh	/^ac_fn_c_try_cpp ()$/;"	f
 ac_fn_c_try_link	configure.sh	/^ac_fn_c_try_link ()$/;"	f
 ac_fn_c_try_run	configure.sh	/^ac_fn_c_try_run ()$/;"	f
-acc_acl	rsync.h	/^    struct rsync_acl *acc_acl; \/* access ACL *\/$/;"	m	struct:__anon9	typeref:struct:__anon9::rsync_acl
+acc_acl	rsync.h	/^    struct rsync_acl *acc_acl; \/* access ACL *\/$/;"	m	struct:__anon33	typeref:struct:__anon33::rsync_acl
 accept_new_connection	mongoose.c	/^static void accept_new_connection(const struct socket *listener,$/;"	f	file:
-access	acls.c	/^	uint32 access;$/;"	m	struct:__anon17	file:
+access	acls.c	/^	uint32 access;$/;"	m	struct:__anon22	file:
 access_acl_list	acls.c	/^static item_list access_acl_list = EMPTY_ITEM_LIST;$/;"	v	file:
 access_match	access.c	/^static int access_match(const char *list, const char *addr, const char **host_ptr)$/;"	f	file:
 ace_access	lib/sysacls.h	/^	unsigned int ace_access;$/;"	m	struct:new_acl_entry
@@ -1726,7 +1722,7 @@ ace_id	lib/sysacls.h	/^	struct ace_id ace_id[1];$/;"	m	struct:new_acl_entry	type
 ace_len	lib/sysacls.h	/^	unsigned short ace_len;$/;"	m	struct:new_acl_entry
 ace_type	lib/sysacls.h	/^	unsigned short ace_type;$/;"	m	struct:new_acl_entry
 acl	lib/sysacls.h	/^	struct acl acl[1];$/;"	m	struct:SMB_ACL_T	typeref:struct:SMB_ACL_T::acl
-acl_duo	acls.c	/^} acl_duo;$/;"	t	typeref:struct:__anon20	file:
+acl_duo	acls.c	/^} acl_duo;$/;"	t	typeref:struct:__anon25	file:
 acl_entry_link	lib/sysacls.h	/^struct acl_entry_link{$/;"	s
 acl_get_perm	lib/sysacls.c	91;"	d	file:
 acl_sort	lib/sysacls.c	/^static int acl_sort(SMB_ACL_T acl_d)$/;"	f	file:
@@ -1764,7 +1760,7 @@ ai_socktype	lib/addrinfo.h	/^	int			ai_socktype;$/;"	m	struct:addrinfo
 aliases	popt/poptint.h	/^    poptItem aliases;$/;"	m	struct:poptContext_s
 align_test	lib/pool_alloc.c	/^struct align_test {$/;"	s	file:
 all_pids	util.c	/^static pid_t all_pids[10];$/;"	v	file:
-all_vars	loadparm.c	/^} all_vars;$/;"	t	typeref:struct:__anon25	file:
+all_vars	loadparm.c	/^} all_vars;$/;"	t	typeref:struct:__anon20	file:
 alloc_entry	lib/getaddrinfo.c	/^static struct addrinfo *alloc_entry(const struct addrinfo *hints,$/;"	f	file:
 alloc_func	zlib/zconf.h	46;"	d
 alloc_func	zlib/zlib.h	/^typedef voidpf (*alloc_func) OF((voidpf opaque, uInt items, uInt size));$/;"	t
@@ -1782,7 +1778,9 @@ allowed_lull	io.c	/^int allowed_lull = 0;$/;"	v
 always_checksum	options.c	/^int always_checksum = 0;$/;"	v
 am_daemon	options.c	/^int am_daemon = 0;$/;"	v
 am_generator	main.c	/^int am_generator = 0; \/* Only set to 1 after the receiver\/generator fork. *\/$/;"	v
+am_generator	tempmain.c	/^int am_generator = 0; \/* Only set to 1 after the receiver\/generator fork. *\/$/;"	v
 am_receiver	main.c	/^int am_receiver = 0;  \/* Only set to 1 after the receiver\/generator fork. *\/$/;"	v
+am_receiver	tempmain.c	/^int am_receiver = 0;  \/* Only set to 1 after the receiver\/generator fork. *\/$/;"	v
 am_root	options.c	/^int am_root = 0; \/* 0 = normal, 1 = root, 2 = --super, -1 = --fake-super *\/$/;"	v
 am_root	t_unsafe.c	/^int am_root = 0;$/;"	v
 am_root	tls.c	/^int am_root = 0;$/;"	v
@@ -1810,31 +1808,23 @@ argv	popt/popt.h	/^    const char ** argv;		\/*!< must be free()able *\/$/;"	m	s
 argv	popt/poptint.h	/^    const char ** argv;$/;"	m	struct:optionStackEntry
 argv	util.c	/^	char *arg_buf, *filt_buf, **argv;$/;"	m	struct:glob_data	file:
 arr_size	mongoose.c	/^  int arr_size;$/;"	m	struct:dir_scan_data	file:
-as_fn_append	config.status	/^  as_fn_append ()$/;"	f
 as_fn_append	configure.sh	/^  as_fn_append ()$/;"	f
-as_fn_arith	config.status	/^  as_fn_arith ()$/;"	f
 as_fn_arith	configure.sh	/^  as_fn_arith ()$/;"	f
-as_fn_error	config.status	/^as_fn_error ()$/;"	f
 as_fn_error	configure.sh	/^as_fn_error ()$/;"	f
-as_fn_exit	config.status	/^as_fn_exit ()$/;"	f
 as_fn_exit	configure.sh	/^as_fn_exit ()$/;"	f
 as_fn_failure	configure.sh	/^as_fn_failure () { as_fn_return 1; }$/;"	f
-as_fn_mkdir_p	config.status	/^as_fn_mkdir_p ()$/;"	f
 as_fn_mkdir_p	configure.sh	/^as_fn_mkdir_p ()$/;"	f
 as_fn_ret_failure	configure.sh	/^as_fn_ret_failure () { return 1; }$/;"	f
 as_fn_ret_success	configure.sh	/^as_fn_ret_success () { return 0; }$/;"	f
-as_fn_set_status	config.status	/^as_fn_set_status ()$/;"	f
 as_fn_set_status	configure.sh	/^as_fn_set_status ()$/;"	f
 as_fn_success	configure.sh	/^as_fn_success () { as_fn_return 0; }$/;"	f
-as_fn_unset	config.status	/^as_fn_unset ()$/;"	f
 as_fn_unset	configure.sh	/^as_fn_unset ()$/;"	f
 asprintf	lib/snprintf.c	/^ int asprintf(char **ptr, const char *format, ...)$/;"	f
 atomic_create	generator.c	/^int atomic_create(struct file_struct *file, char *fname, const char *lnk,$/;"	f
-atomic_symlink	support/atomic-rsync	/^sub atomic_symlink$/;"	s
 auth_client	authenticate.c	/^void auth_client(int fd, const char *user, const char *challenge)$/;"	f
 auth_server	authenticate.c	/^char *auth_server(int f_in, int f_out, int module, const char *host,$/;"	f
 auth_user	clientserver.c	/^char *auth_user;$/;"	v
-auth_users	loadparm.c	/^	char *auth_users;$/;"	m	struct:__anon24	file:
+auth_users	loadparm.c	/^	char *auth_users;$/;"	m	struct:__anon19	file:
 authorize	mongoose.c	/^static int authorize(struct mg_connection *conn, struct file *filep) {$/;"	f	file:
 avail_in	zlib/zlib.h	/^    uInt     avail_in;  \/* number of bytes available at next_in *\/$/;"	m	struct:z_stream_s
 avail_out	zlib/zlib.h	/^    uInt     avail_out; \/* remaining free space at next_out *\/$/;"	m	struct:z_stream_s
@@ -1848,7 +1838,7 @@ backup_dir_len	options.c	/^int backup_dir_len = 0;$/;"	v
 backup_dir_remainder	options.c	/^unsigned int backup_dir_remainder;$/;"	v
 backup_suffix	options.c	/^char *backup_suffix = NULL;$/;"	v
 backup_suffix_len	options.c	/^int backup_suffix_len;$/;"	v
-bar	lib/pool_alloc.c	/^	} bar;$/;"	m	struct:align_test	typeref:union:align_test::__anon35	file:
+bar	lib/pool_alloc.c	/^	} bar;$/;"	m	struct:align_test	typeref:union:align_test::__anon7	file:
 base64_encode	authenticate.c	/^void base64_encode(const char *buf, int len, char *out, int pad)$/;"	f
 base64_encode	mongoose.c	/^static void base64_encode(const unsigned char *src, int src_len, char *dst) {$/;"	f	file:
 base_dist	zlib/trees.c	/^local int base_dist[D_CODES];$/;"	v
@@ -1860,6 +1850,7 @@ basis_dir	options.c	/^char *basis_dir[MAX_BASIS_DIRS+1];$/;"	v
 basis_dir_cnt	options.c	/^int basis_dir_cnt = 0;$/;"	v
 batch_fd	io.c	/^int batch_fd = -1;$/;"	v
 batch_gen_fd	main.c	/^int batch_gen_fd = -1;$/;"	v
+batch_gen_fd	tempmain.c	/^int batch_gen_fd = -1;$/;"	v
 batch_name	options.c	/^char *batch_name = NULL;$/;"	v
 batch_redo_list	receiver.c	/^static flist_ndx_list batch_redo_list;$/;"	v	file:
 batch_stream_flags	batch.c	/^int batch_stream_flags;$/;"	v
@@ -1872,7 +1863,7 @@ bi_windup	zlib/trees.c	/^local void bi_windup(s)$/;"	f
 big_dnum	inums.h	/^big_dnum(double dnum, int decimal_digits)$/;"	f
 big_num	inums.h	/^big_num(int64 num)$/;"	f
 bin2str	mongoose.c	/^static void bin2str(char *to, const unsigned char *p, size_t len) {$/;"	f	file:
-bind_address	loadparm.c	/^	char *bind_address;$/;"	m	struct:__anon23	file:
+bind_address	loadparm.c	/^	char *bind_address;$/;"	m	struct:__anon18	file:
 bind_address	options.c	/^char *bind_address;$/;"	v
 bindir	Makefile	/^bindir=${exec_prefix}\/bin$/;"	m
 birth_time	mongoose.c	/^  time_t birth_time;          \/\/ Time when request was received$/;"	m	struct:mg_connection	file:
@@ -1881,19 +1872,19 @@ bitbag_create	util.c	/^struct bitbag *bitbag_create(int max_ndx)$/;"	f
 bitbag_next_bit	util.c	/^int bitbag_next_bit(struct bitbag *bb, int after)$/;"	f
 bitbag_set_bit	util.c	/^void bitbag_set_bit(struct bitbag *bb, int ndx)$/;"	f
 bits	mongoose.c	/^  uint32_t bits[2];$/;"	m	struct:MD5Context	file:
-bits	popt/poptint.h	/^    __pbm_bits bits[1];$/;"	m	struct:__anon26
+bits	popt/poptint.h	/^    __pbm_bits bits[1];$/;"	m	struct:__anon1
 bits	util.c	/^    uint32 **bits;$/;"	m	struct:bitbag	file:
 bits	zlib/inflate.h	/^    unsigned bits;              \/* number of bits in "in" *\/$/;"	m	struct:inflate_state
-bits	zlib/inftrees.h	/^    unsigned char bits;         \/* bits in this part of the code *\/$/;"	m	struct:__anon10
+bits	zlib/inftrees.h	/^    unsigned char bits;         \/* bits in this part of the code *\/$/;"	m	struct:__anon13
 bits_sent	zlib/deflate.h	/^    ulg bits_sent;      \/* bit length of compressed data sent mod 2^32 *\/$/;"	m	struct:internal_state
 bl_count	zlib/deflate.h	/^    ush bl_count[MAX_BITS+1];$/;"	m	struct:internal_state
 bl_desc	zlib/deflate.h	/^    struct tree_desc_s bl_desc;              \/* desc. for bit length tree *\/$/;"	m	struct:internal_state	typeref:struct:internal_state::tree_desc_s
 bl_order	zlib/trees.c	/^local const uch bl_order[BL_CODES]$/;"	v
 bl_tree	zlib/deflate.h	/^    struct ct_data_s bl_tree[2*BL_CODES+1];  \/* Huffman tree for bit lengths *\/$/;"	m	struct:internal_state	typeref:struct:internal_state::ct_data_s
 blength	rsync.h	/^	int32 blength;		\/**< block_length *\/$/;"	m	struct:sum_struct
-blk	mongoose.c	3624;"	d	file:
-blk0	mongoose.c	3617;"	d	file:
-blk0	mongoose.c	3620;"	d	file:
+blk	mongoose.c	3626;"	d	file:
+blk0	mongoose.c	3619;"	d	file:
+blk0	mongoose.c	3622;"	d	file:
 block_done	zlib/deflate.c	/^    block_done,     \/* block flush performed *\/$/;"	e	enum:__anon12	file:
 block_size	options.c	/^long block_size = 0; \/* "long" because popt can't set an int32. *\/$/;"	v
 block_start	zlib/deflate.h	/^    long block_start;$/;"	m	struct:internal_state
@@ -1902,35 +1893,33 @@ blocking_io	options.c	/^int blocking_io = -1;$/;"	v
 bomb	lib/pool_alloc.c	/^	void			(*bomb)();	\/* function to call if$/;"	m	struct:alloc_pool	file:
 bool	wildtest.c	/^typedef char bool;$/;"	t	file:
 bound	lib/pool_alloc.c	/^	size_t			bound;		\/* trapped free bytes	*\/$/;"	m	struct:pool_extent	file:
-broadcast	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	m	struct:__anon27	file:
+broadcast	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	m	struct:__anon2	file:
 buf	mongoose.c	/^  char *buf;                  \/\/ Buffer for received data$/;"	m	struct:mg_connection	file:
 buf	mongoose.c	/^  char buf[CGI_ENVIRONMENT_SIZE]; \/\/ Environment buffer$/;"	m	struct:cgi_env_block	file:
 buf	mongoose.c	/^  uint32_t buf[4];$/;"	m	struct:MD5Context	file:
-buf	rsync.h	/^	char *buf;$/;"	m	struct:__anon7
+buf	rsync.h	/^	char *buf;$/;"	m	struct:__anon31
 buf	support/savetransfer.c	/^char buf[4096];$/;"	v
 buf_size	mongoose.c	/^  int buf_size;               \/\/ Buffer size$/;"	m	struct:mg_connection	file:
-buffer	lib/mdigest.h	/^	uchar buffer[CSUM_CHUNK];$/;"	m	struct:__anon33
-buffer	mongoose.c	/^    unsigned char buffer[64];$/;"	m	struct:__anon30	file:
+buffer	lib/mdigest.h	/^	uchar buffer[CSUM_CHUNK];$/;"	m	struct:__anon8
+buffer	mongoose.c	/^    unsigned char buffer[64];$/;"	m	struct:__anon5	file:
 bufr	params.c	/^static char *bufr  = NULL;$/;"	v	file:
 build_bl_tree	zlib/trees.c	/^local int build_bl_tree(s)$/;"	f
 build_hash_table	match.c	/^static void build_hash_table(struct sum_struct *s)$/;"	f	file:
 build_tree	testhelp/maketree.py	/^    def build_tree(self, prefix, depth):$/;"	m	class:TreeBuilder
 build_tree	zlib/trees.c	/^local void build_tree(s, desc)$/;"	f
-builtin_mime_types	mongoose.c	/^} builtin_mime_types[] = {$/;"	v	typeref:struct:__anon29	file:
+builtin_mime_types	mongoose.c	/^} builtin_mime_types[] = {$/;"	v	typeref:struct:__anon4	file:
 bwlimit	options.c	/^int bwlimit = 0;$/;"	v
 bwlimit_arg	options.c	/^static char *bwlimit_arg, *max_size_arg, *min_size_arg;$/;"	v	file:
 bwlimit_writemax	options.c	/^size_t bwlimit_writemax = 0;$/;"	v
 byteReverse	mongoose.c	/^static void byteReverse(unsigned char *buf, unsigned longs) {$/;"	f	file:
-byteReverse	mongoose.c	1979;"	d	file:
-byte_escape	support/deny-rsync	/^function byte_escape {$/;"	f
-bytecompare	support/rsyncstats	/^sub bytecompare {$/;"	s
+byteReverse	mongoose.c	1981;"	d	file:
 cache_rsync_acl	acls.c	/^static int cache_rsync_acl(rsync_acl *racl, SMB_ACL_TYPE_T type, item_list *racl_list)$/;"	f	file:
 cache_tmp_acl	acls.c	/^void cache_tmp_acl(struct file_struct *file, stat_x *sxp)$/;"	f
 cache_tmp_xattr	xattrs.c	/^void cache_tmp_xattr(struct file_struct *file, stat_x *sxp)$/;"	f
 calc_sacl_entries	acls.c	/^static int calc_sacl_entries(const rsync_acl *racl)$/;"	f	file:
 call_glob_match	util.c	/^static inline void call_glob_match(const char *name, int len, int from_glob,$/;"	f	file:
 call_user	mongoose.c	/^static void *call_user(struct mg_connection *conn, enum mg_event event) {$/;"	f	file:
-callback	main.c	/^static void *callback(enum mg_event event,$/;"	f	file:
+callback	mongoose.c	/^static void *callback(enum mg_event event,$/;"	f	file:
 can_continue	testhelp/maketree.py	/^    def can_continue(self):$/;"	m	class:TreeBuilder
 canon_name_from_hostent	lib/getaddrinfo.c	/^static char *canon_name_from_hostent(struct hostent *hp,$/;"	f	file:
 cbuf	token.c	/^static char *cbuf;$/;"	v	file:
@@ -1945,10 +1934,11 @@ change_slashes_to_backslashes	mongoose.c	/^static void change_slashes_to_backsla
 char_to_int	lib/snprintf.c	222;"	d	file:
 charf	zlib/zconf.h	/^typedef char  FAR charf;$/;"	t
 charf	zlib/zconf.h	54;"	d
-charset	loadparm.c	/^	char *charset;$/;"	m	struct:__anon24	file:
+charset	loadparm.c	/^	char *charset;$/;"	m	struct:__anon19	file:
 check	zlib/inflate.h	/^    unsigned long check;        \/* protected copy of check value *\/$/;"	m	struct:inflate_state
 check_acl	mongoose.c	/^static int check_acl(struct mg_context *ctx, uint32_t remote_ip) {$/;"	f	file:
 check_alt_basis_dirs	main.c	/^static void check_alt_basis_dirs(void)$/;"	f	file:
+check_alt_basis_dirs	tempmain.c	/^static void check_alt_basis_dirs(void)$/;"	f	file:
 check_authorization	mongoose.c	/^static int check_authorization(struct mg_connection *conn, const char *path) {$/;"	f	file:
 check_batch_flags	batch.c	/^void check_batch_flags(void)$/;"	f
 check_filter	exclude.c	/^int check_filter(filter_rule_list *listp, enum logcode code,$/;"	f
@@ -1966,11 +1956,11 @@ check_prior	hlink.c	/^static char *check_prior(struct file_struct *file, int gnu
 check_secret	authenticate.c	/^static const char *check_secret(int module, const char *user, const char *group,$/;"	f	file:
 check_sub_protocol	compat.c	/^static void check_sub_protocol(void)$/;"	f	file:
 check_timeout	io.c	/^static void check_timeout(BOOL allow_keepalive)$/;"	f	file:
-check_vars	packaging/var-checker	/^sub check_vars$/;"	s
 checksum_len	flist.c	/^int checksum_len;$/;"	v
 checksum_seed	options.c	/^int checksum_seed = 0;$/;"	v
 child	token.c	/^	struct suffix_tree *child;$/;"	m	struct:suffix_tree	typeref:struct:suffix_tree::suffix_tree	file:
 child_main	main.c	/^int child_main(int argc, char *argv[])$/;"	f
+child_main	tempmain.c	/^int child_main(int argc, char *argv[])$/;"	f
 chmod_mode_struct	chmod.c	/^struct chmod_mode_struct {$/;"	s	file:
 chmod_modes	options.c	/^struct chmod_mode_struct *chmod_modes = NULL;$/;"	v	typeref:struct:chmod_mode_struct
 chunks	lib/snprintf.c	/^	struct pr_chunk **chunks;$/;"	m	struct:pr_chunk_x	typeref:struct:pr_chunk_x::pr_chunk	file:
@@ -1996,6 +1986,7 @@ client_addr	clientname.c	/^char *client_addr(int fd)$/;"	f
 client_info	compat.c	/^static const char *client_info;$/;"	v	file:
 client_name	clientname.c	/^char *client_name(int fd)$/;"	f
 client_run	main.c	/^int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])$/;"	f
+client_run	tempmain.c	/^int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])$/;"	f
 client_sockaddr	clientname.c	/^void client_sockaddr(int fd,$/;"	f
 client_ssl_ctx	mongoose.c	/^  SSL_CTX *client_ssl_ctx;      \/\/ Client SSL context$/;"	m	struct:mg_context	file:
 close	mongoose.c	132;"	d	file:
@@ -2007,15 +1998,15 @@ closedir	mongoose.c	/^static int closedir(DIR *dir) {$/;"	f	file:
 closesocket	mongoose.c	216;"	d	file:
 cmp_time	util.c	/^int cmp_time(time_t file1, time_t file2)$/;"	f
 cnonce	mongoose.c	/^  char *user, *uri, *cnonce, *response, *qop, *nc, *nonce;$/;"	m	struct:ah	file:
-code	log.c	/^        int code;$/;"	m	struct:__anon1	file:
-code	zlib/deflate.h	/^        ush  code;       \/* bit string *\/$/;"	m	union:ct_data_s::__anon14
-code	zlib/inftrees.h	/^} code;$/;"	t	typeref:struct:__anon10
+code	log.c	/^        int code;$/;"	m	struct:__anon27	file:
+code	zlib/deflate.h	/^        ush  code;       \/* bit string *\/$/;"	m	union:ct_data_s::__anon10
+code	zlib/inftrees.h	/^} code;$/;"	t	typeref:struct:__anon13
 codes	zlib/inflate.h	/^    code codes[ENOUGH];         \/* space for code tables *\/$/;"	m	struct:inflate_state
-codetype	zlib/inftrees.h	/^} codetype;$/;"	t	typeref:enum:__anon11
+codetype	zlib/inftrees.h	/^} codetype;$/;"	t	typeref:enum:__anon14
 comm_max	zlib/zlib.h	/^    uInt    comm_max;   \/* space at comment (only when reading header) *\/$/;"	m	struct:gz_header_s
 comma_dnum	inums.h	/^comma_dnum(double dnum, int decimal_digits)$/;"	f
 comma_num	inums.h	/^comma_num(int64 num)$/;"	f
-comment	loadparm.c	/^	char *comment;$/;"	m	struct:__anon24	file:
+comment	loadparm.c	/^	char *comment;$/;"	m	struct:__anon19	file:
 comment	zlib/zlib.h	/^    Bytef   *comment;   \/* pointer to zero-terminated comment or Z_NULL *\/$/;"	m	struct:gz_header_s
 compare_addrinfo_sockaddr	clientname.c	/^int compare_addrinfo_sockaddr(const struct addrinfo *ai,$/;"	f
 compare_dest	options.c	/^int compare_dest = 0;$/;"	v
@@ -2045,6 +2036,7 @@ conn	mongoose.c	/^  struct mg_connection *conn;$/;"	m	struct:de	typeref:struct:d
 connect_timeout	options.c	/^int connect_timeout = 0;$/;"	v
 const	zlib/zconf.h	124;"	d
 construct_etag	mongoose.c	/^static void construct_etag(char *buf, size_t buf_len,$/;"	f	file:
+construct_http_req	http.c	/^void construct_http_req()$/;"	f
 consume_socket	mongoose.c	/^static int consume_socket(struct mg_context *ctx, struct socket *sp) {$/;"	f	file:
 consumed_content	mongoose.c	/^  int64_t consumed_content;   \/\/ How many bytes of content have been read$/;"	m	struct:mg_connection	file:
 content_len	mongoose.c	/^  int64_t content_len;        \/\/ Content-Length header value$/;"	m	struct:mg_connection	file:
@@ -2053,6 +2045,7 @@ copy4	lib/mdfour.c	/^static void copy4(uchar *out,uint32 x)$/;"	f	file:
 copy64	lib/mdfour.c	/^static void copy64(uint32 *M, const uchar *in)$/;"	f	file:
 copy_altdest_file	generator.c	/^static int copy_altdest_file(const char *src, const char *dest, struct file_struct *file)$/;"	f	file:
 copy_argv	main.c	/^static int copy_argv(char *argv[])$/;"	f	file:
+copy_argv	tempmain.c	/^static int copy_argv(char *argv[])$/;"	f	file:
 copy_block	zlib/trees.c	/^local void copy_block(s, buf, len, header)$/;"	f
 copy_dest	options.c	/^int copy_dest = 0;$/;"	v
 copy_dirlinks	options.c	/^int copy_dirlinks = 0;$/;"	v
@@ -2062,12 +2055,12 @@ copy_section	loadparm.c	/^static void copy_section(local_vars *psectionDest, loc
 copy_unsafe_links	options.c	/^int copy_unsafe_links = 0;$/;"	v
 copy_valid_path	backup.c	/^static BOOL copy_valid_path(const char *fname)$/;"	f	file:
 copy_xattrs	xattrs.c	/^int copy_xattrs(const char *source, const char *dest)$/;"	f
-count	acls.c	/^	int count;$/;"	m	struct:__anon18	file:
+count	acls.c	/^	int count;$/;"	m	struct:__anon23	file:
 count	lib/sysacls.h	/^	int count;$/;"	m	struct:SMB_ACL_T
 count	lib/sysacls.h	/^	int count;$/;"	m	struct:acl_entry_link
-count	mongoose.c	/^    uint32_t count[2];$/;"	m	struct:__anon30	file:
+count	mongoose.c	/^    uint32_t count[2];$/;"	m	struct:__anon5	file:
 count	rsync.h	/^	int32 count;		\/**< how many chunks *\/$/;"	m	struct:sum_struct
-count	rsync.h	/^	size_t count;$/;"	m	struct:__anon6
+count	rsync.h	/^	size_t count;$/;"	m	struct:__anon30
 count_args	options.c	/^static int count_args(const char **argv)$/;"	f	file:
 count_dir_elements	util.c	/^int count_dir_elements(const char *p)$/;"	f
 crc32	zlib/crc32.c	/^unsigned long ZEXPORT crc32(crc, buf, len)$/;"	f
@@ -2078,7 +2071,6 @@ crc32_little	zlib/crc32.c	/^local unsigned long crc32_little(crc, buf, len)$/;"	
 crc_table	zlib/crc32.c	/^local unsigned long FAR crc_table[TBLS][256];$/;"	v
 crc_table	zlib/crc32.h	/^local const unsigned long FAR crc_table[TBLS][256] =$/;"	v
 crc_table_empty	zlib/crc32.c	/^local volatile int crc_table_empty = 1;$/;"	v
-create_branch	packaging/branch-from-patch	/^sub create_branch$/;"	s
 create_pid_file	clientserver.c	/^static void create_pid_file(void)$/;"	f	file:
 create_racl	acls.c	/^static rsync_acl *create_racl(void)$/;"	f	file:
 create_refuse_error	options.c	/^static void create_refuse_error(int which)$/;"	f	file:
@@ -2106,7 +2098,7 @@ d_code	zlib/deflate.h	290;"	d
 d_desc	zlib/deflate.h	/^    struct tree_desc_s d_desc;               \/* desc. for distance tree *\/$/;"	m	struct:internal_state	typeref:struct:internal_state::tree_desc_s
 d_name	ifuncs.h	/^d_name(struct dirent *di)$/;"	f
 d_name	mongoose.c	/^  char d_name[PATH_MAX];$/;"	m	struct:dirent	file:
-dad	zlib/deflate.h	/^        ush  dad;        \/* father node in Huffman tree *\/$/;"	m	union:ct_data_s::__anon15
+dad	zlib/deflate.h	/^        ush  dad;        \/* father node in Huffman tree *\/$/;"	m	union:ct_data_s::__anon11
 daemon_bwlimit	options.c	/^int daemon_bwlimit = 0;$/;"	v
 daemon_chmod_modes	clientserver.c	/^struct chmod_mode_struct *daemon_chmod_modes;$/;"	v	typeref:struct:chmod_mode_struct
 daemon_filter_list	exclude.c	/^filter_rule_list daemon_filter_list = { .debug_type = " [daemon]" };$/;"	v
@@ -2114,6 +2106,7 @@ daemon_filter_list	t_stub.c	/^filter_rule_list daemon_filter_list;$/;"	v
 daemon_main	clientserver.c	/^int daemon_main(void)$/;"	f
 daemon_opt	options.c	/^static int daemon_opt;   \/* sets am_daemon after option error-reporting *\/$/;"	v	file:
 daemon_over_rsh	main.c	/^int daemon_over_rsh = 0;$/;"	v
+daemon_over_rsh	tempmain.c	/^int daemon_over_rsh = 0;$/;"	v
 daemon_usage	options.c	/^static void daemon_usage(enum logcode F)$/;"	f	file:
 data	rsync.h	/^	void *data;$/;"	m	struct:ht_int32_node
 data	rsync.h	/^	void *data;$/;"	m	struct:ht_int64_node
@@ -2121,9 +2114,8 @@ data_len	mongoose.c	/^  int data_len;               \/\/ Total size of data in a
 data_transfer	match.c	/^static int64 data_transfer;$/;"	v	file:
 data_type	zlib/zlib.h	/^    int     data_type;  \/* best guess about the data type: binary or text *\/$/;"	m	struct:z_stream_s
 datarootdir	Makefile	/^datarootdir=${prefix}\/share$/;"	m
-datecompare	support/rsyncstats	/^sub datecompare {$/;"	s
-datum	xattrs.c	/^	char *datum, *name;$/;"	m	struct:__anon32	file:
-datum_len	xattrs.c	/^	size_t datum_len, name_len;$/;"	m	struct:__anon32	file:
+datum	xattrs.c	/^	char *datum, *name;$/;"	m	struct:__anon15	file:
+datum_len	xattrs.c	/^	size_t datum_len, name_len;$/;"	m	struct:__anon15	file:
 dbuf	token.c	/^static char *dbuf;$/;"	v	file:
 de	mongoose.c	/^struct de {$/;"	s	file:
 debug_levels	options.c	/^short info_levels[COUNT_INFO], debug_levels[COUNT_DEBUG];$/;"	v
@@ -2131,7 +2123,7 @@ debug_levels	t_unsafe.c	/^short info_levels[COUNT_INFO], debug_levels[COUNT_DEBU
 debug_type	rsync.h	/^	char *debug_type;$/;"	m	struct:filter_list_struct
 debug_verbosity	options.c	/^static const char *debug_verbosity[] = {$/;"	v	file:
 debug_words	options.c	/^static struct output_struct debug_words[COUNT_DEBUG+1] = {$/;"	v	typeref:struct:output_struct	file:
-def_acl	rsync.h	/^    struct rsync_acl *def_acl; \/* default ACL *\/$/;"	m	struct:__anon9	typeref:struct:__anon9::rsync_acl
+def_acl	rsync.h	/^    struct rsync_acl *def_acl; \/* default ACL *\/$/;"	m	struct:__anon33	typeref:struct:__anon33::rsync_acl
 def_compress_level	options.c	/^int def_compress_level = Z_DEFAULT_COMPRESSION;$/;"	v
 def_window_size	rsync.h	/^	int32 def_window_size;	\/* Default window size			*\/$/;"	m	struct:map_struct
 default_acl_list	acls.c	/^static item_list default_acl_list = EMPTY_ITEM_LIST;$/;"	v	file:
@@ -2213,7 +2205,7 @@ displayArgs	popt/popthelp.c	/^static void displayArgs(poptContext con,$/;"	f	fil
 distbits	zlib/inflate.h	/^    unsigned distbits;          \/* index bits for distcode *\/$/;"	m	struct:inflate_state
 distcode	zlib/inflate.h	/^    code const FAR *distcode;   \/* starting table for distance codes *\/$/;"	m	struct:inflate_state
 distfix	zlib/inffixed.h	/^    static const code distfix[32] = {$/;"	v
-dl	zlib/deflate.h	/^    } dl;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon15
+dl	zlib/deflate.h	/^    } dl;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon11
 dlopen	mongoose.c	/^static HANDLE dlopen(const char *dll_name, int flags) {$/;"	f	file:
 dlsym	mongoose.c	133;"	d	file:
 dmax	zlib/inflate.h	/^    unsigned dmax;              \/* zlib header max distance (INFLATE_STRICT) *\/$/;"	m	struct:inflate_state
@@ -2222,6 +2214,7 @@ do_big_dnum	lib/compat.c	/^char *do_big_dnum(double dnum, int human_flag, int de
 do_big_num	lib/compat.c	/^char *do_big_num(int64 num, int human_flag, const char *fract)$/;"	f
 do_chmod	syscall.c	/^int do_chmod(const char *path, mode_t mode)$/;"	f
 do_cmd	main.c	/^static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, int remote_argc,$/;"	f	file:
+do_cmd	tempmain.c	/^static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, int remote_argc,$/;"	f	file:
 do_compression	options.c	/^int do_compression = 0;$/;"	v
 do_delayed_deletions	generator.c	/^static void do_delayed_deletions(char *delbuf)$/;"	f	file:
 do_delete_pass	generator.c	/^static void do_delete_pass(void)$/;"	f	file:
@@ -2239,17 +2232,21 @@ do_mknod	syscall.c	/^int do_mknod(const char *pathname, mode_t mode, dev_t dev)$
 do_mkstemp	syscall.c	/^int do_mkstemp(char *template, mode_t perms)$/;"	f
 do_open	syscall.c	/^int do_open(const char *pathname, int flags, mode_t mode)$/;"	f
 do_open_nofollow	syscall.c	/^int do_open_nofollow(const char *pathname, int flags)$/;"	f
-do_over_http	main.c	/^pid_t do_over_http(int *f_in1, int *f_out1,int *old_f_in, int *old_f_out)$/;"	f
+do_over_http	main.c	/^pid_t do_over_http(int *f_in, int *f_out)$/;"	f
+do_over_http	tempmain.c	/^void do_over_http()$/;"	f
 do_parameter	loadparm.c	/^static BOOL do_parameter(char *parmname, char *parmvalue)$/;"	f	file:
 do_progress	options.c	/^static int do_progress = 0;$/;"	v	file:
 do_readlink	rsync.h	1048;"	d
 do_readlink	syscall.c	/^ssize_t do_readlink(const char *path, char *buf, size_t bufsiz)$/;"	f
 do_recv	main.c	/^static int do_recv(int f_in, int f_out, char *local_name)$/;"	f	file:
+do_recv	tempmain.c	/^static int do_recv(int f_in, int f_out, char *local_name)$/;"	f	file:
 do_rename	syscall.c	/^int do_rename(const char *fname1, const char *fname2)$/;"	f
 do_rmdir	syscall.c	/^int do_rmdir(const char *pathname)$/;"	f
 do_section	loadparm.c	/^static BOOL do_section(char *sectionname)$/;"	f	file:
 do_server_recv	main.c	/^static void do_server_recv(int f_in, int f_out, int argc, char *argv[])$/;"	f	file:
+do_server_recv	tempmain.c	/^static void do_server_recv(int f_in, int f_out, int argc, char *argv[])$/;"	f	file:
 do_server_sender	main.c	/^static void do_server_sender(int f_in, int f_out, int argc, char *argv[])$/;"	f	file:
+do_server_sender	tempmain.c	/^static void do_server_sender(int f_in, int f_out, int argc, char *argv[])$/;"	f	file:
 do_ssi_exec	mongoose.c	/^static void do_ssi_exec(struct mg_connection *conn, char *tag) {$/;"	f	file:
 do_ssi_include	mongoose.c	/^static void do_ssi_include(struct mg_connection *conn, const char *ssi,$/;"	f	file:
 do_stat	syscall.c	/^int do_stat(const char *fname, STRUCT_STAT *st)$/;"	f
@@ -2260,12 +2257,13 @@ do_utime	syscall.c	/^int do_utime(const char *fname, time_t modtime, UNUSED(uint
 do_utimensat	syscall.c	/^int do_utimensat(const char *fname, time_t modtime, uint32 mod_nsec)$/;"	f
 do_utimes	syscall.c	/^int do_utimes(const char *fname, time_t modtime, uint32 mod_nsec)$/;"	f
 do_winexe	main.c	/^ pid_t do_winexe(char **command){$/;"	f
+do_winexe	tempmain.c	/^ pid_t do_winexe(char **command){$/;"	f
 do_winexe_cmd	main.c	/^ pid_t do_winexe_cmd(char *machine,char *user)$/;"	f
+do_winexe_cmd	tempmain.c	/^ pid_t do_winexe_cmd(char *machine,char *user)$/;"	f
 do_xfers	options.c	/^int do_xfers = 1;$/;"	v
 doliteral	lib/wildmatch.c	/^static int doliteral(const uchar *s, const uchar *text, const uchar*const *a)$/;"	f	file:
-domnamcompare	support/rsyncstats	/^sub domnamcompare {$/;"	s
 done	zlib/zlib.h	/^    int     done;       \/* true when done reading gzip header (not used$/;"	m	struct:gz_header_s
-dont_compress	loadparm.c	/^	char *dont_compress;$/;"	m	struct:__anon24	file:
+dont_compress	loadparm.c	/^	char *dont_compress;$/;"	m	struct:__anon19	file:
 dopr	lib/snprintf.c	/^static int dopr(char *buffer, size_t maxlen, const char *format, va_list args_in)$/;"	f	file:
 dopr_outch	lib/snprintf.c	/^static void dopr_outch(char *buffer, size_t *currlen, size_t maxlen, char c)$/;"	f	file:
 dowild	lib/wildmatch.c	/^static int dowild(const uchar *p, const uchar *text, const uchar*const *a)$/;"	f	file:
@@ -2294,6 +2292,7 @@ empty_sum	flist.c	/^static char empty_sum[MAX_DIGEST_LEN];$/;"	v	file:
 empty_xattr	xattrs.c	/^static item_list empty_xattr = EMPTY_ITEM_LIST;$/;"	v	file:
 end_progress	progress.c	/^void end_progress(OFF_T size)$/;"	f
 endtime	main.c	/^static time_t starttime, endtime;$/;"	v	file:
+endtime	tempmain.c	/^static time_t starttime, endtime;$/;"	v	file:
 entries	mongoose.c	/^  struct de *entries;$/;"	m	struct:dir_scan_data	typeref:struct:dir_scan_data::de	file:
 entries	rsync.h	/^	int32 size, entries;$/;"	m	struct:hashtable
 entryp	lib/sysacls.h	/^	struct new_acl_entry *entryp;$/;"	m	struct:acl_entry_link	typeref:struct:acl_entry_link::new_acl_entry
@@ -2308,8 +2307,8 @@ errno	zlib/zutil.c	/^    int errno = 0;$/;"	v
 establish_proxy_connection	socket.c	/^static int establish_proxy_connection(int fd, char *host, int port,$/;"	f	file:
 ev_data	mongoose.h	/^  void *ev_data;              \/\/ Event-specific data pointer$/;"	m	struct:mg_request_info
 exchange_protocols	clientserver.c	/^static int exchange_protocols(int f_in, int f_out, char *buf, size_t bufsiz, int am_client)$/;"	f	file:
-exclude	loadparm.c	/^	char *exclude;$/;"	m	struct:__anon24	file:
-exclude_from	loadparm.c	/^	char *exclude_from;$/;"	m	struct:__anon24	file:
+exclude	loadparm.c	/^	char *exclude;$/;"	m	struct:__anon19	file:
+exclude_from	loadparm.c	/^	char *exclude_from;$/;"	m	struct:__anon19	file:
 execAbsolute	popt/poptint.h	/^    int execAbsolute;$/;"	m	struct:poptContext_s
 execCommand	popt/popt.c	/^static int execCommand(poptContext con)$/;"	f	file:
 execPath	popt/poptint.h	/^    const char * execPath;$/;"	m	struct:poptContext_s
@@ -2317,12 +2316,13 @@ exec_prefix	Makefile	/^exec_prefix=${prefix}$/;"	m
 execs	popt/poptint.h	/^    poptItem execs;$/;"	m	struct:poptContext_s
 exit_cleanup	rsync.h	1210;"	d
 exit_mongoose	main.c	/^int exit_mongoose =0 ; \/\/ our exit flag for mongoose server to stop. **[Akshay] mg_main()'s while loop will continuously monitor this flag$/;"	v
+exit_mongoose	tempmain.c	/^int exit_mongoose =0 ; \/\/ our exit flag for mongoose server to stop. **[Akshay] mg_main()'s while loop will continuously monitor this flag$/;"	v
 expandNextArg	popt/popt.c	/^expandNextArg(\/*@special@*\/ poptContext con, const char * s)$/;"	f	file:
 expand_item_list	util.c	/^void *expand_item_list(item_list *lp, size_t item_size,$/;"	f
 expand_vars	loadparm.c	/^static char *expand_vars(char *str)$/;"	f	file:
 explode_mod	wildtest.c	/^int explode_mod = 0;$/;"	v
-ext_len	mongoose.c	/^  size_t ext_len;$/;"	m	struct:__anon29	file:
-extension	mongoose.c	/^  const char *extension;$/;"	m	struct:__anon29	file:
+ext_len	mongoose.c	/^  size_t ext_len;$/;"	m	struct:__anon4	file:
+extension	mongoose.c	/^  const char *extension;$/;"	m	struct:__anon4	file:
 extents	lib/pool_alloc.c	/^	struct pool_extent	*extents;	\/* top extent is "live" *\/$/;"	m	struct:alloc_pool	typeref:struct:alloc_pool::pool_extent	file:
 extra	zlib/inflate.h	/^    unsigned extra;             \/* extra bits needed *\/$/;"	m	struct:inflate_state
 extra	zlib/zlib.h	/^    Bytef   *extra;     \/* pointer to extra field or Z_NULL if none *\/$/;"	m	struct:gz_header_s
@@ -2339,14 +2339,13 @@ f_name	flist.c	/^char *f_name(const struct file_struct *f, char *fbuf)$/;"	f
 f_name_buf	flist.c	/^char *f_name_buf(void)$/;"	f
 f_name_cmp	flist.c	/^int f_name_cmp(const struct file_struct *f1, const struct file_struct *f2)$/;"	f
 f_name_has_prefix	flist.c	/^int f_name_has_prefix(const struct file_struct *f1, const struct file_struct *f2)$/;"	f
-faccompare	support/rsyncstats	/^sub faccompare {$/;"	s
 failed	tls.c	/^static void failed(char const *what, char const *where)$/;"	f	file:
-fake_super	loadparm.c	/^	BOOL fake_super;$/;"	m	struct:__anon24	file:
+fake_super	loadparm.c	/^	BOOL fake_super;$/;"	m	struct:__anon19	file:
 false_alarms	match.c	/^static int false_alarms;$/;"	v	file:
 fatal_unsafe_io_error	flist.c	/^static NORETURN void fatal_unsafe_io_error(void)$/;"	f	file:
 fbsize	util.c	/^	int absize, fbsize, maxargs, argc;$/;"	m	struct:glob_data	file:
 fc	mongoose.c	/^static struct mg_connection *fc(struct mg_context *ctx) {$/;"	f	file:
-fc	zlib/deflate.h	/^    } fc;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon14
+fc	zlib/deflate.h	/^    } fc;$/;"	m	struct:ct_data_s	typeref:union:ct_data_s::__anon10
 fclose_on_exec	mongoose.c	/^static void fclose_on_exec(struct file *filep) {$/;"	f	file:
 fd	rsync.h	/^	int fd;			\/* File Descriptor			*\/$/;"	m	struct:map_struct
 fd_pair	util.c	/^int fd_pair(int fd[2])$/;"	f
@@ -2385,7 +2384,7 @@ filesystem_dev	flist.c	/^dev_t filesystem_dev; \/* used to implement -x *\/$/;"	
 fill_file	testhelp/maketree.py	/^    def fill_file(self, f, size):$/;"	m	class:TreeBuilder
 fill_window	zlib/deflate.c	/^local void fill_window(s)$/;"	f
 filt_buf	util.c	/^	char *arg_buf, *filt_buf, **argv;$/;"	m	struct:glob_data	file:
-filter	loadparm.c	/^	char *filter;$/;"	m	struct:__anon24	file:
+filter	loadparm.c	/^	char *filter;$/;"	m	struct:__anon19	file:
 filter_list	exclude.c	/^filter_rule_list filter_list = { .debug_type = "" };$/;"	v
 filter_list_struct	rsync.h	/^typedef struct filter_list_struct {$/;"	s
 filter_rule	rsync.h	/^} filter_rule;$/;"	t	typeref:struct:filter_struct
@@ -2436,7 +2435,7 @@ flist_find_ignore_dirness	flist.c	/^int flist_find_ignore_dirness(struct file_li
 flist_for_ndx	rsync.c	/^struct file_list *flist_for_ndx(int ndx, const char *fatal_error_loc)$/;"	f
 flist_free	flist.c	/^void flist_free(struct file_list *flist)$/;"	f
 flist_ndx_item	rsync.h	/^struct flist_ndx_item {$/;"	s
-flist_ndx_list	rsync.h	/^} flist_ndx_list;$/;"	t	typeref:struct:__anon5
+flist_ndx_list	rsync.h	/^} flist_ndx_list;$/;"	t	typeref:struct:__anon29
 flist_ndx_pop	util.c	/^int flist_ndx_pop(flist_ndx_list *lp)$/;"	f
 flist_ndx_push	util.c	/^void flist_ndx_push(flist_ndx_list *lp, int ndx)$/;"	f
 flist_new	flist.c	/^struct file_list *flist_new(int flags, char *msg)$/;"	f
@@ -2452,7 +2451,7 @@ flush_write_file	fileio.c	/^int flush_write_file(int f)$/;"	f
 fmtfp	lib/snprintf.c	/^static void fmtfp (char *buffer, size_t *currlen, size_t maxlen,$/;"	f	file:
 fmtint	lib/snprintf.c	/^static void fmtint(char *buffer, size_t *currlen, size_t maxlen,$/;"	f	file:
 fmtstr	lib/snprintf.c	/^static void fmtstr(char *buffer, size_t *currlen, size_t maxlen,$/;"	f	file:
-fname	rsync.h	/^	char fname[1]; \/* has variable size *\/$/;"	m	struct:__anon8
+fname	rsync.h	/^	char fname[1]; \/* has variable size *\/$/;"	m	struct:__anon32
 fnc_state	flist.c	/^enum fnc_state { s_DIR, s_SLASH, s_BASE, s_TRAILING };$/;"	g	file:
 fnc_type	flist.c	/^enum fnc_type { t_PATH, t_ITEM };$/;"	g	file:
 fnmatch_errors	wildtest.c	/^int fnmatch_errors = 0;$/;"	v
@@ -2464,7 +2463,7 @@ format	t_stub.c	/^ void rsyserr(UNUSED(enum logcode code), int errcode, const ch
 forward_body_data	mongoose.c	/^static int forward_body_data(struct mg_connection *conn, FILE *fp,$/;"	f	file:
 forward_filesfrom_data	io.c	/^static void forward_filesfrom_data(void)$/;"	f	file:
 forward_flist_data	io.c	/^int forward_flist_data = 0;$/;"	v
-forward_lookup	loadparm.c	/^	BOOL forward_lookup;$/;"	m	struct:__anon24	file:
+forward_lookup	loadparm.c	/^	BOOL forward_lookup;$/;"	m	struct:__anon19	file:
 found_prefix	flist.c	/^static int found_prefix;$/;"	v	file:
 fp	mongoose.c	/^  FILE *fp;$/;"	m	struct:file	file:
 free	lib/pool_alloc.c	/^	size_t			free;		\/* free bytecount	*\/$/;"	m	struct:pool_extent	file:
@@ -2482,7 +2481,7 @@ freeaclp	lib/sysacls.h	/^	BOOL freeaclp;$/;"	m	struct:SMB_ACL_T
 freeaddrinfo	lib/addrinfo.h	157;"	d
 freeaddrinfo	lib/addrinfo.h	159;"	d
 freeaddrinfo	lib/getaddrinfo.c	/^void freeaddrinfo(struct addrinfo *res)$/;"	f
-freq	zlib/deflate.h	/^        ush  freq;       \/* frequency count *\/$/;"	m	union:ct_data_s::__anon14
+freq	zlib/deflate.h	/^        ush  freq;       \/* frequency count *\/$/;"	m	union:ct_data_s::__anon10
 from_wire_mode	ifuncs.h	/^from_wire_mode(int mode)$/;"	f
 fseeko	mongoose.c	135;"	d	file:
 fsort	flist.c	/^static void fsort(struct file_struct **fp, size_t num)$/;"	f	file:
@@ -2490,12 +2489,13 @@ fsort_tmp	flist.c	/^static void fsort_tmp(struct file_struct **fp, size_t num,$/
 full_fname	util.c	/^char *full_fname(const char *fn)$/;"	f
 full_module_path	clientserver.c	/^char *full_module_path;$/;"	v
 full_write	util.c	/^int full_write(int desc, const char *ptr, size_t len)$/;"	f
+fun	aa.c	/^fun(){gg();}$/;"	f
 func	zlib/deflate.c	/^   compress_func func;$/;"	m	struct:config_s	file:
 funlockfile	mongoose.c	140;"	d	file:
 fuzzy_basis	options.c	/^int fuzzy_basis = 0;$/;"	v
 fuzzy_distance	util.c	/^uint32 fuzzy_distance(const char *s1, unsigned len1, const char *s2, unsigned len2)$/;"	f
 fvalue	lib/snprintf.c	/^	LDOUBLE fvalue;$/;"	m	struct:pr_chunk	file:
-g	loadparm.c	/^	global_vars g;$/;"	m	struct:__anon25	file:
+g	loadparm.c	/^	global_vars g;$/;"	m	struct:__anon20	file:
 gai_strerror	lib/addrinfo.h	162;"	d
 gai_strerror	lib/addrinfo.h	164;"	d
 gai_strerror	lib/getaddrinfo.c	/^const char *gai_strerror(int errcode)$/;"	f
@@ -2523,12 +2523,14 @@ get_dirlist	flist.c	/^struct file_list *get_dirlist(char *dirname, int dlen, int
 get_header	mongoose.c	/^static const char *get_header(const struct mg_request_info *ri,$/;"	f	file:
 get_hlink_num	io.c	/^int get_hlink_num(void)$/;"	f
 get_local_name	main.c	/^static char *get_local_name(struct file_list *flist, char *dest_path)$/;"	f	file:
+get_local_name	tempmain.c	/^static char *get_local_name(struct file_list *flist, char *dest_path)$/;"	f	file:
 get_md5	lib/md5.c	/^void get_md5(uchar *out, const uchar *input, int n)$/;"	f
 get_mime_type	mongoose.c	/^static void get_mime_type(struct mg_context *ctx, const char *path,$/;"	f	file:
 get_month_index	mongoose.c	/^static int get_month_index(const char *s) {$/;"	f	file:
 get_my_canon_name	lib/getaddrinfo.c	/^static char *get_my_canon_name(int *perr)$/;"	f	file:
 get_option_index	mongoose.c	/^static int get_option_index(const char *name) {$/;"	f	file:
 get_our_ctx	main.c	/^struct mg_context *get_our_ctx(void)$/;"	f
+get_our_ctx	tempmain.c	/^struct mg_context *get_our_ctx(void)$/;"	f
 get_panic_action	main.c	/^const char *get_panic_action(void)$/;"	f
 get_redo_num	io.c	/^int get_redo_num(void)$/;"	f
 get_remote_ip	mongoose.c	/^static uint32_t get_remote_ip(const struct mg_connection *conn) {$/;"	f	file:
@@ -2537,7 +2539,6 @@ get_rsync_acl	acls.c	/^static int get_rsync_acl(const char *fname, rsync_acl *ra
 get_rule_prefix	exclude.c	/^char *get_rule_prefix(filter_rule *rule, const char *pat, int for_xfer,$/;"	f
 get_sockaddr_family	clientname.c	/^static int get_sockaddr_family(const struct sockaddr_storage *ss)$/;"	f	file:
 get_stat_xattr	xattrs.c	/^int get_stat_xattr(const char *fname, int fd, STRUCT_STAT *fst, STRUCT_STAT *xst)$/;"	f
-get_subprotocol_version	packaging/release-rsync	/^sub get_subprotocol_version$/;"	s
 get_tmpname	receiver.c	/^int get_tmpname(char *fnametmp, const char *fname, BOOL make_unique)$/;"	f
 get_xattr	xattrs.c	/^int get_xattr(const char *fname, stat_x *sxp)$/;"	f
 get_xattr_acl	xattrs.c	/^char *get_xattr_acl(const char *fname, int is_access_acl, size_t *len_p)$/;"	f
@@ -2560,7 +2561,8 @@ getsectionbyname	loadparm.c	/^static int getsectionbyname(char *name)$/;"	f	file
 getservicenameinfo	lib/getaddrinfo.c	/^static int getservicenameinfo(const struct sockaddr *sa,$/;"	f	file:
 gf2_matrix_square	zlib/crc32.c	/^local void gf2_matrix_square(square, mat)$/;"	f
 gf2_matrix_times	zlib/crc32.c	/^local unsigned long gf2_matrix_times(mat, vec)$/;"	f
-gid	loadparm.c	/^	char *gid;$/;"	m	struct:__anon24	file:
+gg	aa.c	/^void gg()$/;"	f
+gid	loadparm.c	/^	char *gid;$/;"	m	struct:__anon19	file:
 gid_count	clientserver.c	/^static int gid_count = 0;$/;"	v	file:
 gid_list	clientserver.c	/^static gid_t gid_list[MAX_GID_LIST];$/;"	v	file:
 gid_ndx	compat.c	/^int uid_ndx, gid_ndx, acls_ndx, xattrs_ndx, unsort_ndx;$/;"	v
@@ -2572,7 +2574,7 @@ glob_data	util.c	/^static struct glob_data {$/;"	s	file:
 glob_expand	util.c	/^int glob_expand(const char *arg, char ***argv_p, int *argc_p, int *maxargs_p)$/;"	f
 glob_expand_module	util.c	/^void glob_expand_module(char *base1, char *arg, char ***argv_p, int *argc_p, int *maxargs_p)$/;"	f
 glob_match	util.c	/^static void glob_match(char *arg, int abpos, int fbpos)$/;"	f	file:
-global_vars	loadparm.c	/^} global_vars;$/;"	t	typeref:struct:__anon23	file:
+global_vars	loadparm.c	/^} global_vars;$/;"	t	typeref:struct:__anon18	file:
 gmt_time_string	mongoose.c	/^static void gmt_time_string(char *buf, size_t buf_len, time_t *t) {$/;"	f	file:
 gmtime	mongoose.c	/^static struct tm *gmtime(const time_t *ptime, struct tm *ptm) {$/;"	f	file:
 good_length	zlib/deflate.c	/^   ush good_length; \/* reduce lazy search above this match length *\/$/;"	m	struct:config_s	file:
@@ -2603,6 +2605,7 @@ handle_request	mongoose.c	/^static void handle_request(struct mg_connection *con
 handle_skipped_hlink	generator.c	/^static void handle_skipped_hlink(struct file_struct *file, int itemizing,$/;"	f	file:
 handle_ssi_file_request	mongoose.c	/^static void handle_ssi_file_request(struct mg_connection *conn,$/;"	f	file:
 handle_stats	main.c	/^static void handle_stats(int f)$/;"	f	file:
+handle_stats	tempmain.c	/^static void handle_stats(int f)$/;"	f	file:
 handle_websocket_request	mongoose.c	/^static void handle_websocket_request(struct mg_connection *conn) {$/;"	f	file:
 hard_link_check	hlink.c	/^int hard_link_check(struct file_struct *file, int ndx, char *fname,$/;"	f
 hard_link_one	hlink.c	/^int hard_link_one(struct file_struct *file, const char *fname,$/;"	f
@@ -2621,7 +2624,7 @@ have	zlib/inflate.h	/^    unsigned have;              \/* number of code lengths
 havedict	zlib/inflate.h	/^    int havedict;               \/* true if dictionary provided *\/$/;"	m	struct:inflate_state
 hcrc	zlib/zlib.h	/^    int     hcrc;       \/* true if there was or will be a header crc *\/$/;"	m	struct:gz_header_s
 head	rsync.h	/^	filter_rule *head;$/;"	m	struct:filter_list_struct
-head	rsync.h	/^	struct flist_ndx_item *head, *tail;$/;"	m	struct:__anon5	typeref:struct:__anon5::flist_ndx_item
+head	rsync.h	/^	struct flist_ndx_item *head, *tail;$/;"	m	struct:__anon29	typeref:struct:__anon29::flist_ndx_item
 head	zlib/deflate.h	/^    Posf *head; \/* Heads of the hash chains or NIL. *\/$/;"	m	struct:internal_state
 head	zlib/inflate.h	/^    gz_headerp head;            \/* where to save gzip header information *\/$/;"	m	struct:inflate_state
 heap	zlib/deflate.h	/^    int heap[2*L_CODES+1];      \/* heap used to build the Huffman trees *\/$/;"	m	struct:internal_state
@@ -2633,8 +2636,8 @@ hlink_compare_gnum	hlink.c	/^static int hlink_compare_gnum(int *int1, int *int2)
 hlink_flist	hlink.c	/^static struct file_list *hlink_flist;$/;"	v	typeref:struct:file_list	file:
 hlink_list	io.c	/^static flist_ndx_list redo_list, hlink_list;$/;"	v	file:
 hold	zlib/inflate.h	/^    unsigned long hold;         \/* input bit accumulator *\/$/;"	m	struct:inflate_state
-hosts_allow	loadparm.c	/^	char *hosts_allow;$/;"	m	struct:__anon24	file:
-hosts_deny	loadparm.c	/^	char *hosts_deny;$/;"	m	struct:__anon24	file:
+hosts_allow	loadparm.c	/^	char *hosts_allow;$/;"	m	struct:__anon19	file:
+hosts_deny	loadparm.c	/^	char *hosts_deny;$/;"	m	struct:__anon19	file:
 hpux_acl_call_presence	lib/sysacls.c	/^static BOOL hpux_acl_call_presence(void)$/;"	f	file:
 hpux_acl_sort	lib/sysacls.c	/^static int hpux_acl_sort(int acl_count, int calclass, struct acl *aclp)$/;"	f	file:
 hpux_acl_types	lib/sysacls.c	/^struct hpux_acl_types {$/;"	s	file:
@@ -2649,11 +2652,12 @@ http_headers	mongoose.h	/^  } http_headers[64];         \/\/ Maximum 64 headers$
 http_version	mongoose.h	/^  const char *http_version;   \/\/ E.g. "1.0", "1.1"$/;"	m	struct:mg_request_info
 https_port	options.c	/^int https_port = 0;   \/\/arg_ptr fot http option this value is set if option matches$/;"	v
 https_portno	main.c	/^int https_portno ;     \/\/ a global variable in main.c for copying port no. from https_port$/;"	v
+https_portno	tempmain.c	/^int https_portno ;     \/\/ a global variable in main.c for copying port no. from https_port$/;"	v
 human_dnum	inums.h	/^human_dnum(double dnum, int decimal_digits)$/;"	f
 human_num	inums.h	/^human_num(int64 num)$/;"	f
 human_readable	options.c	/^int human_readable = 1;$/;"	v
 human_readable	t_unsafe.c	/^int human_readable = 0;$/;"	v
-i	lib/pool_alloc.c	/^	    int64 i;$/;"	m	union:align_test::__anon35	file:
+i	lib/pool_alloc.c	/^	    int64 i;$/;"	m	union:align_test::__anon7	file:
 iSECTION	loadparm.c	89;"	d	file:
 iSectionIndex	loadparm.c	/^static int iSectionIndex = -1;$/;"	v	file:
 ic_chck	rsync.c	/^iconv_t ic_chck = (iconv_t)-1;$/;"	v
@@ -2664,41 +2668,41 @@ iconv_opt	options.c	/^char *iconv_opt = ICONV_OPTION;$/;"	v
 iconv_t	rsync.h	469;"	d
 iconv_t	rsync.h	471;"	d
 iconvbufs	rsync.c	/^int iconvbufs(iconv_t ic, xbuf *in, xbuf *out, int flags)$/;"	f
-id	acls.c	/^	id_t id;$/;"	m	struct:__anon17	file:
+id	acls.c	/^	id_t id;$/;"	m	struct:__anon22	file:
 id	uidlist.c	/^	id_t id, id2;$/;"	m	struct:idlist	file:
 id2	uidlist.c	/^	id_t id, id2;$/;"	m	struct:idlist	file:
-id_access	acls.c	/^} id_access;$/;"	t	typeref:struct:__anon17	file:
+id_access	acls.c	/^} id_access;$/;"	t	typeref:struct:__anon22	file:
 id_access_sorter	acls.c	/^static int id_access_sorter(const void *r1, const void *r2)$/;"	f	file:
 id_parse	uidlist.c	/^static id_t id_parse(const char *num_str)$/;"	f	file:
 id_t	rsync.h	/^typedef unsigned int id_t;$/;"	t
-ida_entries	acls.c	/^} ida_entries;$/;"	t	typeref:struct:__anon18	file:
+ida_entries	acls.c	/^} ida_entries;$/;"	t	typeref:struct:__anon23	file:
 ida_entries_equal	acls.c	/^static BOOL ida_entries_equal(const ida_entries *ial1, const ida_entries *ial2)$/;"	f	file:
-idas	acls.c	/^	id_access *idas;$/;"	m	struct:__anon18	file:
+idas	acls.c	/^	id_access *idas;$/;"	m	struct:__anon23	file:
 idev_destroy	hlink.c	/^void idev_destroy(void)$/;"	f
 idev_find	hlink.c	/^struct ht_int64_node *idev_find(int64 dev, int64 ino)$/;"	f
 idlist	uidlist.c	/^struct idlist {$/;"	s	file:
-idname	acls.c	/^} idname;$/;"	t	typeref:struct:__anon19	file:
-ignore_errors	loadparm.c	/^	BOOL ignore_errors;$/;"	m	struct:__anon24	file:
+idname	acls.c	/^} idname;$/;"	t	typeref:struct:__anon24	file:
+ignore_errors	loadparm.c	/^	BOOL ignore_errors;$/;"	m	struct:__anon19	file:
 ignore_errors	options.c	/^int ignore_errors = 0;$/;"	v
 ignore_existing	options.c	/^int ignore_existing = 0;$/;"	v
 ignore_non_existing	options.c	/^int ignore_non_existing = 0;$/;"	v
-ignore_nonreadable	loadparm.c	/^	BOOL ignore_nonreadable;$/;"	m	struct:__anon24	file:
+ignore_nonreadable	loadparm.c	/^	BOOL ignore_nonreadable;$/;"	m	struct:__anon19	file:
 ignore_perishable	delete.c	/^int ignore_perishable = 0;$/;"	v
 ignore_times	options.c	/^int ignore_times = 0;$/;"	v
 implied_dirs	options.c	/^int implied_dirs = 1;$/;"	v
 implied_dirs_are_missing	generator.c	/^static int implied_dirs_are_missing;$/;"	v	file:
-in	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon16	file:
+in	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon21	file:
 in	mongoose.c	/^  unsigned char in[64];$/;"	m	struct:MD5Context	file:
-in_fd	io.c	/^	int in_fd;$/;"	m	struct:__anon16	file:
+in_fd	io.c	/^	int in_fd;$/;"	m	struct:__anon21	file:
 in_func	zlib/zconf.h	48;"	d
 in_func	zlib/zlib.h	/^typedef unsigned (*in_func) OF((void FAR *, unsigned char FAR * FAR *));$/;"	t
-in_multiplexed	io.c	/^	int in_multiplexed;$/;"	m	struct:__anon16	file:
+in_multiplexed	io.c	/^	int in_multiplexed;$/;"	m	struct:__anon21	file:
 in_progress	rsync.h	/^	int in_progress, to_redo;$/;"	m	struct:file_list
 inc_recurse	compat.c	/^int inc_recurse = 0;$/;"	v
-include	loadparm.c	/^	char *include;$/;"	m	struct:__anon24	file:
+include	loadparm.c	/^	char *include;$/;"	m	struct:__anon19	file:
 include_config	params.c	/^static int include_config(char *include, int manage_globals)$/;"	f	file:
-include_from	loadparm.c	/^	char *include_from;$/;"	m	struct:__anon24	file:
-incoming_chmod	loadparm.c	/^	char *incoming_chmod;$/;"	m	struct:__anon24	file:
+include_from	loadparm.c	/^	char *include_from;$/;"	m	struct:__anon19	file:
+incoming_chmod	loadparm.c	/^	char *incoming_chmod;$/;"	m	struct:__anon19	file:
 increment_active_files	io.c	/^void increment_active_files(int ndx, int itemizing, enum logcode code)$/;"	f
 inet_ntop	lib/inet_ntop.c	/^inet_ntop(int af, const void *src, char *dst, size_t size)$/;"	f
 inet_ntop4	lib/inet_ntop.c	/^inet_ntop4(const unsigned char *src, char *dst, size_t size)$/;"	f	file:
@@ -2733,7 +2737,7 @@ inflateSyncPoint	zlib/inflate.c	/^int ZEXPORT inflateSyncPoint(strm)$/;"	f
 inflateSyncPoint	zlib/zconf.h	32;"	d
 inflate_copyright	zlib/inftrees.c	/^const char inflate_copyright[] =$/;"	v
 inflate_fast	zlib/inffast.c	/^void inflate_fast(strm, start)$/;"	f
-inflate_mode	zlib/inflate.h	/^} inflate_mode;$/;"	t	typeref:enum:__anon13
+inflate_mode	zlib/inflate.h	/^} inflate_mode;$/;"	t	typeref:enum:__anon9
 inflate_state	zlib/inflate.h	/^struct inflate_state {$/;"	s
 inflate_table	zlib/inftrees.c	/^int inflate_table(type, lens, codes, table, bits, work)$/;"	f
 info	mongoose.c	/^  WIN32_FIND_DATAW info;$/;"	m	struct:DIR	file:
@@ -2793,7 +2797,7 @@ io_start_buffering_out	io.c	/^BOOL io_start_buffering_out(int f_out)$/;"	f
 io_start_multiplex_in	io.c	/^void io_start_multiplex_in(int fd)$/;"	f
 io_start_multiplex_out	io.c	/^void io_start_multiplex_out(int fd)$/;"	f
 io_timeout	options.c	/^int io_timeout = 0;$/;"	v
-iobuf	io.c	/^} iobuf = { .in_fd = -1, .out_fd = -1 };$/;"	v	typeref:struct:__anon16	file:
+iobuf	io.c	/^} iobuf = { .in_fd = -1, .out_fd = -1 };$/;"	v	typeref:struct:__anon21	file:
 isDigit	itypes.h	/^isDigit(const char *ptr)$/;"	f
 isLower	itypes.h	/^isLower(const char *ptr)$/;"	f
 isPrint	itypes.h	/^isPrint(const char *ptr)$/;"	f
@@ -2819,10 +2823,10 @@ is_websocket_request	mongoose.c	/^static int is_websocket_request(const struct m
 isbyte	mongoose.c	/^static int isbyte(int n) {$/;"	f	file:
 itemHelp	popt/popthelp.c	/^static void itemHelp(FILE * fp,$/;"	f	file:
 itemUsage	popt/popthelp.c	/^static size_t itemUsage(FILE * fp, size_t cursor,$/;"	f	file:
-item_list	rsync.h	/^} item_list;$/;"	t	typeref:struct:__anon6
+item_list	rsync.h	/^} item_list;$/;"	t	typeref:struct:__anon30
 itemize	generator.c	/^void itemize(const char *fnamecmp, struct file_struct *file, int ndx, int statret,$/;"	f
 itemize_changes	options.c	/^static int itemize_changes = 0;$/;"	v	file:
-items	rsync.h	/^	void *items;$/;"	m	struct:__anon6
+items	rsync.h	/^	void *items;$/;"	m	struct:__anon30
 iwildmatch	lib/wildmatch.c	/^int iwildmatch(const char *pattern, const char *text)$/;"	f
 keep_dirlinks	options.c	/^int keep_dirlinks = 0;$/;"	v
 keep_partial	options.c	/^int keep_partial = 0;$/;"	v
@@ -2832,7 +2836,7 @@ key64	rsync.h	/^	short key64;$/;"	m	struct:hashtable
 kill	mongoose.c	/^static int kill(pid_t pid, int sig_num) {$/;"	f	file:
 kill_all	util.c	/^void kill_all(int sig)$/;"	f
 kluge_around_eof	io.c	/^int kluge_around_eof = 0;$/;"	v
-l	loadparm.c	/^	local_vars l;$/;"	m	struct:__anon25	file:
+l	loadparm.c	/^	local_vars l;$/;"	m	struct:__anon20	file:
 l_buf	zlib/deflate.h	/^    uchf *l_buf;          \/* buffer for literals or lengths *\/$/;"	m	struct:internal_state
 l_desc	zlib/deflate.h	/^    struct tree_desc_s l_desc;               \/* desc. for literal tree *\/$/;"	m	struct:internal_state	typeref:struct:internal_state::tree_desc_s
 label	loadparm.c	/^	char *label;$/;"	m	struct:parm_struct	file:
@@ -2849,13 +2853,13 @@ last_throttle_time	mongoose.c	/^  time_t last_throttle_time;  \/\/ Last time thr
 last_token	token.c	/^static int32 last_token = -1;$/;"	v	file:
 lchown	syscall.c	124;"	d	file:
 leftovers	popt/poptint.h	/^    const char ** leftovers;$/;"	m	struct:poptContext_s
-len	acls.c	/^	uchar len;$/;"	m	struct:__anon19	file:
+len	acls.c	/^	uchar len;$/;"	m	struct:__anon24	file:
 len	lib/snprintf.c	/^	int len;$/;"	m	struct:pr_chunk	file:
 len	mongoose.c	/^  int len; \/\/ Space taken$/;"	m	struct:cgi_env_block	file:
 len	mongoose.c	/^  size_t len;$/;"	m	struct:vec	file:
 len	rsync.h	/^	int32 len;		\/**< length of chunk of file *\/$/;"	m	struct:sum_buf
-len	rsync.h	/^	size_t len;  \/* len = chars following pos *\/$/;"	m	struct:__anon7
-len	zlib/deflate.h	/^        ush  len;        \/* length of bit string *\/$/;"	m	union:ct_data_s::__anon15
+len	rsync.h	/^	size_t len;  \/* len = chars following pos *\/$/;"	m	struct:__anon31
+len	zlib/deflate.h	/^        ush  len;        \/* length of bit string *\/$/;"	m	union:ct_data_s::__anon11
 len32	rsync.h	/^	uint32 len32;		\/* Lowest 32 bits of the file's length *\/$/;"	m	struct:file_struct
 lenbits	zlib/inflate.h	/^    unsigned lenbits;           \/* index bits for lencode *\/$/;"	m	struct:inflate_state
 lencode	zlib/inflate.h	/^    code const FAR *lencode;    \/* starting table for length\/literal codes *\/$/;"	m	struct:inflate_state
@@ -2863,27 +2867,22 @@ lenfix	zlib/inffixed.h	/^    static const code lenfix[512] = {$/;"	v
 length	zlib/inflate.h	/^    unsigned length;            \/* literal or length of data to copy *\/$/;"	m	struct:inflate_state
 lens	zlib/inflate.h	/^    unsigned short lens[320];   \/* temporary storage for code lengths *\/$/;"	m	struct:inflate_state
 letter	token.c	/^	char letter, word_end;$/;"	m	struct:suffix_tree	file:
-level	socket.c	/^  int level;$/;"	m	struct:__anon3	file:
+level	socket.c	/^  int level;$/;"	m	struct:__anon34	file:
 level	zlib/deflate.h	/^    int level;    \/* compression level (1..9) *\/$/;"	m	struct:internal_state
 limit_output_verbosity	options.c	/^void limit_output_verbosity(int level)$/;"	f
-line	support/rsyncstats	/^line: while (<LOG>) {$/;"	l
-line1	support/rsyncstats	/^format line1 =$/;"	f
-line2	support/rsyncstats	/^format line2 =$/;"	f
-line3	support/rsyncstats	/^format line3 =$/;"	f
-line8	support/rsyncstats	/^format line8 =$/;"	f
 link_dest	options.c	/^int link_dest = 0;$/;"	v
 link_or_rename	backup.c	/^static inline int link_or_rename(const char *from, const char *to,$/;"	f	file:
 link_owner	tls.c	/^int link_owner = 0;$/;"	v
 link_stat	flist.c	/^int link_stat(const char *path, STRUCT_STAT *stp, int follow_dirlinks)$/;"	f
 link_times	tls.c	/^int link_times = 0;$/;"	v
-list	loadparm.c	/^	BOOL list;$/;"	m	struct:__anon24	file:
+list	loadparm.c	/^	BOOL list;$/;"	m	struct:__anon19	file:
 list_file	tls.c	/^static void list_file(const char *fname)$/;"	f	file:
 list_file_entry	generator.c	/^static void list_file_entry(struct file_struct *f)$/;"	f	file:
 list_only	options.c	/^int list_only = 0;$/;"	v
 list_only	t_unsafe.c	/^int list_only = 0;$/;"	v
 list_only	tls.c	/^int list_only = 0;$/;"	v
 list_only	trimslash.c	/^int list_only = 0;$/;"	v
-listen_backlog	loadparm.c	/^	int listen_backlog;$/;"	m	struct:__anon23	file:
+listen_backlog	loadparm.c	/^	int listen_backlog;$/;"	m	struct:__anon18	file:
 listening_sockets	mongoose.c	/^  struct socket *listening_sockets;$/;"	m	struct:mg_context	typeref:struct:mg_context::socket	file:
 lit_bufsize	zlib/deflate.h	/^    uInt  lit_bufsize;$/;"	m	struct:internal_state
 literal_data	rsync.h	/^	int64 literal_data;$/;"	m	struct:stats
@@ -2896,16 +2895,17 @@ local	zlib/zutil.h	46;"	d
 local_child	pipe.c	/^pid_t local_child(int argc, char **argv, int *f_in, int *f_out,$/;"	f
 local_filter_state	exclude.c	/^struct local_filter_state {$/;"	s	file:
 local_server	main.c	/^int local_server = 0;$/;"	v
-local_vars	loadparm.c	/^} local_vars;$/;"	t	typeref:struct:__anon24	file:
+local_server	tempmain.c	/^int local_server = 0;$/;"	v
+local_vars	loadparm.c	/^} local_vars;$/;"	t	typeref:struct:__anon19	file:
 localtime	mongoose.c	/^static struct tm *localtime(const time_t *ptime, struct tm *ptm) {$/;"	f	file:
-lock_file	loadparm.c	/^	char *lock_file;$/;"	m	struct:__anon24	file:
+lock_file	loadparm.c	/^	char *lock_file;$/;"	m	struct:__anon19	file:
 lock_range	util.c	/^int lock_range(int fd, int offset, int len)$/;"	f
 log_access	mongoose.c	/^static void log_access(const struct mg_connection *conn) {$/;"	f	file:
 log_before_transfer	options.c	/^int log_before_transfer = 0;$/;"	v
 log_delete	log.c	/^void log_delete(const char *fname, int mode)$/;"	f
 log_exit	log.c	/^void log_exit(int code, const char *file, int line)$/;"	f
-log_file	loadparm.c	/^	char *log_file;$/;"	m	struct:__anon24	file:
-log_format	loadparm.c	/^	char *log_format;$/;"	m	struct:__anon24	file:
+log_file	loadparm.c	/^	char *log_file;$/;"	m	struct:__anon19	file:
+log_format	loadparm.c	/^	char *log_format;$/;"	m	struct:__anon19	file:
 log_format_has	log.c	/^int log_format_has(const char *format, char esc)$/;"	f
 log_formatted	log.c	/^static void log_formatted(enum logcode code, const char *format, const char *op,$/;"	f	file:
 log_header	mongoose.c	/^static void log_header(const struct mg_connection *conn, const char *header,$/;"	f	file:
@@ -2945,10 +2945,8 @@ lsp	mongoose.c	/^static void lsp(struct mg_connection *conn, const char *p, int6
 lsp_mg_print	mongoose.c	/^static int lsp_mg_print(lua_State *L) {$/;"	f	file:
 lsp_mg_read	mongoose.c	/^static int lsp_mg_read(lua_State *L) {$/;"	f	file:
 m	lib/mdfour.c	/^static md_context *m;$/;"	v	file:
+main	aa.c	/^main(){$/;"	f
 main	aamche_server.c	/^int main(int argc , char **argv )$/;"	f
-main	config.guess	/^		main()$/;"	f
-main	config.guess	/^	main ()$/;"	f
-main	config.guess	/^main ()$/;"	f
 main	configure.sh	/^    main() {$/;"	f
 main	configure.sh	/^main ()$/;"	f
 main	configure.sh	/^main() { foo("hello"); }$/;"	f
@@ -2981,7 +2979,7 @@ make_symlink	testhelp/maketree.py	/^    def make_symlink(self, lname, depth='ign
 makedev	rsync.h	436;"	d
 makefixed	zlib/inflate.c	/^void makefixed()$/;"	f
 malloced	rsync.h	/^	int used, malloced;$/;"	m	struct:file_list
-malloced	rsync.h	/^	size_t malloced;$/;"	m	struct:__anon6
+malloced	rsync.h	/^	size_t malloced;$/;"	m	struct:__anon30
 mandir	Makefile	/^mandir=${datarootdir}\/man$/;"	m
 map_file	fileio.c	/^struct map_struct *map_file(int fd, OFF_T len, int32 read_size,$/;"	f
 map_parameter	loadparm.c	/^static int map_parameter(char *parmname)$/;"	f	file:
@@ -3014,7 +3012,7 @@ maxArgWidth	popt/popthelp.c	/^static size_t maxArgWidth(const struct poptOption 
 max_chain	zlib/deflate.c	/^   ush max_chain;$/;"	m	struct:config_s	file:
 max_chain_length	zlib/deflate.h	/^    uInt max_chain_length;$/;"	m	struct:internal_state
 max_code	zlib/deflate.h	/^    int     max_code;            \/* largest code with non zero frequency *\/$/;"	m	struct:tree_desc_s
-max_connections	loadparm.c	/^	int max_connections;$/;"	m	struct:__anon24	file:
+max_connections	loadparm.c	/^	int max_connections;$/;"	m	struct:__anon19	file:
 max_delete	options.c	/^int max_delete = INT_MIN;$/;"	v
 max_id	uidlist.c	/^    id_t max_id;$/;"	m	union:name_or_id	file:
 max_insert_length	zlib/deflate.h	176;"	d
@@ -3024,7 +3022,7 @@ max_length	zlib/trees.c	/^    int     max_length;          \/* max bit length fo
 max_size	options.c	/^OFF_T max_size = -1;$/;"	v
 max_size_arg	options.c	/^static char *bwlimit_arg, *max_size_arg, *min_size_arg;$/;"	v	file:
 max_star	lib/snprintf.c	/^	struct pr_chunk *max_star;$/;"	m	struct:pr_chunk	typeref:struct:pr_chunk::pr_chunk	file:
-max_verbosity	loadparm.c	/^	int max_verbosity;$/;"	m	struct:__anon24	file:
+max_verbosity	loadparm.c	/^	int max_verbosity;$/;"	m	struct:__anon19	file:
 maxargs	util.c	/^	int absize, fbsize, maxargs, argc;$/;"	m	struct:glob_data	file:
 maxopts	popt/popthelp.c	/^    int maxopts;$/;"	m	struct:poptDone_s	file:
 maybe_ATTRS_REPORT	generator.c	/^int maybe_ATTRS_REPORT = 0;$/;"	v
@@ -3035,13 +3033,13 @@ maybe_hard_link	hlink.c	/^static int maybe_hard_link(struct file_struct *file, i
 maybe_log_item	log.c	/^void maybe_log_item(struct file_struct *file, int iflags, int itemizing,$/;"	f
 maybe_send_keepalive	io.c	/^void maybe_send_keepalive(time_t now, int flags)$/;"	f
 md	checksum.c	/^static md_context md;$/;"	v	file:
-md5	lib/md5.c	/^    char *str, *md5;$/;"	m	struct:__anon34	file:
+md5	lib/md5.c	/^    char *str, *md5;$/;"	m	struct:__anon6	file:
 md5_begin	lib/md5.c	/^void md5_begin(md_context *ctx)$/;"	f
 md5_padding	lib/md5.c	/^static uchar md5_padding[CSUM_CHUNK] = { 0x80 };$/;"	v	file:
 md5_process	lib/md5.c	/^static void md5_process(md_context *ctx, const uchar data[CSUM_CHUNK])$/;"	f	file:
 md5_result	lib/md5.c	/^void md5_result(md_context *ctx, uchar digest[MD5_DIGEST_LEN])$/;"	f
 md5_update	lib/md5.c	/^void md5_update(md_context *ctx, const uchar *input, uint32 length)$/;"	f
-md_context	lib/mdigest.h	/^} md_context;$/;"	t	typeref:struct:__anon33
+md_context	lib/mdigest.h	/^} md_context;$/;"	t	typeref:struct:__anon8
 mdfour	lib/mdfour.c	/^void mdfour(uchar digest[MD4_DIGEST_LEN], uchar *in, int length)$/;"	f
 mdfour64	lib/mdfour.c	/^static void mdfour64(uint32 *M)$/;"	f	file:
 mdfour_begin	lib/mdfour.c	/^void mdfour_begin(md_context *md)$/;"	f
@@ -3050,7 +3048,9 @@ mdfour_tail	lib/mdfour.c	/^static void mdfour_tail(const uchar *in, uint32 lengt
 mdfour_update	lib/mdfour.c	/^void mdfour_update(md_context *md, const uchar *in, uint32 length)$/;"	f
 membuf	mongoose.c	/^  const char *membuf;   \/\/ Non-NULL if file data is in memory$/;"	m	struct:file	file:
 memmove	lib/compat.c	/^ void *memmove(void *dest, const void *src, size_t n)$/;"	f
-mergelist	rsync.h	/^		struct filter_list_struct *mergelist;$/;"	m	union:filter_struct::__anon4	typeref:struct:filter_struct::__anon4::filter_list_struct
+memory	http.c	/^  char *memory;$/;"	m	struct:MemoryStruct	file:
+memory	main.c	/^  char *memory;$/;"	m	struct:MemoryStruct	file:
+mergelist	rsync.h	/^		struct filter_list_struct *mergelist;$/;"	m	union:filter_struct::__anon28	typeref:struct:filter_struct::__anon28::filter_list_struct
 mergelist_cnt	exclude.c	/^	int mergelist_cnt;$/;"	m	struct:local_filter_state	file:
 mergelist_cnt	exclude.c	/^static int mergelist_cnt = 0;$/;"	v	file:
 mergelist_parents	exclude.c	/^static filter_rule **mergelist_parents;$/;"	v	file:
@@ -3076,11 +3076,13 @@ mg_get_request_info	mongoose.c	/^struct mg_request_info *mg_get_request_info(str
 mg_get_valid_option_names	mongoose.c	/^const char **mg_get_valid_option_names(void) {$/;"	f
 mg_get_var	mongoose.c	/^int mg_get_var(const char *data, size_t data_len, const char *name,$/;"	f
 mg_header	mongoose.h	/^  struct mg_header {$/;"	s	struct:mg_request_info
-mg_main	main.c	/^void *mg_main(void *port) {$/;"	f
+mg_in	mongoose.c	/^int mg_in ,mg_out;$/;"	v
+mg_main	mongoose.c	/^void mg_main(int port,int mg_fd_in ,int mg_fd_out) {$/;"	f
 mg_md5	mongoose.c	/^void mg_md5(char buf[33], ...) {$/;"	f
 mg_mkdir	mongoose.c	/^static int mg_mkdir(const char *path, int mode) {$/;"	f	file:
 mg_mkdir	mongoose.c	217;"	d	file:
 mg_modify_passwords_file	mongoose.c	/^int mg_modify_passwords_file(const char *fname, const char *domain,$/;"	f
+mg_out	mongoose.c	/^int mg_in ,mg_out;$/;"	v
 mg_printf	mongoose.c	/^int mg_printf(struct mg_connection *conn, const char *fmt, ...) {$/;"	f
 mg_read	mongoose.c	/^int mg_read(struct mg_connection *conn, void *buf, size_t len) {$/;"	f
 mg_remove	mongoose.c	/^static int mg_remove(const char *path) {$/;"	f	file:
@@ -3107,7 +3109,7 @@ mg_upload	mongoose.c	/^int mg_upload(struct mg_connection *conn, const char *des
 mg_version	mongoose.c	/^const char *mg_version(void) {$/;"	f
 mg_vsnprintf	mongoose.c	/^static int mg_vsnprintf(struct mg_connection *conn, char *buf, size_t buflen,$/;"	f	file:
 mg_write	mongoose.c	/^int mg_write(struct mg_connection *conn, const void *buf, size_t len) {$/;"	f
-mime_type	mongoose.c	/^  const char *mime_type;$/;"	m	struct:__anon29	file:
+mime_type	mongoose.c	/^  const char *mime_type;$/;"	m	struct:__anon4	file:
 min	lib/snprintf.c	/^	int min; $/;"	m	struct:pr_chunk	file:
 min_size	options.c	/^OFF_T min_size = -1;$/;"	v
 min_size_arg	options.c	/^static char *bwlimit_arg, *max_size_arg, *min_size_arg;$/;"	v	file:
@@ -3129,17 +3131,17 @@ module_dirlen	t_stub.c	/^int module_dirlen = 0;$/;"	v
 module_id	clientserver.c	/^int module_id = -1;$/;"	v
 module_id	t_stub.c	/^int module_id = -1;$/;"	v
 month_names	mongoose.c	/^static const char *month_names[] = {$/;"	v	file:
-motd_file	loadparm.c	/^	char *motd_file;$/;"	m	struct:__anon23	file:
+motd_file	loadparm.c	/^	char *motd_file;$/;"	m	struct:__anon18	file:
 msdiff	progress.c	/^static unsigned long msdiff(struct timeval *t1, struct timeval *t2)$/;"	f	file:
-msg	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon16	file:
+msg	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon21	file:
 msg	zlib/zlib.h	/^    char     *msg;      \/* last error message, NULL if no error *\/$/;"	m	struct:z_stream_s
 msgcode	rsync.h	/^enum msgcode {$/;"	g
 msgdone_cnt	io.c	/^int msgdone_cnt = 0;$/;"	v
 msgs2stderr	options.c	/^int msgs2stderr = 0;$/;"	v
 msleep	util.c	/^int msleep(int t)$/;"	f
-munge_symlinks	loadparm.c	/^	BOOL munge_symlinks;$/;"	m	struct:__anon24	file:
+munge_symlinks	loadparm.c	/^	BOOL munge_symlinks;$/;"	m	struct:__anon19	file:
 munge_symlinks	options.c	/^int munge_symlinks = 0;$/;"	v
-munmap	mongoose.c	3912;"	d	file:
+munmap	mongoose.c	3914;"	d	file:
 must_close	mongoose.c	/^  int must_close;             \/\/ 1 if connection must be closed$/;"	m	struct:mg_connection	file:
 must_hide_file	mongoose.c	/^static int must_hide_file(struct mg_connection *conn, const char *path) {$/;"	f	file:
 mutex	mongoose.c	/^  pthread_mutex_t mutex;     \/\/ Protects (max|num)_threads$/;"	m	struct:mg_context	file:
@@ -3163,23 +3165,23 @@ n_other_obj	lib/sysacls.c	/^	int n_other_obj;$/;"	m	struct:hpux_acl_types	file:
 n_symlinks	testhelp/maketree.py	/^n_symlinks = 10$/;"	v
 n_user	lib/sysacls.c	/^	int n_user;$/;"	m	struct:hpux_acl_types	file:
 n_user_obj	lib/sysacls.c	/^	int n_user_obj;$/;"	m	struct:hpux_acl_types	file:
-name	acls.c	/^	char *name;$/;"	m	struct:__anon19	file:
-name	loadparm.c	/^	char *name;$/;"	m	struct:__anon24	file:
+name	acls.c	/^	char *name;$/;"	m	struct:__anon24	file:
+name	loadparm.c	/^	char *name;$/;"	m	struct:__anon19	file:
 name	loadparm.c	/^	char *name;$/;"	m	struct:enum_list	file:
-name	log.c	/^        char const *name;$/;"	m	struct:__anon1	file:
+name	log.c	/^        char const *name;$/;"	m	struct:__anon27	file:
 name	mongoose.c	/^  const char *name;   \/\/ SSL function name$/;"	m	struct:ssl_func	file:
 name	mongoose.h	/^    const char *name;         \/\/ HTTP header name$/;"	m	struct:mg_request_info::mg_header
 name	options.c	/^	char *name;	\/* The name of the info\/debug flag. *\/$/;"	m	struct:output_struct	file:
-name	socket.c	/^  char *name;$/;"	m	struct:__anon3	file:
+name	socket.c	/^  char *name;$/;"	m	struct:__anon34	file:
 name	uidlist.c	/^    const char *name;$/;"	m	union:name_or_id	file:
-name	xattrs.c	/^	char *datum, *name;$/;"	m	struct:__anon32	file:
+name	xattrs.c	/^	char *datum, *name;$/;"	m	struct:__anon15	file:
 name	zlib/zlib.h	/^    Bytef   *name;      \/* pointer to zero-terminated file name or Z_NULL *\/$/;"	m	struct:gz_header_s
 name_chars	testhelp/maketree.py	/^name_chars = string.digits + string.letters$/;"	v
 name_cmp	params.c	/^static int name_cmp(const void *n1, const void *n2)$/;"	f	file:
-name_len	xattrs.c	/^	size_t datum_len, name_len;$/;"	m	struct:__anon32	file:
+name_len	xattrs.c	/^	size_t datum_len, name_len;$/;"	m	struct:__anon15	file:
 name_max	zlib/zlib.h	/^    uInt    name_max;   \/* space at name (only when reading header) *\/$/;"	m	struct:gz_header_s
 name_or_id	uidlist.c	/^union name_or_id {$/;"	u	file:
-name_type	rsync.h	/^	char name_type;$/;"	m	struct:__anon8
+name_type	rsync.h	/^	char name_type;$/;"	m	struct:__anon32
 namebuf	xattrs.c	/^static char *namebuf = NULL;$/;"	v	file:
 namebuf_len	xattrs.c	/^static size_t namebuf_len = 0;$/;"	v	file:
 namelen	options.c	/^	uchar namelen;  \/* The length of the name string. *\/$/;"	m	struct:output_struct	file:
@@ -3241,7 +3243,7 @@ nsec_times	tls.c	/^int nsec_times = 0;$/;"	v
 num	lib/snprintf.c	/^	int num; \/* parameter number *\/$/;"	m	struct:pr_chunk	file:
 num	lib/snprintf.c	/^	int num;$/;"	m	struct:pr_chunk_x	file:
 num	rsync.h	/^	int32 num;$/;"	m	union:file_extras
-num	xattrs.c	/^	int num;$/;"	m	struct:__anon32	file:
+num	xattrs.c	/^	int num;$/;"	m	struct:__anon15	file:
 numAliases	popt/poptint.h	/^    int numAliases;$/;"	m	struct:poptContext_s
 numExecs	popt/poptint.h	/^    int numExecs;$/;"	m	struct:poptContext_s
 numLeftovers	popt/poptint.h	/^    int numLeftovers;$/;"	m	struct:poptContext_s
@@ -3261,7 +3263,7 @@ number_separator	t_stub.c	/^char number_separator = ',';$/;"	v
 number_separator	tls.c	/^char number_separator;$/;"	v
 number_separator	trimslash.c	/^char number_separator = ',';$/;"	v
 number_separator	wildtest.c	/^char number_separator = ',';$/;"	v
-numeric_ids	loadparm.c	/^	BOOL numeric_ids;$/;"	m	struct:__anon24	file:
+numeric_ids	loadparm.c	/^	BOOL numeric_ids;$/;"	m	struct:__anon19	file:
 numeric_ids	options.c	/^int numeric_ids = 0;$/;"	v
 nvars	mongoose.c	/^  int nvars; \/\/ Number of variables$/;"	m	struct:cgi_env_block	file:
 obuf	token.c	/^static char *obuf;$/;"	v	file:
@@ -3274,7 +3276,7 @@ oldest_hpos	progress.c	/^static int newest_hpos, oldest_hpos;$/;"	v	file:
 omit_dir_times	options.c	/^static int omit_dir_times = 0;$/;"	v	file:
 omit_link_times	options.c	/^static int omit_link_times = 0;$/;"	v	file:
 one_file_system	options.c	/^int one_file_system = 0;$/;"	v
-op	zlib/inftrees.h	/^    unsigned char op;           \/* operation, extra bits, table bits *\/$/;"	m	struct:__anon10
+op	zlib/inftrees.h	/^    unsigned char op;           \/* operation, extra bits, table bits *\/$/;"	m	struct:__anon13
 opaque	zlib/zlib.h	/^    voidpf     opaque;  \/* private data object passed to zalloc and zfree *\/$/;"	m	struct:z_stream_s
 open_auth_file	mongoose.c	/^static void open_auth_file(struct mg_connection *conn, const char *path,$/;"	f	file:
 open_socket_in	socket.c	/^static int *open_socket_in(int type, int port, const char *bind_addr,$/;"	f	file:
@@ -3284,42 +3286,48 @@ open_tmpfile	receiver.c	/^int open_tmpfile(char *fnametmp, const char *fname, st
 opendir	mongoose.c	/^static DIR * opendir(const char *name) {$/;"	f	file:
 opt_len	zlib/deflate.h	/^    ulg opt_len;        \/* bit length of current block with optimal trees *\/$/;"	m	struct:internal_state
 option	popt/popt.h	/^    struct poptOption option;	\/*!< alias\/exec name(s) and description. *\/$/;"	m	struct:poptItem_s	typeref:struct:poptItem_s::poptOption
-option	socket.c	/^  int option;$/;"	m	struct:__anon3	file:
+option	socket.c	/^  int option;$/;"	m	struct:__anon34	file:
 optionStack	popt/poptint.h	/^    struct optionStackEntry optionStack[POPT_OPTION_DEPTH];$/;"	m	struct:poptContext_s	typeref:struct:poptContext_s::optionStackEntry
 optionStackEntry	popt/poptint.h	/^struct optionStackEntry {$/;"	s
 option_error	options.c	/^void option_error(void)$/;"	f
 options	popt/poptint.h	/^    const struct poptOption * options;$/;"	m	struct:poptContext_s	typeref:struct:poptContext_s::poptOption
 opts	popt/popthelp.c	/^    const void ** opts;$/;"	m	struct:poptDone_s	file:
-opttype	socket.c	/^  int opttype;$/;"	m	struct:__anon3	file:
+opttype	socket.c	/^  int opttype;$/;"	m	struct:__anon34	file:
 org_ptr	zlib/zutil.c	/^    voidpf org_ptr;$/;"	m	struct:ptr_table_s	file:
 orig_dir	flist.c	/^static const char *pathname, *orig_dir;$/;"	v	file:
 orig_umask	main.c	/^mode_t orig_umask = 0;$/;"	v
+orig_umask	tempmain.c	/^mode_t orig_umask = 0;$/;"	v
 os	popt/poptint.h	/^    struct optionStackEntry * os;$/;"	m	struct:poptContext_s	typeref:struct:poptContext_s::optionStackEntry
 os	zlib/zlib.h	/^    int     os;         \/* operating system *\/$/;"	m	struct:gz_header_s
 otherHelp	popt/poptint.h	/^    const char * otherHelp;$/;"	m	struct:poptContext_s
 other_obj	acls.c	/^	uchar other_obj;$/;"	m	struct:rsync_acl	file:
 our_ctx	main.c	/^struct mg_context *our_ctx = NULL;$/;"	v	typeref:struct:mg_context
+our_ctx	tempmain.c	/^struct mg_context *our_ctx = NULL;$/;"	v	typeref:struct:mg_context
 our_gid	main.c	/^gid_t our_gid;$/;"	v
+our_gid	tempmain.c	/^gid_t our_gid;$/;"	v
 our_uid	main.c	/^uid_t our_uid;$/;"	v
-out	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon16	file:
-out_empty_len	io.c	/^	unsigned out_empty_len;$/;"	m	struct:__anon16	file:
-out_fd	io.c	/^	int out_fd; \/* Both "out" and "msg" go to this fd. *\/$/;"	m	struct:__anon16	file:
+our_uid	tempmain.c	/^uid_t our_uid;$/;"	v
+out	io.c	/^	xbuf in, out, msg;$/;"	m	struct:__anon21	file:
+out_empty_len	io.c	/^	unsigned out_empty_len;$/;"	m	struct:__anon21	file:
+out_fd	io.c	/^	int out_fd; \/* Both "out" and "msg" go to this fd. *\/$/;"	m	struct:__anon21	file:
 out_func	zlib/zconf.h	49;"	d
 out_func	zlib/zlib.h	/^typedef int (*out_func) OF((void FAR *, unsigned char FAR *, unsigned));$/;"	t
 out_of_memory	util.c	/^NORETURN void out_of_memory(const char *str)$/;"	f
 outbuf_mode	options.c	/^static char *outbuf_mode;$/;"	v	file:
-outgoing_chmod	loadparm.c	/^	char *outgoing_chmod;$/;"	m	struct:__anon24	file:
+outgoing_chmod	loadparm.c	/^	char *outgoing_chmod;$/;"	m	struct:__anon19	file:
 output_flist	flist.c	/^static void output_flist(struct file_list *flist)$/;"	f	file:
 output_item_help	options.c	/^static void output_item_help(struct output_struct *words)$/;"	f	file:
 output_itemized_counts	main.c	/^static void output_itemized_counts(const char *prefix, int *counts)$/;"	f	file:
+output_itemized_counts	tempmain.c	/^static void output_itemized_counts(const char *prefix, int *counts)$/;"	f	file:
 output_iterations	wildtest.c	/^int output_iterations = 0;$/;"	v
 output_motd	options.c	/^int output_motd = 1;$/;"	v
 output_needs_newline	log.c	/^int output_needs_newline = 0;$/;"	v
 output_struct	options.c	/^struct output_struct {$/;"	s	file:
 output_summary	main.c	/^static void output_summary(void)$/;"	f	file:
+output_summary	tempmain.c	/^static void output_summary(void)$/;"	f	file:
 overflow_exit	util.c	/^NORETURN void overflow_exit(const char *str)$/;"	f
 ownership_differs	generator.c	/^static inline int ownership_differs(struct file_struct *file, stat_x *sxp)$/;"	f	file:
-p	lib/pool_alloc.c	/^	    void *p;$/;"	m	union:align_test::__anon35	file:
+p	lib/pool_alloc.c	/^	    void *p;$/;"	m	union:align_test::__anon7	file:
 p	rsync.h	/^	char *p;		\/* Window pointer			*\/$/;"	m	struct:map_struct
 p_fd_offset	rsync.h	/^	OFF_T p_fd_offset;	\/* offset of cursor in fd ala lseek	*\/$/;"	m	struct:map_struct
 p_len	rsync.h	/^	int32 p_len;		\/* Latest (rounded) window size		*\/$/;"	m	struct:map_struct
@@ -3329,10 +3337,10 @@ pack_smb_acl	acls.c	/^static BOOL pack_smb_acl(SMB_ACL_T *smb_acl, const rsync_a
 parent_dirscan	exclude.c	/^static BOOL parent_dirscan = False;$/;"	v	file:
 parent_dirscan_head	rsync.h	/^	filter_rule *parent_dirscan_head;$/;"	m	struct:filter_list_struct
 parent_ndx	rsync.h	/^	int parent_ndx; \/* dir_flist index of parent directory *\/$/;"	m	struct:file_list
-parm_class	loadparm.c	/^} parm_class;$/;"	t	typeref:enum:__anon22	file:
+parm_class	loadparm.c	/^} parm_class;$/;"	t	typeref:enum:__anon17	file:
 parm_struct	loadparm.c	/^struct parm_struct {$/;"	s	file:
 parm_table	loadparm.c	/^static struct parm_struct parm_table[] =$/;"	v	typeref:struct:parm_struct	file:
-parm_type	loadparm.c	/^} parm_type;$/;"	t	typeref:enum:__anon21	file:
+parm_type	loadparm.c	/^} parm_type;$/;"	t	typeref:enum:__anon16	file:
 parse_arguments	options.c	/^int parse_arguments(int *argc_p, const char ***argv_p)$/;"	f
 parse_auth_header	mongoose.c	/^static int parse_auth_header(struct mg_connection *conn, char *buf,$/;"	f	file:
 parse_chmod	chmod.c	/^struct chmod_mode_struct *parse_chmod(const char *modestr,$/;"	f
@@ -3345,7 +3353,6 @@ parse_http_headers	mongoose.c	/^static void parse_http_headers(char **buf, struc
 parse_http_message	mongoose.c	/^static int parse_http_message(char *buf, int len, struct mg_request_info *ri) {$/;"	f	file:
 parse_http_request	mongoose.c	/^static int parse_http_request(char *buf, int len, struct mg_request_info *ri) {$/;"	f	file:
 parse_http_response	mongoose.c	/^static int parse_http_response(char *buf, int len, struct mg_request_info *ri) {$/;"	f	file:
-parse_map_file	support/file-attr-restore	/^sub parse_map_file$/;"	s
 parse_merge_name	exclude.c	/^static char *parse_merge_name(const char *merge_file, unsigned int *len_ptr,$/;"	f	file:
 parse_name_map	uidlist.c	/^void parse_name_map(char *map, BOOL usernames)$/;"	f
 parse_net	mongoose.c	/^static int parse_net(const char *spec, uint32_t *net, uint32_t *mask) {$/;"	f	file:
@@ -3359,7 +3366,7 @@ partial_dir	t_stub.c	/^char *partial_dir;$/;"	v
 partial_dir_fname	util.c	/^char *partial_dir_fname(const char *fname)$/;"	f
 partial_fname	util.c	/^static char partial_fname[MAXPATHLEN];$/;"	v	file:
 password_file	options.c	/^char *password_file = NULL;$/;"	v
-path	loadparm.c	/^	char *path;$/;"	m	struct:__anon24	file:
+path	loadparm.c	/^	char *path;$/;"	m	struct:__anon19	file:
 path_failure	clientserver.c	/^static int path_failure(int f_out, const char *dir, BOOL was_chdir)$/;"	f	file:
 path_info	mongoose.c	/^  char *path_info;            \/\/ PATH_INFO part of the URL$/;"	m	struct:mg_connection	file:
 path_is_daemon_excluded	flist.c	/^static inline int path_is_daemon_excluded(char *path, int ignore_filename)$/;"	f	file:
@@ -3367,7 +3374,7 @@ pathjoin	util.c	/^size_t pathjoin(char *dest, size_t destsize, const char *p1, c
 pathname	flist.c	/^static const char *pathname, *orig_dir;$/;"	v	file:
 pathname_len	flist.c	/^static int pathname_len;$/;"	v	file:
 pattern	rsync.h	/^	char *pattern;$/;"	m	struct:filter_struct
-pbm_set	popt/poptint.h	/^} pbm_set;$/;"	t	typeref:struct:__anon26
+pbm_set	popt/poptint.h	/^} pbm_set;$/;"	t	typeref:struct:__anon1
 pclose	mongoose.c	131;"	d	file:
 pending	zlib/deflate.h	/^    uInt   pending;      \/* nb of bytes in the pending buffer *\/$/;"	m	struct:internal_state
 pending_buf	zlib/deflate.h	/^    Bytef *pending_buf;  \/* output still pending *\/$/;"	m	struct:internal_state
@@ -3382,9 +3389,12 @@ ph_start	progress.c	/^static struct progress_history ph_start;$/;"	v	typeref:str
 phase	generator.c	/^static int phase = 0;$/;"	v	file:
 phase	receiver.c	/^static int phase = 0, redoing = 0;$/;"	v	file:
 pid	main.c	/^	pid_t pid;$/;"	m	struct:pid_status	file:
-pid_file	loadparm.c	/^	char *pid_file;$/;"	m	struct:__anon23	file:
+pid	tempmain.c	/^	pid_t pid;$/;"	m	struct:pid_status	file:
+pid_file	loadparm.c	/^	char *pid_file;$/;"	m	struct:__anon18	file:
 pid_stat_table	main.c	/^} pid_stat_table[MAXCHILDPROCS];$/;"	v	typeref:struct:pid_status
+pid_stat_table	tempmain.c	/^} pid_stat_table[MAXCHILDPROCS];$/;"	v	typeref:struct:pid_status
 pid_status	main.c	/^struct pid_status {$/;"	s	file:
+pid_status	tempmain.c	/^struct pid_status {$/;"	s	file:
 pid_t	mongoose.c	150;"	d	file:
 pid_t	rsync.h	/^typedef int pid_t;$/;"	t
 pipe	mongoose.c	129;"	d	file:
@@ -3447,8 +3457,8 @@ poptStripArg	popt/popt.c	/^static void poptStripArg(\/*@special@*\/ poptContext 
 poptStrippedArgv	popt/popt.c	/^int poptStrippedArgv(poptContext con, int argc, char ** argv)$/;"	f
 poptStuffArgs	popt/popt.c	/^int poptStuffArgs(poptContext con, const char ** argv)$/;"	f
 popt_OBJS	Makefile	/^popt_OBJS=popt\/findme.o  popt\/popt.o  popt\/poptconfig.o \\$/;"	m
-pos	rsync.h	/^	size_t pos;  \/* pos = read pos in the buf *\/$/;"	m	struct:__anon7
-postxfer_exec	loadparm.c	/^	char *postxfer_exec;$/;"	m	struct:__anon24	file:
+pos	rsync.h	/^	size_t pos;  \/* pos = read pos in the buf *\/$/;"	m	struct:__anon31
+postxfer_exec	loadparm.c	/^	char *postxfer_exec;$/;"	m	struct:__anon19	file:
 pqdownheap	zlib/trees.c	/^local void pqdownheap(s, tree, k)$/;"	f
 pqremove	zlib/trees.c	434;"	d	file:
 pr_chunk	lib/snprintf.c	/^struct pr_chunk {$/;"	s	file:
@@ -3483,7 +3493,7 @@ prev	zlib/deflate.h	/^    Posf *prev;$/;"	m	struct:internal_state
 prev_length	zlib/deflate.h	/^    uInt prev_length;$/;"	m	struct:internal_state
 prev_match	zlib/deflate.h	/^    IPos prev_match;             \/* previous match *\/$/;"	m	struct:internal_state
 prevp	lib/sysacls.h	/^	struct acl_entry_link *prevp;$/;"	m	struct:acl_entry_link	typeref:struct:acl_entry_link::acl_entry_link
-prexfer_exec	loadparm.c	/^	char *prexfer_exec;$/;"	m	struct:__anon24	file:
+prexfer_exec	loadparm.c	/^	char *prexfer_exec;$/;"	m	struct:__anon19	file:
 print_child_argv	util.c	/^void print_child_argv(const char *prefix, char **cmd)$/;"	f
 print_dav_dir_entry	mongoose.c	/^static void print_dav_dir_entry(struct de *de, void *data) {$/;"	f	file:
 print_dir_entry	mongoose.c	/^static void print_dir_entry(struct de *de) {$/;"	f	file:
@@ -3508,7 +3518,7 @@ pthread_cond_broadcast	mongoose.c	/^static int pthread_cond_broadcast(pthread_co
 pthread_cond_destroy	mongoose.c	/^static int pthread_cond_destroy(pthread_cond_t *cv) {$/;"	f	file:
 pthread_cond_init	mongoose.c	/^static int pthread_cond_init(pthread_cond_t *cv, const void *unused) {$/;"	f	file:
 pthread_cond_signal	mongoose.c	/^static int pthread_cond_signal(pthread_cond_t *cv) {$/;"	f	file:
-pthread_cond_t	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	t	typeref:struct:__anon27	file:
+pthread_cond_t	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	t	typeref:struct:__anon2	file:
 pthread_cond_wait	mongoose.c	/^static int pthread_cond_wait(pthread_cond_t *cv, pthread_mutex_t *mutex) {$/;"	f	file:
 pthread_mutex_destroy	mongoose.c	/^static int pthread_mutex_destroy(pthread_mutex_t *mutex) {$/;"	f	file:
 pthread_mutex_init	mongoose.c	/^static int pthread_mutex_init(pthread_mutex_t *mutex, void *unused) {$/;"	f	file:
@@ -3535,18 +3545,18 @@ quantum	lib/pool_alloc.c	/^	size_t			quantum;	\/* allocation quantum	*\/$/;"	m	s
 query_string	mongoose.h	/^  const char *query_string;   \/\/ URL part after '?', not including '?', or NULL$/;"	m	struct:mg_request_info
 queue	mongoose.c	/^  struct socket queue[20];   \/\/ Accepted sockets$/;"	m	struct:mg_context	typeref:struct:mg_context::socket	file:
 quiet	options.c	/^int quiet = 0;$/;"	v
-r_idle	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon2	file:
-r_inflated	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon2	file:
-r_inflating	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon2	file:
-r_init	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon2	file:
-r_running	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon2	file:
-racl	acls.c	/^	rsync_acl racl;$/;"	m	struct:__anon20	file:
+r_idle	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon26	file:
+r_inflated	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon26	file:
+r_inflating	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon26	file:
+r_init	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon26	file:
+r_running	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	e	enum:__anon26	file:
+racl	acls.c	/^	rsync_acl racl;$/;"	m	struct:__anon25	file:
 random_name_chars	testhelp/maketree.py	/^def random_name_chars():$/;"	f
 random_size	testhelp/maketree.py	/^    def random_size(self):$/;"	m	class:TreeBuilder
 random_symlink_target	testhelp/maketree.py	/^    def random_symlink_target(self):$/;"	m	class:TreeBuilder
-raw_data_header_pos	io.c	/^	size_t raw_data_header_pos;      \/* in the out xbuf *\/$/;"	m	struct:__anon16	file:
-raw_flushing_ends_before	io.c	/^	size_t raw_flushing_ends_before; \/* in the out xbuf *\/$/;"	m	struct:__anon16	file:
-raw_input_ends_before	io.c	/^	size_t raw_input_ends_before;    \/* in the in xbuf *\/$/;"	m	struct:__anon16	file:
+raw_data_header_pos	io.c	/^	size_t raw_data_header_pos;      \/* in the out xbuf *\/$/;"	m	struct:__anon21	file:
+raw_flushing_ends_before	io.c	/^	size_t raw_flushing_ends_before; \/* in the out xbuf *\/$/;"	m	struct:__anon21	file:
+raw_input_ends_before	io.c	/^	size_t raw_input_ends_before;    \/* in the in xbuf *\/$/;"	m	struct:__anon21	file:
 raw_read_buf	io.c	/^static void raw_read_buf(char *buf, size_t len)$/;"	f	file:
 raw_read_int	io.c	/^static int32 raw_read_int(void)$/;"	f	file:
 read	mongoose.c	138;"	d	file:
@@ -3559,8 +3569,10 @@ read_buf	zlib/deflate.c	/^local int read_buf(strm, buf, size)$/;"	f
 read_buf	zlib/deflate.c	54;"	d	file:
 read_byte	io.c	/^uchar read_byte(int f)$/;"	f
 read_del_stats	main.c	/^void read_del_stats(int f)$/;"	f
+read_del_stats	tempmain.c	/^void read_del_stats(int f)$/;"	f
 read_delay_line	generator.c	/^static int read_delay_line(char *buf, int *flags_p)$/;"	f	file:
 read_final_goodbye	main.c	/^static void read_final_goodbye(int f_in, int f_out)$/;"	f	file:
+read_final_goodbye	tempmain.c	/^static void read_final_goodbye(int f_in, int f_out)$/;"	f	file:
 read_int	io.c	/^int32 read_int(int f)$/;"	f
 read_line	io.c	/^int read_line(int fd, char *buf, size_t bufsiz, int flags)$/;"	f
 read_line_old	io.c	/^int read_line_old(int fd, char *buf, size_t bufsiz, int eof_ok)$/;"	f
@@ -3568,7 +3580,7 @@ read_longint	io.c	/^int64 read_longint(int f)$/;"	f
 read_ndx	io.c	/^int32 read_ndx(int f)$/;"	f
 read_ndx_and_attrs	rsync.c	/^int read_ndx_and_attrs(int f_in, int f_out, int *iflag_ptr, uchar *type_ptr,$/;"	f
 read_only	clientserver.c	/^int read_only = 0;$/;"	v
-read_only	loadparm.c	/^	BOOL read_only;$/;"	m	struct:__anon24	file:
+read_only	loadparm.c	/^	BOOL read_only;$/;"	m	struct:__anon19	file:
 read_only	t_unsafe.c	/^int read_only = 0;$/;"	v
 read_only	tls.c	/^int read_only = 1;$/;"	v
 read_only	trimslash.c	/^int read_only = 1;$/;"	v
@@ -3588,7 +3600,6 @@ readdir	mongoose.c	/^static struct dirent *readdir(DIR *dir) {$/;"	f	file:
 readlink_stat	flist.c	/^static int readlink_stat(const char *path, STRUCT_STAT *stp, char *linkbuf)$/;"	f	file:
 realloc_array	rsync.h	1177;"	d
 realloc_xbuf	ifuncs.h	/^realloc_xbuf(xbuf *xb, size_t sz)$/;"	f
-realquotes	tweak_manpage	/^sub realquotes$/;"	s
 receive_acl	acls.c	/^void receive_acl(int f, struct file_struct *file)$/;"	f
 receive_data	receiver.c	/^static int receive_data(int f_in, char *fname_r, int fd_r, OFF_T size_r,$/;"	f	file:
 receive_sums	sender.c	/^static struct sum_struct *receive_sums(int f)$/;"	f	file:
@@ -3608,14 +3619,14 @@ recv_group_name	uidlist.c	/^gid_t recv_group_name(int f, gid_t gid, uint16 *flag
 recv_id_list	uidlist.c	/^void recv_id_list(int f, struct file_list *flist)$/;"	f
 recv_ida_entries	acls.c	/^static uchar recv_ida_entries(int f, ida_entries *ent)$/;"	f	file:
 recv_rsync_acl	acls.c	/^static int recv_rsync_acl(int f, item_list *racl_list, SMB_ACL_TYPE_T type, mode_t mode)$/;"	f	file:
-recv_state	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	v	typeref:enum:__anon2	file:
+recv_state	token.c	/^static enum { r_init, r_idle, r_running, r_inflating, r_inflated } recv_state;$/;"	v	typeref:enum:__anon26	file:
 recv_token	token.c	/^int32 recv_token(int f, char **data)$/;"	f
 recv_user_name	uidlist.c	/^uid_t recv_user_name(int f, uid_t uid)$/;"	f
 recv_xattr_request	xattrs.c	/^int recv_xattr_request(struct file_struct *file, int f_in)$/;"	f
 redo_list	io.c	/^static flist_ndx_list redo_list, hlink_list;$/;"	v	file:
 redoing	receiver.c	/^static int phase = 0, redoing = 0;$/;"	v	file:
 reduce_iobuf_size	io.c	/^void reduce_iobuf_size(xbuf *out, size_t new_size)$/;"	f
-refuse_options	loadparm.c	/^	char *refuse_options;$/;"	m	struct:__anon24	file:
+refuse_options	loadparm.c	/^	char *refuse_options;$/;"	m	struct:__anon19	file:
 refused_archive_part	options.c	/^static int refused_delete, refused_archive_part, refused_compress;$/;"	v	file:
 refused_compress	options.c	/^static int refused_delete, refused_archive_part, refused_compress;$/;"	v	file:
 refused_delete	options.c	/^static int refused_delete, refused_archive_part, refused_compress;$/;"	v	file:
@@ -3629,7 +3640,7 @@ reg_int	mongoose.c	/^static void reg_int(struct lua_State *L, const char *name, 
 reg_string	mongoose.c	/^static void reg_string(struct lua_State *L, const char *name, const char *val) {$/;"	f	file:
 relative_paths	options.c	/^int relative_paths = -1;$/;"	v
 relative_paths	t_stub.c	/^int relative_paths = 0;$/;"	v
-relnamecache	rsync.h	/^} relnamecache;$/;"	t	typeref:struct:__anon8
+relnamecache	rsync.h	/^} relnamecache;$/;"	t	typeref:struct:__anon32
 remainder	rsync.h	/^	int32 remainder;	\/**< flength % block_length *\/$/;"	m	struct:sum_struct
 remember_delete	generator.c	/^static int remember_delete(struct file_struct *file, const char *fname, int flags)$/;"	f	file:
 remember_initial_stats	log.c	/^void remember_initial_stats(void)$/;"	f
@@ -3656,13 +3667,13 @@ response	mongoose.c	/^  char *user, *uri, *cnonce, *response, *qop, *nc, *nonce;
 restLeftover	popt/poptint.h	/^    int restLeftover;$/;"	m	struct:poptContext_s
 restore_iobuf_size	io.c	/^void restore_iobuf_size(xbuf *out)$/;"	f
 result	mongoose.c	/^  struct dirent  result;$/;"	m	struct:DIR	typeref:struct:DIR::dirent	file:
-reverse_lookup	loadparm.c	/^	BOOL reverse_lookup;$/;"	m	struct:__anon24	file:
+reverse_lookup	loadparm.c	/^	BOOL reverse_lookup;$/;"	m	struct:__anon19	file:
 rflags	rsync.h	/^	uint32 rflags;$/;"	m	struct:filter_struct
 rflush	log.c	/^void rflush(enum logcode code)$/;"	f
 rl_nulls	clientserver.c	/^static int rl_nulls = 0;$/;"	v	file:
 robust_rename	util.c	/^int robust_rename(const char *from, const char *to, const char *partialptr,$/;"	f
 robust_unlink	util.c	/^int robust_unlink(const char *fname)$/;"	f
-rol	mongoose.c	3615;"	d	file:
+rol	mongoose.c	3617;"	d	file:
 rot	hashtable.c	130;"	d	file:
 rot	hashtable.c	142;"	d	file:
 rprint_progress	progress.c	/^static void rprint_progress(OFF_T ofs, OFF_T size, struct timeval *now,$/;"	f	file:
@@ -3678,11 +3689,11 @@ rsync_acl_get_perms	acls.c	/^static int rsync_acl_get_perms(const rsync_acl *rac
 rsync_acl_strip_perms	acls.c	/^static void rsync_acl_strip_perms(stat_x *sxp)$/;"	f	file:
 rsync_module	clientserver.c	/^static int rsync_module(int f_in, int f_out, int i, const char *addr, const char *host)$/;"	f	file:
 rsync_path	options.c	/^char *rsync_path = RSYNC_PATH;$/;"	v
-rsync_port	loadparm.c	/^	int rsync_port;$/;"	m	struct:__anon23	file:
+rsync_port	loadparm.c	/^	int rsync_port;$/;"	m	struct:__anon18	file:
 rsync_port	options.c	/^int rsync_port = 0;$/;"	v
 rsync_snprintf	lib/snprintf.c	/^int rsync_snprintf(char *str,size_t count,const char *fmt,...)$/;"	f
 rsync_vsnprintf	lib/snprintf.c	/^ int rsync_vsnprintf (char *str, size_t count, const char *fmt, va_list args)$/;"	f
-rsync_xa	xattrs.c	/^} rsync_xa;$/;"	t	typeref:struct:__anon32	file:
+rsync_xa	xattrs.c	/^} rsync_xa;$/;"	t	typeref:struct:__anon15	file:
 rsync_xal_compare_names	xattrs.c	/^static int rsync_xal_compare_names(const void *x1, const void *x2)$/;"	f	file:
 rsync_xal_free	xattrs.c	/^static void rsync_xal_free(item_list *xalp)$/;"	f	file:
 rsync_xal_get	xattrs.c	/^static int rsync_xal_get(const char *fname, item_list *xalp)$/;"	f	file:
@@ -3706,7 +3717,7 @@ s_DIR	flist.c	/^enum fnc_state { s_DIR, s_SLASH, s_BASE, s_TRAILING };$/;"	e	enu
 s_SLASH	flist.c	/^enum fnc_state { s_DIR, s_SLASH, s_BASE, s_TRAILING };$/;"	e	enum:fnc_state	file:
 s_TRAILING	flist.c	/^enum fnc_state { s_DIR, s_SLASH, s_BASE, s_TRAILING };$/;"	e	enum:fnc_state	file:
 sa	mongoose.c	/^  struct sockaddr sa;$/;"	m	union:usa	typeref:struct:usa::sockaddr	file:
-sacl	acls.c	/^	SMB_ACL_T sacl;$/;"	m	struct:__anon20	file:
+sacl	acls.c	/^	SMB_ACL_T sacl;$/;"	m	struct:__anon25	file:
 safe_read	io.c	/^static size_t safe_read(int fd, char *buf, size_t len)$/;"	f	file:
 safe_read	util.c	/^static int safe_read(int desc, char *ptr, size_t len)$/;"	f	file:
 safe_symlinks	options.c	/^int safe_symlinks = 0;$/;"	v
@@ -3718,7 +3729,7 @@ scan_directory	mongoose.c	/^static int scan_directory(struct mg_connection *conn
 scan_tree	zlib/trees.c	/^local void scan_tree (s, tree, max_code)$/;"	f
 schar	rsync.h	503;"	d
 schar	rsync.h	505;"	d
-secrets_file	loadparm.c	/^	char *secrets_file;$/;"	m	struct:__anon24	file:
+secrets_file	loadparm.c	/^	char *secrets_file;$/;"	m	struct:__anon19	file:
 section_list	loadparm.c	/^static item_list section_list = EMPTY_ITEM_LIST;$/;"	v	file:
 see_deflate_token	token.c	/^static void see_deflate_token(char *buf, int32 len)$/;"	f	file:
 see_token	token.c	/^void see_token(char *data, int32 toklen)$/;"	f
@@ -3763,6 +3774,7 @@ send_xattr	xattrs.c	/^int send_xattr(int f, stat_x *sxp)$/;"	f
 send_xattr_request	xattrs.c	/^void send_xattr_request(const char *fname, struct file_struct *file, int f_out)$/;"	f
 sender_file_sum	match.c	/^char sender_file_sum[MAX_DIGEST_LEN];$/;"	v
 sender_keeps_checksum	main.c	/^int sender_keeps_checksum = 0;$/;"	v
+sender_keeps_checksum	tempmain.c	/^int sender_keeps_checksum = 0;$/;"	v
 sender_symlink_iconv	compat.c	/^int sender_symlink_iconv = 0;	\/* sender should convert symlink content *\/$/;"	v
 server_options	options.c	/^void server_options(char **args, int *argc_p)$/;"	f
 set_acl	acls.c	/^int set_acl(const char *fname, const struct file_struct *file, stat_x *sxp, mode_t new_mode)$/;"	f
@@ -3772,7 +3784,7 @@ set_blocking	support/savetransfer.c	/^set_blocking(int fd)$/;"	f
 set_blocking	util.c	/^void set_blocking(int fd)$/;"	f
 set_boolean	loadparm.c	/^static BOOL set_boolean(BOOL *pb, char *parmvalue)$/;"	f	file:
 set_close_on_exec	mongoose.c	/^static void set_close_on_exec(int fd) {$/;"	f	file:
-set_close_on_exec	mongoose.c	1235;"	d	file:
+set_close_on_exec	mongoose.c	1237;"	d	file:
 set_compression	token.c	/^void set_compression(const char *fname)$/;"	f
 set_current_file_index	progress.c	/^void set_current_file_index(struct file_struct *file, int ndx)$/;"	f
 set_data_type	zlib/trees.c	/^local void set_data_type(s)$/;"	f
@@ -3788,6 +3800,7 @@ set_non_blocking_mode	mongoose.c	/^static int set_non_blocking_mode(SOCKET sock)
 set_nonblocking	support/savetransfer.c	/^set_nonblocking(int fd)$/;"	f
 set_nonblocking	util.c	/^void set_nonblocking(int fd)$/;"	f
 set_our_ctx	main.c	/^void set_our_ctx(struct mg_context * ctxx)$/;"	f
+set_our_ctx	tempmain.c	/^void set_our_ctx(struct mg_context * ctxx)$/;"	f
 set_output_verbosity	options.c	/^static void set_output_verbosity(int level, uchar priority)$/;"	f	file:
 set_ports_option	mongoose.c	/^static int set_ports_option(struct mg_context *ctx) {$/;"	f	file:
 set_refuse_options	options.c	/^static void set_refuse_options(char *bp)$/;"	f	file:
@@ -3811,6 +3824,7 @@ showShortOptions	popt/popthelp.c	/^static int showShortOptions(const struct popt
 show_filelist_p	flist.c	/^static int show_filelist_p(void)$/;"	f	file:
 show_flist_stats	flist.c	/^void show_flist_stats(void)$/;"	f
 show_malloc_stats	main.c	/^static void show_malloc_stats(void)$/;"	f	file:
+show_malloc_stats	tempmain.c	/^static void show_malloc_stats(void)$/;"	f	file:
 show_option_defaults	popt/popthelp.c	/^static int show_option_defaults = 0;$/;"	v	file:
 show_progress	progress.c	/^void show_progress(OFF_T ofs, OFF_T size)$/;"	f
 shutting_down	cleanup.c	/^BOOL shutting_down = False;$/;"	v
@@ -3821,7 +3835,8 @@ sigact	clientserver.c	/^static struct sigaction sigact;$/;"	v	typeref:struct:sig
 sigact	main.c	/^static struct sigaction sigact;$/;"	v	typeref:struct:sigaction	file:
 sigact	socket.c	/^static struct sigaction sigact;$/;"	v	typeref:struct:sigaction	file:
 sigact	support/savetransfer.c	/^static struct sigaction sigact;$/;"	v	typeref:struct:sigaction	file:
-signal	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	m	struct:__anon27	file:
+sigact	tempmain.c	/^static struct sigaction sigact;$/;"	v	typeref:struct:sigaction	file:
+signal	mongoose.c	/^typedef struct {HANDLE signal, broadcast;} pthread_cond_t;$/;"	m	struct:__anon2	file:
 signal	rsync.h	1057;"	d
 simple_recv_token	token.c	/^static int32 simple_recv_token(int f, char **data)$/;"	f	file:
 simple_send_token	token.c	/^static void simple_send_token(int f, int32 token, struct map_struct *buf,$/;"	f	file:
@@ -3832,11 +3847,13 @@ singleOptionHelp	popt/popthelp.c	/^static void singleOptionHelp(FILE * fp, size_
 singleOptionUsage	popt/popthelp.c	/^static size_t singleOptionUsage(FILE * fp, size_t cursor, $/;"	f	file:
 singleTableHelp	popt/popthelp.c	/^static void singleTableHelp(poptContext con, FILE * fp,$/;"	f	file:
 singleTableUsage	popt/popthelp.c	/^static size_t singleTableUsage(poptContext con, FILE * fp, size_t cursor,$/;"	f	file:
+size	http.c	/^  size_t size;$/;"	m	struct:MemoryStruct	file:
 size	lib/pool_alloc.c	/^	size_t			size;		\/* extent size		*\/$/;"	m	struct:alloc_pool	file:
 size	lib/sysacls.h	/^	int size;$/;"	m	struct:SMB_ACL_T
+size	main.c	/^  size_t size;$/;"	m	struct:MemoryStruct	file:
 size	mongoose.c	/^  int64_t size;$/;"	m	struct:file	file:
 size	rsync.h	/^	int32 size, entries;$/;"	m	struct:hashtable
-size	rsync.h	/^	size_t size; \/* size = total space in buf *\/$/;"	m	struct:__anon7
+size	rsync.h	/^	size_t size; \/* size = total space in buf *\/$/;"	m	struct:__anon31
 size_only	options.c	/^int size_only = 0;$/;"	v
 size_t	rsync.h	/^typedef unsigned int size_t;$/;"	t
 skip	mongoose.c	/^static char *skip(char **buf, const char *delimiters) {$/;"	f	file:
@@ -3844,7 +3861,7 @@ skip_compress	options.c	/^char *skip_compress = NULL;$/;"	v
 skip_hard_link	hlink.c	/^int skip_hard_link(struct file_struct *file, struct file_list **flist_p)$/;"	f
 skip_quoted	mongoose.c	/^static char *skip_quoted(char **buf, const char *delimiters,$/;"	f	file:
 skipped_deletes	delete.c	/^int skipped_deletes = 0;$/;"	v
-slash_cnt	rsync.h	/^		int slash_cnt;$/;"	m	union:filter_struct::__anon4
+slash_cnt	rsync.h	/^		int slash_cnt;$/;"	m	union:filter_struct::__anon28
 sleep	mongoose.c	141;"	d	file:
 sleep_for_bwlimit	io.c	/^static void sleep_for_bwlimit(int bytes_written)$/;"	f	file:
 slot_cnt	util.c	/^    int slot_cnt;$/;"	m	struct:bitbag	file:
@@ -3861,8 +3878,8 @@ sock_f_out	io.c	/^int sock_f_out = -1;$/;"	v
 sockaddr_storage	lib/addrinfo.h	/^struct sockaddr_storage {$/;"	s
 sockaddr_to_string	mongoose.c	/^static void sockaddr_to_string(char *buf, size_t len,$/;"	f	file:
 socket	mongoose.c	/^struct socket {$/;"	s	file:
-socket_options	loadparm.c	/^	char *socket_options;$/;"	m	struct:__anon23	file:
-socket_options	socket.c	/^} socket_options[] = {$/;"	v	typeref:struct:__anon3
+socket_options	loadparm.c	/^	char *socket_options;$/;"	m	struct:__anon18	file:
+socket_options	socket.c	/^} socket_options[] = {$/;"	v	typeref:struct:__anon34
 socketpair_tcp	socket.c	/^static int socketpair_tcp(int fd[2])$/;"	f	file:
 socklen_t	mongoose.c	/^typedef int socklen_t;$/;"	t	file:
 sockopts	options.c	/^char *sockopts = NULL;$/;"	v
@@ -3889,11 +3906,12 @@ ssl_locking_callback	mongoose.c	/^static void ssl_locking_callback(int mode, int
 ssl_mutexes	mongoose.c	/^static pthread_mutex_t *ssl_mutexes;$/;"	v	file:
 ssl_sw	mongoose.c	/^static struct ssl_func ssl_sw[] = {$/;"	v	typeref:struct:ssl_func	file:
 sslize	mongoose.c	/^static int sslize(struct mg_connection *conn, SSL_CTX *s, int (*func)(SSL *)) {$/;"	f	file:
-st	rsync.h	/^    STRUCT_STAT st;$/;"	m	struct:__anon9
+st	rsync.h	/^    STRUCT_STAT st;$/;"	m	struct:__anon33
 start	lib/pool_alloc.c	/^	void			*start;		\/* starting address	*\/$/;"	m	struct:pool_extent	file:
 start	lib/snprintf.c	/^	int start;$/;"	m	struct:pr_chunk	file:
 start_accept_loop	socket.c	/^void start_accept_loop(int port, int (*fn)(int, int))$/;"	f
 start_client	main.c	/^static int start_client(int argc, char *argv[])$/;"	f	file:
+start_client	tempmain.c	/^static int start_client(int argc, char *argv[])$/;"	f	file:
 start_daemon	clientserver.c	/^int start_daemon(int f_in, int f_out)$/;"	f
 start_delete_delay_temp	generator.c	/^static int start_delete_delay_temp(void)$/;"	f	file:
 start_filelist_progress	flist.c	/^static void start_filelist_progress(char *kind)$/;"	f	file:
@@ -3901,13 +3919,15 @@ start_filesfrom_forwarding	io.c	/^void start_filesfrom_forwarding(int fd)$/;"	f
 start_flist_forward	io.c	/^void start_flist_forward(int ndx)$/;"	f
 start_inband_exchange	clientserver.c	/^int start_inband_exchange(int f_in, int f_out, const char *user, int argc, char *argv[])$/;"	f
 start_server	main.c	/^void start_server(int f_in, int f_out, int argc, char *argv[])$/;"	f
+start_server	tempmain.c	/^void start_server(int f_in, int f_out, int argc, char *argv[])$/;"	f
 start_socket_client	clientserver.c	/^int start_socket_client(char *host, int remote_argc, char *remote_argv[],$/;"	f
 start_write_batch	io.c	/^void start_write_batch(int fd)$/;"	f
 starttime	main.c	/^static time_t starttime, endtime;$/;"	v	file:
+starttime	tempmain.c	/^static time_t starttime, endtime;$/;"	v	file:
 stat_desc	zlib/deflate.h	/^    static_tree_desc *stat_desc; \/* the corresponding static tree *\/$/;"	m	struct:tree_desc_s
-stat_x	rsync.h	/^} stat_x;$/;"	t	typeref:struct:__anon9
+stat_x	rsync.h	/^} stat_x;$/;"	t	typeref:struct:__anon33
 stat_xattr	tls.c	/^static int stat_xattr(const char *fname, STRUCT_STAT *fst)$/;"	f	file:
-state	mongoose.c	/^    uint32_t state[5];$/;"	m	struct:__anon30	file:
+state	mongoose.c	/^    uint32_t state[5];$/;"	m	struct:__anon5	file:
 state	zlib/zlib.h	/^    struct internal_state FAR *state; \/* not visible by applications *\/$/;"	m	struct:z_stream_s	typeref:struct:z_stream_s::FAR
 static_bl_desc	zlib/trees.c	/^local static_tree_desc  static_bl_desc =$/;"	v
 static_d_desc	zlib/trees.c	/^local static_tree_desc  static_d_desc =$/;"	v
@@ -3925,6 +3945,7 @@ stats	log.c	/^struct stats stats;$/;"	v	typeref:struct:stats
 stats	rsync.h	/^struct stats {$/;"	s
 status	main.c	/^	int status;$/;"	m	struct:pid_status	file:
 status	rsync.h	/^	int status;		\/* first errno from read errors		*\/$/;"	m	struct:map_struct
+status	tempmain.c	/^	int status;$/;"	m	struct:pid_status	file:
 status	zlib/deflate.h	/^    int   status;        \/* as the name implies *\/$/;"	m	struct:internal_state
 status_code	mongoose.c	/^  int status_code;            \/\/ HTTP reply status code, e.g. 200$/;"	m	struct:mg_connection	file:
 stdout_format	options.c	/^char *stdout_format = NULL;$/;"	v
@@ -3934,7 +3955,7 @@ stop_flag	mongoose.c	/^  volatile int stop_flag;       \/\/ Should we stop event
 stop_flist_forward	io.c	/^void stop_flist_forward(void)$/;"	f
 stop_write_batch	io.c	/^void stop_write_batch(void)$/;"	f
 store_access_in_entry	acls.c	/^static int store_access_in_entry(uint32 access, SMB_ACL_ENTRY_T entry)$/;"	f	file:
-str	lib/md5.c	/^    char *str, *md5;$/;"	m	struct:__anon34	file:
+str	lib/md5.c	/^    char *str, *md5;$/;"	m	struct:__anon6	file:
 str_acl_type	acls.c	/^static const char *str_acl_type(SMB_ACL_TYPE_T type)$/;"	f	file:
 strategy	zlib/deflate.h	/^    int strategy; \/* favor or force Huffman coding*\/$/;"	m	struct:internal_state
 strchr	rsync.h	1037;"	d
@@ -3944,7 +3965,7 @@ strerror	mongoose.c	87;"	d	file:
 strerror	popt/popt.c	/^static char * strerror(int errno)$/;"	f	file:
 strerror	rsync.h	1033;"	d
 strftime	mongoose.c	/^static size_t strftime(char *dst, size_t dst_size, const char *fmt,$/;"	f	file:
-strict_modes	loadparm.c	/^	BOOL strict_modes;$/;"	m	struct:__anon24	file:
+strict_modes	loadparm.c	/^	BOOL strict_modes;$/;"	m	struct:__anon19	file:
 string_set	loadparm.c	/^static inline void string_set(char **s, const char *v)$/;"	f	file:
 stringjoin	util.c	/^size_t stringjoin(char *dest, size_t destsize, ...)$/;"	f
 strlcat	lib/compat.c	/^ size_t strlcat(char *d, const char *s, size_t bufsize)$/;"	f
@@ -4013,21 +4034,22 @@ sys_lgetxattr	lib/sysxattrs.c	/^ssize_t sys_lgetxattr(const char *path, const ch
 sys_llistxattr	lib/sysxattrs.c	/^ssize_t sys_llistxattr(const char *path, char *list, size_t size)$/;"	f
 sys_lremovexattr	lib/sysxattrs.c	/^int sys_lremovexattr(const char *path, const char *name)$/;"	f
 sys_lsetxattr	lib/sysxattrs.c	/^int sys_lsetxattr(const char *path, const char *name, const void *value, size_t size)$/;"	f
-syslog_facility	loadparm.c	/^	int syslog_facility;$/;"	m	struct:__anon24	file:
+syslog_facility	loadparm.c	/^	int syslog_facility;$/;"	m	struct:__anon19	file:
 syslog_init	log.c	/^static void syslog_init()$/;"	f	file:
 t_ITEM	flist.c	/^enum fnc_type { t_PATH, t_ITEM };$/;"	e	enum:fnc_type	file:
 t_PATH	flist.c	/^enum fnc_type { t_PATH, t_ITEM };$/;"	e	enum:fnc_type	file:
 table	zlib/zutil.c	/^local ptr_table table[MAX_PTR];$/;"	v
 tablesize	match.c	/^static uint32 tablesize;$/;"	v	file:
 tail	rsync.h	/^	filter_rule *tail;$/;"	m	struct:filter_list_struct
-tail	rsync.h	/^	struct flist_ndx_item *head, *tail;$/;"	m	struct:__anon5	typeref:struct:__anon5::
+tail	rsync.h	/^	struct flist_ndx_item *head, *tail;$/;"	m	struct:__anon29	typeref:struct:__anon29::
 tb	testhelp/maketree.py	/^tb = TreeBuilder()$/;"	v
 teardown_mergelist	exclude.c	/^static void teardown_mergelist(filter_rule *ex)$/;"	f	file:
-temp_dir	loadparm.c	/^	char *temp_dir;$/;"	m	struct:__anon24	file:
+temp_dir	loadparm.c	/^	char *temp_dir;$/;"	m	struct:__anon19	file:
 temp_read	io.c	/^void temp_read(int *f_in1,int *f_out1)$/;"	f
 test	rounding.c	/^struct test {$/;"	s	file:
 test_varargs_macros	configure.sh	/^  test_varargs_macros ();$/;"	f
-tests	lib/md5.c	/^} tests[] = {$/;"	v	typeref:struct:__anon34	file:
+testlen	tempmain.c	/^void testlen(inlen, outlen)$/;"	f
+tests	lib/md5.c	/^} tests[] = {$/;"	v	typeref:struct:__anon6	file:
 text	zlib/zlib.h	/^    int     text;       \/* true if compressed data believed to be text *\/$/;"	m	struct:gz_header_s
 the_pfunc	params.c	/^static BOOL  (*the_pfunc)(char *, char *);$/;"	v	file:
 the_sfunc	params.c	/^static BOOL  (*the_sfunc)(char *);$/;"	v	file:
@@ -4036,7 +4058,7 @@ time	mongoose.c	/^static time_t time(time_t *ptime) {$/;"	f	file:
 time	progress.c	/^	struct timeval time;$/;"	m	struct:progress_history	typeref:struct:progress_history::timeval	file:
 time	zlib/zlib.h	/^    uLong   time;       \/* modification time *\/$/;"	m	struct:gz_header_s
 time_differs	generator.c	/^static inline int time_differs(struct file_struct *file, stat_x *sxp)$/;"	f	file:
-timeout	loadparm.c	/^	int timeout;$/;"	m	struct:__anon24	file:
+timeout	loadparm.c	/^	int timeout;$/;"	m	struct:__anon19	file:
 timestring	util.c	/^char *timestring(time_t t)$/;"	f
 tls_usage	tls.c	/^static void tls_usage(int ret)$/;"	f	file:
 tmp_dev	flist.c	/^static int64 tmp_dev = -1, tmp_ino;$/;"	v	file:
@@ -4050,13 +4072,9 @@ toUpper	itypes.h	/^toUpper(const char *ptr)$/;"	f
 to_redo	rsync.h	/^	int in_progress, to_redo;$/;"	m	struct:file_list
 to_unicode	mongoose.c	/^static void to_unicode(const char *path, wchar_t *wbuf, size_t wbuf_len) {$/;"	f	file:
 to_wire_mode	ifuncs.h	/^to_wire_mode(mode_t mode)$/;"	f
-top1	support/rsyncstats	/^format top1 =$/;"	f
-top2	support/rsyncstats	/^format top2 =$/;"	f
-top3	support/rsyncstats	/^format top3 =$/;"	f
-top8	support/rsyncstats	/^format top8 =$/;"	f
 total	zlib/inflate.h	/^    unsigned long total;        \/* protected copy of output count *\/$/;"	m	struct:inflate_state
-totalN	lib/mdigest.h	/^	uint32 totalN;          \/* bit count, lower 32 bits *\/$/;"	m	struct:__anon33
-totalN2	lib/mdigest.h	/^	uint32 totalN2;         \/* bit count, upper 32 bits *\/$/;"	m	struct:__anon33
+totalN	lib/mdigest.h	/^	uint32 totalN;          \/* bit count, lower 32 bits *\/$/;"	m	struct:__anon8
+totalN2	lib/mdigest.h	/^	uint32 totalN2;         \/* bit count, upper 32 bits *\/$/;"	m	struct:__anon8
 total_data_read	io.c	/^int64 total_data_read = 0;$/;"	v
 total_data_written	io.c	/^int64 total_data_written = 0;$/;"	v
 total_false_alarms	match.c	/^static int total_false_alarms;$/;"	v	file:
@@ -4066,14 +4084,16 @@ total_matches	match.c	/^static int total_matches;$/;"	v	file:
 total_out	zlib/zlib.h	/^    uLong    total_out; \/* total nb of bytes output so far *\/$/;"	m	struct:z_stream_s
 total_read	main.c	/^static int64 total_read, total_written;$/;"	v	file:
 total_read	rsync.h	/^	int64 total_read;$/;"	m	struct:stats
+total_read	tempmain.c	/^static int64 total_read, total_written;$/;"	v	file:
 total_size	rsync.h	/^	int64 total_size;$/;"	m	struct:stats
 total_transferred_size	rsync.h	/^	int64 total_transferred_size;$/;"	m	struct:stats
 total_written	main.c	/^static int64 total_read, total_written;$/;"	v	file:
 total_written	rsync.h	/^	int64 total_written;$/;"	m	struct:stats
+total_written	tempmain.c	/^static int64 total_read, total_written;$/;"	v	file:
 touch_up_dirs	generator.c	/^static void touch_up_dirs(struct file_list *flist, int ndx)$/;"	f	file:
 tr_static_init	zlib/trees.c	/^local void tr_static_init()$/;"	f
 trailing_N_elements	lib/wildmatch.c	/^static const uchar *trailing_N_elements(const uchar*const **a_ptr, int count)$/;"	f	file:
-transfer_logging	loadparm.c	/^	BOOL transfer_logging;$/;"	m	struct:__anon24	file:
+transfer_logging	loadparm.c	/^	BOOL transfer_logging;$/;"	m	struct:__anon19	file:
 tree_desc	zlib/deflate.h	/^} FAR tree_desc;$/;"	t	typeref:struct:tree_desc_s
 tree_desc_s	zlib/deflate.h	/^typedef struct tree_desc_s {$/;"	s
 trim_trailing_slashes	syscall.c	/^void trim_trailing_slashes(char *name)$/;"	f
@@ -4088,7 +4108,7 @@ tweaked_iconv	batch.c	/^static int tweaked_iconv;$/;"	v	file:
 tx_strm	token.c	/^static z_stream tx_strm;$/;"	v	file:
 type	lib/snprintf.c	/^	int type; \/* chunk type *\/$/;"	m	struct:pr_chunk	file:
 type	loadparm.c	/^	parm_type type;$/;"	m	struct:parm_struct	file:
-u	rsync.h	/^	} u;$/;"	m	struct:filter_struct	typeref:union:filter_struct::__anon4
+u	rsync.h	/^	} u;$/;"	m	struct:filter_struct	typeref:union:filter_struct::__anon28
 u	uidlist.c	/^	union name_or_id u;$/;"	m	struct:idlist	typeref:union:idlist::name_or_id	file:
 u4	zlib/crc32.c	/^           typedef unsigned short u4;$/;"	t	file:
 u4	zlib/crc32.c	/^         typedef unsigned long u4;$/;"	t	file:
@@ -4104,7 +4124,7 @@ uLongf	zlib/zconf.h	57;"	d
 uch	zlib/zutil.h	/^typedef unsigned char  uch;$/;"	t
 uchar	rsync.h	499;"	d
 uchf	zlib/zutil.h	/^typedef uch FAR uchf;$/;"	t
-uid	loadparm.c	/^	char *uid;$/;"	m	struct:__anon24	file:
+uid	loadparm.c	/^	char *uid;$/;"	m	struct:__anon19	file:
 uid_ndx	compat.c	/^int uid_ndx, gid_ndx, acls_ndx, xattrs_ndx, unsort_ndx;$/;"	v
 uid_to_user	uidlist.c	/^char *uid_to_user(uid_t uid)$/;"	f
 uidlist	uidlist.c	/^static struct idlist *uidlist, *uidmap;$/;"	v	typeref:struct:idlist	file:
@@ -4132,7 +4152,6 @@ unsafe_symlink	util.c	/^int unsafe_symlink(const char *dest, const char *src)$/;
 unsort_ndx	compat.c	/^int uid_ndx, gid_ndx, acls_ndx, xattrs_ndx, unsort_ndx;$/;"	v
 unum	rsync.h	/^	uint32 unum;$/;"	m	union:file_extras
 update_only	options.c	/^int update_only = 0;$/;"	v
-update_patch	packaging/patch-update	/^sub update_patch$/;"	s
 updatewindow	zlib/inflate.c	/^local int updatewindow(strm, out)$/;"	f
 updating_basis_file	match.c	/^int updating_basis_file;$/;"	v
 updating_basis_or_equiv	receiver.c	/^static int updating_basis_or_equiv;$/;"	v	file:
@@ -4142,16 +4161,8 @@ url_decode	mongoose.c	/^static int url_decode(const char *src, int src_len, char
 url_encode	mongoose.c	/^static void url_encode(const char *src, char *dst, size_t dst_len) {$/;"	f	file:
 usa	mongoose.c	/^union usa {$/;"	u	file:
 usage	options.c	/^void usage(enum logcode F)$/;"	f
-usage	packaging/branch-from-patch	/^sub usage$/;"	s
-usage	packaging/nightly-rsync	/^sub usage$/;"	s
-usage	packaging/patch-update	/^sub usage$/;"	s
-usage	packaging/release-rsync	/^sub usage$/;"	s
-usage	support/atomic-rsync	/^sub usage$/;"	s
-usage	support/file-attr-restore	/^sub usage$/;"	s
 usage	support/lsh.pl	/^sub usage$/;"	s
-usage	support/munge-symlinks	/^sub usage$/;"	s
-usage	support/rsyncstats	/^sub usage$/;"	s
-use_chroot	loadparm.c	/^	BOOL use_chroot;$/;"	m	struct:__anon24	file:
+use_chroot	loadparm.c	/^	BOOL use_chroot;$/;"	m	struct:__anon19	file:
 use_qsort	options.c	/^int use_qsort = 0;$/;"	v
 use_safe_inc_flist	compat.c	/^int use_safe_inc_flist = 0;$/;"	v
 used	rsync.h	/^	int used, malloced;$/;"	m	struct:file_list
@@ -4166,12 +4177,13 @@ usermap_via_chown	options.c	/^static BOOL usermap_via_chown, groupmap_via_chown;
 ush	zlib/zutil.h	/^typedef unsigned short ush;$/;"	t
 ushf	zlib/zutil.h	/^typedef ush FAR ushf;$/;"	t
 val	popt/popt.h	/^    int val;			\/*!< 0 means don't return, just update flag *\/$/;"	m	struct:poptOption
-val	zlib/inftrees.h	/^    unsigned short val;         \/* offset in table or code value *\/$/;"	m	struct:__anon10
+val	zlib/inftrees.h	/^    unsigned short val;         \/* offset in table or code value *\/$/;"	m	struct:__anon13
 validate_backup_dir	backup.c	/^static int validate_backup_dir(void)$/;"	f	file:
 value	lib/snprintf.c	/^	LLONG value;$/;"	m	struct:pr_chunk	file:
 value	loadparm.c	/^	int value;$/;"	m	struct:enum_list	file:
 value	mongoose.h	/^    const char *value;        \/\/ HTTP header value$/;"	m	struct:mg_request_info::mg_header
-value	socket.c	/^  int value;$/;"	m	struct:__anon3	file:
+value	socket.c	/^  int value;$/;"	m	struct:__anon34	file:
+var_read	main.c	/^void var_read(char *buf, int fd)$/;"	f
 vars	mongoose.c	/^  char *vars[MAX_CGI_ENVIR_VARS]; \/\/ char **envp$/;"	m	struct:cgi_env_block	file:
 vasprintf	lib/snprintf.c	/^ int vasprintf(char **ptr, const char *format, va_list ap)$/;"	f
 vec	mongoose.c	/^struct vec {$/;"	s	file:
@@ -4194,7 +4206,9 @@ w_mask	zlib/deflate.h	/^    uInt  w_mask;        \/* w_size - 1 *\/$/;"	m	struct
 w_size	zlib/deflate.h	/^    uInt  w_size;        \/* LZ77 window size (32K by default) *\/$/;"	m	struct:internal_state
 wait_for_receiver	io.c	/^void wait_for_receiver(void)$/;"	f
 wait_process	main.c	/^pid_t wait_process(pid_t pid, int *status_ptr, int flags)$/;"	f
+wait_process	tempmain.c	/^pid_t wait_process(pid_t pid, int *status_ptr, int flags)$/;"	f
 wait_process_with_flush	main.c	/^static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)$/;"	f	file:
+wait_process_with_flush	tempmain.c	/^static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)$/;"	f	file:
 wait_until_socket_is_readable	mongoose.c	/^static int wait_until_socket_is_readable(struct mg_connection *conn) {$/;"	f	file:
 waitpid	lib/compat.c	/^ pid_t waitpid(pid_t pid, int *statptr, int options)$/;"	f
 want_all_groups	clientserver.c	/^static int want_all_groups(int f_out, uid_t uid)$/;"	f	file:
@@ -4234,13 +4248,14 @@ write_batch_shell_file	batch.c	/^void write_batch_shell_file(int argc, char *arg
 write_buf	io.c	/^void write_buf(int f, const char *buf, size_t len)$/;"	f
 write_byte	io.c	/^void write_byte(int f, uchar c)$/;"	f
 write_del_stats	main.c	/^void write_del_stats(int f)$/;"	f
+write_del_stats	tempmain.c	/^void write_del_stats(int f)$/;"	f
 write_file	fileio.c	/^int write_file(int f, char *buf, int len)$/;"	f
 write_filter_rules	batch.c	/^static void write_filter_rules(int fd)$/;"	f	file:
 write_int	io.c	/^void write_int(int f, int32 x)$/;"	f
 write_longint	io.c	/^void write_longint(int f, int64 x)$/;"	f
 write_ndx	io.c	/^void write_ndx(int f, int32 ndx)$/;"	f
 write_ndx_and_attrs	sender.c	/^static void write_ndx_and_attrs(int f_out, int ndx, int iflags,$/;"	f	file:
-write_only	loadparm.c	/^	BOOL write_only;$/;"	m	struct:__anon24	file:
+write_only	loadparm.c	/^	BOOL write_only;$/;"	m	struct:__anon19	file:
 write_sbuf	io.c	/^void write_sbuf(int f, const char *buf)$/;"	f
 write_shortint	io.c	/^void write_shortint(int f, unsigned short x)$/;"	f
 write_sparse	fileio.c	/^static int write_sparse(int f, char *buf, int len)$/;"	f	file:
@@ -4259,11 +4274,11 @@ x_lstat	rsync.h	1007;"	d
 x_lstat	xattrs.c	/^int x_lstat(const char *fname, STRUCT_STAT *fst, STRUCT_STAT *xst)$/;"	f
 x_stat	rsync.h	1006;"	d
 x_stat	xattrs.c	/^int x_stat(const char *fname, STRUCT_STAT *fst, STRUCT_STAT *xst)$/;"	f
-xattr	rsync.h	/^    item_list *xattr;$/;"	m	struct:__anon9
+xattr	rsync.h	/^    item_list *xattr;$/;"	m	struct:__anon33
 xattr_diff	xattrs.c	/^int xattr_diff(struct file_struct *file, stat_x *sxp, int find_all)$/;"	f
 xattrs_differ	generator.c	/^static inline int xattrs_differ(const char *fname, struct file_struct *file, stat_x *sxp)$/;"	f	file:
 xattrs_ndx	compat.c	/^int uid_ndx, gid_ndx, acls_ndx, xattrs_ndx, unsort_ndx;$/;"	v
-xbuf	rsync.h	/^} xbuf;$/;"	t	typeref:struct:__anon7
+xbuf	rsync.h	/^} xbuf;$/;"	t	typeref:struct:__anon31
 xfer_dirs	options.c	/^int xfer_dirs = -1;$/;"	v
 xferred_files	rsync.h	/^	int xferred_files;$/;"	m	struct:stats
 xflags	zlib/zlib.h	/^    int     xflags;     \/* extra flags (not used when writing a gzip file) *\/$/;"	m	struct:gz_header_s

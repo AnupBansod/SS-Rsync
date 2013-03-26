@@ -309,7 +309,7 @@ int read_ndx_and_attrs(int f_in, int f_out, int *iflag_ptr, uchar *type_ptr,
 
   read_loop:
 	while (1) {
-		ndx = read_ndx(f_in);
+	ndx = read_ndx(f_in);
 
 		if (ndx >= 0)
 			break;

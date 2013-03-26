@@ -64,6 +64,7 @@ filter_rule_list daemon_filter_list;
 	/* This function doesn't really get called in this test context, so
 	 * just return 0. */
 	return 0;
+
 }
 
  int copy_xattrs(UNUSED(const char *source), UNUSED(const char *dest))
