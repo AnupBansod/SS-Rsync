@@ -115,43 +115,43 @@ int batch_gen_fd = -1;
 int sender_keeps_checksum = 0;
 int https_portno ;     // a global variable in main.c for copying port no. from https_port
 int exit_mongoose =0 ; // our exit flag for mongoose server to stop. **[Akshay] mg_main()'s while loop will continuously monitor this flag
-		       // as soon as this flag is set , the while loop shall terminate NOTE : this is not working error on client side
+// as soon as this flag is set , the while loop shall terminate NOTE : this is not working error on client side
 
 struct mg_context *our_ctx = NULL;
 
 /******************************
-STRUCTURE FOR THE CALLBACK FUNCTION OF CURL LIBRARY
+  STRUCTURE FOR THE CALLBACK FUNCTION OF CURL LIBRARY
 
-***********************/
+ ***********************/
 struct MemoryStruct {
-  char *memory;
-  size_t size;
+	char *memory;
+	size_t size;
 };
 
 
-static size_t
+	static size_t
 WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
-  size_t realsize = size * nmemb;
-  struct MemoryStruct *mem = (struct MemoryStruct *)userp;
-  FILE *fp8;
-  fp8 = fopen("call.txt","a");
-  mem->memory = realloc(mem->memory, mem->size + realsize + 1);
-  if (mem->memory == NULL) {
-    /* out of memory! */
-    printf("not enough memory (realloc returned NULL)\n");
-    exit(EXIT_FAILURE);
-  }
-  fprintf(fp8,"\n\n***** size of realsize: %d", realsize);
-  memcpy(&(mem->memory[mem->size]), contents, realsize);
-  mem->size += realsize;
-  mem->memory[mem->size] = 0;
-  fclose(fp8);
-  return realsize;
+	size_t realsize = size * nmemb;
+	struct MemoryStruct *mem = (struct MemoryStruct *)userp;
+	FILE *fp8;
+	fp8 = fopen("call.txt","a");
+	mem->memory = realloc(mem->memory, mem->size + realsize + 1);
+	if (mem->memory == NULL) {
+		/* out of memory! */
+		printf("not enough memory (realloc returned NULL)\n");
+		exit(EXIT_FAILURE);
+	}
+	fprintf(fp8,"\n\n***** size of realsize: %d", realsize);
+	memcpy(&(mem->memory[mem->size]), contents, realsize);
+	mem->size += realsize;
+	mem->memory[mem->size] = 0;
+	fclose(fp8);
+	return realsize;
 }
 /*********************
-CALLBACK ENDS HERE
-*********************/
+  CALLBACK ENDS HERE
+ *********************/
 
 
 
@@ -222,7 +222,7 @@ static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)
 	 * this to the caller so that they know something went wrong. */
 	if (waited_pid < 0) {
 		rsyserr(FERROR, errno, "waitpid");
-	       printf("waited_pid = %d",waited_pid);
+		printf("waited_pid = %d",waited_pid);
 		*exit_code_ptr = RERR_WAITCHILD;
 	} else if (!WIFEXITED(status)) {
 #ifdef WCOREDUMP
@@ -230,10 +230,10 @@ static void wait_process_with_flush(pid_t pid, int *exit_code_ptr)
 			*exit_code_ptr = RERR_CRASHED;
 		else
 #endif
-		if (WIFSIGNALED(status))
-			*exit_code_ptr = RERR_TERMINATED;
-		else
-		{	*exit_code_ptr = RERR_WAITCHILD;printf("here in else condition for RERR_WAITCHILD"); }
+			if (WIFSIGNALED(status))
+				*exit_code_ptr = RERR_TERMINATED;
+			else
+			{	*exit_code_ptr = RERR_WAITCHILD;printf("here in else condition for RERR_WAITCHILD"); }
 	} else
 		*exit_code_ptr = WEXITSTATUS(status);
 }
@@ -245,8 +245,8 @@ void write_del_stats(int f)
 	else
 		write_ndx(f, NDX_DEL_STATS);
 	write_varint(f, stats.deleted_files - stats.deleted_dirs
-		      - stats.deleted_symlinks - stats.deleted_devices
-		      - stats.deleted_specials);
+			- stats.deleted_symlinks - stats.deleted_devices
+			- stats.deleted_specials);
 	write_varint(f, stats.deleted_dirs);
 	write_varint(f, stats.deleted_symlinks);
 	write_varint(f, stats.deleted_devices);
@@ -343,8 +343,8 @@ static void output_itemized_counts(const char *prefix, int *counts)
 		for (j = 0; j < 5; j++) {
 			if (counts[j]) {
 				len += snprintf(buf+len, sizeof buf - len - 2,
-					"%s%s: %s",
-					pre, labels[j], comma_num(counts[j]));
+						"%s%s: %s",
+						pre, labels[j], comma_num(counts[j]));
 				pre = ", ";
 			}
 		}
@@ -364,41 +364,41 @@ static void output_summary(void)
 		if (protocol_version >= 31)
 			output_itemized_counts("Number of deleted files", &stats.deleted_files);
 		rprintf(FINFO,"Number of regular files transferred: %s\n",
-			comma_num(stats.xferred_files));
+				comma_num(stats.xferred_files));
 		rprintf(FINFO,"Total file size: %s bytes\n",
-			human_num(stats.total_size));
+				human_num(stats.total_size));
 		rprintf(FINFO,"Total transferred file size: %s bytes\n",
-			human_num(stats.total_transferred_size));
+				human_num(stats.total_transferred_size));
 		rprintf(FINFO,"Literal data: %s bytes\n",
-			human_num(stats.literal_data));
+				human_num(stats.literal_data));
 		rprintf(FINFO,"Matched data: %s bytes\n",
-			human_num(stats.matched_data));
+				human_num(stats.matched_data));
 		rprintf(FINFO,"File list size: %s\n",
-			human_num(stats.flist_size));
+				human_num(stats.flist_size));
 		if (stats.flist_buildtime) {
 			rprintf(FINFO,
-				"File list generation time: %s seconds\n",
-				comma_dnum((double)stats.flist_buildtime / 1000, 3));
+					"File list generation time: %s seconds\n",
+					comma_dnum((double)stats.flist_buildtime / 1000, 3));
 			rprintf(FINFO,
-				"File list transfer time: %s seconds\n",
-				comma_dnum((double)stats.flist_xfertime / 1000, 3));
+					"File list transfer time: %s seconds\n",
+					comma_dnum((double)stats.flist_xfertime / 1000, 3));
 		}
 		rprintf(FINFO,"Total bytes sent: %s\n",
-			human_num(total_written));
+				human_num(total_written));
 		rprintf(FINFO,"Total bytes received: %s\n",
-			human_num(total_read));
+				human_num(total_read));
 	}
 
 	if (INFO_GTE(STATS, 1)) {
 		rprintf(FCLIENT, "\n");
 		rprintf(FINFO,
-			"sent %s bytes  received %s bytes  %s bytes/sec\n",
-			human_num(total_written), human_num(total_read),
-			human_dnum((total_written + total_read)/(0.5 + (endtime - starttime)), 2));
+				"sent %s bytes  received %s bytes  %s bytes/sec\n",
+				human_num(total_written), human_num(total_read),
+				human_dnum((total_written + total_read)/(0.5 + (endtime - starttime)), 2));
 		rprintf(FINFO, "total size is %s  speedup is %s%s\n",
-			human_num(stats.total_size),
-			comma_dnum((double)stats.total_size / (total_written+total_read), 2),
-			write_batch < 0 ? " (BATCH ONLY)" : dry_run ? " (DRY RUN)" : "");
+				human_num(stats.total_size),
+				comma_dnum((double)stats.total_size / (total_written+total_read), 2),
+				write_batch < 0 ? " (BATCH ONLY)" : dry_run ? " (DRY RUN)" : "");
 	}
 
 	fflush(stdout);
@@ -418,40 +418,40 @@ static void show_malloc_stats(void)
 
 	rprintf(FCLIENT, "\n");
 	rprintf(FINFO, RSYNC_NAME "[%d] (%s%s%s) heap statistics:\n",
-		(int)getpid(), am_server ? "server " : "",
-		am_daemon ? "daemon " : "", who_am_i());
+			(int)getpid(), am_server ? "server " : "",
+			am_daemon ? "daemon " : "", who_am_i());
 	rprintf(FINFO, "  arena:     %10ld   (bytes from sbrk)\n",
-		(long)mi.arena);
+			(long)mi.arena);
 	rprintf(FINFO, "  ordblks:   %10ld   (chunks not in use)\n",
-		(long)mi.ordblks);
+			(long)mi.ordblks);
 	rprintf(FINFO, "  smblks:    %10ld\n",
-		(long)mi.smblks);
+			(long)mi.smblks);
 	rprintf(FINFO, "  hblks:     %10ld   (chunks from mmap)\n",
-		(long)mi.hblks);
+			(long)mi.hblks);
 	rprintf(FINFO, "  hblkhd:    %10ld   (bytes from mmap)\n",
-		(long)mi.hblkhd);
+			(long)mi.hblkhd);
 	rprintf(FINFO, "  allmem:    %10ld   (bytes from sbrk + mmap)\n",
-		(long)mi.arena + mi.hblkhd);
+			(long)mi.arena + mi.hblkhd);
 	rprintf(FINFO, "  usmblks:   %10ld\n",
-		(long)mi.usmblks);
+			(long)mi.usmblks);
 	rprintf(FINFO, "  fsmblks:   %10ld\n",
-		(long)mi.fsmblks);
+			(long)mi.fsmblks);
 	rprintf(FINFO, "  uordblks:  %10ld   (bytes used)\n",
-		(long)mi.uordblks);
+			(long)mi.uordblks);
 	rprintf(FINFO, "  fordblks:  %10ld   (bytes free)\n",
-		(long)mi.fordblks);
+			(long)mi.fordblks);
 	rprintf(FINFO, "  keepcost:  %10ld   (bytes in releasable chunk)\n",
-		(long)mi.keepcost);
+			(long)mi.keepcost);
 #endif /* HAVE_MALLINFO */
 }
 
 
 /* Start the remote shell.   cmd may be NULL to use the default. */
 static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, int remote_argc,
-		    int *f_in_p, int *f_out_p,pid_t http_pid_check)
+		int *f_in_p, int *f_out_p,pid_t http_pid_check)
 {
-//	if(getppid() != http_pid_check)
-	
+	//	if(getppid() != http_pid_check)
+
 	int i, argc = 0;
 	char *args[MAX_ARGS], *need_to_free = NULL;
 	pid_t pid;
@@ -479,8 +479,8 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 				if (!*f) {
 					if (in_quote) {
 						rprintf(FERROR,
-						    "Missing trailing-%c in remote-shell command.\n",
-						    in_quote);
+								"Missing trailing-%c in remote-shell command.\n",
+								in_quote);
 						exit_cleanup(RERR_SYNTAX);
 					}
 					f--;
@@ -546,7 +546,7 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 	if (!daemon_over_rsh) {
 		while (remote_argc > 0) {
 			if (argc >= MAX_ARGS - 1) {
-			  arg_overflow:
+arg_overflow:
 				rprintf(FERROR, "internal: args[] overflowed in do_cmd()\n");
 				exit_cleanup(RERR_SYNTAX);
 			}
@@ -595,12 +595,12 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 		printf("****\n\n Before piped child");
 		//fflush(1);	
 		pid = piped_child(args, f_in_p, f_out_p);
-			printf("****\n\n after piped child");
-		
+		printf("****\n\n after piped child");
+
 #ifdef ICONV_CONST
 		setup_iconv();
 #endif
-	//	printf("for send_protected_arg %d %s %s %s", *f_out_p,args[0],args[1],args[2]);
+		//	printf("for send_protected_arg %d %s %s %s", *f_out_p,args[0],args[1],args[2]);
 		if (protect_args && !daemon_over_rsh)
 			send_protected_args(*f_out_p, args);
 	}
@@ -609,12 +609,12 @@ static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, in
 		free(need_to_free);
 
 	return pid;
-      
-  oom:
+
+oom:
 	out_of_memory("do_cmd");
 	return 0; /* not reached */
-      
-//	else {return -1 ;}
+
+	//	else {return -1 ;}
 }
 
 /* The receiving side operates in one of two modes:
@@ -638,7 +638,7 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 
 	if (DEBUG_GTE(RECV, 1)) {
 		rprintf(FINFO, "get_local_name count=%d %s\n",
-			file_total, NS(dest_path));
+				file_total, NS(dest_path));
 	}
 
 	if (!dest_path || list_only)
@@ -646,7 +646,7 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 
 	/* Treat an empty string as a copy into the current directory. */
 	if (!*dest_path)
-	    dest_path = ".";
+		dest_path = ".";
 
 	if (daemon_filter_list.head) {
 		char *slash = strrchr(dest_path, '/');
@@ -655,10 +655,10 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 		else
 			slash = NULL;
 		if ((*dest_path != '.' || dest_path[1] != '\0')
-		 && (check_filter(&daemon_filter_list, FLOG, dest_path, 0) < 0
-		  || check_filter(&daemon_filter_list, FLOG, dest_path, 1) < 0)) {
+				&& (check_filter(&daemon_filter_list, FLOG, dest_path, 0) < 0
+					|| check_filter(&daemon_filter_list, FLOG, dest_path, 1) < 0)) {
 			rprintf(FERROR, "ERROR: daemon has excluded destination \"%s\"\n",
-				dest_path);
+					dest_path);
 			exit_cleanup(RERR_FILESELECT);
 		}
 		if (slash)
@@ -671,7 +671,7 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 		if (S_ISDIR(st.st_mode)) {
 			if (!change_dir(dest_path, CD_NORMAL)) {
 				rsyserr(FERROR, errno, "change_dir#1 %s failed",
-					full_fname(dest_path));
+						full_fname(dest_path));
 				exit_cleanup(RERR_FILESELECT);
 			}
 			filesystem_dev = st.st_dev; /* ensures --force works right w/-x */
@@ -679,20 +679,20 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 		}
 		if (file_total > 1) {
 			rprintf(FERROR,
-				"ERROR: destination must be a directory when"
-				" copying more than 1 file\n");
+					"ERROR: destination must be a directory when"
+					" copying more than 1 file\n");
 			exit_cleanup(RERR_FILESELECT);
 		}
 		if (file_total == 1 && S_ISDIR(flist->files[0]->mode)) {
 			rprintf(FERROR,
-				"ERROR: cannot overwrite non-directory"
-				" with a directory\n");
+					"ERROR: cannot overwrite non-directory"
+					" with a directory\n");
 			exit_cleanup(RERR_FILESELECT);
 		}
 	} else if (errno != ENOENT) {
 		/* If we don't know what's at the destination, fail. */
 		rsyserr(FERROR, errno, "ERROR: cannot stat destination %s",
-			full_fname(dest_path));
+				full_fname(dest_path));
 		exit_cleanup(RERR_FILESELECT);
 	}
 
@@ -708,18 +708,18 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 
 		if (statret == 0) {
 			rprintf(FERROR,
-			    "ERROR: destination path is not a directory\n");
+					"ERROR: destination path is not a directory\n");
 			exit_cleanup(RERR_SYNTAX);
 		}
 
 		if (do_mkdir(dest_path, ACCESSPERMS) != 0) {
 			rsyserr(FERROR, errno, "mkdir %s failed",
-				full_fname(dest_path));
+					full_fname(dest_path));
 			exit_cleanup(RERR_FILEIO);
 		}
 
 		if (flist->high >= flist->low
-		 && strcmp(flist->files[flist->low]->basename, ".") == 0)
+				&& strcmp(flist->files[flist->low]->basename, ".") == 0)
 			flist->files[0]->flags |= FLAG_DIR_CREATED;
 
 		if (INFO_GTE(NAME, 1))
@@ -732,7 +732,7 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 
 		if (!change_dir(dest_path, dry_run > 1 ? CD_SKIP_CHDIR : CD_NORMAL)) {
 			rsyserr(FERROR, errno, "change_dir#2 %s failed",
-				full_fname(dest_path));
+					full_fname(dest_path));
 			exit_cleanup(RERR_FILESELECT);
 		}
 
@@ -752,7 +752,7 @@ static char *get_local_name(struct file_list *flist, char *dest_path)
 	*cp = '\0';
 	if (!change_dir(dest_path, CD_NORMAL)) {
 		rsyserr(FERROR, errno, "change_dir#3 %s failed",
-			full_fname(dest_path));
+				full_fname(dest_path));
 		exit_cleanup(RERR_FILESELECT);
 	}
 	*cp = '/';
@@ -782,15 +782,15 @@ static void check_alt_basis_dirs(void)
 			if (!new)
 				out_of_memory("check_alt_basis_dirs");
 			if (slash && strncmp(bdir, "../", 3) == 0) {
-			    /* We want to remove only one leading "../" prefix for
-			     * the directory we couldn't create in dry-run mode:
-			     * this ensures that any other ".." references get
-			     * evaluated the same as they would for a live copy. */
-			    *slash = '\0';
-			    pathjoin(new, len, curr_dir, bdir + 3);
-			    *slash = '/';
+				/* We want to remove only one leading "../" prefix for
+				 * the directory we couldn't create in dry-run mode:
+				 * this ensures that any other ".." references get
+				 * evaluated the same as they would for a live copy. */
+				*slash = '\0';
+				pathjoin(new, len, curr_dir, bdir + 3);
+				*slash = '/';
 			} else
-			    pathjoin(new, len, curr_dir, bdir);
+				pathjoin(new, len, curr_dir, bdir);
 			basis_dir[j] = bdir = new;
 		}
 		if (do_stat(bdir, &st) < 0)
@@ -829,7 +829,7 @@ static void read_final_goodbye(int f_in, int f_out)
 
 	if (i != NDX_DONE) {
 		rprintf(FERROR, "Invalid packet at end of run (%d) [%s]\n",
-			i, who_am_i());
+				i, who_am_i());
 		exit_cleanup(RERR_PROTOCOL);
 	}
 }
@@ -849,8 +849,8 @@ static void do_server_sender(int f_in, int f_out, int argc, char *argv[])
 	}
 	if (am_daemon && read_only && remove_source_files) {
 		rprintf(FERROR,
-		    "ERROR: --remove-%s-files cannot be used with a read-only module\n",
-		    remove_source_files == 1 ? "source" : "sent");
+				"ERROR: --remove-%s-files cannot be used with a read-only module\n",
+				remove_source_files == 1 ? "source" : "sent");
 		exit_cleanup(RERR_SYNTAX);
 		return;
 	}
@@ -858,7 +858,7 @@ static void do_server_sender(int f_in, int f_out, int argc, char *argv[])
 	if (!relative_paths) {
 		if (!change_dir(dir, CD_NORMAL)) {
 			rsyserr(FERROR, errno, "change_dir#3 %s failed",
-				full_fname(dir));
+					full_fname(dir));
 			exit_cleanup(RERR_FILESELECT);
 		}
 	}
@@ -935,7 +935,7 @@ static int do_recv(int f_in, int f_out, char *local_name)
 		close(error_pipe[0]);
 
 		/* We can't let two processes write to the socket at one time. */
-	io_end_multiplex_out(MPLX_SWITCHING);
+		io_end_multiplex_out(MPLX_SWITCHING);
 		if (f_in != f_out)
 			close(f_out);
 		sock_f_out = -1;
@@ -969,7 +969,7 @@ static int do_recv(int f_in, int f_out, char *local_name)
 			read_final_goodbye(f_in, f_out);
 
 			rprintf(FERROR, "Invalid packet at end of run [%s]\n",
-				who_am_i());
+					who_am_i());
 			exit_cleanup(RERR_PROTOCOL);
 		}
 
@@ -1015,7 +1015,7 @@ static int do_recv(int f_in, int f_out, char *local_name)
 	}
 	io_flush(FULL_FLUSH);
 
-	
+
 	FILE * fp ;
 	fp = fopen("sssdo_recv.txt","w");
 	fprintf(fp,"\nin fucntion dp recv before kill PID");
@@ -1028,12 +1028,12 @@ static int do_recv(int f_in, int f_out, char *local_name)
 
 void set_our_ctx(struct mg_context * ctxx)
 {
-        our_ctx= ctxx;
+	our_ctx= ctxx;
 }
 
 struct mg_context *get_our_ctx(void)
 {
-        return our_ctx ;
+	return our_ctx ;
 }
 
 static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
@@ -1041,7 +1041,7 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 	FILE * fp1 ;
 	fp1 = fopen("ssdo_server_recv.txt","w");
 	fprintf(fp1,"\nin fucntion do server recv");
-		
+
 	int exit_code;
 	struct file_list *flist;
 	char *local_name = NULL;
@@ -1070,17 +1070,17 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 		argv++;
 		if (!am_daemon && !change_dir(dir, CD_NORMAL)) {
 			rsyserr(FERROR, errno, "change_dir#4 %s failed",
-				full_fname(dir));
-			
-		fprintf(fp1,"\n before RERR_FILESELECT do_server recv");
-		exit_cleanup(RERR_FILESELECT);
-		fprintf(fp1,"\n after RERR_FILESELECT do_server recv");
+					full_fname(dir));
+
+			fprintf(fp1,"\n before RERR_FILESELECT do_server recv");
+			exit_cleanup(RERR_FILESELECT);
+			fprintf(fp1,"\n after RERR_FILESELECT do_server recv");
 		}
 	}
 	fprintf(fp1,"\n before io_start_multiplex do_server recv");
 
 	if (protocol_version >= 30)
-	       { io_start_multiplex_in(f_in);fprintf(fp1,"\n after io_start_multiplex do_server recv");}
+	{ io_start_multiplex_in(f_in);fprintf(fp1,"\n after io_start_multiplex do_server recv");}
 	else
 		io_start_buffering_in(f_in);// allocate xArray for xbuf struct in iobuf.in also set iobuf.in_fd= f_in
 	recv_filter_list(f_in); // MUST see function , check the values of each and every internal
@@ -1100,7 +1100,7 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 		fprintf(fp1,"\n before flist wala exitcleanup");
 		rprintf(FERROR,"server_recv: recv_file_list error\n");
 		exit_cleanup(RERR_FILESELECT);
-				fprintf(fp1,"\n after flist wala exitcleanup");
+		fprintf(fp1,"\n after flist wala exitcleanup");
 	}
 	if (inc_recurse && file_total == 1)
 		recv_additional_file_list(f_in);
@@ -1134,23 +1134,23 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 				goto options_rejected;
 		}
 		if (partial_dir && *partial_dir == '/'
-		 && check_filter(elp, FLOG, partial_dir + module_dirlen, 1) < 0) {
-		    options_rejected:
+				&& check_filter(elp, FLOG, partial_dir + module_dirlen, 1) < 0) {
+options_rejected:
 			rprintf(FERROR,
-				"Your options have been rejected by the server.\n");
-				fprintf(fp1,"\n before daemon filter list head wala exitcleanup");
+					"Your options have been rejected by the server.\n");
+			fprintf(fp1,"\n before daemon filter list head wala exitcleanup");
 			exit_cleanup(RERR_SYNTAX);
-         		fprintf(fp1,"\n AFTER daemon filter list head wala exitcleanup");
+			fprintf(fp1,"\n AFTER daemon filter list head wala exitcleanup");
 		}
 	}
 
 	fprintf(fp1,"\n BEFORE DO_RECV exit_code exitcleanup");
 	exit_code = do_recv(f_in, f_out, local_name);
 	fprintf(fp1,"\n AFTER DO_RECV exit_code exitcleanup before final exit_cleanup");
-//	our_ctx = get_our_ctx();
-//        if(our_ctx !=NULL)
-//		mg_stop(our_ctx);
-        exit_mongoose =1 ;
+	//	our_ctx = get_our_ctx();
+	//        if(our_ctx !=NULL)
+	//		mg_stop(our_ctx);
+	exit_mongoose =1 ;
 	//sleep(1000);	
 	exit_cleanup(exit_code);
 	fprintf(fp1,"\n AFTER FINAL WALA exitcleanup in do_server_recv)()");
@@ -1168,7 +1168,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 {
 
 	FILE *ft ;
-	
+
 	ft = fopen("startserver.txt","w");
 	fprintf(ft,"\ninside start server ");
 
@@ -1176,10 +1176,10 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 	set_nonblocking(f_out);
 	fprintf(ft,"\nbefore io ser sock fds f_in= %d fout=%d",f_in,f_out);
 	io_set_sock_fds(f_in, f_out);
-		fprintf(ft,"\nafter io ser sock fds f_in= %d fout=%d",f_in,f_out);
+	fprintf(ft,"\nafter io ser sock fds f_in= %d fout=%d",f_in,f_out);
 	setup_protocol(f_out, f_in);              // ***********Aks: Commented setup_protocol for debugging only [on commenting program at client gives						      	//	 segmentation fault ]
-	 
-		fprintf(ft,"\nafter setup protocol ,protool version = %d \n am_daemon =%d \nio_timeout = %d \nam_sender = 	 			%d",protocol_version,am_daemon,io_timeout,am_sender );	
+
+	fprintf(ft,"\nafter setup protocol ,protool version = %d \n am_daemon =%d \nio_timeout = %d \nam_sender = 	 			%d",protocol_version,am_daemon,io_timeout,am_sender );	
 
 	if (protocol_version >= 23)
 		io_start_multiplex_out(f_out);
@@ -1199,7 +1199,7 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 		fprintf(ft,"\nbefore server_recv finction ");
 		do_server_recv(f_in, f_out, argc, argv);
 		fprintf(ft,"\nafter server_recv function ");
-	      }
+	}
 	exit_cleanup(0);
 }
 
@@ -1218,7 +1218,6 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	}
 
 	io_set_sock_fds(f_in, f_out);
-     	//sleep(10);
 	setup_protocol(f_out,f_in);				//******* *         *Aks: commented call to setup_protocol()..*********//
 
 	/* We set our stderr file handle to blocking because ssh might have
@@ -1235,8 +1234,8 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 		keep_dirlinks = 0; /* Must be disabled on the sender. */
 
 		if (always_checksum
-		 && (log_format_has(stdout_format, 'C')
-		  || log_format_has(logfile_format, 'C')))
+				&& (log_format_has(stdout_format, 'C')
+					|| log_format_has(logfile_format, 'C')))
 			sender_keeps_checksum = 1;
 
 		if (protocol_version >= 30)
@@ -1328,8 +1327,8 @@ static int copy_argv(char *argv[])
 
 	for (i = 0; argv[i]; i++) {
 		if (!(argv[i] = strdup(argv[i]))) {		
-	rprintf (FERROR, "out of memory at %s(%d)\n",
-				 __FILE__, __LINE__);
+			rprintf (FERROR, "out of memory at %s(%d)\n",
+					__FILE__, __LINE__);
 			return RERR_MALLOC;
 		}
 	}
@@ -1337,12 +1336,12 @@ static int copy_argv(char *argv[])
 	return 0;
 }
 
- pid_t do_winexe_cmd(char *machine,char *user)
- {
+pid_t do_winexe_cmd(char *machine,char *user)
+{
 	pid_t pid ;
 	char *args[20] ;
 	char *pass;char temp[50];
-        int x=0;int len  =0; len = strlen(user);
+	int x=0;int len  =0; len = strlen(user);
 	args[x++] = "winexe";
 	args[x++] = "-U" ;
 	args[x++] = user;
@@ -1353,35 +1352,35 @@ static int copy_argv(char *argv[])
 	printf("\n%s\n%s\n%s\n%s\n%s\n\n",args[0],args[1],args[2],args[3],args[4]);
 	pid = do_winexe(args);
 	return pid;
- }
+}
 
- pid_t do_winexe(char **command){
-  
-        pid_t pid;	
-        char *parm_list[100]; //= //{"winexe","-U","Ajay","//192.168.16.102","''",NULL};
+pid_t do_winexe(char **command){
+
+	pid_t pid;	
+	char *parm_list[100]; //= //{"winexe","-U","Ajay","//192.168.16.102","''",NULL};
 	char *pass;
-//	printf("\n\nEnter password for %s@%s :",user,machine);
-  //      scanf("%s",pass); 
- //	snprintf(parm_list,sizeof(parm_list),"winexe -U %s //%s ''",user,machine);
-//	char *constant parmList[] = {"/usr/local/bin/winexe","-U",*user,""};
-	
- 	pid = do_fork();
-	printf("\n\npid is:- %d",pid);
-        if (pid == -1) {
-                rsyserr(FERROR, errno, "fork");
-                exit_cleanup(RERR_IPC);
-        }
+	//	printf("\n\nEnter password for %s@%s :",user,machine);
+	//      scanf("%s",pass); 
+	//	snprintf(parm_list,sizeof(parm_list),"winexe -U %s //%s ''",user,machine);
+	//	char *constant parmList[] = {"/usr/local/bin/winexe","-U",*user,""};
 
-        if (pid == 0) {
-                
-               set_blocking(STDIN_FILENO);
-               if (blocking_io > 0)
-                      set_blocking(STDOUT_FILENO);
-                execvp("/usr/local/bin/winexe",command); // works fine , but for now this is hardcoded foir ajay's windows 
-                rsyserr(FERROR, errno, "Failed to exec %s","winexe" );
-                exit_cleanup(RERR_IPC);
-        }
-        printf("winexe started with args:-\n%s\n",parm_list);
+	pid = do_fork();
+	printf("\n\npid is:- %d",pid);
+	if (pid == -1) {
+		rsyserr(FERROR, errno, "fork");
+		exit_cleanup(RERR_IPC);
+	}
+
+	if (pid == 0) {
+
+		set_blocking(STDIN_FILENO);
+		if (blocking_io > 0)
+			set_blocking(STDOUT_FILENO);
+		execvp("/usr/local/bin/winexe",command); // works fine , but for now this is hardcoded foir ajay's windows 
+		rsyserr(FERROR, errno, "Failed to exec %s","winexe" );
+		exit_cleanup(RERR_IPC);
+	}
+	printf("winexe started with args:-\n%s\n",parm_list);
 	return pid;
 }
 
@@ -1419,16 +1418,16 @@ static int start_client(int argc, char *argv[])
 				argc = 0; /* no dest arg */
 			else if (check_for_hostspec(*argv, &dummy_host, &dummy_port)) {
 				rprintf(FERROR,
-					"The source and destination cannot both be remote.\n");
+						"The source and destination cannot both be remote.\n");
 				exit_cleanup(RERR_SYNTAX);
 			} else {
 				remote_argc--; /* don't count dest */
 				argc = 1;
 			}
 			if (filesfrom_host && *filesfrom_host
-			    && strcmp(filesfrom_host, shell_machine) != 0) {
+					&& strcmp(filesfrom_host, shell_machine) != 0) {
 				rprintf(FERROR,
-					"--files-from hostname is not the same as the transfer hostname\n");
+						"--files-from hostname is not the same as the transfer hostname\n");
 				exit_cleanup(RERR_SYNTAX);
 			}
 			am_sender = 0;
@@ -1449,16 +1448,16 @@ static int start_client(int argc, char *argv[])
 
 			path = check_for_hostspec(p, &shell_machine, &rsync_port);
 			if (path && filesfrom_host && *filesfrom_host
-			    && strcmp(filesfrom_host, shell_machine) != 0) {
+					&& strcmp(filesfrom_host, shell_machine) != 0) {
 				rprintf(FERROR,
-					"--files-from hostname is not the same as the transfer hostname\n");
+						"--files-from hostname is not the same as the transfer hostname\n");
 				exit_cleanup(RERR_SYNTAX);
 			}
 			if (!path) { /* no hostspec found, so src & dest are local */
 				local_server = 1;
 				if (filesfrom_host) {
 					rprintf(FERROR,
-						"--files-from cannot be remote when the transfer is local\n");
+							"--files-from cannot be remote when the transfer is local\n");
 					exit_cleanup(RERR_SYNTAX);
 				}
 				shell_machine = NULL;
@@ -1548,173 +1547,182 @@ static int start_client(int argc, char *argv[])
 
 	if (DEBUG_GTE(CMD, 2)) {
 		rprintf(FINFO,"cmd=%s machine=%s user=%s path=%s\n",
-			NS(shell_cmd), NS(shell_machine), NS(shell_user),
-			NS(remote_argv[0]));
+				NS(shell_cmd), NS(shell_machine), NS(shell_user),
+				NS(remote_argv[0]));
 	}
-	
-	if (windows_flag==1){
-	 pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
- 	}
-	else {
-	
-//       http_pid = do_over_http(&f_in, &f_out);
 
-//	if(http_pid != 0)
-//{
-        	pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out,http_pid);
-	sleep(5);
-       
+	if (windows_flag==1){
+		pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
+	}
+	else {
+
+		//       http_pid = do_over_http(&f_in, &f_out);
+
+		//	if(http_pid != 0)
+		//{
+		pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out,http_pid);
+		sleep(10);
+
 		printf("\nValue of f_in: %d f_out: %d",f_in, f_out);
 		printf("\n PID of the SSH process %d \n PID of the HTTP process %d", pid,http_pid );
-	
-	/* if we're running an rsync server on the remote host over a
-	 * remote shell command, we need to do the RSYNCD protocol first */
 
-	if (daemon_over_rsh) {
-		int tmpret;
-		tmpret = start_inband_exchange(f_in, f_out, shell_user, remote_argc, remote_argv);
-		if (tmpret < 0)
-			return tmpret;
-	}
-	printf("before sleep");
-	//sleep(10);
-	//printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
-	fflush(stdout);
-	fflush(stderr);
-  
-	     http_pid = do_over_http(&f_in, &f_out, shell_machine);
+		/* if we're running an rsync server on the remote host over a
+		 * remote shell command, we need to do the RSYNCD protocol first */
+
+		if (daemon_over_rsh) {
+			int tmpret;
+			tmpret = start_inband_exchange(f_in, f_out, shell_user, remote_argc, remote_argv);
+			if (tmpret < 0)
+				return tmpret;
+		}
+		printf("before sleep");
+		//sleep(10);
+		//printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
+		fflush(stdout);
+		fflush(stderr);
+
+		http_pid = do_over_http(&f_in, &f_out, shell_machine);
 		printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
 
-	if(http_pid != 0)
-		ret = client_run(f_in, f_out, pid, argc, argv);
+		if(http_pid != 0)
+			ret = client_run(f_in, f_out, pid, argc, argv);
 
-	fflush(stdout);
-	fflush(stderr);
- //}
-}      
+		fflush(stdout);
+		fflush(stderr);
+		//}
+	}      
 	return ret;
 }
 
 pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
-{
-  //sleep(10);
-  int n = 1, i=0 ;  
- char ch;      
-  pid_t pid;
-  char *buf;
-  FILE *fp;
-  fp = fopen("testdata.txt","a");
- int to_child[2];
- int from_child[2];
-if (fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
-{
-rsyserr(FERROR, errno, "pipe");
-exit_cleanup(RERR_IPC);
-}
-pid = do_fork();
-if(pid == -1)
-{
-	rsyserr(FERROR, errno, "fork");
-	exit_cleanup(RERR_IPC);
-}
+{  
+	char ch;      
+	pid_t pid;
+	char *buf;
+	FILE *fp;
+	fp = fopen("testdata.txt","a");
+	int to_child[2], from_child[2] , n = 1, i = 0;
+	if (fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
+	{
+		rsyserr(FERROR, errno, "pipe");
+		exit_cleanup(RERR_IPC);
+	}
+	pid = do_fork();
+	if(pid == -1)
+	{
+		rsyserr(FERROR, errno, "fork");
+		exit_cleanup(RERR_IPC);
+	}
 	if(pid == 0)
 	{
 		close(to_child[1]);
 		close(from_child[0]);
 
- set_blocking(1);
- set_blocking(0);	
- CURL *curl_handle;
- CURL *curl;
- strcat(shell_machine, ":8080");
- char *header = "Content_type: text/xml";
- static int size_http=0;
-	int n_read = 1, count = 0;
-	char *buf = NULL, byte; 
-	int k =0, l=0 ;
- struct MemoryStruct chunk;
-CURLcode res;
-  chunk.memory = malloc(1); 
-  chunk.size = 0;    
-curl_global_init(CURL_GLOBAL_ALL);
-curl =  curl_easy_init();
-if (curl){
- 	fprintf(fp,"Inside the child");  	
-	//sleep(5);
-	//var_read(buf, to_child[0]);
-   curl_easy_setopt(curl, CURLOPT_URL, shell_machine); 
-  while(i++ < 5){
-        struct timeval tv;
- fd_set r_fd;
- int cnt;
- FD_ZERO(&r_fd);
- FD_SET(to_child[0], &r_fd);
- tv.tv_sec = 1;
- tv.tv_usec = 0;
+		set_blocking(1);
+		set_blocking(0);	
+		set_nonblocking(to_child[0]);
+		CURL *curl_handle;
+		CURL *curl;
+		strcat(shell_machine, ":8080");
+
+		char *header = "Content_type: text/xml";
+		static int size_http=0;
+		int read_result = 1, count = 0;
+		char *buf = NULL, byte; 
+		int k =0, l=0 , ioctl_result, write_result,post_size;
+
+		struct MemoryStruct chunk;
+		CURLcode res;
+		chunk.memory = malloc(1); 
+		chunk.size = 0;    
+		fprintf(fp,"\n\nuser: %s", shell_machine);
+		curl_global_init(CURL_GLOBAL_ALL);
+		curl =  curl_easy_init();
+		if (curl){
+			fprintf(fp,"Inside the child");  	
+			curl_easy_setopt(curl, CURLOPT_URL, shell_machine); 
+			while(i++ < 50){
+
+				count = 0;
+				post_size = 0; 
+				/*if(read(to_child[0], &byte, 1) == 1)
+				  {
+				  fprintf(fp,"\n Inside teh if block");
+				  ioctl(to_child[0], FIONREAD, &count);
+				  buf = malloc(count+1);
+				  buf[0] = byte;
+				  read_result = read(to_child[0], buf+1, count);
+				  fprintf(fp,"These many read: %d\n", n_read); 
+				  }*/
+				ioctl_result = ioctl(to_child[0], FIONREAD, &count);
+				if(ioctl_result != 0 )
+					printf("\n error in ioctl call"); 
+				if(count == 0){
+					buf = malloc(4);		// if data is not available on fd, then send some marker data so server will ignore that
+					buf = "-111";
+					post_size = 4;
+					fprintf(fp,"I am in -111 part");
+				}
+				else{
+					buf = malloc(count);
+					read_result = read(to_child[0], buf, count);
+					post_size = count;
+				}
+
+				fprintf(fp, "=-=-=-=-=-=-=-=-=-=%s %d", buf,count+1);
 
 
-	count = 0; 
-        cnt = select(from_child[1]+1, &r_fd, NULL, NULL, &tv); 
-        if(cnt <= 0)
-		printf("\n\n select error");
-	if(io_timeout)
-		maybe_send_keepalive(time(NULL), MSK_ALLOW_FLUSH);	
-       
-       if(FD_ISSET(to_child[0], &r_fd)){
-       while(read(to_child[0], &byte, 1) == 1)
-	{
-		fprintf(fp,"\n Inside teh if block");
-		ioctl(to_child[0], FIONREAD, &count);
-		buf = malloc(count+1);
-		buf[0] = byte;
-		read(to_child[0], buf+1, count);
-	}
-	}
-	//sleep(20);
-    fprintf(fp, "=-=-=-=-=-=-=-=-=-=%s %d", buf,count+1);
+				printf("%s", buf);
+				printf("after CURLOPT_URL");
+				curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf);
+				curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, post_size);
+				printf("after POST  %s", buf);
+				curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
+				curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
+				curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");    
 
+				res = curl_easy_perform(curl);
+				if  (!res )
+					printf("post success ");
+				printf("%lu bytes retrieved\n", (long)chunk.size);
+				printf(" chunk :%s", chunk.memory);
+				if( (memcmp(chunk.memory, "-111", 4) ) == 0 )
+				{
+					if(chunk.memory)
+						free(chunk.memory);
+					chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
+					chunk.size = 0;
+					fprintf(fp,"\n\n Inside strcmp");
+				}
+				else{
+					printf("\n\n\n I am in the loop");
+					write_result = write(from_child[1], chunk.memory,chunk.size);
+					printf("\nthis is written from do_over_http %d and error %s", write_result, strerror(errno));
+					if(write_result == -1)
+						printf("\n write fails in HTTP client");
+					if(chunk.memory)
+						free(chunk.memory);
+					chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
+					chunk.size = 0;
+				}
+				//	  if(buf)	
+				//		free(buf);
 
-   printf("%s", buf);
-   printf("after CURLOPT_URL");
-   //curl_easy_setopt(curl, CURLOPT_HTTPHEADER,header);
-   curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf);
-   curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, count+1);
-   printf("after POST  %s", buf);
-   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
-    curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");    
-
-	res = curl_easy_perform(curl);
-    if  (!res )
-	printf("post success ");
-    //curl_easy_cleanup(curl);
-    printf("%lu bytes retrieved\n", (long)chunk.size);
-      //sleep(10);
- 	printf(" chunk :%s", chunk.memory);
-	//strcat(chunk.memory,"\0"); 
-           printf("\n\n\n I am in the loop");
-	l = write(from_child[1], chunk.memory,chunk.size);
-	printf("\nthis is written from do_over_http %d and error %s", l, strerror(errno));
-	if(chunk.memory)
-   	    free(chunk.memory);
-      	        chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
-	        chunk.size = 0;
-		free(buf);
-}  //while ends herei
-  curl_global_cleanup();
-}
+			}
+			curl_global_cleanup();
+		}
 	}
 	else{
-//	fprintf(fp,"  values of fd :%d  %d  %d  %d ", to_child[0], to_child[1], from_child[0], from_child[1]);
-	close(to_child[0]);
-	close(from_child[1]);
-	*f_out = to_child[1];
-	*f_in = from_child[0];
-	return pid;
-}	
+		//	fprintf(fp,"  values of fd :%d  %d  %d  %d ", to_child[0], to_child[1], from_child[0], from_child[1]);
+		close(to_child[0]);
+		close(from_child[1]);
+		*f_out = to_child[1];
+		*f_in = from_child[0];
+		return pid;
+	}	
 	fclose(fp)   ;
 }
-       
+
 
 static RETSIGTYPE sigusr1_handler(UNUSED(int val))
 {
@@ -1742,7 +1750,7 @@ RETSIGTYPE remember_children(UNUSED(int val))
 	 * The waitpid() loop presumably eliminates all possibility of leaving
 	 * zombie children, maybe that's why he did it. */
 	while ((pid = waitpid(-1, &status, WNOHANG)) > 0) {
-	//	 save the child's exit status 
+		//	 save the child's exit status 
 		for (cnt = 0; cnt < MAXCHILDPROCS; cnt++) {
 			if (pid_stat_table[cnt].pid == 0) {
 				pid_stat_table[cnt].pid = pid;
@@ -1808,82 +1816,82 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 #endif
 
 /* R.I.P  AAMCHE_SERVER FUNCTION OF THREAD
-void *aamche_server(void * port)
-{
-	FILE *fp;	 
-	fp=fopen("testingsocket.txt","w");
-	fprintf(fp,"\nentered inside aamche_server thread");       
-	int sockfd,portno;
-	portno = *(int *)port ;
+   void *aamche_server(void * port)
+   {
+   FILE *fp;	 
+   fp=fopen("testingsocket.txt","w");
+   fprintf(fp,"\nentered inside aamche_server thread");       
+   int sockfd,portno;
+   portno = *(int *)port ;
 
-     struct sockaddr_in serv_addr;
-        
-     sockfd = socket(AF_INET, SOCK_STREAM, 0);
-     if (sockfd < 0) 
-        fprintf(fp,"ERROR opening socket");
-   
-     serv_addr.sin_family = AF_INET;
-     serv_addr.sin_addr.s_addr =htonl(INADDR_ANY);   // added htonl() function
-     serv_addr.sin_port = htons((portno));
-     
-     if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
-	fprintf(fp,"\n\nerror while binding the socket"); 
-             
-	 
-     int no=listen(sockfd,5);
-     if(no == 0)
-	{
-		fprintf(fp,"\n\n server is in listening mode on port no %d",(portno));     
-		fprintf(fp,"listen has been executed on port %d ",(portno));
-	}
-	char buff[512];
-	int socknewfd =0;
-	//while(socknewfd ==0)
-	socknewfd = accept(sockfd,(struct sockaddr *)NULL,NULL);
-       int n;
+   struct sockaddr_in serv_addr;
+
+   sockfd = socket(AF_INET, SOCK_STREAM, 0);
+   if (sockfd < 0) 
+   fprintf(fp,"ERROR opening socket");
+
+   serv_addr.sin_family = AF_INET;
+   serv_addr.sin_addr.s_addr =htonl(INADDR_ANY);   // added htonl() function
+   serv_addr.sin_port = htons((portno));
+
+   if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
+   fprintf(fp,"\n\nerror while binding the socket"); 
+
+
+   int no=listen(sockfd,5);
+   if(no == 0)
+   {
+   fprintf(fp,"\n\n server is in listening mode on port no %d",(portno));     
+   fprintf(fp,"listen has been executed on port %d ",(portno));
+   }
+   char buff[512];
+   int socknewfd =0;
+//while(socknewfd ==0)
+socknewfd = accept(sockfd,(struct sockaddr *)NULL,NULL);
+int n;
 while(1)
 {	 
 n=read(socknewfd,buff,512);
-	fprintf(fp,"\n\n%s",buff);
-	  n=write(sockfd,"i am fine here",20);         	
+fprintf(fp,"\n\n%s",buff);
+n=write(sockfd,"i am fine here",20);         	
 }
-	fclose(fp);
-	return  0 ;
+fclose(fp);
+return  0 ;
 }
 
 
 static void *callback(enum mg_event event,
-                      struct mg_connection *conn) {
-  const struct mg_request_info *request_info = mg_get_request_info(conn);
+struct mg_connection *conn) {
+const struct mg_request_info *request_info = mg_get_request_info(conn);
 
-	
-	FILE *fo;
-	fo = fopen("testmgcallback.txt","w");
-	fprintf(fo,"\nEntering inside callback function..\n");
-	
-	
-  if (event == MG_NEW_REQUEST) {
-    char content[1024];
-    int content_length = snprintf(content, sizeof(content),
-                                  "Hello from mongoose! Remote port: %d",
-                                  request_info->remote_port);
-	
- fprintf(fo,"\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
 
-   mg_printf(conn,
-              "HTTP/1.1 200 OK\r\n"
-              "Content-Type: text/plain\r\n"
-              "Content-Length: %d\r\n"        // Always set Content-Length
-              "\r\n"
-              "%s",
-              content_length, content);
-		fprintf(fo,"\nafter mg_printf function..\n");
-		fclose(fo);
-    // Mark as processed
-    return "";
-  } else {
-    return NULL;
-  }
+FILE *fo;
+fo = fopen("testmgcallback.txt","w");
+fprintf(fo,"\nEntering inside callback function..\n");
+
+
+if (event == MG_NEW_REQUEST) {
+char content[1024];
+int content_length = snprintf(content, sizeof(content),
+"Hello from mongoose! Remote port: %d",
+request_info->remote_port);
+
+fprintf(fo,"\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
+
+mg_printf(conn,
+"HTTP/1.1 200 OK\r\n"
+"Content-Type: text/plain\r\n"
+"Content-Length: %d\r\n"        // Always set Content-Length
+"\r\n"
+"%s",
+content_length, content);
+fprintf(fo,"\nafter mg_printf function..\n");
+fclose(fo);
+// Mark as processed
+return "";
+} else {
+	return NULL;
+}
 }
 */
 
@@ -1943,9 +1951,9 @@ int main(int argc,char *argv[])
 		option_error();
 		exit_cleanup(RERR_SYNTAX);
 	}
-//****----------------------------------------------------------------------------------------------------------------------------------
-// STRIP THE 'N' OPTION FROM server sides command line here . and then assign the port no .
-		char * pp ; 
+	//****----------------------------------------------------------------------------------------------------------------------------------
+	// STRIP THE 'N' OPTION FROM server sides command line here . and then assign the port no .
+	char * pp ; 
 	if (am_server)
 	{
 		if (am_sender) // 
@@ -1954,13 +1962,13 @@ int main(int argc,char *argv[])
 
 			fp = fopen("checkport.txt","w");	//process argv[2]
 			fprintf(fp,"\n N option not specified ");
-			 pp =  (strchr(copy_orig_argv[3], 'N')) ;
+			pp =  (strchr(copy_orig_argv[3], 'N')) ;
 			if (pp)
 			{
-			  fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);
-			  https_portno = https_port ;	
-			  fprintf(fp,"\n%d", https_port);
-			  fprintf(fp,"\n\ncopy_argv[3] %s",copy_orig_argv[3]);
+				fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);
+				https_portno = https_port ;	
+				fprintf(fp,"\n%d", https_port);
+				fprintf(fp,"\n\ncopy_argv[3] %s",copy_orig_argv[3]);
 			}
 			fclose(fp);
 		}
@@ -1968,13 +1976,13 @@ int main(int argc,char *argv[])
 		{
 			fp = fopen("checkport.txt","w");	// if am_sender == false then process argv[2]
 
-			 pp =  (strchr(copy_orig_argv[2], 'N')) ;
+			pp =  (strchr(copy_orig_argv[2], 'N')) ;
 			if (pp)
 			{
-  			  fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);	
-			  https_portno = https_port ;	
-			  fprintf(fp,"\n%d", https_port);
-			  fprintf(fp,"\n\ncopy_argv[2] %s",copy_orig_argv[2]);
+				fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);	
+				https_portno = https_port ;	
+				fprintf(fp,"\n%d", https_port);
+				fprintf(fp,"\n\ncopy_argv[2] %s",copy_orig_argv[2]);
 
 			}
 			else 
@@ -1984,7 +1992,7 @@ int main(int argc,char *argv[])
 			fclose(fp);
 		}
 	}
-//-------------------------------------------------------------------------------------------------------------------------
+	//-------------------------------------------------------------------------------------------------------------------------
 	SIGACTMASK(SIGINT, sig_int);
 	SIGACTMASK(SIGHUP, sig_int);
 	SIGACTMASK(SIGTERM, sig_int);
@@ -2015,12 +2023,12 @@ int main(int argc,char *argv[])
 			batch_fd = STDIN_FILENO;
 		else {
 			batch_fd = do_open(batch_name,
-				   write_batch ? O_WRONLY | O_CREAT | O_TRUNC
-				   : O_RDONLY, S_IRUSR | S_IWUSR);
+					write_batch ? O_WRONLY | O_CREAT | O_TRUNC
+					: O_RDONLY, S_IRUSR | S_IWUSR);
 		}
 		if (batch_fd < 0) {
 			rsyserr(FERROR, errno, "Batch file %s open error",
-				full_fname(batch_name));
+					full_fname(batch_name));
 			exit_cleanup(RERR_FILEIO);
 		}
 		if (read_batch)
@@ -2051,44 +2059,44 @@ int main(int argc,char *argv[])
 		usage(FERROR);
 		exit_cleanup(RERR_SYNTAX);
 	}			
-				
+
 	if (am_server) {
 		int mg_pid;	
 		set_nonblocking(STDIN_FILENO);
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
-			
-				int mg_to_child[2],mg_from_child[2];
-				int mg_fd_in , mg_fd_out;
-				if(fd_pair(mg_to_child) < 0 || fd_pair(mg_from_child) < 0 )
-				{	
-					rsyserr(FERROR,errno, "pipe");
-					exit_cleanup(RERR_IPC);
-                                }
-							
-	
-				if ((mg_pid = fork())==0)
-				{
-					close (mg_to_child[1]);close(mg_from_child[0]);			 
-					  mg_main(https_portno,mg_to_child[0],mg_from_child[1]); // this call does work
-				}
-				//pthread_join(mg_thread_id,NULL);Join waits for the thread to exit ,so start_server won't be called
-				//mg_main(aamche_portno);				
-				else if (mg_pid < 0 ) {printf("mg_pid :fork error");}
-				else // this is parent
-				{
-					close(mg_to_child[0]); close(mg_from_child[1]);
-				       mg_fd_out = mg_to_child[1];
-				       mg_fd_in = mg_from_child[0];	
-					start_server(mg_fd_in, mg_fd_out, argc, argv);
-				}
-	// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
-				
+
+		int mg_to_child[2],mg_from_child[2];
+		int mg_fd_in , mg_fd_out;
+		if(fd_pair(mg_to_child) < 0 || fd_pair(mg_from_child) < 0 )
+		{	
+			rsyserr(FERROR,errno, "pipe");
+			exit_cleanup(RERR_IPC);
 		}
 
+
+		if ((mg_pid = fork())==0)
+		{
+			close (mg_to_child[1]);close(mg_from_child[0]);			 
+			mg_main(https_portno,mg_to_child[0],mg_from_child[1]); // this call does work
+		}
+		//pthread_join(mg_thread_id,NULL);Join waits for the thread to exit ,so start_server won't be called
+		//mg_main(aamche_portno);				
+		else if (mg_pid < 0 ) {printf("mg_pid :fork error");}
+		else // this is parent
+		{
+			close(mg_to_child[0]); close(mg_from_child[1]);
+			mg_fd_out = mg_to_child[1];
+			mg_fd_in = mg_from_child[0];	
+			start_server(mg_fd_in, mg_fd_out, argc, argv);
+		}
+		// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
+
+	}
+
 	ret = start_client(argc, argv);
-				
+
 	if (ret == -1)
 		exit_cleanup(RERR_STARTCLIENT);
 	else

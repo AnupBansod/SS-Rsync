@@ -195,7 +195,7 @@ void setup_protocol(int f_out,int f_in)
 		else{fprintf(fp6, "Read fail %s", strerror(errno));}
 		fprintf(fp6,"buf 1: %s\n", buf);
 */		//free(buf);
-	
+		//sleep(5);
 		remote_protocol = read_int(f_in);
  	fprintf(fp6,"buf 1: %d\n", remote_protocol);
 		fclose(fp6);

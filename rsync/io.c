@@ -589,7 +589,10 @@ static char *perform_io(size_t needed, int flags)
 	size_t empty_buf_len = 0;
 	xbuf *out;
 	char *data;
-
+	FILE *fp;
+	fp = fopen("performio.txt","a");	
+	fprintf(fp,"Inside perform IO");
+	fclose(fp);
 	if (iobuf.in.len == 0 && iobuf.in.pos != 0) {
 		if (iobuf.raw_input_ends_before)
 			iobuf.raw_input_ends_before -= iobuf.in.pos;
@@ -1448,8 +1451,10 @@ static void read_a_msg(void)
 
 	if (DEBUG_GTE(IO, 1) && msgs2stderr)
 		rprintf(FINFO, "[%s] got msg=%d, len=%ld\n", who_am_i(), (int)tag, (long)msg_bytes);
+        	
+	printf("[%s] got msg=%d, len=%ld\n", who_am_i(), (int)tag, (long)msg_bytes);
 
-	switch (tag) {
+switch (tag) {
 	case MSG_DATA:
 		assert(iobuf.raw_input_ends_before == 0);
 		/* Though this does not yet read the data, we do mark where in
