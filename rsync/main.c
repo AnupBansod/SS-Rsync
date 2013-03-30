@@ -1598,7 +1598,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
 {  
 	char ch;      
 	pid_t pid;
-	char *buf;
+	//char buf[1024];
 	FILE *fp;
 	fp = fopen("testdata.txt","a");
 	int to_child[2], from_child[2] , n = 1, i = 0;
@@ -1628,7 +1628,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
 		char *header = "Content_type: text/xml";
 		static int size_http=0;
 		int read_result = 1, count = 0;
-		char *buf = NULL, byte; 
+		char buf[1024], *compare = "-111" ,byte; 
 		int k =0, l=0 , ioctl_result, write_result,post_size;
 
 		struct MemoryStruct chunk;
@@ -1658,13 +1658,13 @@ pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
 				if(ioctl_result != 0 )
 					printf("\n error in ioctl call"); 
 				if(count == 0){
-					buf = malloc(4);		// if data is not available on fd, then send some marker data so server will ignore that
-					buf = "-111";
+					strcpy(buf,"-111");		// if data is not available on fd, then send some marker data so server will ignore that
+					//buf = "-111";
 					post_size = 4;
 					fprintf(fp,"I am in -111 part");
 				}
 				else{
-					buf = malloc(count);
+					//buf = malloc(count);
 					read_result = read(to_child[0], buf, count);
 					post_size = count;
 				}
@@ -1686,7 +1686,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
 					printf("post success ");
 				printf("%lu bytes retrieved\n", (long)chunk.size);
 				printf(" chunk :%s", chunk.memory);
-				if( (memcmp(chunk.memory, "-111", 4) ) == 0 )
+				if( (memcmp(chunk.memory, compare, 4) ) == 0 )
 				{
 					if(chunk.memory)
 						free(chunk.memory);
