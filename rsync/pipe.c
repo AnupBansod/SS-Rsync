@@ -32,6 +32,24 @@ extern int remote_option_cnt;
 extern const char **remote_options;
 extern struct chmod_mode_struct *chmod_modes;
 
+pid_t piped_child_http(char **command)
+{
+	pid_t pid;
+	pid = do_fork();
+	if (pid == -1) {
+		rsyserr(FERROR, errno, "fork");
+		exit_cleanup(RERR_IPC);
+	}
+
+	if (pid == 0) {
+		set_blocking(STDIN_FILENO);
+		execvp(command[0], command);
+		rsyserr(FERROR, errno, "Failed to exec %s", command[0]);
+		exit_cleanup(RERR_IPC);
+	}
+
+	return pid;
+}
 /**
  * Create a child connected to us via its stdin/stdout.
  *
@@ -48,10 +66,10 @@ extern struct chmod_mode_struct *chmod_modes;
 pid_t piped_child(char **command, int *f_in, int *f_out)
 {
 	pid_t pid;
-/*	int to_child_pipe[2];
+	int to_child_pipe[2];
 	int from_child_pipe[2];
-*/
-/*	if (DEBUG_GTE(CMD, 1))
+
+	if (DEBUG_GTE(CMD, 1))
 		print_child_argv("opening connection using:", command);
 
 	if (fd_pair(to_child_pipe) < 0 || fd_pair(from_child_pipe) < 0) {
@@ -59,17 +77,17 @@ pid_t piped_child(char **command, int *f_in, int *f_out)
 		exit_cleanup(RERR_IPC);
 	}
 
-*/	pid = do_fork();
+	pid = do_fork();
 	if (pid == -1) {
 		rsyserr(FERROR, errno, "fork");
 		exit_cleanup(RERR_IPC);
 	}
 
 	if (pid == 0) {
-/*		if (dup2(to_child_pipe[0], STDIN_FILENO) < 0 ||
-		    close(to_child_pipe[1]) < 0 ||
-		    close(from_child_pipe[0]) < 0 ||
-		    dup2(from_child_pipe[1], STDOUT_FILENO) < 0) {
+		if (dup2(to_child_pipe[0], STDIN_FILENO) < 0 ||
+				close(to_child_pipe[1]) < 0 ||
+				close(from_child_pipe[0]) < 0 ||
+				dup2(from_child_pipe[1], STDOUT_FILENO) < 0) {
 			rsyserr(FERROR, errno, "Failed to dup/close");
 			exit_cleanup(RERR_IPC);
 		}
@@ -77,16 +95,15 @@ pid_t piped_child(char **command, int *f_in, int *f_out)
 			close(to_child_pipe[0]);
 		if (from_child_pipe[1] != STDOUT_FILENO)
 			close(from_child_pipe[1]);
-*/		set_blocking(STDIN_FILENO);
-			printf("****\n\n in th SSH");
-	//	if (blocking_io > 0)
-	//		set_blocking(STDOUT_FILENO);
+		set_blocking(STDIN_FILENO);
+		if (blocking_io > 0)
+			set_blocking(STDOUT_FILENO);
 		execvp(command[0], command);
 		rsyserr(FERROR, errno, "Failed to exec %s", command[0]);
 		exit_cleanup(RERR_IPC);
 	}
 
-/*	if (close(from_child_pipe[1]) < 0 || close(to_child_pipe[0]) < 0) {
+	if (close(from_child_pipe[1]) < 0 || close(to_child_pipe[0]) < 0) {
 		rsyserr(FERROR, errno, "Failed to close");
 		exit_cleanup(RERR_IPC);
 	}
@@ -95,11 +112,11 @@ pid_t piped_child(char **command, int *f_in, int *f_out)
 	*f_out = to_child_pipe[1];
 
 	if(pid == 0)
-{
-	set_blocking(STDIN_FILENO);
-	 execvp(command[0], command);
-                rsyserr(FERROR, errno, "Failed to exec %s", command[0]);
-}*/
+	{
+		set_blocking(STDIN_FILENO);
+		execvp(command[0], command);
+		rsyserr(FERROR, errno, "Failed to exec %s", command[0]);
+	}
 	return pid;
 }
 
@@ -114,7 +131,7 @@ pid_t piped_child(char **command, int *f_in, int *f_out)
  * sockets.  In the parent, the function arguments f_in and f_out are
  * set to refer to these sockets. */
 pid_t local_child(int argc, char **argv, int *f_in, int *f_out,
-		  int (*child_main)(int, char*[]))
+		int (*child_main)(int, char*[]))
 {
 	pid_t pid;
 	int to_child_pipe[2];
@@ -124,7 +141,7 @@ pid_t local_child(int argc, char **argv, int *f_in, int *f_out,
 	assert(am_sender);
 
 	if (fd_pair(to_child_pipe) < 0 ||
-	    fd_pair(from_child_pipe) < 0) {
+			fd_pair(from_child_pipe) < 0) {
 		rsyserr(FERROR, errno, "pipe");
 		exit_cleanup(RERR_IPC);
 	}
@@ -158,9 +175,9 @@ pid_t local_child(int argc, char **argv, int *f_in, int *f_out,
 		}
 
 		if (dup2(to_child_pipe[0], STDIN_FILENO) < 0 ||
-		    close(to_child_pipe[1]) < 0 ||
-		    close(from_child_pipe[0]) < 0 ||
-		    dup2(from_child_pipe[1], STDOUT_FILENO) < 0) {
+				close(to_child_pipe[1]) < 0 ||
+				close(from_child_pipe[0]) < 0 ||
+				dup2(from_child_pipe[1], STDOUT_FILENO) < 0) {
 			rsyserr(FERROR, errno, "Failed to dup/close");
 			exit_cleanup(RERR_IPC);
 		}
@@ -175,7 +192,7 @@ pid_t local_child(int argc, char **argv, int *f_in, int *f_out,
 	}
 
 	if (close(from_child_pipe[1]) < 0 ||
-	    close(to_child_pipe[0]) < 0) {
+			close(to_child_pipe[0]) < 0) {
 		rsyserr(FERROR, errno, "Failed to close");
 		exit_cleanup(RERR_IPC);
 	}

@@ -1,0 +1,6 @@
+
+in fucntion do server recv
+ before io_start_multiplex do_server recv
+ after io_start_multiplex do_server recv
+ BEFORE DO_RECV exit_code exitcleanup
+ AFTER DO_RECV exit_code exitcleanup before final exit_cleanup

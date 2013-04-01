@@ -1,0 +1,4 @@
+
+inside start server 
+before io ser sock fds f_in= 0 fout=1
+after io ser sock fds f_in= 0 fout=1

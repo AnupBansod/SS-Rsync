@@ -1,0 +1,67 @@
+****
+
+ Before piped child****
+
+ after piped child
+Value of f_in: 32544 f_out: 3
+ PID of the SSH process 4842 
+ PID of the HTTP process 0before sleep
+** value of the f_in: 5
+
+
+
+ Before write int
+
+
+before Value of fd for safe write function: 4 and buf: 
+////////////////////This is the error No such file or directory 4 
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_
+size of the data buf  in safe_read is 4
+
+
+before Value of fd for safe write function: 4 and buf: 
+////////////////////This is the error Resource temporarily unavailable 1 
+
+
+before Value of fd for safe write function: 4 and buf: lRQ
+////////////////////This is the error Resource temporarily unavailable 4 after CURLOPT_URLafter POST  post success 9 bytes retrieved
+ chunk :
+
+
+ I am in the loop
+this is written from do_over_http 9 and error Operation now in progressafter CURLOPT_URLafter POST  0 bytes retrieved
+ chunk :
+
+
+ I am in the loop
+this is written from do_over_http 0 and error Operation now in progress
+
+ select errorafter CURLOPT_URLafter POST  0 bytes retrieved
+ chunk :t1
+
+
+ I am in the loop
+this is written from do_over_http 0 and error Operation now in progress
+
+Valus of f_in and f_out: 6 5
+** value of the f_in: 6
+
+
+
+ Before write int
+
+
+before Value of fd for safe write function: 5 and buf: 
+////////////////////This is the error No such file or directory 4 
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_
+size of the data buf  in safe_read is 4
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_
+size of the data buf  in safe_read is 1
+
+-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_--_-_
+size of the data buf  in safe_read is 4
+****************this change made to find fdargv : /home/ajay/fork.c /home/ajay/Desktop/
+***********************io.buf.out_gd= 5 f_out= 5

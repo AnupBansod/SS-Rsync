@@ -33,7 +33,7 @@ extern filter_rule_list filter_list;
 extern filter_rule_list daemon_filter_list;
 
 int make_backups = 0;
-
+int enable_http = 0; 
 /**
  * If 1, send the whole file as literal data rather than trying to
  * create an incremental diff.
@@ -1513,10 +1513,8 @@ int parse_arguments(int *argc_p, const char ***argv_p)
 			verbose++;
 			break;
 		case 'N':
-			printf("\n\n I AM IN N OPTION\n\n");
-			printf("\n\n value of the port to be open is %d \n\n on server side it will be deafult 1234\n",https_port);
-			https_port= 1234 ;
-			//printf("\n\n port value is 1234\n\n");
+			enable_http = 1;
+					//printf("\n\n port value is 1234\n\n");
 			break;	
 			//char *const parmList[] = {"gedit", "testonser1.txt", NULL};		
 	//		FILE * fp ;
@@ -2402,11 +2400,8 @@ void server_options(char **args, int *argc_p)
 	for (i = 0; i < verbose; i++)
 		argstr[x++] = 'v';
 	
-	if (https_port)                   /// ****Aks : THIS will construct ssh command with option such as -vlogDtprze31.14iLs . /destinationonserver//
-	{
-	 argstr[x++] = 'N';
-	}
-	
+	if(enable_http == 1 )
+		argstr[x++] = 'N';
 	/* the -q option is intentionally left out */
 	if (make_backups)
 		argstr[x++] = 'b';

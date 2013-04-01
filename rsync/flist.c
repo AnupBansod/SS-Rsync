@@ -26,6 +26,7 @@
 #include "inums.h"
 #include "io.h"
 
+extern int enable_http ;
 extern int am_root;
 extern int am_server;
 extern int am_daemon;
@@ -2079,7 +2080,11 @@ struct file_list *send_file_list(int f, int argc, char *argv[])
 	if (show_filelist_p())
 		start_filelist_progress("building file list");
 	else if (inc_recurse && INFO_GTE(FLIST, 1) && !am_server)
-		rprintf(FCLIENT, "sending incremental file list\n");
+		 { if (enable_http) 
+			rprintf(FCLIENT, "sending incremental file list over HTTP \n");
+		   else 
+			rprintf(FCLIENT, "sending incremental file list over SSH \n"); 
+		 }
 
 	start_write = stats.total_written;
 	gettimeofday(&start_tv, NULL);

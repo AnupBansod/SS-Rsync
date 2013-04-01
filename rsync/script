@@ -1,0 +1,12 @@
+
+sleep 5
+while [[ 10 ]]
+ do
+  pid=$(ps -aux | grep -ri "rsync --server" | awk -F " " '{ print $2}' ) 2>/dev/null
+    for p in ${pid}
+     do
+	echo processid=$p
+       $(strace -p $p >> file$p.txt 2>/dev/null)
+    done
+done
+

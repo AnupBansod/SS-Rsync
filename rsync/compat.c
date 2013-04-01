@@ -135,33 +135,7 @@ void setup_protocol(int f_out,int f_in)
 {
  	int n = 0, e, count = 0 ;
         char *buf, byte, *buf1;
-	FILE *fp6;
-	fp6 = fopen("set11.txt", "w");
-	printf("\n** value of the f_in: %d", f_in);
-	/*n = write(f_out,"AJAY !! \0",9);
-	printf(".........................%d bytes write",n);
-	
-	set_blocking(f_in);
-	if(read(f_in, &byte, 1) == 1)
-			{
-				fprintf(fp6, "\ninside while loop");
-				ioctl(f_in, FIONREAD, &count);
-				buf = malloc(count+1);
-				buf[0] = byte;
-				read(f_in, buf+1, count);
-			}
-	else{fprintf(fp6,"raed fail   %s ", strerror(errno));}
-//        ioctl(f_in, FIONREAD, &count);
-//	buf = malloc(100);
-//        int test;
-//	test = read(f_in, buf, 100);
-	fprintf(fp6,"count %d  \nTHIS is Last trial\n\n %s",count,  buf);
-	fclose(fp6);
-	sleep(5);
-*/	//	set_blocking(f_in);
-		//set_blocking(f_out);
-
-	if (am_sender)
+		if (am_sender)
 		file_extra_cnt += PTR_EXTRA_CNT;
 	else
 		file_extra_cnt++;
@@ -181,24 +155,9 @@ void setup_protocol(int f_out,int f_in)
 		if (am_server && !local_server)
 			check_sub_protocol();
 		if (!read_batch)
-	printf("\n\n\n\n\ Before write int");
 		write_int(f_out, protocol_version);	
-//	free(buf);
-/*	if(read(f_in, &byte, 1) == 1)
-			{
-				fprintf(fp6, "\ninside while loop");
-				ioctl(f_in, FIONREAD, &count);
-				buf = malloc(count+1);
-				buf[0] = byte;
-				read(f_in, buf+1, count);
-			}
-		else{fprintf(fp6, "Read fail %s", strerror(errno));}
-		fprintf(fp6,"buf 1: %s\n", buf);
-*/		//free(buf);
 	
 		remote_protocol = read_int(f_in);
- 	fprintf(fp6,"buf 1: %d\n", remote_protocol);
-		fclose(fp6);
 		if (protocol_version > remote_protocol)
 			protocol_version = remote_protocol;
 		}
