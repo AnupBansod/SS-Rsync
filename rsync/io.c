@@ -364,6 +364,7 @@ static void safe_write(int fd, const char *buf, size_t len)
 		}
 
 		if (FD_ISSET(fd, &w_fds)) {
+			msleep(2);	
 			n = write(fd, buf, len);
 			if (n < 0) {
 				if (errno == EINTR)

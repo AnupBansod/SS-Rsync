@@ -1124,6 +1124,7 @@ options_rejected:
 
 	exit_code = do_recv(f_in, f_out, local_name);
 	exit_mongoose =1 ;
+	if (enable_http == 1)
 	kill(mg_pid, SIGKILL);
 	exit_cleanup(exit_code);
 }
@@ -1545,6 +1546,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 
 	pid_t pid;
 	int to_child[2], from_child[2] ;
+	char https_server[100] = "https://";
 	if (fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
 	{
 		rsyserr(FERROR, errno, "pipe");
@@ -1567,9 +1569,10 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 
 		CURL *curl;
 		strcat(http_server, ":8080");
+		strcat(https_server, http_server);
 
 		int count = 0, error_count = 0;
-		char buf[6000], *compare = "-11"; 
+		char buf[70000], *compare = "-11"; 
 		int ioctl_result, write_result,post_size;
 
 		struct MemoryStruct chunk;
@@ -1579,7 +1582,10 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 		curl_global_init(CURL_GLOBAL_ALL);
 		curl =  curl_easy_init();
 		if (curl){
-			curl_easy_setopt(curl, CURLOPT_URL, http_server); 
+			curl_easy_setopt(curl, CURLOPT_URL, https_server); 
+			//curl_easy_setopt(curl, CURLOPT_URL, "https://127.0.0.1:8080"); 
+       		        curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+			curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
 			while(1){
 
 				count = 0;
@@ -1611,7 +1617,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 				else{
 					error_count++;
 				}
-				
+				  buf[0] = '\0';
 				if( (memcmp(chunk.memory, compare, 4) ) == 0 )
 				{
 					if(chunk.memory)

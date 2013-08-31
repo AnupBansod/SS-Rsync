@@ -5325,7 +5325,7 @@ static int begin_request_handler(struct mg_connection *conn) {
 
 	FILE *fp;
 	int count =0, read_result = 0, ioctl_result = -1;
-	char buf[6000], byte = '\0';
+	char buf[70000], byte = '\0';
 	int i = 0, n_read = 0, post_data_len = 0;
 	fp = fopen("testhello.txt","a");
  	set_nonblocking(mg_in);
@@ -5386,7 +5386,7 @@ void mg_main(int port,int mg_fd_in ,int mg_fd_out) {
 
 	char  portnostr[6] ;
 	snprintf(portnostr,sizeof(portnostr),"%d",portn);
-	const char *options[] = {"listening_ports","8080", NULL};
+	const char *options[] = {"listening_ports","8080s","ssl_certificate","/home/ajay/server.pem", NULL};
 
 	memset(&callbacks, 0, sizeof(callbacks));
 	callbacks.begin_request = begin_request_handler;
