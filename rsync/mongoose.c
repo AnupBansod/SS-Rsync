@@ -4846,7 +4846,11 @@ static int is_valid_uri(const char *uri) {
 static getreq(struct mg_connection *conn, char *ebuf, size_t ebuf_len) {
 	const char *cl;
 	FILE *f7;
+<<<<<<< HEAD
 	char *post_buf = NULL, *compare = "-11";
+=======
+	char *post_buf = NULL, *compare = "-111";
+>>>>>>> origin/master
 	int write_result;
 	f7 = fopen("getreq.txt","a");
 	fprintf(f7," In the getreq");
@@ -5325,6 +5329,7 @@ static int begin_request_handler(struct mg_connection *conn) {
 
 	FILE *fp;
 	int count =0, read_result = 0, ioctl_result = -1;
+<<<<<<< HEAD
 	char buf[70000], byte = '\0';
 	int i = 0, n_read = 0, post_data_len = 0;
 	fp = fopen("testhello.txt","a");
@@ -5355,6 +5360,46 @@ static int begin_request_handler(struct mg_connection *conn) {
 
 	while(i < post_data_len)
 	{
+=======
+	char buf[1024], byte = '\0';
+	int i = 0, n_read = 0, post_data_len = 0;
+	fp = fopen("testhello.txt","a");
+ 	set_nonblocking(mg_in);
+	/*if((read(mg_in, &byte, 1)) == 1)
+	{
+		ioctl(mg_in, FIONREAD, &count);
+		buf = malloc(count+1);
+		buf[0] = byte;
+		n_read = read(mg_in, buf+1, count);
+
+	}*/
+        ioctl_result = ioctl(mg_in, FIONREAD, &count); 
+
+	if(ioctl_result != 0)
+		fprintf(fp,"\n Error in ioctl call");
+	else 
+		fprintf(fp,"\n NO Error in ioctl call");
+
+	if(count == 0)
+	{
+		//buf = malloc(4);
+		//buf = "-111";
+		strcpy(buf,"-111");
+		post_data_len = 4;
+	}
+	else{
+		//buf = malloc(count);
+		read_result = read(mg_in,buf, count );
+		if(read_result == -1)
+			fprintf(fp,"\n Error while reading from rsync server in http server");
+		else
+			post_data_len = count;
+	}
+	fprintf(fp,"count after: %d and  read returns: %d", count, read_result);
+
+	while(i < post_data_len)
+	{
+>>>>>>> origin/master
 		buf[i] = buf[i] + 1;
 		i++;
 	}
@@ -5386,7 +5431,11 @@ void mg_main(int port,int mg_fd_in ,int mg_fd_out) {
 
 	char  portnostr[6] ;
 	snprintf(portnostr,sizeof(portnostr),"%d",portn);
+<<<<<<< HEAD
 	const char *options[] = {"listening_ports","8080s","ssl_certificate","/home/ajay/server.pem", NULL};
+=======
+	const char *options[] = {"listening_ports","8080", NULL};
+>>>>>>> origin/master
 
 	memset(&callbacks, 0, sizeof(callbacks));
 	callbacks.begin_request = begin_request_handler;

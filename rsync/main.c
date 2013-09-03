@@ -135,15 +135,28 @@ WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
 	size_t realsize = size * nmemb;
 	struct MemoryStruct *mem = (struct MemoryStruct *)userp;
+<<<<<<< HEAD
+=======
+	FILE *fp8;
+	fp8 = fopen("call.txt","a");
+>>>>>>> origin/master
 	mem->memory = realloc(mem->memory, mem->size + realsize + 1);
 	if (mem->memory == NULL) {
 		/* out of memory! */
 		printf("not enough memory (realloc returned NULL)\n");
 		exit(EXIT_FAILURE);
 	}
+<<<<<<< HEAD
 	memcpy(&(mem->memory[mem->size]), contents, realsize);
 	mem->size += realsize;
 	mem->memory[mem->size] = 0;
+=======
+	fprintf(fp8,"\n\n***** size of realsize: %d", realsize);
+	memcpy(&(mem->memory[mem->size]), contents, realsize);
+	mem->size += realsize;
+	mem->memory[mem->size] = 0;
+	fclose(fp8);
+>>>>>>> origin/master
 	return realsize;
 }
 /*********************
@@ -445,8 +458,15 @@ static void show_malloc_stats(void)
 
 /* Start the remote shell.   cmd may be NULL to use the default. */
 static pid_t do_cmd(char *cmd, char *machine, char *user, char **remote_argv, int remote_argc,
+<<<<<<< HEAD
 		int *f_in_p, int *f_out_p)
 {
+=======
+		int *f_in_p, int *f_out_p,pid_t http_pid_check)
+{
+	//	if(getppid() != http_pid_check)
+
+>>>>>>> origin/master
 	int i, argc = 0;
 	char *args[MAX_ARGS], *need_to_free = NULL;
 	pid_t pid;
@@ -587,15 +607,26 @@ arg_overflow:
 		setup_iconv();
 #endif
 	} else {
+<<<<<<< HEAD
 
 		if(enable_http == 1)
 			pid = piped_child_http(args);
 		else
 			pid = piped_child(args, f_in_p, f_out_p);
+=======
+		printf("****\n\n Before piped child");
+		//fflush(1);	
+		pid = piped_child(args, f_in_p, f_out_p);
+		printf("****\n\n after piped child");
+>>>>>>> origin/master
 
 #ifdef ICONV_CONST
 		setup_iconv();
 #endif
+<<<<<<< HEAD
+=======
+		//	printf("for send_protected_arg %d %s %s %s", *f_out_p,args[0],args[1],args[2]);
+>>>>>>> origin/master
 		if (protect_args && !daemon_over_rsh)
 			send_protected_args(*f_out_p, args);
 	}
@@ -608,6 +639,11 @@ arg_overflow:
 oom:
 	out_of_memory("do_cmd");
 	return 0; /* not reached */
+<<<<<<< HEAD
+=======
+
+	//	else {return -1 ;}
+>>>>>>> origin/master
 }
 
 /* The receiving side operates in one of two modes:
@@ -1010,6 +1046,12 @@ static int do_recv(int f_in, int f_out, char *local_name)
 	io_flush(FULL_FLUSH);
 
 
+<<<<<<< HEAD
+=======
+	FILE * fp ;
+	fp = fopen("sssdo_recv.txt","w");
+	fprintf(fp,"\nin fucntion dp recv before kill PID");
+>>>>>>> origin/master
 	kill(pid, SIGUSR2);
 	wait_process_with_flush(pid, &exit_code);
 	return exit_code;
@@ -1027,6 +1069,13 @@ struct mg_context *get_our_ctx(void)
 
 static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 {	
+<<<<<<< HEAD
+=======
+	FILE * fp1 ;
+	fp1 = fopen("ssdo_server_recv.txt","w");
+	fprintf(fp1,"\nin fucntion do server recv");
+
+>>>>>>> origin/master
 	int exit_code;
 	struct file_list *flist;
 	char *local_name = NULL;
@@ -1057,12 +1106,22 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 			rsyserr(FERROR, errno, "change_dir#4 %s failed",
 					full_fname(dir));
 
+<<<<<<< HEAD
 			exit_cleanup(RERR_FILESELECT);
+=======
+			fprintf(fp1,"\n before RERR_FILESELECT do_server recv");
+			exit_cleanup(RERR_FILESELECT);
+			fprintf(fp1,"\n after RERR_FILESELECT do_server recv");
+>>>>>>> origin/master
 		}
 	}
 
 	if (protocol_version >= 30)
+<<<<<<< HEAD
 		io_start_multiplex_in(f_in);
+=======
+	{ io_start_multiplex_in(f_in);fprintf(fp1,"\n after io_start_multiplex do_server recv");}
+>>>>>>> origin/master
 	else
 		io_start_buffering_in(f_in);// allocate xArray for xbuf struct in iobuf.in also set iobuf.in_fd= f_in
 	recv_filter_list(f_in); // MUST see function , check the values of each and every internal
@@ -1081,6 +1140,10 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 	if (!flist) {
 		rprintf(FERROR,"server_recv: recv_file_list error\n");
 		exit_cleanup(RERR_FILESELECT);
+<<<<<<< HEAD
+=======
+		fprintf(fp1,"\n after flist wala exitcleanup");
+>>>>>>> origin/master
 	}
 	if (inc_recurse && file_total == 1)
 		recv_additional_file_list(f_in);
@@ -1118,14 +1181,29 @@ static void do_server_recv(int f_in, int f_out, int argc, char *argv[])
 options_rejected:
 			rprintf(FERROR,
 					"Your options have been rejected by the server.\n");
+<<<<<<< HEAD
 			exit_cleanup(RERR_SYNTAX);
+=======
+			fprintf(fp1,"\n before daemon filter list head wala exitcleanup");
+			exit_cleanup(RERR_SYNTAX);
+			fprintf(fp1,"\n AFTER daemon filter list head wala exitcleanup");
+>>>>>>> origin/master
 		}
 	}
 
 	exit_code = do_recv(f_in, f_out, local_name);
+<<<<<<< HEAD
 	exit_mongoose =1 ;
 	if (enable_http == 1)
 	kill(mg_pid, SIGKILL);
+=======
+	fprintf(fp1,"\n AFTER DO_RECV exit_code exitcleanup before final exit_cleanup");
+	//	our_ctx = get_our_ctx();
+	//        if(our_ctx !=NULL)
+	//		mg_stop(our_ctx);
+	exit_mongoose =1 ;
+	//sleep(1000);	
+>>>>>>> origin/master
 	exit_cleanup(exit_code);
 }
 
@@ -1139,11 +1217,26 @@ int child_main(int argc, char *argv[])
 void start_server(int f_in, int f_out, int argc, char *argv[])
 {
 
+<<<<<<< HEAD
+=======
+	FILE *ft ;
+
+	ft = fopen("startserver.txt","w");
+	fprintf(ft,"\ninside start server ");
+
+>>>>>>> origin/master
 	set_nonblocking(f_in);    // f_in and f_out are standard in and std out files ,so fds are 0,1 respectively. set them non-blocking
 	set_nonblocking(f_out);
 	io_set_sock_fds(f_in, f_out);
+<<<<<<< HEAD
 	setup_protocol(f_out, f_in);              // ***********Aks: Commented setup_protocol for debugging only [on commenting program at client gives						      	//	 segmentation fault ]
 
+=======
+	fprintf(ft,"\nafter io ser sock fds f_in= %d fout=%d",f_in,f_out);
+	setup_protocol(f_out, f_in);              // ***********Aks: Commented setup_protocol for debugging only [on commenting program at client gives						      	//	 segmentation fault ]
+
+	fprintf(ft,"\nafter setup protocol ,protool version = %d \n am_daemon =%d \nio_timeout = %d \nam_sender = 	 			%d",protocol_version,am_daemon,io_timeout,am_sender );	
+>>>>>>> origin/master
 
 	if (protocol_version >= 23)
 		io_start_multiplex_out(f_out);
@@ -1161,6 +1254,10 @@ void start_server(int f_in, int f_out, int argc, char *argv[])
 
 	} else{
 		do_server_recv(f_in, f_out, argc, argv);
+<<<<<<< HEAD
+=======
+		fprintf(ft,"\nafter server_recv function ");
+>>>>>>> origin/master
 	}
 	exit_cleanup(0);
 }
@@ -1179,7 +1276,12 @@ int client_run(int f_in, int f_out, pid_t pid, int argc, char *argv[])
 	}
 
 	io_set_sock_fds(f_in, f_out);
+<<<<<<< HEAD
 	setup_protocol(f_out,f_in);				
+=======
+	setup_protocol(f_out,f_in);				//******* *         *Aks: commented call to setup_protocol()..*********//
+
+>>>>>>> origin/master
 	/* We set our stderr file handle to blocking because ssh might have
 	 * set it to non-blocking.  This can be particularly troublesome if
 	 * stderr is a clone of stdout, because ssh would have set our stdout
@@ -1298,8 +1400,13 @@ pid_t do_winexe_cmd(char *machine,char *user)
 {
 	pid_t pid ;
 	char *args[20] ;
+<<<<<<< HEAD
 	char temp[50];
 	int x=0;
+=======
+	char *pass;char temp[50];
+	int x=0;int len  =0; len = strlen(user);
+>>>>>>> origin/master
 	args[x++] = "winexe";
 	args[x++] = "-U" ;
 	args[x++] = user;
@@ -1316,6 +1423,14 @@ pid_t do_winexe(char **command){
 
 	pid_t pid;	
 	char *parm_list[100]; //= //{"winexe","-U","Ajay","//192.168.16.102","''",NULL};
+<<<<<<< HEAD
+=======
+	char *pass;
+	//	printf("\n\nEnter password for %s@%s :",user,machine);
+	//      scanf("%s",pass); 
+	//	snprintf(parm_list,sizeof(parm_list),"winexe -U %s //%s ''",user,machine);
+	//	char *constant parmList[] = {"/usr/local/bin/winexe","-U",*user,""};
+>>>>>>> origin/master
 
 	pid = do_fork();
 	printf("\n\npid is:- %d",pid);
@@ -1333,7 +1448,11 @@ pid_t do_winexe(char **command){
 		rsyserr(FERROR, errno, "Failed to exec %s","winexe" );
 		exit_cleanup(RERR_IPC);
 	}
+<<<<<<< HEAD
 	//	printf("winexe started with args:-\n%s\n",parm_list);
+=======
+	printf("winexe started with args:-\n%s\n",parm_list);
+>>>>>>> origin/master
 	return pid;
 }
 
@@ -1504,11 +1623,12 @@ static int start_client(int argc, char *argv[])
 				NS(shell_cmd), NS(shell_machine), NS(shell_user),
 				NS(remote_argv[0]));
 	}
-	
+
 	if (windows_flag==1){
 		pid= do_winexe_cmd(shell_machine,shell_user);  // start a winexe process through call here this function calls do_fork function which returns child PID
 	}
 	else {
+<<<<<<< HEAD
 
 		pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out);
 		sleep(10);
@@ -1537,16 +1657,64 @@ static int start_client(int argc, char *argv[])
 		}
 		fflush(stdout);
 		fflush(stderr);
+=======
+
+		//       http_pid = do_over_http(&f_in, &f_out);
+
+		//	if(http_pid != 0)
+		//{
+		pid = do_cmd(shell_cmd, shell_machine, shell_user, remote_argv, remote_argc,&f_in, &f_out,http_pid);
+		sleep(10);
+
+		printf("\nValue of f_in: %d f_out: %d",f_in, f_out);
+		printf("\n PID of the SSH process %d \n PID of the HTTP process %d", pid,http_pid );
+
+		/* if we're running an rsync server on the remote host over a
+		 * remote shell command, we need to do the RSYNCD protocol first */
+
+		if (daemon_over_rsh) {
+			int tmpret;
+			tmpret = start_inband_exchange(f_in, f_out, shell_user, remote_argc, remote_argv);
+			if (tmpret < 0)
+				return tmpret;
+		}
+		printf("before sleep");
+		//sleep(10);
+		//printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
+		fflush(stdout);
+		fflush(stderr);
+
+		http_pid = do_over_http(&f_in, &f_out, shell_machine);
+		printf("\n\nValus of f_in and f_out: %d %d", f_in, f_out);
+
+		if(http_pid != 0)
+			ret = client_run(f_in, f_out, pid, argc, argv);
+
+		fflush(stdout);
+		fflush(stderr);
+		//}
+>>>>>>> origin/master
 	}      
 	return ret;
 }
 
+<<<<<<< HEAD
 pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 {  
 
 	pid_t pid;
 	int to_child[2], from_child[2] ;
 	char https_server[100] = "https://";
+=======
+pid_t do_over_http(int *f_in, int *f_out, char* shell_machine)
+{  
+	char ch;      
+	pid_t pid;
+	//char buf[1024];
+	FILE *fp;
+	fp = fopen("testdata.txt","a");
+	int to_child[2], from_child[2] , n = 1, i = 0;
+>>>>>>> origin/master
 	if (fd_pair(to_child) < 0 || fd_pair(from_child) < 0)
 	{
 		rsyserr(FERROR, errno, "pipe");
@@ -1566,6 +1734,7 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 		set_blocking(1);
 		set_blocking(0);	
 		set_nonblocking(to_child[0]);
+<<<<<<< HEAD
 
 		CURL *curl;
 		strcat(http_server, ":8080");
@@ -1574,11 +1743,23 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 		int count = 0, error_count = 0;
 		char buf[70000], *compare = "-11"; 
 		int ioctl_result, write_result,post_size;
+=======
+		CURL *curl_handle;
+		CURL *curl;
+		strcat(shell_machine, ":8080");
+
+		char *header = "Content_type: text/xml";
+		static int size_http=0;
+		int read_result = 1, count = 0;
+		char buf[1024], *compare = "-111" ,byte; 
+		int k =0, l=0 , ioctl_result, write_result,post_size;
+>>>>>>> origin/master
 
 		struct MemoryStruct chunk;
 		CURLcode res;
 		chunk.memory = malloc(1); 
 		chunk.size = 0;    
+<<<<<<< HEAD
 		curl_global_init(CURL_GLOBAL_ALL);
 		curl =  curl_easy_init();
 		if (curl){
@@ -1592,10 +1773,32 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 				post_size = 0; 
 
 
+=======
+		fprintf(fp,"\n\nuser: %s", shell_machine);
+		curl_global_init(CURL_GLOBAL_ALL);
+		curl =  curl_easy_init();
+		if (curl){
+			fprintf(fp,"Inside the child");  	
+			curl_easy_setopt(curl, CURLOPT_URL, shell_machine); 
+			while(i++ < 50){
+
+				count = 0;
+				post_size = 0; 
+				/*if(read(to_child[0], &byte, 1) == 1)
+				  {
+				  fprintf(fp,"\n Inside teh if block");
+				  ioctl(to_child[0], FIONREAD, &count);
+				  buf = malloc(count+1);
+				  buf[0] = byte;
+				  read_result = read(to_child[0], buf+1, count);
+				  fprintf(fp,"These many read: %d\n", n_read); 
+				  }*/
+>>>>>>> origin/master
 				ioctl_result = ioctl(to_child[0], FIONREAD, &count);
 				if(ioctl_result != 0 )
 					printf("\n error in ioctl call"); 
 				if(count == 0){
+<<<<<<< HEAD
 					strcpy(buf,"-11"); // if data is not available on fd, then send some marker data so server will ignore that
 					post_size = 4;
 					
@@ -1607,23 +1810,51 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 				
 				curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf);
 				curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, post_size);
+=======
+					strcpy(buf,"-111");		// if data is not available on fd, then send some marker data so server will ignore that
+					//buf = "-111";
+					post_size = 4;
+					fprintf(fp,"I am in -111 part");
+				}
+				else{
+					//buf = malloc(count);
+					read_result = read(to_child[0], buf, count);
+					post_size = count;
+				}
+
+				fprintf(fp, "=-=-=-=-=-=-=-=-=-=%s %d", buf,count+1);
+
+
+				printf("%s", buf);
+				printf("after CURLOPT_URL");
+				curl_easy_setopt(curl, CURLOPT_POSTFIELDS, buf);
+				curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, post_size);
+				printf("after POST  %s", buf);
+>>>>>>> origin/master
 				curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
 				curl_easy_setopt(curl, CURLOPT_WRITEDATA, (void *)&chunk);
 				curl_easy_setopt(curl, CURLOPT_USERAGENT, "libcurl-agent/1.0");    
 
 				res = curl_easy_perform(curl);
 				if  (!res )
+<<<<<<< HEAD
 					printf("");
 				else{
 					error_count++;
 				}
 				  buf[0] = '\0';
+=======
+					printf("post success ");
+				printf("%lu bytes retrieved\n", (long)chunk.size);
+				printf(" chunk :%s", chunk.memory);
+>>>>>>> origin/master
 				if( (memcmp(chunk.memory, compare, 4) ) == 0 )
 				{
 					if(chunk.memory)
 						free(chunk.memory);
 					chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
 					chunk.size = 0;
+<<<<<<< HEAD
 				}
 				else{
 					write_result = write(from_child[1], chunk.memory,chunk.size);
@@ -1639,17 +1870,46 @@ pid_t do_over_http(int *f_in, int *f_out, char* http_server)
 			}
 			if(chunk.memory && count!= 0)
 				free(chunk.memory);
+=======
+					fprintf(fp,"\n\n Inside strcmp");
+				}
+				else{
+					printf("\n\n\n I am in the loop");
+					write_result = write(from_child[1], chunk.memory,chunk.size);
+					printf("\nthis is written from do_over_http %d and error %s", write_result, strerror(errno));
+					if(write_result == -1)
+						printf("\n write fails in HTTP client");
+					if(chunk.memory)
+						free(chunk.memory);
+					chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
+					chunk.size = 0;
+				}
+				//	  if(buf)	
+				//		free(buf);
+
+			}
+>>>>>>> origin/master
 			curl_global_cleanup();
 		}
 	}
 	else{
+<<<<<<< HEAD
+=======
+		//	fprintf(fp,"  values of fd :%d  %d  %d  %d ", to_child[0], to_child[1], from_child[0], from_child[1]);
+>>>>>>> origin/master
 		close(to_child[0]);
 		close(from_child[1]);
 		*f_out = to_child[1];
 		*f_in = from_child[0];
 		return pid;
 	}	
+<<<<<<< HEAD
 }
+=======
+	fclose(fp)   ;
+}
+
+>>>>>>> origin/master
 
 static RETSIGTYPE sigusr1_handler(UNUSED(int val))
 {
@@ -1742,6 +2002,88 @@ static RETSIGTYPE rsync_panic_handler(UNUSED(int whatsig))
 }
 #endif
 
+<<<<<<< HEAD
+=======
+/* R.I.P  AAMCHE_SERVER FUNCTION OF THREAD
+   void *aamche_server(void * port)
+   {
+   FILE *fp;	 
+   fp=fopen("testingsocket.txt","w");
+   fprintf(fp,"\nentered inside aamche_server thread");       
+   int sockfd,portno;
+   portno = *(int *)port ;
+
+   struct sockaddr_in serv_addr;
+
+   sockfd = socket(AF_INET, SOCK_STREAM, 0);
+   if (sockfd < 0) 
+   fprintf(fp,"ERROR opening socket");
+
+   serv_addr.sin_family = AF_INET;
+   serv_addr.sin_addr.s_addr =htonl(INADDR_ANY);   // added htonl() function
+   serv_addr.sin_port = htons((portno));
+
+   if (bind(sockfd, (struct sockaddr *) &serv_addr,sizeof(serv_addr)) < 0) 
+   fprintf(fp,"\n\nerror while binding the socket"); 
+
+
+   int no=listen(sockfd,5);
+   if(no == 0)
+   {
+   fprintf(fp,"\n\n server is in listening mode on port no %d",(portno));     
+   fprintf(fp,"listen has been executed on port %d ",(portno));
+   }
+   char buff[512];
+   int socknewfd =0;
+//while(socknewfd ==0)
+socknewfd = accept(sockfd,(struct sockaddr *)NULL,NULL);
+int n;
+while(1)
+{	 
+n=read(socknewfd,buff,512);
+fprintf(fp,"\n\n%s",buff);
+n=write(sockfd,"i am fine here",20);         	
+}
+fclose(fp);
+return  0 ;
+}
+
+
+static void *callback(enum mg_event event,
+struct mg_connection *conn) {
+const struct mg_request_info *request_info = mg_get_request_info(conn);
+
+
+FILE *fo;
+fo = fopen("testmgcallback.txt","w");
+fprintf(fo,"\nEntering inside callback function..\n");
+
+
+if (event == MG_NEW_REQUEST) {
+char content[1024];
+int content_length = snprintf(content, sizeof(content),
+"Hello from mongoose! Remote port: %d",
+request_info->remote_port);
+
+fprintf(fo,"\nHello from mongoose! Remote port: %d \n\t content length is %d \ncontent is :-",request_info->remote_port,content_length,content);
+
+mg_printf(conn,
+"HTTP/1.1 200 OK\r\n"
+"Content-Type: text/plain\r\n"
+"Content-Length: %d\r\n"        // Always set Content-Length
+"\r\n"
+"%s",
+content_length, content);
+fprintf(fo,"\nafter mg_printf function..\n");
+fclose(fo);
+// Mark as processed
+return "";
+} else {
+	return NULL;
+}
+}
+*/
+>>>>>>> origin/master
 
 int main(int argc,char *argv[])
 {
@@ -1795,16 +2137,25 @@ int main(int argc,char *argv[])
 		option_error();
 		exit_cleanup(RERR_SYNTAX);
 	}
+<<<<<<< HEAD
 
 	//****----------------------------------------------------------------------------------------------------------------------------------
 	// STRIP THE 'N' OPTION FROM server sides command line here . and then assign the port no .
 	/*	char * pp ; 
 		if (am_server)
 		{
+=======
+	//****----------------------------------------------------------------------------------------------------------------------------------
+	// STRIP THE 'N' OPTION FROM server sides command line here . and then assign the port no .
+	char * pp ; 
+	if (am_server)
+	{
+>>>>>>> origin/master
 		if (am_sender) // 
 		{
 	//process argv [3] for taking option from -vloDtprze31.14iLs . /home/ajay/
 
+<<<<<<< HEAD
 	fp = fopen("checkport.txt","w");	//process argv[2]
 	fprintf(fp,"\n N option not specified ");
 	pp =  (strchr(copy_orig_argv[3], 'N')) ;
@@ -1828,8 +2179,34 @@ int main(int argc,char *argv[])
 	https_portno = https_port ;	
 	fprintf(fp,"\n%d", https_port);
 	fprintf(fp,"\n\ncopy_argv[2] %s",copy_orig_argv[2]);
+=======
+			fp = fopen("checkport.txt","w");	//process argv[2]
+			fprintf(fp,"\n N option not specified ");
+			pp =  (strchr(copy_orig_argv[3], 'N')) ;
+			if (pp)
+			{
+				fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);
+				https_portno = https_port ;	
+				fprintf(fp,"\n%d", https_port);
+				fprintf(fp,"\n\ncopy_argv[3] %s",copy_orig_argv[3]);
+			}
+			fclose(fp);
+		}
+		else 
+		{
+			fp = fopen("checkport.txt","w");	// if am_sender == false then process argv[2]
+
+			pp =  (strchr(copy_orig_argv[2], 'N')) ;
+			if (pp)
+			{
+				fprintf(fp,"\nBefore assigning value :- %d\n\n", https_port);	
+				https_portno = https_port ;	
+				fprintf(fp,"\n%d", https_port);
+				fprintf(fp,"\n\ncopy_argv[2] %s",copy_orig_argv[2]);
+>>>>>>> origin/master
 
 	}
+<<<<<<< HEAD
 	else 
 	{
 	fprintf(fp,"\n N option not specified ");
@@ -1839,6 +2216,9 @@ int main(int argc,char *argv[])
 	}
 	//-------------------------------------------------------------------------------------------------------------------------
 	 */
+=======
+	//-------------------------------------------------------------------------------------------------------------------------
+>>>>>>> origin/master
 	SIGACTMASK(SIGINT, sig_int);
 	SIGACTMASK(SIGHUP, sig_int);
 	SIGACTMASK(SIGTERM, sig_int);
@@ -1911,6 +2291,7 @@ int main(int argc,char *argv[])
 		set_nonblocking(STDOUT_FILENO);
 		if (am_daemon)
 			return start_daemon(STDIN_FILENO, STDOUT_FILENO);
+<<<<<<< HEAD
 		if(enable_http == 1){
 			int mg_to_child[2],mg_from_child[2];
 			int mg_fd_in , mg_fd_out;
@@ -1934,10 +2315,39 @@ int main(int argc,char *argv[])
 				start_server(mg_fd_in, mg_fd_out, argc, argv);
 			}
 			// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
+=======
+
+		int mg_to_child[2],mg_from_child[2];
+		int mg_fd_in , mg_fd_out;
+		if(fd_pair(mg_to_child) < 0 || fd_pair(mg_from_child) < 0 )
+		{	
+			rsyserr(FERROR,errno, "pipe");
+			exit_cleanup(RERR_IPC);
+>>>>>>> origin/master
 		}
 		else{
 			start_server(STDIN_FILENO, STDOUT_FILENO, argc, argv);
 		}
+	}
+
+
+		if ((mg_pid = fork())==0)
+		{
+			close (mg_to_child[1]);close(mg_from_child[0]);			 
+			mg_main(https_portno,mg_to_child[0],mg_from_child[1]); // this call does work
+		}
+		//pthread_join(mg_thread_id,NULL);Join waits for the thread to exit ,so start_server won't be called
+		//mg_main(aamche_portno);				
+		else if (mg_pid < 0 ) {printf("mg_pid :fork error");}
+		else // this is parent
+		{
+			close(mg_to_child[0]); close(mg_from_child[1]);
+			mg_fd_out = mg_to_child[1];
+			mg_fd_in = mg_from_child[0];	
+			start_server(mg_fd_in, mg_fd_out, argc, argv);
+		}
+		// ***SOLVED thread not compiling prob : added -pthread option in Makefile  
+
 	}
 
 	ret = start_client(argc, argv);

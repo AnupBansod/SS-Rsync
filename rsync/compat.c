@@ -156,7 +156,23 @@ void setup_protocol(int f_out,int f_in)
 			check_sub_protocol();
 		if (!read_batch)
 		write_int(f_out, protocol_version);	
+<<<<<<< HEAD
 	
+=======
+//	free(buf);
+/*	if(read(f_in, &byte, 1) == 1)
+			{
+				fprintf(fp6, "\ninside while loop");
+				ioctl(f_in, FIONREAD, &count);
+				buf = malloc(count+1);
+				buf[0] = byte;
+				read(f_in, buf+1, count);
+			}
+		else{fprintf(fp6, "Read fail %s", strerror(errno));}
+		fprintf(fp6,"buf 1: %s\n", buf);
+*/		//free(buf);
+		//sleep(5);
+>>>>>>> origin/master
 		remote_protocol = read_int(f_in);
 		if (protocol_version > remote_protocol)
 			protocol_version = remote_protocol;
